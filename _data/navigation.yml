@@ -1,9 +1,9 @@
 # main links
 main:
    - title: "HTML/CSS"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+     url: /_posts/til_html/
    - title: "C"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+     url: /_posts/til_c/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
