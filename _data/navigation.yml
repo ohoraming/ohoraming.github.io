@@ -1,9 +1,9 @@
 # main links
 main:
-   - title: "HTML/CSS"
-     url: /_posts/til_html/
-   - title: "C"
-     url: /_posts/til_c/
+  # - title: "HTML/CSS"
+  #   url: /_posts/til_html/
+  # - title: "C"
+  #   url: /_posts/til_c/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
