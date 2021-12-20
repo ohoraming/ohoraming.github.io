@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
+  <updated>2021-12-20T18:44:29+09:00</updated>
+  <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">예비 개발자의 노트 | </title>
+  
+
+  
+    <subtitle>배움을 기록합니다</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">JavaScript(2) - strict mode, variable</title>
+      <link href="https://ohoraming.github.io/JavaScript-variable" rel="alternate" type="text/html" title="JavaScript(2) - strict mode, variable" />
+      <published>2021-07-24T01:20:00+09:00</published>
+      <updated>2021-07-24T01:20:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-variable</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-variable">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;1-strict-mode&quot;&gt;1. Strict Mode&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ES(ECMAScript) 5부터 추가됨&lt;/li&gt;
+  &lt;li&gt;Valina JS 문서가 시작될 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'use strict';&lt;/code&gt; 라고 쓰면 strict mode로 시작하게 됨&lt;/li&gt;
+  &lt;li&gt;보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드가 실행됨&lt;/li&gt;
+  &lt;li&gt;JS engine이 보다 효율적으로 구동됨
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#strict_mode_for_scripts&quot;&gt;Strict mode - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2-variable&quot;&gt;2. Variable&lt;/h1&gt;
+
+&lt;h2 id=&quot;data-types&quot;&gt;data types&lt;/h2&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;→ &lt;strong&gt;primitive&lt;/strong&gt;, single item&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;더 이상 작게 쪼갤 수 없는 한 가지 아이템&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;p&gt;&lt;strong&gt;number, string, boolean, null, undefined, symbol&lt;/strong&gt;&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;p&gt;값(value) 자체가 메모리에 저장됨&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dt&gt;→ &lt;strong&gt;object&lt;/strong&gt;, box container&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;single item들을 묶어서 관리하는 것&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;p&gt;object를 가리키는 reference가 메모리에 저장됨&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;→ function&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/function-c2519abdb2c44edaaebae958b2227dae&quot;&gt;function&lt;/a&gt;&lt;/p&gt;
+
+&lt;aside&gt;
+💡 **first-class function**
+* variable에 할당 가능
+* 다른 함수의 parameter로 전달이 가능
+[](https://www.notion.so/strict-mode-variable-2fd3ae38f8b14d62bb700b2846f9ae17)* return 값으로 지정 가능
+
+&lt;/aside&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;&lt;strong&gt;Immutable data types&lt;/strong&gt;&lt;/dt&gt;
+      &lt;dd&gt;data 자체 변경 불가
+: primitive types, frozen objects (i.e. object.freeze())&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;&lt;strong&gt;Mutable data types&lt;/strong&gt;&lt;/dt&gt;
+      &lt;dd&gt;data 변경 가능
+: all objects by default are mutable in JS&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;let&quot;&gt;let&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;let은 ES 6부터 추가됨&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;var는 이제 사용하지 말 것!&lt;/strong&gt;
+    &lt;aside&gt;
+  💡 **var hoisting**
+  : 변수의 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림
+    
+  &lt;/aside&gt;
+
+    &lt;p&gt;⇒ var는 block scope가 적용되지 않음&lt;/p&gt;
+
+    &lt;p&gt;block 안에 있는 변수를 block 바깥에서도 부를 수 있는 상황이 발생함&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7dfb738-e860-4978-9d08-9c71f8cb1bab/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7dfb738-e860-4978-9d08-9c71f8cb1bab/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a29ea464-4328-4aa8-88a1-f258e5f85a6d/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a29ea464-4328-4aa8-88a1-f258e5f85a6d/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Grammar and types - JavaScript&lt;/td&gt;
+          &lt;td&gt;MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;global variable vs. local variable
+&lt;strong&gt;global variable&lt;/strong&gt;: 함수의 &lt;strong&gt;바깥에 선언&lt;/strong&gt;한 변수. &lt;strong&gt;문서 전체&lt;/strong&gt;에서 사용 가능함
+&lt;strong&gt;local variable&lt;/strong&gt;: 함수의 &lt;strong&gt;안에 선언&lt;/strong&gt;한 변수. 함수 &lt;strong&gt;안에서만&lt;/strong&gt; 사용 가능함 (block scope)
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope&quot;&gt;Grammar and types - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;number&quot;&gt;number&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JS에서는 숫자의 data type에 상관없이 number type으로 할당됨
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// integer&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;17.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// decimal number&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/661d8421-74b1-46d4-9d59-abfbc1a15734/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/661d8421-74b1-46d4-9d59-abfbc1a15734/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;양수를 0으로 나누면 &lt;strong&gt;infinity&lt;/strong&gt;
+음수를 0으로 나누면 &lt;strong&gt;negative infinity&lt;/strong&gt;
+숫자가 아닌 것을 숫자로 나누면 &lt;strong&gt;NaN&lt;/strong&gt;(not a number)
+&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2555966-1c71-4846-a945-9d271c1af055/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2555966-1c71-4846-a945-9d271c1af055/Untitled.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(bigint: -2^53 ~ 2^53 의 범위를 넘어서는 숫자를 표현할 때 숫자의 마지막에 n을 붙여면 bigint로 간주됨)&lt;/p&gt;
+
+&lt;h2 id=&quot;string&quot;&gt;string&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;글자는 수에 상관 없이 모두 string으로 할당됨&lt;/li&gt;
+  &lt;li&gt;’+’ 기호를 사용해 다른 변수와 붙이는 것이 가능함
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;brendan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;brendan&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;brendan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6809195-68f1-4f38-8590-ad05e0e582f1/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6809195-68f1-4f38-8590-ad05e0e582f1/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;template literals (string literals): `(backtick) 기호를 이용해 string과 ${variable} 을 써주면 결과 값이 붙여져 나옴 ⇒ ‘ ‘ (quotes) 와 ‘+’를 쓰는 것보다 편리함
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helloBob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`hi &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;brendan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;!`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// template literals (template string)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;helloBob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helloBob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;value: &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helloBob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helloBob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/104c3a2a-328b-48f3-af97-cc467bbe092a/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/104c3a2a-328b-48f3-af97-cc467bbe092a/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;boolean&quot;&gt;boolean&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;false: 0, null, undefined, NaN, ’ ‘
+true: any other value
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canRead&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;canRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canRead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bf84f65-02e6-4ca5-8484-2eabc55d81ee/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bf84f65-02e6-4ca5-8484-2eabc55d81ee/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;null--undefined&quot;&gt;null / undefined&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;null로 할당하면 아무런 값도 없다는 것을 명시하는 것&lt;/li&gt;
+  &lt;li&gt;undefined로 지정하거나 아무 것도 지정하지 않으면, 선언은 되었지만 값이 정해지지 않은 상황
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// null&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nothing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// undefined&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// let x; 도 같은 뜻&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c15baf9b-7a02-40a6-9291-b250d28c98d9/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c15baf9b-7a02-40a6-9291-b250d28c98d9/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;symbol&quot;&gt;symbol&lt;/h2&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// symbol, create unique identifiers for objects&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gSymbol1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gSymbol2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gSymbol1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gSymbol2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae2fcc73-6021-4de9-a39b-2bdf81d0ea6b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae2fcc73-6021-4de9-a39b-2bdf81d0ea6b/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;※ &lt;strong&gt;.description&lt;/strong&gt;을 이용해 string으로 변환한 뒤, 출력해야 함!&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// error!&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4ce05b5-29a8-44d1-8837-47d4c1ed2e33/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4ce05b5-29a8-44d1-8837-47d4c1ed2e33/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b6398fc-a0ae-4906-9970-05f657b80ff5/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b6398fc-a0ae-4906-9970-05f657b80ff5/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;object&quot;&gt;object&lt;/h2&gt;
+
+&lt;p&gt;★★★★★&lt;a href=&quot;https://www.notion.so/object-c37b30c5ce4c4d92a8e98b44168fbd39&quot;&gt;object&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-contant&quot;&gt;3. Contant&lt;/h1&gt;
+
+&lt;h2 id=&quot;const&quot;&gt;const&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가능하면 const로 선언하는 것이 좋음&lt;/li&gt;
+  &lt;li&gt;block scope임 (like &lt;em&gt;let&lt;/em&gt;)
+but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불가) data type&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;reassignment(재할당)로 값이 바뀌거나, redeclare(재선언) 불가&lt;/li&gt;
+  &lt;li&gt;장점
+    &lt;ol&gt;
+      &lt;li&gt;보안상 좋음&lt;/li&gt;
+      &lt;li&gt;다양한 threads가 동시 접속해 변수의 값을 바꿀 수 있는데 이를 방지함&lt;/li&gt;
+      &lt;li&gt;코드 변경시 실수를 줄여줌&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;4-dynamic-typing&quot;&gt;4. Dynamic typing&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JS = dynamically typed language: run time 동안 할당된 값에 따라 data type이 변화됨&lt;/li&gt;
+  &lt;li&gt;C, JAVA = statically typed language: 변수 선언시 data type 명시 필요
+    &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// h&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`value: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, type: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42436515-eecc-4552-b1c2-490a984f9422/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42436515-eecc-4552-b1c2-490a984f9422/Untitled.png&quot; /&gt;
+⇒ string과 숫자가 합쳐지면 string이 되고, 숫자로 이루어진 string끼리의 연산이 이루어지면 number가 되는 오류가 실시간으로 발생되게 됨
+(⇒ TS(typescript)가 나오게 되는 계기)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;“자바스크립트 3. 데이터타입, data types, let vs var, hoisting&lt;/td&gt;
+        &lt;td&gt;프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 27:58, 게시자 “드림코딩 by 엘리,” 2020년 4월 11일, &lt;a href=&quot;https://youtu.be/OCCpGh4ujb8&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">JavaScript(1) - async vs. defer</title>
+      <link href="https://ohoraming.github.io/JavaScript-asyncDefer" rel="alternate" type="text/html" title="JavaScript(1) - async vs. defer" />
+      <published>2021-07-23T22:43:00+09:00</published>
+      <updated>2021-07-23T22:43:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-asyncDefer</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-asyncDefer">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;1-headtag내에서--선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt; 선언할 때&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가&lt;/li&gt;
+  &lt;li&gt;
+    &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.
+&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림&lt;/p&gt;
+
+&lt;h1 id=&quot;2-bodytag-가장-아랫-부분에-tag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &lt;script&gt;tag를 넣는 경우&lt;/script&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;⇒ 장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
+
+&lt;p&gt;⇒ 단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
+
+&lt;h1 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTML parsing을 하다가 async를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
+  &lt;li&gt;js의 다운로드가 끝나면, parsing을 멈추고 다운로드 된 js를 실행시킴&lt;/li&gt;
+  &lt;li&gt;실행이 끝나면 나머지 HTML을 parsing함&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;⇒ 장점: js의 다운로드 시간을 절약할 수 있음&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;⇒ 단점&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며,&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/p&gt;
+
+&lt;h1 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
+  &lt;li&gt;HTML parsing이 끝나면 사용자에게 페이지를 보여줌&lt;/li&gt;
+  &lt;li&gt;다운로드 된 js를 실행시킴&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;async의 경우,&lt;/p&gt;
+
+&lt;p&gt;여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;/p&gt;
+
+&lt;p&gt;→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;defer의 경우,&lt;/p&gt;
+
+&lt;p&gt;parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
+
+&lt;h3 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향&lt;/td&gt;
+        &lt;td&gt;프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">JAVA - Call by Value</title>
+      <link href="https://ohoraming.github.io/JAVA-callByValue" rel="alternate" type="text/html" title="JAVA - Call by Value" />
+      <published>2021-07-10T14:45:00+09:00</published>
+      <updated>2021-07-10T14:45:00+09:00</updated>
+      <id>https://ohoraming.github.io/JAVA-callByValue</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JAVA-callByValue">&lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Java 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-callByValue&quot;&gt;JAVA - Call by Value&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;call-by-value&quot;&gt;Call by Value&lt;/h1&gt;
+
+&lt;h3 id=&quot;java에서-인수argument로-매개-변수parameter를-전달하는-두-가지-방식&quot;&gt;JAVA에서, 인수(argument)로 매개 변수(parameter)를 전달하는 두 가지 방식&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;인수가 기본 데이터형(primitive type)일 경우 → &lt;strong&gt;Call by Value&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;주어진 값을 복사하여 처리하는 방식&lt;/li&gt;
+      &lt;li&gt;메서드 내의 처리 결과는 메서드 밖의 변수에 영향을 미치지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Class의 객체(Object)의 경우 → &lt;strong&gt;Call by Reference&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;매게 변수의 원래 주소에 값을 저장하는 방식&lt;/li&gt;
+      &lt;li&gt;메서드의 실행에 따라 인수로 전달한 변수의 값이 영항을 받음
+⇒ &lt;strong&gt;Side effect&lt;/strong&gt; : 다른 메서드에서 현재 메서드 내의 변수 값을 바꾸는 현상
+메서드 간 값 전달은 쉽지만, 값이 변화할 경우 심각한 문제 유발 가능성 큼(위험)
+⇒ 클래스 객체를 인수로 전달하는 경우에만 사용함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CallByValueTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//x와 y의 값을 바꾸는 메서드&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 내의 x = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, y = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 호출 전: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 호출 후: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled.png&quot; alt=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;main() 메서드의 a와 b는 swap() 메서드 내의 x와 y에 각각 값이 복사되고, x와 y의 값을 바꿈.
+하지만 main() 메서드의 a와 b에는 아무 영향을 미치지 않음.&lt;/li&gt;
+  &lt;li&gt;main() 메서드의 a와 b의 값을 바꾸고 싶다면, ****
+&lt;strong&gt;Call by Reference&lt;/strong&gt;를 사용하거나, a와 b를 &lt;strong&gt;전역변수로 선언&lt;/strong&gt;하여 사용하면 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CallByValueTest2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//전역변수로 선언된 a와 b&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//x와 y의 값을 바꾸는 메서드&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 내의 x = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, y = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 호출 전: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;swap() 메서드 호출 후: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled%201.png&quot; alt=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swap(a, b);&lt;/code&gt; 이 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swap();&lt;/code&gt; 으로 호출했기에 값의 전달은 일어나지 않으며, swap() 메서드에서도 인수를 받지 않음
+하지만, 전역변수로 값을 바로 저장하기 때문에, 전역변수 a와 b를 사용하는 모든 메서드에 영향을 미치게 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;임동혁, &lt;em&gt;게임을 만들면서 배우는 What’s up JAVA&lt;/em&gt; (서울: 북스홀릭퍼블리싱), 2018&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JAVA" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

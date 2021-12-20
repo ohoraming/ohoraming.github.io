@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MINJI KIM - Articles</title>
+    <description>배움을 기록합니다</description>
+    <link>
+    https://ohoraming.github.io</link>
+    
+      
+      <item>
+        <title>JavaScript(2) - strict mode, variable</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Sat, 24 Jul 2021 01:20:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/JavaScript-variable</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JavaScript-variable</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>JavaScript(1) - async vs. defer</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 Jul 2021 22:43:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/JavaScript-asyncDefer</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JavaScript-asyncDefer</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>JAVA - Call by Value</title>
+        
+          <description>&lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
+
+</description>
+        
+        <pubDate>Sat, 10 Jul 2021 14:45:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/JAVA-callByValue</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JAVA-callByValue</guid>
+      </item>
+      
+    
+  </channel>
+</rss>
