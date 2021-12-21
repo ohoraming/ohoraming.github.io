@@ -19,9 +19,19 @@
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
     <!-- custom.css -->
     <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
 
+    <!-- syntax.css 추가-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!-- 웹폰트(나눔 고딕) 추가 -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css"> -->
+
+    <!-- font awesome 추가 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -29,6 +39,14 @@
     <style>
         .hljs {
             background: none;
+        }
+
+        /* web font 추가 */
+        @font-face {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
     </style>
 
@@ -128,12 +146,12 @@ into the {body} of the default.hbs template -->
         <nav class="site-nav">
     <div class="site-nav-left">
         
-            
-                <a class="site-nav-logo" href="https://ohoraming.github.io/">예비 개발자의 노트</a>
-            
+        
+        <a class="site-nav-logo" href="https://ohoraming.github.io/">예비 개발자의 노트</a>
         
         
-            <ul class="nav" role="menu">
+        
+        <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <!-- About: blog에 대한 기본적인 소개-->
     <!-- C:\myblog\about\index.md에서 세부설정 -->
@@ -153,11 +171,10 @@ into the {body} of the default.hbs template -->
             
         </div>
         
-            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        <a class="subscribe-button" href="#subscribe">Search</a>
         
     </div>
 </nav>
-
     </div>
 </header>
 
@@ -451,16 +468,24 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
             <section class="subscribe-form">
                 <h3 class="subscribe-form-title">Subscribe to 예비 개발자의 노트</h3>
                 <p>Get the latest posts delivered right to your inbox</p>
-                <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm" />
+    <input class="location" type="hidden" name="location" />
+    <input class="referrer" type="hidden" name="referrer" />
 
     <div class="form-group">
-        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+        <input class="subscribe-email" onkeyup="myFunc()" id="searchtext" type="text" name="searchtext"
+            placeholder="Search..." />
     </div>
-    <button class="" type="submit" disabled><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
-
+    <script type="text/javascript">
+        function myFunc() {
+            if (event.code == 'Enter') {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
             </section>
              -->
 
@@ -541,6 +566,14 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
                         
                         
                         
+                        
+                         <li><a href="/python-basic">python입니다</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -553,12 +586,14 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
                             
                         
                             
+                        
+                            
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
                     <a href="/tag/javascript/">
                         
-                        See all 1 posts →
+                        See all 2 posts →
                         
                     </a>
                 </footer>
@@ -567,6 +602,57 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/java-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">python입니다</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
@@ -693,19 +779,26 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
         <a class="subscribe-overlay-close" href="#"></a>
         <div class="subscribe-overlay-content">
             
-            <h1 class="subscribe-overlay-title">Subscribe to 예비 개발자의 노트</h1>
-            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered
-                straight to your inbox</p>
-            <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+            <h1 class="subscribe-overlay-title">예비 개발자의 노트</h1>
+            <p class="subscribe-overlay-description">게시글 검색</p>
+            <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm" />
+    <input class="location" type="hidden" name="location" />
+    <input class="referrer" type="hidden" name="referrer" />
 
     <div class="form-group">
-        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+        <input class="subscribe-email" onkeyup="myFunc()" id="searchtext" type="text" name="searchtext"
+            placeholder="Search..." />
     </div>
-    <button class="" type="submit" disabled><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
-
+    <script type="text/javascript">
+        function myFunc() {
+            if (event.code == 'Enter') {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
         </div>
     </div>
     

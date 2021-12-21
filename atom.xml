@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>python입니다</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Dec 2021 16:19:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/python-basic</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/python-basic</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>JavaScript(2) - strict mode, variable</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
@@ -40,7 +55,7 @@
       <item>
         <title>JAVA - Call by Value</title>
         
-          <description>&lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
+          <description>&lt;!-- 글 작성하기 --&gt;
 
 </description>
         
@@ -48,6 +63,21 @@
         <link>
         https://ohoraming.github.io/JAVA-callByValue</link>
         <guid isPermaLink="true">https://ohoraming.github.io/JAVA-callByValue</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>JAVA - Call by Reference</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Sat, 10 Jul 2021 14:45:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/JAVA-callByReference</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JAVA-callByReference</guid>
       </item>
       
     

@@ -12,7 +12,7 @@
 
 
 
-    <title>All Tags</title>
+    <title>Search Result</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,19 +64,19 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/author_archive" />
+    <link rel="canonical" href="https://ohoraming.github.io/search" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="All Tags" />
+    <meta property="og:title" content="Search Result" />
     <meta property="og:description" content="배움을 기록합니다" />
-    <meta property="og:url" content="https://ohoraming.github.io/author_archive" />
+    <meta property="og:url" content="https://ohoraming.github.io/search" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/blog-cover1.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="All Tags" />
+    <meta name="twitter:title" content="Search Result" />
     <meta name="twitter:description" content="배움을 기록합니다" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/blog-cover1.jpg" />
@@ -96,7 +96,7 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/author_archive",
+    "url": "https://ohoraming.github.io/search",
     "image": {
         "@type": "ImageObject",
         "url": "https://ohoraming.github.io/assets/built/images/blog-cover1.jpg",
@@ -105,7 +105,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/author_archive"
+        "@id": "https://ohoraming.github.io/search"
     },
     "description": "배움을 기록합니다"
 }
@@ -120,7 +120,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="All Tags" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Search Result" href="/feed.xml" />
 
 
 </head>
@@ -181,63 +181,71 @@ into the {body} of the default.hbs template -->
         <article class="post-full  post page no-image">
 
             <header class="post-full-header">
-                <h1 class="post-full-title">All Tags</h1>
+                <h1 class="post-full-title">Search Result</h1>
             </header>
 
             
 
             <section class="post-full-content">
-                <div id="post-index" class="well article">
+                <form action="/search" method="get" hidden="hidden">
+    <label for="search-box"></label>
+    <input type="text" id="search-box" name="query">
+</form>
 
+<ul class="mylist" id="search-results"></ul>
 
-
-<ul class="entry-meta inline-list">
-  
+<script>
+    window.store = {
     
-  	<li><a href="#JAVA" class="tag"><span class="term alltags">JAVA</span> <span class="count alltags">2</span></a></li>
-  
+    "python-basic": {
+        "title": "python입니다",
+            "author": "ohoraming",
+                "category": "",
+                    "content": { { post.content | strip_html | strip_newlines | jsonify } },
+        "url": "/python-basic"
+    }
+    , 
     
-  	<li><a href="#JavaScript" class="tag"><span class="term alltags">JavaScript</span> <span class="count alltags">3</span></a></li>
-  
-</ul>
-
-
-
-
-<article>
-<h2 id="JAVA" class="tag-heading">JAVA</h2>
-<ul>
-
-<!-- <li class="entry-title"><a href="https://ohoraming.github.io/JAVA-callByValue" target="_blank" title="JAVA - Call by Value">JAVA - Call by Value</a></li> -->
-<li class="entry-title"><a href="/JAVA-callByValue" target="_blank" title="JAVA - Call by Value">JAVA - Call by Value</a></li>
-
-<!-- <li class="entry-title"><a href="https://ohoraming.github.io/JAVA-callByReference" target="_blank" title="JAVA - Call by Reference">JAVA - Call by Reference</a></li> -->
-<li class="entry-title"><a href="/JAVA-callByReference" target="_blank" title="JAVA - Call by Reference">JAVA - Call by Reference</a></li>
-
-</ul>
-</article><!-- /.hentry -->
-
-
-
-<article>
-<h2 id="JavaScript" class="tag-heading">JAVASCRIPT</h2>
-<ul>
-
-<!-- <li class="entry-title"><a href="https://ohoraming.github.io/python-basic" target="_blank" title="python입니다">python입니다</a></li> -->
-<li class="entry-title"><a href="/python-basic" target="_blank" title="python입니다">python입니다</a></li>
-
-<!-- <li class="entry-title"><a href="https://ohoraming.github.io/JavaScript-variable" target="_blank" title="JavaScript(2) - strict mode, variable">JavaScript(2) - strict mode, variable</a></li> -->
-<li class="entry-title"><a href="/JavaScript-variable" target="_blank" title="JavaScript(2) - strict mode, variable">JavaScript(2) - strict mode, variable</a></li>
-
-<!-- <li class="entry-title"><a href="https://ohoraming.github.io/JavaScript-asyncDefer" target="_blank" title="JavaScript(1) - async vs. defer">JavaScript(1) - async vs. defer</a></li> -->
-<li class="entry-title"><a href="/JavaScript-asyncDefer" target="_blank" title="JavaScript(1) - async vs. defer">JavaScript(1) - async vs. defer</a></li>
-
-</ul>
-</article><!-- /.hentry -->
-
-
-</div>
-
+    "javascript-variable": {
+        "title": "JavaScript(2) - strict mode, variable",
+            "author": "ohoraming",
+                "category": "",
+                    "content": { { post.content | strip_html | strip_newlines | jsonify } },
+        "url": "/JavaScript-variable"
+    }
+    , 
+    
+    "javascript-asyncdefer": {
+        "title": "JavaScript(1) - async vs. defer",
+            "author": "ohoraming",
+                "category": "",
+                    "content": { { post.content | strip_html | strip_newlines | jsonify } },
+        "url": "/JavaScript-asyncDefer"
+    }
+    , 
+    
+    "java-callbyvalue": {
+        "title": "JAVA - Call by Value",
+            "author": "ohoraming",
+                "category": "",
+                    "content": { { post.content | strip_html | strip_newlines | jsonify } },
+        "url": "/JAVA-callByValue"
+    }
+    , 
+    
+    "java-callbyreference": {
+        "title": "JAVA - Call by Reference",
+            "author": "ohoraming",
+                "category": "",
+                    "content": { { post.content | strip_html | strip_newlines | jsonify } },
+        "url": "/JAVA-callByReference"
+    }
+    
+    
+    };
+</script>
+<script src="assets/js/lunr.js"></script>
+<script src="assets/js/search.js"></script>
             </section>
 
         </article>

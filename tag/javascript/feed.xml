@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-20T18:44:29+09:00</updated>
+  <updated>2021-12-21T19:38:07+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -30,6 +30,42 @@
   
   
 
+  
+    <entry>
+      <title type="html">python입니다</title>
+      <link href="https://ohoraming.github.io/python-basic" rel="alternate" type="text/html" title="python입니다" />
+      <published>2021-12-21T16:19:00+09:00</published>
+      <updated>2021-12-21T16:19:00+09:00</updated>
+      <id>https://ohoraming.github.io/python-basic</id>
+      <content type="html" xml:base="https://ohoraming.github.io/python-basic">&lt;!-- 글 작성하기 --&gt;
+
+&lt;p&gt;이 글은 python 검색용입니다!&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">JavaScript(2) - strict mode, variable</title>
