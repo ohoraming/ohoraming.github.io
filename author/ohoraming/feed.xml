@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-22T18:04:36+09:00</updated>
+  <updated>2021-12-22T22:36:22+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -30,198 +30,6 @@
   
   
 
-  
-    <entry>
-      <title type="html">python입니다</title>
-      <link href="https://ohoraming.github.io/python-basic" rel="alternate" type="text/html" title="python입니다" />
-      <published>2021-12-21T16:19:00+09:00</published>
-      <updated>2021-12-21T16:19:00+09:00</updated>
-      <id>https://ohoraming.github.io/python-basic</id>
-      <content type="html" xml:base="https://ohoraming.github.io/python-basic">&lt;!-- 글 작성하기 --&gt;
-
-&lt;p&gt;이 글은 python 검색용입니다!&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-# MyData
-owner:
-name:           MINJI KIM
-avatar:         photo.jpg
-bio:            # 회사 입력
-email:          ohora.ming@gmail.com
-# Social networking links used in footer. Update and remove as you like.
-twitter:
-facebook:
-github:
-stackexchange:
-linkedin:
-instagram:
-flickr:
-tumblr:
-# google plus id, include the &amp;#39;+&amp;#39;, eg +mmistakes
-google_plus:
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 20
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &amp;#39;en-uk&amp;#39;
-# 언어 설정
-
-url: https://ohoraming.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: 예비 개발자의 노트
-# 자신의 blog title.
-
-description: 배움을 기록합니다
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover1.jpg
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.png
-# favicon(즐겨찾기 아이콘)으로 사용할 image
-
-production_url: https://ohoraming.github.io/
-# 최종적으로 blog가 운영될 url
-# 위의 url과 같아야함
-
-source_url: https://github.com/moon9342/GitHubPageMaker/
-# myblog(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: xxxxxxxx
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics: UA-xxxxxxxx-x # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: moon9342
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository&amp;gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source:
-
-destination: ../[GitHubPage]/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules와 필요없는 것들은 제외)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &amp;quot;*.Rmd&amp;quot;
-  - vendor
-  - .travis.yml
-  - node_modules
-  - assets/css
-  - assets/images
-  - _posts/angular
-  - _posts/et-cetera
-  # - _posts/JAVA
-  # - _posts/JavaScript
-  - _posts/jekyll
-  - _posts/iot
-  - _posts/r
-  - _posts/economy&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/ohoraming/7fad2f078e574a298cf4060da315897a.js&quot;&gt; &lt;/script&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
   
     <entry>
       <title type="html">JavaScript(2) - strict mode, variable</title>
@@ -522,30 +330,28 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
     &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;1-headtag내에서--선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt; 선언할 때&lt;/h1&gt;
+&lt;h2 id=&quot;1-headtag내에서-script-srcmainjsscript-선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &amp;lt;script src=”main.js”&amp;gt;&amp;lt;/script&amp;gt; 선언할 때&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가&lt;/li&gt;
-  &lt;li&gt;
-    &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.
-&lt;/script&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&amp;lt;script&amp;gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.&lt;/li&gt;
   &lt;li&gt;2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; /&gt;&lt;/p&gt;
-
 &lt;p&gt;⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림&lt;/p&gt;
 
-&lt;h1 id=&quot;2-bodytag-가장-아랫-부분에-tag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &lt;script&gt;tag를 넣는 경우&lt;/script&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &amp;lt;script&amp;gt;tag를 넣는 경우&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;⇒ 장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
-
-&lt;p&gt;⇒ 단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
-
-&lt;h1 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h1&gt;
+&lt;h2 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;HTML parsing을 하다가 async를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
@@ -553,20 +359,12 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;실행이 끝나면 나머지 HTML을 parsing함&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;장점: js의 다운로드 시간을 절약할 수 있음&lt;/li&gt;
+  &lt;li&gt;단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;⇒ 장점: js의 다운로드 시간을 절약할 수 있음&lt;/p&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;⇒ 단점&lt;/dt&gt;
-  &lt;dd&gt;
-    &lt;p&gt;js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며,&lt;/p&gt;
-  &lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;p&gt;여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/p&gt;
-
-&lt;h1 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h1&gt;
+&lt;h2 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
@@ -574,35 +372,19 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;다운로드 된 js를 실행시킴&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h2&gt;
 
-&lt;h1 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h1&gt;
+&lt;p&gt;async의 경우,&lt;br /&gt;
+여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;br /&gt;
+→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;defer의 경우,&lt;br /&gt;
+parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
 
-&lt;p&gt;async의 경우,&lt;/p&gt;
-
-&lt;p&gt;여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;/p&gt;
-
-&lt;p&gt;→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;defer의 경우,&lt;/p&gt;
-
-&lt;p&gt;parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
-
-&lt;h3 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h3&gt;
+&lt;h4 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h4&gt;
 
 &lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향&lt;/td&gt;
-        &lt;td&gt;프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
+  &lt;p&gt;“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 | 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       
@@ -632,25 +414,380 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
     </entry>
   
     <entry>
+      <title type="html">JAVA - SimpleDateFormat, Calendar 클래스</title>
+      <link href="https://ohoraming.github.io/JAVA-simpleDateFormatClass" rel="alternate" type="text/html" title="JAVA - SimpleDateFormat, Calendar 클래스" />
+      <published>2021-07-10T17:00:00+09:00</published>
+      <updated>2021-07-10T17:00:00+09:00</updated>
+      <id>https://ohoraming.github.io/JAVA-simpleDateFormatClass</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JAVA-simpleDateFormatClass">&lt;!-- 글 작성하기 --&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;simpledateformat-class&quot;&gt;SimpleDateFormat class&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.text.SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormatTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;today&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateForm1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yyyy년 MM월 dd일 hh시 mm분 ss초&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dateForm2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;E요일&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dateForm1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dateForm2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+Fri Jun 18 16:59:44 KST 2021&lt;br /&gt;
+2021년 06월 18일 04시 59분 44초&lt;br /&gt;
+금요일&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;c.f.) 변화되는 시간/날짜는 시스템에서 시간 정보를 얻어오는 Calendar 클래스를 이용함&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;calendar-class&quot;&gt;Calendar class&lt;/h3&gt;
+    &lt;p&gt;시스템에서 시간 정보를 얻어 오기 때문에, 반드시 getInstance() 메서드로 생성하기!!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CalendarTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 반드시 getInstance() 메서드로 생성!!&lt;/span&gt;
+		
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HOUR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MINUTE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;YEAR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MONTH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;현재 시간은 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;시 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;분입니다.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;오늘은 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;년 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;월&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;일입니다.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+현재 시간은 5시 6분입니다.&lt;br /&gt;
+오늘은 2021년 5월18일입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;임동혁, &lt;em&gt;게임을 만들면서 배우는 What’s up JAVA&lt;/em&gt; (서울: 북스홀릭퍼블리싱), 2018&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JAVA" />
+      
+
+      
+        <summary type="html">SimpleDateFormat class</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">JAVA - Overloading/Overriding</title>
+      <link href="https://ohoraming.github.io/JAVA-overloadingOverriding" rel="alternate" type="text/html" title="JAVA - Overloading/Overriding" />
+      <published>2021-07-10T16:43:00+09:00</published>
+      <updated>2021-07-10T16:43:00+09:00</updated>
+      <id>https://ohoraming.github.io/JAVA-overloadingOverriding</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JAVA-overloadingOverriding">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
+&lt;!-- 관련 글 리스트 --&gt;
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JAVA call 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-callByValue&quot;&gt;JAVA - Call by Value&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-callByReference&quot;&gt;JAVA - Call by Reference&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-recursiveMethodCall&quot;&gt;JAVA - Recursive Method Call [재귀적 메서드 호출]&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-overloadingOverriding&quot;&gt;JAVA - Overloading/Overriding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Overloading&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;: C언어와는 다르게 JAVA의 경우, 인수의 개수나 종류가 다르면, 같은 이름의 메서드를 정의할 수 있음&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OverloadTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	
+  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+  	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    		
+  		&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;10.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;20.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+20&lt;br /&gt;
+20.5&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Overriding&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;: 참고자료&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/overriding-in-java/&quot;&gt;Overriding in Java - GeeksforGeeks&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/overloading-in-java/&quot;&gt;Overloading in Java - GeeksforGeeks&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;: &lt;strong&gt;&lt;em&gt;다형성(Polymorphism)&lt;/em&gt;&lt;/strong&gt; 의 한 종류 - 클래스로 객체를 생성할 때 호출될 메서드가 결정됨&lt;/p&gt;
+
+    &lt;p&gt;: &lt;em&gt;객체 지향 기법의 3요소: 클래스, 상속, 다형성&lt;/em&gt;&lt;/p&gt;
+
+    &lt;p&gt;: 메서드 이름, 매개 변수 동일 (overloading의 경우 매개 변수가 다름)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Overriding in Java.” &lt;em&gt;GeeksforGeeks&lt;/em&gt;. 2021년 6월 28일 수정, 2021년 7월 19일 접속, https://www.geeksforgeeks.org/overriding-in-java/.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;임동혁, &lt;em&gt;게임을 만들면서 배우는 What’s up JAVA&lt;/em&gt; (서울: 북스홀릭퍼블리싱), 2018&lt;/p&gt;
+
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JAVA" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">JAVA - Recursive Method Call [재귀적 메서드 호출]</title>
+      <link href="https://ohoraming.github.io/JAVA-recursiveMethodCall" rel="alternate" type="text/html" title="JAVA - Recursive Method Call [재귀적 메서드 호출]" />
+      <published>2021-07-10T16:00:00+09:00</published>
+      <updated>2021-07-10T16:00:00+09:00</updated>
+      <id>https://ohoraming.github.io/JAVA-recursiveMethodCall</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JAVA-recursiveMethodCall">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
+&lt;!-- 관련 글 리스트 --&gt;
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JAVA call 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-callByValue&quot;&gt;JAVA - Call by Value&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-callByReference&quot;&gt;JAVA - Call by Reference&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-recursiveMethodCall&quot;&gt;JAVA - Recursive Method Call [재귀적 메서드 호출]&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-overloadingOverriding&quot;&gt;JAVA - Overloading/Overriding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RecursiveCall&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,1) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,2) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,3) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,4) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,5) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+power(2,1) : 2&lt;br /&gt;
+power(2,2) : 4&lt;br /&gt;
+power(2,3) : 8&lt;br /&gt;
+power(2,4) : 16&lt;br /&gt;
+power(2,5) : 32&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;재귀적 메서드 호출(Recursive Call)&lt;/strong&gt; 은&lt;br /&gt;
+메모리 요구가 크고, 수행 시간이 오래 걸림&lt;/p&gt;
+
+    &lt;p&gt;예를 들어, 100개의 int형 배열을 포함한 메서드가 자기 자신을 100번 부른다면&lt;/p&gt;
+
+    &lt;p&gt;int형 4byte * 100개 * 100번 = 40,000byte 의 메모리가 필요함.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이를 &lt;strong&gt;반복문(Loop Call)&lt;/strong&gt; 으로 바꾼다면,&lt;/p&gt;
+
+    &lt;p&gt;int형 4byte * 100개 = 400byte의 메모리가 필요함&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoopCall&lt;/span&gt; 
+  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;power&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		
+  		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  			&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--;&lt;/span&gt;
+  		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	
+  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+  	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,1) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,2) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,3) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,4) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;power(2,5) : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+power(2,1) : 2&lt;br /&gt;
+power(2,2) : 4&lt;br /&gt;
+power(2,3) : 8&lt;br /&gt;
+power(2,4) : 16&lt;br /&gt;
+power(2,5) : 32&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;임동혁, &lt;em&gt;게임을 만들면서 배우는 What’s up JAVA&lt;/em&gt; (서울: 북스홀릭퍼블리싱), 2018&lt;/p&gt;
+
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JAVA" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">JAVA - Call by Value</title>
       <link href="https://ohoraming.github.io/JAVA-callByValue" rel="alternate" type="text/html" title="JAVA - Call by Value" />
-      <published>2021-07-10T14:45:00+09:00</published>
-      <updated>2021-07-10T14:45:00+09:00</updated>
+      <published>2021-07-10T15:00:00+09:00</published>
+      <updated>2021-07-10T15:00:00+09:00</updated>
       <id>https://ohoraming.github.io/JAVA-callByValue</id>
       <content type="html" xml:base="https://ohoraming.github.io/JAVA-callByValue">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
-
+&lt;!-- 관련 글 리스트 --&gt;
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Java 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JAVA call 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./JAVA-callByValue&quot;&gt;JAVA - Call by Value&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JAVA-callByReference&quot;&gt;JAVA - Call by Reference&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-recursiveMethodCall&quot;&gt;JAVA - Recursive Method Call [재귀적 메서드 호출]&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-overloadingOverriding&quot;&gt;JAVA - Overloading/Overriding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;call-by-value&quot;&gt;Call by Value&lt;/h1&gt;
-
-&lt;h3 id=&quot;java에서-인수argument로-매개-변수parameter를-전달하는-두-가지-방식&quot;&gt;JAVA에서, 인수(argument)로 매개 변수(parameter)를 전달하는 두 가지 방식&lt;/h3&gt;
+&lt;h3 id=&quot;인수argument로-매개-변수parameter를-전달하는-두-가지-방식&quot;&gt;인수(argument)로 매개 변수(parameter)를 전달하는 두 가지 방식&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;인수가 기본 데이터형(primitive type)일 경우 → &lt;strong&gt;Call by Value&lt;/strong&gt;
@@ -662,9 +799,9 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;Class의 객체(Object)의 경우 → &lt;strong&gt;Call by Reference&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;매게 변수의 원래 주소에 값을 저장하는 방식&lt;/li&gt;
-      &lt;li&gt;메서드의 실행에 따라 인수로 전달한 변수의 값이 영항을 받음
+      &lt;li&gt;메서드의 실행에 따라 인수로 전달한 변수의 값이 영항을 받음&lt;br /&gt;
 ⇒ &lt;strong&gt;Side effect&lt;/strong&gt; : 다른 메서드에서 현재 메서드 내의 변수 값을 바꾸는 현상
-메서드 간 값 전달은 쉽지만, 값이 변화할 경우 심각한 문제 유발 가능성 큼(위험)
+메서드 간 값 전달은 쉽지만, 값이 변화할 경우 심각한 문제 유발 가능성 큼(위험)&lt;br /&gt;
 ⇒ 클래스 객체를 인수로 전달하는 경우에만 사용함&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -692,13 +829,17 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled.png&quot; alt=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+swap() 메서드 호출 전: 10, 20&lt;br /&gt;
+swap() 메서드 내의 x = 20, y = 10&lt;br /&gt;
+swap() 메서드 호출 후: 10, 20&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;main() 메서드의 a와 b는 swap() 메서드 내의 x와 y에 각각 값이 복사되고, x와 y의 값을 바꿈.
 하지만 main() 메서드의 a와 b에는 아무 영향을 미치지 않음.&lt;/li&gt;
-  &lt;li&gt;main() 메서드의 a와 b의 값을 바꾸고 싶다면, ****
+  &lt;li&gt;main() 메서드의 a와 b의 값을 바꾸고 싶다면
 &lt;strong&gt;Call by Reference&lt;/strong&gt;를 사용하거나, a와 b를 &lt;strong&gt;전역변수로 선언&lt;/strong&gt;하여 사용하면 됨&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -727,8 +868,12 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled%201.png&quot; alt=&quot;Call%20by%20Value%2009001380f2c5443f8712af576d79c219/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+swap() 메서드 호출 전: 10, 20&lt;br /&gt;
+swap() 메서드 내의 x = 20, y = 10&lt;br /&gt;
+swap() 메서드 호출 후: 20, 10&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swap(a, b);&lt;/code&gt; 이 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swap();&lt;/code&gt; 으로 호출했기에 값의 전달은 일어나지 않으며, swap() 메서드에서도 인수를 받지 않음
@@ -774,15 +919,17 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
       <content type="html" xml:base="https://ohoraming.github.io/JAVA-callByReference">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글의 상단에 해당파일을 include시킴 --&gt;
-
+&lt;!-- 관련 글 리스트 --&gt;
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Java 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JAVA call 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./JAVA-callByValue&quot;&gt;JAVA - Call by Value&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JAVA-callByReference&quot;&gt;JAVA - Call by Reference&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-recursiveMethodCall&quot;&gt;JAVA - Recursive Method Call [재귀적 메서드 호출]&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JAVA-overloadingOverriding&quot;&gt;JAVA - Overloading/Overriding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;java에서-인수argument로-매개-변수parameter를-전달하는-두-가지-방식&quot;&gt;JAVA에서, 인수(argument)로 매개 변수(parameter)를 전달하는 두 가지 방식&lt;/h3&gt;
+&lt;h3 id=&quot;인수argument로-매개-변수parameter를-전달하는-두-가지-방식&quot;&gt;인수(argument)로 매개 변수(parameter)를 전달하는 두 가지 방식&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;인수가 기본 데이터형(primitive type)일 경우 → &lt;strong&gt;Call by Value&lt;/strong&gt;
@@ -794,9 +941,9 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;Class의 객체(Object)의 경우 → &lt;strong&gt;Call by Reference&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;매게 변수의 원래 주소에 값을 저장하는 방식&lt;/li&gt;
-      &lt;li&gt;메서드의 실행에 따라 인수로 전달한 변수의 값이 영항을 받음
+      &lt;li&gt;메서드의 실행에 따라 인수로 전달한 변수의 값이 영항을 받음&lt;br /&gt;
 ⇒ &lt;strong&gt;Side effect&lt;/strong&gt; : 다른 메서드에서 현재 메서드 내의 변수 값을 바꾸는 현상
-메서드 간 값 전달은 쉽지만, 값이 변화할 경우 심각한 문제 유발 가능성 큼(위험)
+메서드 간 값 전달은 쉽지만, 값이 변화할 경우 심각한 문제 유발 가능성 큼(위험)&lt;br /&gt;
 ⇒ 클래스 객체를 인수로 전달하는 경우에만 사용함&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -828,8 +975,11 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
 	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9942c62f-a975-4f07-9296-208da7fb8fb4/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9942c62f-a975-4f07-9296-208da7fb8fb4/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+swap() 메서드 호출 전: 10, 20&lt;br /&gt;
+swap() 메서드 호출 후: 20, 10&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;⇒ 여기서 class Number 는 독립적인 클래스!!&lt;/p&gt;
 
@@ -861,9 +1011,11 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8c7150-cc03-4770-a76c-3fcf461b61ea/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d8c7150-cc03-4770-a76c-3fcf461b61ea/Untitled.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mainia.tistory.com/2675&quot;&gt;자바 No enclosing instance of type … is accessible 컴파일 오류 수정&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;br /&gt;
+swap() 메서드 호출 전: 13, 42&lt;br /&gt;
+swap() 메서드 호출 후: 42, 13&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;임동혁, &lt;em&gt;게임을 만들면서 배우는 What’s up JAVA&lt;/em&gt; (서울: 북스홀릭퍼블리싱), 2018&lt;/p&gt;

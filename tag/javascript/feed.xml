@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-22T18:04:36+09:00</updated>
+  <updated>2021-12-22T22:36:22+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -30,198 +30,6 @@
   
   
 
-  
-    <entry>
-      <title type="html">python입니다</title>
-      <link href="https://ohoraming.github.io/python-basic" rel="alternate" type="text/html" title="python입니다" />
-      <published>2021-12-21T16:19:00+09:00</published>
-      <updated>2021-12-21T16:19:00+09:00</updated>
-      <id>https://ohoraming.github.io/python-basic</id>
-      <content type="html" xml:base="https://ohoraming.github.io/python-basic">&lt;!-- 글 작성하기 --&gt;
-
-&lt;p&gt;이 글은 python 검색용입니다!&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-# MyData
-owner:
-name:           MINJI KIM
-avatar:         photo.jpg
-bio:            # 회사 입력
-email:          ohora.ming@gmail.com
-# Social networking links used in footer. Update and remove as you like.
-twitter:
-facebook:
-github:
-stackexchange:
-linkedin:
-instagram:
-flickr:
-tumblr:
-# google plus id, include the &amp;#39;+&amp;#39;, eg +mmistakes
-google_plus:
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 20
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &amp;#39;en-uk&amp;#39;
-# 언어 설정
-
-url: https://ohoraming.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: 예비 개발자의 노트
-# 자신의 blog title.
-
-description: 배움을 기록합니다
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover1.jpg
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.png
-# favicon(즐겨찾기 아이콘)으로 사용할 image
-
-production_url: https://ohoraming.github.io/
-# 최종적으로 blog가 운영될 url
-# 위의 url과 같아야함
-
-source_url: https://github.com/moon9342/GitHubPageMaker/
-# myblog(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: xxxxxxxx
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics: UA-xxxxxxxx-x # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: moon9342
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository&amp;gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source:
-
-destination: ../[GitHubPage]/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules와 필요없는 것들은 제외)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &amp;quot;*.Rmd&amp;quot;
-  - vendor
-  - .travis.yml
-  - node_modules
-  - assets/css
-  - assets/images
-  - _posts/angular
-  - _posts/et-cetera
-  # - _posts/JAVA
-  # - _posts/JavaScript
-  - _posts/jekyll
-  - _posts/iot
-  - _posts/r
-  - _posts/economy&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/ohoraming/7fad2f078e574a298cf4060da315897a.js&quot;&gt; &lt;/script&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
   
     <entry>
       <title type="html">JavaScript(2) - strict mode, variable</title>
@@ -522,30 +330,28 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
     &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;1-headtag내에서--선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt; 선언할 때&lt;/h1&gt;
+&lt;h2 id=&quot;1-headtag내에서-script-srcmainjsscript-선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &amp;lt;script src=”main.js”&amp;gt;&amp;lt;/script&amp;gt; 선언할 때&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가&lt;/li&gt;
-  &lt;li&gt;
-    &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.
-&lt;/script&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&amp;lt;script&amp;gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.&lt;/li&gt;
   &lt;li&gt;2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2377a68c-1e06-4754-b1ed-f50afa96b92b/Untitled.png&quot; /&gt;&lt;/p&gt;
-
 &lt;p&gt;⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림&lt;/p&gt;
 
-&lt;h1 id=&quot;2-bodytag-가장-아랫-부분에-tag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &lt;script&gt;tag를 넣는 경우&lt;/script&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &amp;lt;script&amp;gt;tag를 넣는 경우&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76b0c2d-9d58-4a90-8969-0b00257eb41b/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;⇒ 장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
-
-&lt;p&gt;⇒ 단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
-
-&lt;h1 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h1&gt;
+&lt;h2 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;HTML parsing을 하다가 async를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
@@ -553,20 +359,12 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;실행이 끝나면 나머지 HTML을 parsing함&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/089134bd-8503-4356-9c02-b5fe0d7c4734/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;장점: js의 다운로드 시간을 절약할 수 있음&lt;/li&gt;
+  &lt;li&gt;단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;⇒ 장점: js의 다운로드 시간을 절약할 수 있음&lt;/p&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;⇒ 단점&lt;/dt&gt;
-  &lt;dd&gt;
-    &lt;p&gt;js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며,&lt;/p&gt;
-  &lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;p&gt;여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/p&gt;
-
-&lt;h1 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h1&gt;
+&lt;h2 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
@@ -574,35 +372,19 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;다운로드 된 js를 실행시킴&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96a09848-27d1-4d32-af8d-4e50b72a0767/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h2&gt;
 
-&lt;h1 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h1&gt;
+&lt;p&gt;async의 경우,&lt;br /&gt;
+여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;br /&gt;
+→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/763cee67-56b8-43ba-ba2d-e6591f293175/Untitled.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;defer의 경우,&lt;br /&gt;
+parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
 
-&lt;p&gt;async의 경우,&lt;/p&gt;
-
-&lt;p&gt;여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;/p&gt;
-
-&lt;p&gt;→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd17008f-d68f-476d-8a76-337b3a8aab6d/Untitled.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;defer의 경우,&lt;/p&gt;
-
-&lt;p&gt;parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
-
-&lt;h3 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h3&gt;
+&lt;h4 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h4&gt;
 
 &lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향&lt;/td&gt;
-        &lt;td&gt;프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
+  &lt;p&gt;“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 | 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       
