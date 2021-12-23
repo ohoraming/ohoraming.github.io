@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-22T22:36:22+09:00</updated>
+  <updated>2021-12-23T23:11:22+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -338,9 +338,12 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림&lt;/p&gt;
 
 &lt;h2 id=&quot;2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &amp;lt;script&amp;gt;tag를 넣는 경우&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/body.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -359,6 +362,8 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
   &lt;li&gt;실행이 끝나면 나머지 HTML을 parsing함&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head-async.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;장점: js의 다운로드 시간을 절약할 수 있음&lt;/li&gt;
   &lt;li&gt;단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/li&gt;
@@ -369,16 +374,18 @@ but, &lt;strong&gt;let은 mutable(변경 가능), const는 immutable(변경 불�
 &lt;ol&gt;
   &lt;li&gt;HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
   &lt;li&gt;HTML parsing이 끝나면 사용자에게 페이지를 보여줌&lt;/li&gt;
-  &lt;li&gt;다운로드 된 js를 실행시킴&lt;/li&gt;
+  &lt;li&gt;다운로드 된 js를 실행시킴
+&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head-defer.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h2&gt;
-
-&lt;p&gt;async의 경우,&lt;br /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/async.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;
+async의 경우,&lt;br /&gt;
 여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;br /&gt;
 → 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
 
-&lt;p&gt;defer의 경우,&lt;br /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/defer.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;
+defer의 경우,&lt;br /&gt;
 parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
 
 &lt;h4 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h4&gt;

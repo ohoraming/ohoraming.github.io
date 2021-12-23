@@ -156,7 +156,7 @@ into the {body} of the default.hbs template -->
     <!-- About: blog에 대한 기본적인 소개-->
     <!-- C:\myblog\about\index.md에서 세부설정 -->
     <!-- href: C:\myblog\_data\authors\tags.yml에서 설정한 tag명 tag/다음에 넣음 -->
-    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">Portfolio</a></li>
 
     <li class="nav-archive" role="menuitem"><a href="/tag/JAVA/">JAVA</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/JavaScript/">JavaScript</a></li>
@@ -225,9 +225,12 @@ into the {body} of the default.hbs template -->
   <li>2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함</li>
 </ol>
 
+<p><img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
+
 <p>⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림</p>
 
 <h2 id="2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우">2. &lt;body&gt;tag 가장 아랫 부분에 &lt;script&gt;tag를 넣는 경우</h2>
+<p><img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/body.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
 
 <ul>
   <li>
@@ -246,6 +249,8 @@ into the {body} of the default.hbs template -->
   <li>실행이 끝나면 나머지 HTML을 parsing함</li>
 </ol>
 
+<p><img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head-async.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
+
 <ul>
   <li>장점: js의 다운로드 시간을 절약할 수 있음</li>
   <li>단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림</li>
@@ -256,16 +261,18 @@ into the {body} of the default.hbs template -->
 <ol>
   <li>HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가</li>
   <li>HTML parsing이 끝나면 사용자에게 페이지를 보여줌</li>
-  <li>다운로드 된 js를 실행시킴</li>
+  <li>다운로드 된 js를 실행시킴
+<img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/head-defer.png" alt="title" width="100%&quot;, height=&quot;100%" /></li>
 </ol>
 
 <h2 id="5-async-vs-defer">5. async vs. defer</h2>
-
-<p>async의 경우,<br />
+<p><img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/async.png" alt="title" width="100%&quot;, height=&quot;100%" />
+async의 경우,<br />
 여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨<br />
 → 실행 순서가 중요하다면 오류가 생길 수 있음</p>
 
-<p>defer의 경우,<br />
+<p><img src="/assets/_posts_images/2021-07-23-JavaScript-asyncDefer/defer.png" alt="title" width="100%&quot;, height=&quot;100%" />
+defer의 경우,<br />
 parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨</p>
 
 <h4 id="-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함">※ 그러므로, &lt;head&gt;tag 내에 &lt;script <strong>defer</strong> src=”main.js”&gt;&lt;/script&gt;로 선언하는 것이 가장 효율적이며, 안전함!</h4>
