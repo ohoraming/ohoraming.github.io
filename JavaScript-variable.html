@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(2) - strict mode, variable" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 라고 쓰면 strict mode로 시작하게 됨 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드가 실행됨 JS engine이 보다 효율적으로 구동됨 Strict mode" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 를 쓰면 strict mode로 시작 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드를 실행 JS engine이 보다 효율적으로 구동됨 Strict mode -" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-variable" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(2) - strict mode, variable" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 라고 쓰면 strict mode로 시작하게 됨 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드가 실행됨 JS engine이 보다 효율적으로 구동됨 Strict mode" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 를 쓰면 strict mode로 시작 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드를 실행 JS engine이 보다 효율적으로 구동됨 Strict mode -" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-variable"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 라고 쓰면 strict mode로 시작하게 됨 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드가 실행됨 JS engine이 보다 효율적으로 구동됨 Strict mode"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable 1. Strict Mode ES(ECMAScript) 5부터 추가됨 Valina JS 문서가 시작될 때, 'use strict'; 를 쓰면 strict mode로 시작 보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드를 실행 JS engine이 보다 효율적으로 구동됨 Strict mode -"
 }
     </script>
 
@@ -221,170 +221,186 @@ into the {body} of the default.hbs template -->
 
 <ul>
   <li>ES(ECMAScript) 5부터 추가됨</li>
-  <li>Valina JS 문서가 시작될 때, <code class="language-plaintext highlighter-rouge">'use strict';</code> 라고 쓰면 strict mode로 시작하게 됨</li>
-  <li>보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드가 실행됨</li>
-  <li>JS engine이 보다 효율적으로 구동됨
+  <li>Valina JS 문서가 시작될 때, <strong><code class="language-plaintext highlighter-rouge">'use strict';</code></strong> 를 쓰면 strict mode로 시작</li>
+  <li>보다 상식적인 범위 내에서 코딩이 이루어 질 수 있도록 엄격한 잣대로 코드를 실행</li>
+  <li>JS engine이 보다 효율적으로 구동됨<br />
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#strict_mode_for_scripts">Strict mode - JavaScript | MDN</a></li>
 </ul>
 
 <h1 id="2-variable">2. Variable</h1>
 
-<h2 id="data-types">data types</h2>
-
-<dl>
-  <dt>→ <strong>primitive</strong>, single item</dt>
-  <dd>
-    <p>더 이상 작게 쪼갤 수 없는 한 가지 아이템</p>
-  </dd>
-  <dd>
-    <p><strong>number, string, boolean, null, undefined, symbol</strong></p>
-  </dd>
-  <dd>
-    <p>값(value) 자체가 메모리에 저장됨</p>
-  </dd>
-  <dt>→ <strong>object</strong>, box container</dt>
-  <dd>
-    <p>single item들을 묶어서 관리하는 것</p>
-  </dd>
-  <dd>
-    <p>object를 가리키는 reference가 메모리에 저장됨</p>
-  </dd>
-</dl>
-
-<p>→ function</p>
-
-<p><a href="https://www.notion.so/function-c2519abdb2c44edaaebae958b2227dae">function</a></p>
-
-<aside>
-💡 **first-class function**
-* variable에 할당 가능
-* 다른 함수의 parameter로 전달이 가능
-[](https://www.notion.so/strict-mode-variable-2fd3ae38f8b14d62bb700b2846f9ae17)* return 값으로 지정 가능
-
-</aside>
-
 <ul>
   <li>
-    <dl>
-      <dt><strong>Immutable data types</strong></dt>
-      <dd>data 자체 변경 불가
-: primitive types, frozen objects (i.e. object.freeze())</dd>
-    </dl>
+    <h2 id="data-types">Data types</h2>
+    <ul>
+      <li>
+        <p><strong>primitive</strong>, single item<br />
+→ 더 이상 작게 쪼갤 수 없는 한 가지 아이템<br />
+→ <strong>number, string, boolean, null, undefined, symbol</strong><br />
+→ 값(value) 자체가 메모리에 저장됨</p>
+      </li>
+      <li>
+        <p><strong>object</strong>, box container<br />
+→ single item들을 묶어서 관리하는 것<br />
+→ object를 가리키는 reference가 메모리에 저장됨</p>
+      </li>
+      <li>
+        <p><strong>function</strong><br />
+※ first-class function<br />
+  → variable에 할당 가능<br />
+  → 다른 함수의 parameter로 전달이 가능<br />
+  → return 값으로 지정 가능</p>
+      </li>
+    </ul>
   </li>
   <li>
-    <dl>
-      <dt><strong>Mutable data types</strong></dt>
-      <dd>data 변경 가능
-: all objects by default are mutable in JS</dd>
-    </dl>
+    <h2 id="immutablemutable-data-types">Immutable/Mutable data types</h2>
+
+    <ul>
+      <li>
+        <p><strong>Immutable data types</strong><br />
+→ data 자체 변경 불가<br />
+→ primitive types, frozen objects (i.e. object.freeze())</p>
+      </li>
+      <li>
+        <p><strong>Mutable data types</strong><br />
+→ data 변경 가능<br />
+→ all objects by default are mutable in JS</p>
+      </li>
+    </ul>
   </li>
 </ul>
 
 <h2 id="let">let</h2>
+<p>→ ES6에서 추가됨<br />
+  → <strong>var는 이제 사용하지 말 것!</strong></p>
 
+<blockquote>
+  <p><strong>var hoisting</strong><br />
+변수의 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림</p>
+</blockquote>
+
+<p>→ var는 block scope가 적용되지 않음<br />
+  → block 안에 있는 변수를 block 바깥에서도 부를 수 있는 상황이 발생함<br />
+※참고:  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting">Variable hoisting - JavaScript | MDN</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">{</span>
+    <span class="nx">age</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="4">4</h6>
+</blockquote>
+
+<h2 id="global-variable-vs-local-variable">global variable vs. local variable</h2>
 <ul>
-  <li>let은 ES 6부터 추가됨</li>
-  <li><strong>var는 이제 사용하지 말 것!</strong>
-    <aside>
-  💡 **var hoisting**
-  : 변수의 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림
-    
-  </aside>
-
-    <p>⇒ var는 block scope가 적용되지 않음</p>
-
-    <p>block 안에 있는 변수를 block 바깥에서도 부를 수 있는 상황이 발생함</p>
-
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7dfb738-e860-4978-9d08-9c71f8cb1bab/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7dfb738-e860-4978-9d08-9c71f8cb1bab/Untitled.png" /></p>
-
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a29ea464-4328-4aa8-88a1-f258e5f85a6d/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a29ea464-4328-4aa8-88a1-f258e5f85a6d/Untitled.png" /></p>
-
-    <table>
-      <tbody>
-        <tr>
-          <td>[Grammar and types - JavaScript</td>
-          <td>MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>global variable vs. local variable
-<strong>global variable</strong>: 함수의 <strong>바깥에 선언</strong>한 변수. <strong>문서 전체</strong>에서 사용 가능함
-<strong>local variable</strong>: 함수의 <strong>안에 선언</strong>한 변수. 함수 <strong>안에서만</strong> 사용 가능함 (block scope)
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope">Grammar and types - JavaScript | MDN</a></li>
+  <li><strong>global variable</strong> <br />
+→ 함수의 <strong>바깥에 선언</strong>한 변수<br />
+→ <strong>문서 전체</strong>에서 사용 가능함</li>
+  <li><strong>local variable</strong> 
+→ 함수의 <strong>안에 선언</strong>한 변수<br />
+→ 함수 <strong>안에서만</strong> 사용 가능함 (block scope)<br />
+※참고:  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope">Variable scope - JavaScript | MDN</a></li>
 </ul>
 
 <h2 id="number">number</h2>
-
 <ul>
-  <li>JS에서는 숫자의 data type에 상관없이 number type으로 할당됨
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span> <span class="c1">// integer</span>
-<span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="mf">17.1</span><span class="p">;</span> <span class="c1">// decimal number</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">count</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">size</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">size</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <li>JS에서는 숫자의 data type과 상관없이 number type으로 할당됨
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span> <span class="c1">// integer</span>
+  <span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="mf">17.1</span><span class="p">;</span> <span class="c1">// decimal number</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">count</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">size</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">size</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/661d8421-74b1-46d4-9d59-abfbc1a15734/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/661d8421-74b1-46d4-9d59-abfbc1a15734/Untitled.png" /></p>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="value-17-type-number">value: 17, type: number</h6>
+      <h6 id="value-171-type-number">value: 17.1, type: number</h6>
+    </blockquote>
   </li>
-  <li>양수를 0으로 나누면 <strong>infinity</strong>
-음수를 0으로 나누면 <strong>negative infinity</strong>
-숫자가 아닌 것을 숫자로 나누면 <strong>NaN</strong>(not a number)
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2555966-1c71-4846-a945-9d271c1af055/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2555966-1c71-4846-a945-9d271c1af055/Untitled.png" /></li>
+  <li>양수를 0으로 나누면 <strong>infinity</strong><br />
+음수를 0으로 나누면 <strong>negative infinity</strong><br />
+숫자가 아닌 것을 숫자로 나누면 <strong>NaN</strong>(not a number)</li>
 </ul>
 
-<p>(bigint: -2^53 ~ 2^53 의 범위를 넘어서는 숫자를 표현할 때 숫자의 마지막에 n을 붙여면 bigint로 간주됨)</p>
-
 <h2 id="string">string</h2>
-
 <ul>
   <li>글자는 수에 상관 없이 모두 string으로 할당됨</li>
-  <li>’+’ 기호를 사용해 다른 변수와 붙이는 것이 가능함
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">brendan</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">brendan</span><span class="dl">"</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">brendan</span><span class="p">;</span>
-</code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6809195-68f1-4f38-8590-ad05e0e582f1/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6809195-68f1-4f38-8590-ad05e0e582f1/Untitled.png" /></p>
-  </li>
-  <li>template literals (string literals): `(backtick) 기호를 이용해 string과 ${variable} 을 써주면 결과 값이 붙여져 나옴 ⇒ ‘ ‘ (quotes) 와 ‘+’를 쓰는 것보다 편리함
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">helloBob</span> <span class="o">=</span> <span class="s2">`hi </span><span class="p">${</span><span class="nx">brendan</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span> <span class="c1">// template literals (template string)</span>
+  <li><code class="language-plaintext highlighter-rouge">+</code>기호를 사용해 다른 변수와 붙일 수 있음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">brendan</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">brendan</span><span class="dl">"</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">brendan</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">greeting</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">greeting</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="value-hello-brendan-type-string">value: hello brendan, type: string</h6>
+</blockquote>
+
+<ul>
+  <li>
+    <p>template literals (string literals)<br />
+→ `(backtick)을 이용해 string과 ${variable} 을 써주면 결과 값이 붙여져 나옴<br />
+→ ‘ ‘(quotes)와 <code class="language-plaintext highlighter-rouge">+</code>를 쓰는 것보다 편리함</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">helloBob</span> <span class="o">=</span> <span class="s2">`hi </span><span class="p">${</span><span class="nx">brendan</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span> <span class="c1">// template literals (template string)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">helloBob</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">helloBob</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">value: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">helloBob</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, type: </span><span class="dl">"</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">helloBob</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/104c3a2a-328b-48f3-af97-cc467bbe092a/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/104c3a2a-328b-48f3-af97-cc467bbe092a/Untitled.png" /></p>
+    <blockquote>
+      <p><strong>consol</strong></p>
+      <h6 id="value-hi-brendan-type-string">value: hi brendan!, type: string</h6>
+      <h6 id="value-hi-brendan-type-string-1">value: hi brendan!, type: string</h6>
+    </blockquote>
   </li>
 </ul>
 
 <h2 id="boolean">boolean</h2>
-
 <ul>
-  <li>false: 0, null, undefined, NaN, ’ ‘
-true: any other value
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canRead</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <li>false: 0, null, undefined, NaN, ‘ ‘</li>
+  <li>
+    <p>true: any other value</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canRead</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// false</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">canRead</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">canRead</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">test</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">test</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bf84f65-02e6-4ca5-8484-2eabc55d81ee/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8bf84f65-02e6-4ca5-8484-2eabc55d81ee/Untitled.png" /></p>
   </li>
 </ul>
 
-<h2 id="null--undefined">null / undefined</h2>
+<blockquote>
+  <p><strong>consol</strong></p>
+  <h6 id="value-true-type-boolean">value: true, type: boolean</h6>
+  <h6 id="value-false-type-boolean">value: false, type: boolean</h6>
+</blockquote>
 
+<h2 id="null--undefined">null / undefined</h2>
 <ul>
-  <li>null로 할당하면 아무런 값도 없다는 것을 명시하는 것</li>
-  <li>undefined로 지정하거나 아무 것도 지정하지 않으면, 선언은 되었지만 값이 정해지지 않은 상황
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// null</span>
+  <li>null로 할당하면 <strong>아무런 값도 없다</strong>는 것을 명시하는 것</li>
+  <li>undefined로 지정하거나 아무 것도 지정하지 않으면, <strong>선언은 되었지만 값이 정해지지 않은 상황</strong></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// null</span>
 <span class="kd">let</span> <span class="nx">nothing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">nothing</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">nothing</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 <span class="c1">// undefined</span>
 <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// let x; 도 같은 뜻</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">x</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-</code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c15baf9b-7a02-40a6-9291-b250d28c98d9/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c15baf9b-7a02-40a6-9291-b250d28c98d9/Untitled.png" /></p>
-  </li>
-</ul>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>consol</strong></p>
+  <h6 id="value-null-type-object">value: null, type: object</h6>
+  <h6 id="value-undefined-type-undefined">value: undefined, type: undefined</h6>
+</blockquote>
 
 <h2 id="symbol">symbol</h2>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// symbol, create unique identifiers for objects</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// symbol, create unique identifiers for objects</span>
 <span class="kd">const</span> <span class="nx">symbol1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">symbol2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">symbol1</span> <span class="o">===</span> <span class="nx">symbol2</span><span class="p">);</span>
@@ -392,36 +408,39 @@ true: any other value
 <span class="kd">const</span> <span class="nx">gSymbol2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">gSymbol1</span> <span class="o">===</span> <span class="nx">gSymbol2</span><span class="p">);</span> <span class="c1">// true</span>
 </code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae2fcc73-6021-4de9-a39b-2bdf81d0ea6b/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae2fcc73-6021-4de9-a39b-2bdf81d0ea6b/Untitled.png" /></p>
+<blockquote>
+  <p><strong>consol</strong></p>
+  <h6 id="false">false</h6>
+  <h6 id="true">true</h6>
+</blockquote>
 
 <p>※ <strong>.description</strong>을 이용해 string으로 변환한 뒤, 출력해야 함!</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">symbol1</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">symbol1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// error!</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">symbol1</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">symbol1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// error!</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">symbol1</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">symbol1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 </code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4ce05b5-29a8-44d1-8837-47d4c1ed2e33/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4ce05b5-29a8-44d1-8837-47d4c1ed2e33/Untitled.png" /></p>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b6398fc-a0ae-4906-9970-05f657b80ff5/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b6398fc-a0ae-4906-9970-05f657b80ff5/Untitled.png" /></p>
+<blockquote>
+  <p><strong>console</strong></p>
+  <h6 id="uncaught-typeerror-cannot-convert-a-symbol-value-to-a-string-at-">Uncaught TypeError: Cannot convert a Symbol value to a string at ~</h6>
+  <h6 id="value-id-type-symbol">value: id, type: symbol</h6>
+</blockquote>
 
 <h2 id="object">object</h2>
+<p>object 문서 연결하기!</p>
 
-<p>★★★★★<a href="https://www.notion.so/object-c37b30c5ce4c4d92a8e98b44168fbd39">object</a></p>
-
-<h1 id="3-contant">3. Contant</h1>
+<h1 id="3-constant">3. Constant</h1>
 
 <h2 id="const">const</h2>
 
 <ul>
   <li>가능하면 const로 선언하는 것이 좋음</li>
-  <li>block scope임 (like <em>let</em>)
-but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) data type</strong></li>
+  <li>block scope (like <em>let</em>)<br />
+<strong>let은 mutable(변경 가능), const는 immutable(변경 불가) data type</strong></li>
   <li>reassignment(재할당)로 값이 바뀌거나, redeclare(재선언) 불가</li>
   <li>장점
     <ol>
       <li>보안상 좋음</li>
-      <li>다양한 threads가 동시 접속해 변수의 값을 바꿀 수 있는데 이를 방지함</li>
+      <li>다양한 threads의 동시 접속으로 변수 값 변경이 일어나는 것을 방지</li>
       <li>코드 변경시 실수를 줄여줌</li>
     </ol>
   </li>
@@ -430,9 +449,11 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
 <h1 id="4-dynamic-typing">4. Dynamic typing</h1>
 
 <ul>
-  <li>JS = dynamically typed language: run time 동안 할당된 값에 따라 data type이 변화됨</li>
-  <li>C, JAVA = statically typed language: 변수 선언시 data type 명시 필요
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+  <li>JS = dynamically typed language<br />
+→ run time 동안 할당된 값에 따라 data type 변화됨</li>
+  <li>C, JAVA = statically typed language<br />
+→ 변수 선언시 data type 명시 필요
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// h</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 <span class="nx">text</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -443,21 +464,24 @@ but, <strong>let은 mutable(변경 가능), const는 immutable(변경 불가) da
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
 </code></pre></div>    </div>
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42436515-eecc-4552-b1c2-490a984f9422/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42436515-eecc-4552-b1c2-490a984f9422/Untitled.png" />
-⇒ string과 숫자가 합쳐지면 string이 되고, 숫자로 이루어진 string끼리의 연산이 이루어지면 number가 되는 오류가 실시간으로 발생되게 됨
-(⇒ TS(typescript)가 나오게 되는 계기)</p>
+    <blockquote>
+      <p><strong>console</strong></p>
+      <h6 id="h">h</h6>
+      <h6 id="value-hello-type-string">value: hello, type: string</h6>
+      <h6 id="value-1-type-number">value: 1, type: number</h6>
+      <h6 id="value-75-type-string">value: 75, type: string</h6>
+      <h6 id="value-4-type-number">value: 4, type: number</h6>
+      <h6 id="uncaught-typeerror-textcharat-is-not-a-function-at-">Uncaught TypeError: text.charAt is not a function at ~</h6>
+    </blockquote>
+
+    <p>→ string과 숫자가 합쳐지면 string이 되고,<br />
+숫자로 이루어진 string끼리의 연산이 이루어지면 number가 되는 오류 발생  <br />
+(→ TS(typescript)가 나오게 되는 계기)</p>
   </li>
 </ul>
 
 <blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>“자바스크립트 3. 데이터타입, data types, let vs var, hoisting</td>
-        <td>프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 27:58, 게시자 “드림코딩 by 엘리,” 2020년 4월 11일, <a href="https://youtu.be/OCCpGh4ujb8">https://youtu.be/tJieVCgGzhs</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <p>출처: “자바스크립트 3. 데이터타입, data types, let vs var, hoisting 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 27:58, 게시자 “드림코딩 by 엘리,” 2020년 4월 11일, <a href="https://youtu.be/tJieVCgGzhs">https://youtu.be/tJieVCgGzhs</a></p>
 </blockquote>
 
                 </div>
