@@ -12,7 +12,7 @@
 
 
 
-    <title>JavaScript(1) - async vs. defer</title>
+    <title>JavaScript(3) - function</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,24 +64,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/JavaScript-asyncDefer" />
+    <link rel="canonical" href="https://ohoraming.github.io/JavaScript-function" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JavaScript(1) - async vs. defer" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object 1. &lt;head&gt;tag내에서 &lt;script src=”main.js”&gt;&lt;/script&gt; 선언할 때 parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가 &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운" />
-    <meta property="og:url" content="https://ohoraming.github.io/JavaScript-asyncDefer" />
+    <meta property="og:title" content="JavaScript(3) - function" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기 위해 사용됨 구조 function name (param1, param2) { logic..." />
+    <meta property="og:url" content="https://ohoraming.github.io/JavaScript-function" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-07-23T22:43:00+09:00" />
-    <meta property="article:modified_time" content="2021-07-23T22:43:00+09:00" />
+    <meta property="article:published_time" content="2021-07-27T15:47:00+09:00" />
+    <meta property="article:modified_time" content="2021-07-27T15:47:00+09:00" />
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JavaScript(1) - async vs. defer" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object 1. &lt;head&gt;tag내에서 &lt;script src=”main.js”&gt;&lt;/script&gt; 선언할 때 parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가 &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운" />
+    <meta name="twitter:title" content="JavaScript(3) - function" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기 위해 사용됨 구조 function name (param1, param2) { logic..." />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -102,7 +102,7 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/JavaScript-asyncDefer",
+    "url": "https://ohoraming.github.io/JavaScript-function",
     "image": {
         "@type": "ImageObject",
         "url": "https://ohoraming.github.io/assets/built/images/javascript-logo.png",
@@ -111,9 +111,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/JavaScript-asyncDefer"
+        "@id": "https://ohoraming.github.io/JavaScript-function"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object 1. &lt;head&gt;tag내에서 &lt;script src=”main.js”&gt;&lt;/script&gt; 선언할 때 parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가 &lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기 위해 사용됨 구조 function name (param1, param2) { logic..."
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="JavaScript(1) - async vs. defer" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="JavaScript(3) - function" href="/feed.xml" />
 
 
 </head>
@@ -188,7 +188,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="23 July 2021">23 July 2021</time>
+                    <time class="post-full-meta-date" datetime="27 July 2021">27 July 2021</time>
                     
                     <span class="date-divider">/</span>
                     
@@ -198,7 +198,7 @@ into the {body} of the default.hbs template -->
                     
                     
                 </section>
-                <h1 class="post-full-title">JavaScript(1) - async vs. defer</h1>
+                <h1 class="post-full-title">JavaScript(3) - function</h1>
             </header>
 
             <!-- 
@@ -220,61 +220,271 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-function">JavaScript(5) - class vs. object</a></li>
 </ul>
 
-<h2 id="1-headtag내에서-script-srcmainjsscript-선언할-때">1. &lt;head&gt;tag내에서 &lt;script src=”main.js”&gt;&lt;/script&gt; 선언할 때</h2>
+<h1 id="function">Function</h1>
 
-<ol>
-  <li>parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가</li>
-  <li>&lt;script&gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.</li>
-  <li>2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함</li>
-</ol>
+<ul>
+  <li>특징
+    <ol>
+      <li>program을 구성하는 기본적인 building block</li>
+      <li>subprogram이라 불리며 여러 번 재사용이 가능함</li>
+      <li>한 가지의 일을 하거나, 값을 계산하기 위해 사용됨</li>
+    </ol>
+  </li>
+  <li>구조
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">name</span> <span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">logic</span><span class="p">...</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>규칙
+    <ol>
+      <li>하나의 함수는 하나의 일을 하도록 만들어야 함</li>
+      <li><strong>doSomething</strong>, <strong>command</strong>, <strong>verb</strong> 형태로 명명</li>
+      <li>JS에서 함수는 object임</li>
+    </ol>
+  </li>
+</ul>
 
-<p><img src="/assets/posts_images/2021-07-23/head.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
+<p><strong><em>cf.) First-class function</em></strong><br />
+        → variable에 할당 가능<br />
+        → 다른 함수의 parameter로 전달이 가능<br />
+        → return 값으로 지정 가능</p>
 
-<p>⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림</p>
+<h1 id="function-declaration">Function declaration</h1>
 
-<h2 id="2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우">2. &lt;body&gt;tag 가장 아랫 부분에 &lt;script&gt;tag를 넣는 경우</h2>
-<p><img src="/assets/posts_images/2021-07-23/body.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
+<ul>
+  <li><strong>hoist 가능</strong>: 함수가 선언되기 전에 호출이 가능함<br />
+  (※ <strong><em>hoisting</em></strong>: 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림)</li>
+</ul>
 
-<p>⇒ 장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음</p>
+<p>※ JS에서는 parameter type과 return type을 명시하지 않음<br />
+    ⇒ <strong>TypeScript</strong>로 보완</p>
 
-<p>⇒ 단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// javascript 코드</span>
+<span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<h2 id="3-headtag-내에-script-async-srcmainjs를-선언하는-경우">3. &lt;head&gt;tag 내에 &lt;script <strong>async</strong> src=”main.js”&gt;를 선언하는 경우</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// typescript 코드</span>
+<span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<ol>
-  <li>HTML parsing을 하다가 async를 만나면 js문서의 다운로드를 병렬로 진행하다가</li>
-  <li>js의 다운로드가 끝나면, parsing을 멈추고 다운로드 된 js를 실행시킴</li>
-  <li>실행이 끝나면 나머지 HTML을 parsing함</li>
-</ol>
+<p>※참고: <a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAGzgcwBQFsCmBnPAQzRwC5E8oAnGMNASnLBCwCMcrEBvAKEX8QQEeOMhwA6VJlwFiOegG4+AqjiggqSAAxKAvkA">TS Playground - An online editor for exploring TypeScript and JavaScript</a></p>
 
-<p><img src="/assets/posts_images/2021-07-23/head-async.png" alt="title" width="100%&quot;, height=&quot;100%" /></p>
+<h1 id="function-expression">Function expression</h1>
+<ul>
+  <li>변수에 할당된 다음부터 호출이 가능함 (hoist 불가)
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// annonymous function</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">print</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">print</span><span class="p">();</span> <span class="c1">// 함수 호출</span>
+<span class="kd">const</span> <span class="nx">printAgain</span> <span class="o">=</span> <span class="nx">print</span><span class="p">;</span>
+<span class="nx">printAgain</span><span class="p">();</span> <span class="c1">// 함수 호출</span>
+</code></pre></div>    </div>
+  </li>
+  <li>이름 없는 함수 ⇒ <em>annonymous function</em> (cf.) <em>named function</em>)</li>
+  <li><code class="language-plaintext highlighter-rouge">변수();</code> 의 형태로 할당된 함수를 호출할 수 있게 됨</li>
+</ul>
 
-<p>⇒ 장점: js의 다운로드 시간을 절약할 수 있음<br />
-⇒ 단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림</p>
+<h1 id="default-parameters">Default parameters</h1>
 
-<h2 id="4-headtag내에-script-defer-srcmainjs를-선언하는-경우">4. &lt;head&gt;tag내에 &lt;script <strong>defer</strong> src=”main.js”&gt;를 선언하는 경우★★★★★</h2>
+<ul>
+  <li>added in <em>ES6</em></li>
+  <li>parameter 옆에 원하는 default값을 지정할 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">showMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="k">from</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">unknown</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2"> by </span><span class="p">${</span><span class="k">from</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">showMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi!</span><span class="dl">'</span><span class="p">);</span> 
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="hi-by-unknown">Hi! by unknown</h6>
+    </blockquote>
+  </li>
+</ul>
 
-<ol>
-  <li>HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가</li>
-  <li>HTML parsing이 끝나면 사용자에게 페이지를 보여줌</li>
-  <li>다운로드 된 js를 실행시킴
-<img src="/assets/posts_images/2021-07-23/head-defer.png" alt="title" width="100%&quot;, height=&quot;100%" /></li>
-</ol>
+<h1 id="rest-parameters">Rest parameters</h1>
+<ul>
+  <li>added in ES6</li>
+  <li>parameter 자리에 <code class="language-plaintext highlighter-rouge">...</code> 을 입력하면 <strong>배열 형태로 전달</strong></li>
+</ul>
 
-<h2 id="5-async-vs-defer">5. async vs. defer</h2>
-<p><img src="/assets/posts_images/2021-07-23/async.png" alt="title" width="100%&quot;, height=&quot;100%" />
-async의 경우,<br />
-여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨<br />
-→ 실행 순서가 중요하다면 오류가 생길 수 있음</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printAll</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">printAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">one</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">two</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">three</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="one">one</h6>
+  <h6 id="two">two</h6>
+  <h6 id="three">three</h6>
+</blockquote>
 
-<p><img src="/assets/posts_images/2021-07-23/defer.png" alt="title" width="100%&quot;, height=&quot;100%" />
-defer의 경우,<br />
-parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨</p>
+<p>※ 위의 for문을 보다 <strong>간단</strong>하게 나타내면,</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">arg</span> <span class="k">of</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 2.</span>
+<span class="nx">args</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">arg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">));</span>
+</code></pre></div></div>
 
-<h4 id="-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함">※ 그러므로, &lt;head&gt;tag 내에 &lt;script <strong>defer</strong> src=”main.js”&gt;&lt;/script&gt;로 선언하는 것이 가장 효율적이며, 안전함!</h4>
+<h1 id="local-scope">Local scope</h1>
+<ul>
+  <li>global variable vs. local variable
+    <ul>
+      <li><strong>global variable</strong>: 함수의 <strong>바깥에 선언</strong>한 변수. <strong>문서 전체</strong>에서 사용 가능함</li>
+      <li><strong>local variable</strong>: 함수의 <strong>안에 선언</strong>한 변수. 함수 <strong>안에서만</strong> 사용 가능함 (block scope)<br />
+  ※ 참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope">Variable scope - JavaScript | MDN</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong><em>⇒ 밖에서는 안이 보이지 않고, 안에서만 밖을 볼 수 있다!</em></strong></p>
+<ul>
+  <li><strong>block 안</strong>에서는 global/local variable에 접근 가능,<br />
+  <strong>block 밖</strong>에서는 local variable에 접근 불가</li>
+  <li>parent/child function에서도 동일하게 적용됨</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">globalMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// global variable</span>
+<span class="kd">function</span> <span class="nx">printMessage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// local variable</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalMessage</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">printMessage</span><span class="p">();</span>
+<span class="c1">// console.log(message); //error</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="hello">hello</h6>
+  <h6 id="global">global</h6>
+</blockquote>
+
+<h1 id="return-a-value">Return a value</h1>
+<ul>
+  <li>함수 내에서 <code class="language-plaintext highlighter-rouge">return;</code>을 기술하지 않은 경우, <code class="language-plaintext highlighter-rouge">return undefined;</code> 가 생략된 것으로 간주함</li>
+</ul>
+
+<h1 id="tip-early-return-early-exit">📌Tip: Early return, early exit</h1>
+<ul>
+  <li>조건이 맞지 않을 때는 빨리 return 해서 함수를 종료 시킬 것!</li>
+  <li>필요한 logic들은 그 이후에 작성하는 것이 좋음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// bad</span>
+<span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// long upgrade logic...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// good</span>
+<span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// long upgrade logic...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="callback-function">Callback function</h1>
+<ul>
+  <li>callback function이 parameter로 전달됨</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">randomQuiz</span><span class="p">(</span><span class="nx">answer</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">printYes</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">printNo</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// annonymous function</span>
+<span class="kd">const</span> <span class="nx">printYes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">yes!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="c1">// named function</span>
+<span class="kd">const</span> <span class="nx">printNo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">no!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">wrong</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
+<span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
+</code></pre></div></div>
 
 <blockquote>
-  <p>“자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 | 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, <a href="https://youtu.be/tJieVCgGzhs">https://youtu.be/tJieVCgGzhs</a></p>
+  <p><strong>Console</strong></p>
+  <h6 id="no">no!</h6>
+  <h6 id="yes">yes!</h6>
+</blockquote>
+
+<ul>
+  <li><strong><em>annonymous function</em></strong>: 이름 없는 함수</li>
+  <li>
+    <p><strong><em>named function</em></strong>: 이름 있는 함수</p>
+
+    <p>⇒ debugging할 때, stack trace에 함수 이름이 나오게 하기 위함</p>
+
+    <p>⇒ 또는 recursion할 때 사용 ( ※ call stack )</p>
+  </li>
+</ul>
+
+<h1 id="arrow-function">Arrow function</h1>
+<ul>
+  <li><strong>항상 annonymous!</strong></li>
+  <li>function 키워드, return 키워드, curly braces를 지운 뒤, 이 둘을 <code class="language-plaintext highlighter-rouge">=&gt;</code> 로 연결</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Annonymous function</span>
+<span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`simplePrint!`</span><span class="p">);</span>    
+<span class="p">};</span>
+
+<span class="c1">// Arrow function</span>
+<span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">simplePrint!</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>함수의 내용이 길어진다면, <strong>block을 설정</strong>하면 됨!<br />
+이때, block을 설정했으므로 반드시 <strong>return 값</strong>을 기입해주어야 함!</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">simpleMultiply</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// do something more</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h1 id="tip-iife">📌Tip: IIFE</h1>
+<ul>
+  <li><strong>I</strong>mmediately <strong>I</strong>nvoked <strong>F</strong>unction <strong>E</strong>xpression</li>
+  <li>함수의 <strong>생성</strong>과 <strong>호출</strong>을 동시에 할 때 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">(function)();</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">IIFE</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="iife">IIFE</h6>
+</blockquote>
+
+<blockquote>
+  <p>출처: “자바스크립트 5. Arrow Function은 무엇인가? 함수의 선언과 표현 | 프론트엔드 개발자 입문편(JavaScript ES6),” 유튜브 비디오, 25:01, 게시자 “드림코딩 by 엘리,” 2020년 4월 22일, <a href="https://youtu.be/e_lU39U-5bQ">https://youtu.be/tJieVCgGzhs</a></p>
 </blockquote>
 
                 </div>
@@ -339,9 +549,9 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                 <div id="disqus_thread"></div>
                 <script>
                     var disqus_config = function () {
-                        var this_page_url = 'https://ohoraming.github.io/JavaScript-asyncDefer';
-                        var this_page_identifier = '/JavaScript-asyncDefer';
-                        var this_page_title = 'JavaScript(1) - async vs. defer';
+                        var this_page_url = 'https://ohoraming.github.io/JavaScript-function';
+                        var this_page_identifier = '/JavaScript-function';
+                        var this_page_title = 'JavaScript(3) - function';
                     };
                     (function () {
                         var d = document, s = d.createElement('script');
@@ -391,10 +601,6 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                             
                         
                         
-                        
-                         <li><a href="/JavaScript-function">JavaScript(3) - function</a></li>
-                            
-                            
                             
                             
                         
@@ -408,12 +614,16 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                         
                         
                         
-                        
+                         <li><a href="/JavaScript-variable">JavaScript(2) - strict mode, variable</a></li>
                             
                             
                             
+                            
                         
                         
+                        
+                        
+                            
                             
                             
                         
@@ -445,12 +655,12 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/JavaScript-variable">
+            <a class="post-card-image-link" href="/JavaScript-classObject">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/JavaScript-variable">
+            <a class="post-card-content-link" href="/JavaScript-classObject">
                 <header class="post-card-header">
                     
                         
@@ -460,7 +670,7 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                         
                     
 
-                    <h2 class="post-card-title">JavaScript(2) - strict mode, variable</h2>
+                    <h2 class="post-card-title">JavaScript(4) - class vs. object</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -484,7 +694,7 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                 <span class="reading-time">
                     
                     
-                      4 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -499,31 +709,26 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/JAVA-simpleDateFormatClass">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/java-logo.png)"></div>
+            <a class="post-card-image-link" href="/JavaScript-operator">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/JAVA-simpleDateFormatClass">
+            <a class="post-card-content-link" href="/JavaScript-operator">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Java</span>
+                                <span class="post-card-tags">Javascript</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">JAVA - SimpleDateFormat, Calendar 클래스</h2>
+                    <h2 class="post-card-title">JavaScript(3) - operator</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
                         <p>
-
-  
-    SimpleDateFormat class
-  
-
 
 </p>
                     
@@ -543,7 +748,7 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -565,18 +770,18 @@ parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">JavaScript(1) - async vs. defer</div>
+    <div class="floating-header-title">JavaScript(3) - function</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%281%29+-+async+vs.+defer&amp;url=https://ohoraming.github.io/JavaScript-asyncDefer"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%283%29+-+function&amp;url=https://ohoraming.github.io/JavaScript-function"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/JavaScript-asyncDefer"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/JavaScript-function"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
