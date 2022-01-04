@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(3) - operator" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals: '''''" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation ```javascript console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals:" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-operator" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(3) - operator" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals: '''''" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation ```javascript console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals:" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-operator"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals: '''''"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array 1. String concatenation ```javascript console.log('my' + ' cat'); console.log('1' + 2); console.log(`string literals: 1 + 2 = ${1 + 2}`); console.log(`string literals:"
 }
     </script>
 
@@ -157,7 +157,6 @@ into the {body} of the default.hbs template -->
     <!-- C:\myblog\about\index.md에서 세부설정 -->
     <!-- href: C:\myblog\_data\authors\tags.yml에서 설정한 tag명 tag/다음에 넣음 -->
     <li class="nav-about" role="menuitem"><a href="/about/">Portfolio</a></li>
-
     <li class="nav-archive" role="menuitem"><a href="/tag/java/">JAVA</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/javascript/">JavaScript</a></li>
     <li class="nav-archive" role="menuitem"><a href="/archive.html">All Posts</a></li>
@@ -223,30 +222,27 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <h1 id="1-string-concatenation">1. String concatenation</h1>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">my</span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> cat</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`string literals: 1 + 2 = </span><span class="p">${</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`string literals: 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```javascript
+console.log('my' + ' cat');
+console.log('1' + 2);
+console.log(`string literals: 1 + 2 = ${1 + 2}`);
+console.log(`string literals: 
 '''''
 
-3 + 4 = </span><span class="p">${</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+3 + 4 = ${3 + 4}`);
 
+```
+&gt; **Console**  
+&gt; ###### my cat  
+&gt; ###### 12  
+&gt; ###### string literals: 1 + 2 = 3  
+&gt; ###### string literals:  
+&gt; ###### '''''  
+&gt;   
+&gt; ###### 3 + 4 = 7  
+
+- string literals의 경우, \`(backtick)을 사용해 줄 바꿈과 **`'`** (single qoutation mark) 입력이 쉬움
 </code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="my-cat">my cat</h6>
-  <h6 id="12">12</h6>
-  <h6 id="string-literals-1--2--3">string literals: 1 + 2 = 3</h6>
-  <h6 id="string-literals">string literals:</h6>
-  <h6>’’’’’</h6>
-
-  <h6 id="3--4--7">3 + 4 = 7</h6>
-</blockquote>
-
-<ul>
-  <li>string literals의 경우, `(backtick)을 사용해 줄 바꿈과 <strong><code class="language-plaintext highlighter-rouge">'</code></strong> (single qoutation mark) 입력이 쉬움</li>
-</ul>
 
 <h1 id="2-logical-operators--or-and-not">2. Logical operators:  <code class="language-plaintext highlighter-rouge">||</code>(or), <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>(and), <code class="language-plaintext highlighter-rouge">!</code>(not)</h1>
 
@@ -333,23 +329,25 @@ into the {body} of the default.hbs template -->
 
 <ul>
   <li>if, else if를 반복하게 된다면 switch를 쓰는 것이 더 나음</li>
-  <li>enum-like value check시 사용</li>
-</ul>
+  <li>
+    <p>enum-like value check시 사용</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">browser</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">IE</span><span class="dl">'</span><span class="p">;</span>
-<span class="k">switch</span> <span class="p">(</span><span class="nx">browser</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="dl">'</span><span class="s1">IE</span><span class="dl">'</span><span class="p">:</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">go away!</span><span class="dl">'</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="dl">'</span><span class="s1">Chrome</span><span class="dl">'</span><span class="p">:</span>
-    <span class="k">case</span> <span class="dl">'</span><span class="s1">Firefox</span><span class="dl">'</span><span class="p">:</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">love you!</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 'Chrome'과 'Firefox'의 결과 값이 같으므로 한번에 적어줌!</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="nl">default</span><span class="p">:</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">same all!</span><span class="dl">'</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">browser</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">IE</span><span class="dl">'</span><span class="p">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">browser</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">IE</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">go away!</span><span class="dl">'</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">Chrome</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">Firefox</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">love you!</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 'Chrome'과 'Firefox'의 결과 값이 같으므로 한번에 적어줌!</span>
+          <span class="k">break</span><span class="p">;</span>
+      <span class="nl">default</span><span class="p">:</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">same all!</span><span class="dl">'</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <p>※ 같은 결과 값을 요구한다면, case를 이어서 적어주면 됨</p>
 
@@ -497,6 +495,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                         <li><a href="/JavaScript-json">JavaScript(8) - JSON</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
                          <li><a href="/JavaScript-array">JavaScript(7) - array</a></li>
                             
                             
@@ -513,8 +519,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/JavaScript-classObject">JavaScript(5) - class vs. object</a></li>
-                            
+                        
                             
                             
                             
@@ -558,7 +563,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/javascript/">
                         
-                        See all 6 posts →
+                        See all 7 posts →
                         
                     </a>
                 </footer>

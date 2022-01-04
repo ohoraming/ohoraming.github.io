@@ -157,7 +157,6 @@ into the {body} of the default.hbs template -->
     <!-- C:\myblog\about\index.md에서 세부설정 -->
     <!-- href: C:\myblog\_data\authors\tags.yml에서 설정한 tag명 tag/다음에 넣음 -->
     <li class="nav-about" role="menuitem"><a href="/about/">Portfolio</a></li>
-
     <li class="nav-archive" role="menuitem"><a href="/tag/java/">JAVA</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/javascript/">JavaScript</a></li>
     <li class="nav-archive" role="menuitem"><a href="/archive.html">All Posts</a></li>
@@ -229,18 +228,23 @@ into the {body} of the default.hbs template -->
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
 </code></pre></div>    </div>
-    <h1 id="index-position">Index position</h1>
   </li>
-  <li><strong>array의 마지막 element</strong>를 찾을 때는 <code class="language-plaintext highlighter-rouge">[array.length-1]</code> 를 사용함
+</ul>
+
+<h1 id="index-position">Index position</h1>
+<ul>
+  <li>
+    <p><strong>array의 마지막 element</strong>를 찾을 때는 <code class="language-plaintext highlighter-rouge">[array.length-1]</code> 를 사용함</p>
+
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">🍦</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">🍉</span><span class="dl">'</span><span class="p">];</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// undefined</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 </code></pre></div>    </div>
     <blockquote>
-      <p><strong>Console</strong><br />
-(2) [‘🍦’, ‘🍉’]<br />
-undefined
+      <h6 id="console">Console</h6>
+      <p>(2) [‘🍦’, ‘🍉’]<br />
+undefined<br />
 🍉</p>
     </blockquote>
   </li>
@@ -249,215 +253,218 @@ undefined
 <h1 id="looping-over-an-array">Looping over an array</h1>
 <h2 id="a-for-loop">a. for loop</h2>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-<span class="p">}</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
 </code></pre></div></div>
 <blockquote>
-  <p><strong>Console</strong><br />
-(2) [‘🍦’, ‘🍉’]<br />
-🍦
+  <h6 id="console-1">Console</h6>
+  <p>(2) [‘🍦’, ‘🍉’]<br />
+🍦<br />
 🍉</p>
 </blockquote>
 
 <h2 id="b-for-of">b. for of</h2>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">fruit</span> <span class="k">of</span> <span class="nx">fruits</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span>
-<span class="p">}</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">fruit</span> <span class="k">of</span> <span class="nx">fruits</span><span class="p">){</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span>
+  <span class="p">}</span>
 </code></pre></div></div>
 <blockquote>
-  <p><strong>Console</strong><br />
-(2) [‘🍦’, ‘🍉’]<br />
-🍦
+  <h6 id="console-2">Console</h6>
+  <p>(2) [‘🍦’, ‘🍉’]<br />
+🍦<br />
 🍉</p>
 </blockquote>
 
 <h2 id="c-foreach">c. forEach</h2>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">forEach()</code><br />
-  → array에 들어있는 각 element마다 함수를 수행함<br />
-  → 전달한 callback 함수를 value마다 호출</li>
-</ul>
+  <li>array에 들어있는 각 element마다 함수를 수행함</li>
+  <li>
+    <p>전달한 callback 함수를 value마다 호출</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong><br />
-(2) [‘🍦’, ‘🍉’]<br />
-🍦 0 ▶ (2) [‘🍦’, ‘🍉’]
+</code></pre></div>    </div>
+    <p>(※ 보통, forEach에서 array는 잘 받아오지 않음)</p>
+    <blockquote>
+      <h6 id="console-3">Console</h6>
+      <p>(2) [‘🍦’, ‘🍉’]<br />
+🍦 0 ▶ (2) [‘🍦’, ‘🍉’]<br />
 🍉 1 ▶ (2) [‘🍦’, ‘🍉’]</p>
-</blockquote>
+    </blockquote>
 
-<p>(※ 보통, forEach에서 array는 잘 받아오지 않음)</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console"><strong>Console</strong></h6>
-  <p>🍦 0 ▶ (2) [‘🍦’, ‘🍉’]
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-4">Console</h6>
+      <p>🍦 0 ▶ (2) [‘🍦’, ‘🍉’]<br />
 🍉 1 ▶ (2) [‘🍦’, ‘🍉’]</p>
-</blockquote>
+    </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-1"><strong>Console</strong></h6>
-  <p>🍦 0<br />
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-5">Console</h6>
+      <p>🍦 0<br />
 🍉 1</p>
-</blockquote>
+    </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-2"><strong>Console</strong></h6>
-  <p>🍦  <br />
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-6">Console</h6>
+      <p>🍦<br />
 🍉</p>
-</blockquote>
+    </blockquote>
 
-<p>※ <strong>Arrow function</strong>에서,<br />
+    <p>※ <strong>Arrow function</strong>에서,<br />
 logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</code> curly braces와 <code class="language-plaintext highlighter-rouge">;</code> semicolon을 지울 수 있음</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Arrow function</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Arrow function</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">index</span><span class="p">));</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">fruit</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">));</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <h1 id="addition-deletion-and-copy">Addition, deletion and copy</h1>
-
-<h2 id="push">push</h2>
-
+<h2 id="a-push">a. push</h2>
 <ul>
-  <li>배열의 <strong>마지막에</strong> element를 더해줌</li>
-</ul>
+  <li>
+    <p>배열의 <strong>마지막에</strong> element를 더해줌</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍑</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🥝</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-3"><strong>Console</strong></h6>
-  <p>(2) [‘🍦’, ‘🍉’]   <br />
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-7">Console</h6>
+      <p>(2) [‘🍦’, ‘🍉’]   <br />
 (4) [‘🍦’, ‘🍉’, ‘🍑’, ‘🥝’]</p>
-</blockquote>
-
-<h2 id="pop">pop</h2>
-<ul>
-  <li>배열의 <strong>마지막</strong> element를 제거</li>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+<h2 id="b-pop">b. pop</h2>
+<ul>
+  <li>배열의 <strong>마지막</strong> element를 제거
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-4"><strong>Console</strong></h6>
-  <p>(4) [‘🍦’, ‘🍉’, ‘🍑’, ‘🥝’]  <br />
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-8">Console</h6>
+      <p>(4) [‘🍦’, ‘🍉’, ‘🍑’, ‘🥝’]  <br />
 (2) [‘🍦’, ‘🍉’]</p>
-</blockquote>
-
-<h2 id="unshift">unshift</h2>
-
-<ul>
-  <li>배열 <strong>시작에</strong> element를 <strong>더함</strong></li>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+<h2 id="c-unshift">c. unshift</h2>
+<ul>
+  <li>배열 <strong>시작에</strong> element를 <strong>더함</strong>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍌</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🍍</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-5"><strong>Console</strong></h6>
-  <p>(2) [‘🍦’, ‘🍉’]   <br />
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-9">Console</h6>
+      <p>(2) [‘🍦’, ‘🍉’]   <br />
 (4) [‘🍌’, ‘🍍,’🍦’, ‘🍉’]</p>
-</blockquote>
-
-<h2 id="shift">shift</h2>
-<ul>
-  <li>배열의 <strong>첫</strong> element를 <strong>제거함</strong></li>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+<h2 id="d-shift">d. shift</h2>
+<ul>
+  <li>
+    <p>배열의 <strong>첫</strong> element를 <strong>제거함</strong></p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-6"><strong>Console</strong></h6>
-  <p>(4) [‘🍌’, ‘🍍,’🍦’, ‘🍉’]  <br />
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-10">Console</h6>
+      <p>(4) [‘🍌’, ‘🍍,’🍦’, ‘🍉’]  <br />
 (3) [‘🍍,’🍦’, ‘🍉’]</p>
-</blockquote>
+    </blockquote>
+  </li>
+</ul>
 
-<p>배열의 <strong>‘마지막’</strong>에 element를 넣고 빼는 <strong>push</strong>와 <strong>pop</strong>이 빠름<br />
-배열의 <strong>‘시작’</strong>에 element를 넣고 빼는 <strong>shift</strong>와 <strong>unshift</strong>는 느림</p>
+<h4 id="배열의-마지막에-element를-넣고-빼는-push-와-pop-이-빠름">배열의 ‘마지막’에 element를 넣고 빼는 <em>push</em> 와 <em>pop</em> 이 빠름</h4>
+<h4 id="배열의-시작에-element를-넣고-빼는-shift-와-unshift-는-느림">배열의 ‘시작’에 element를 넣고 빼는 <em>shift</em> 와 <em>unshift</em> 는 느림</h4>
 
 <p>⇒ 배열 시작 지점(index[0])에 item을 넣으려면 기존의 item들을 뒤로 이동 후 새 item을 넣어야 하며, 반대로 배열 시작 지점(index[0])의 item을 빼면, 이후의 item들을 앞으로 이동해야 하기에 시간이 오래 걸림</p>
 
-<h2 id="splice">splice</h2>
-
+<h2 id="e-splice">e. splice</h2>
 <ul>
-  <li>vs. <code class="language-plaintext highlighter-rouge">slice</code> : 배열 자체의 수정 없이 특정 부분 리턴</li>
+  <li>( vs. <code class="language-plaintext highlighter-rouge">slice</code> : 배열 자체의 수정 없이 특정 부분 리턴 )</li>
   <li><code class="language-plaintext highlighter-rouge">splice(index number)</code> : 해당 index부터 끝까지 지움</li>
   <li><code class="language-plaintext highlighter-rouge">splice(index number, 지우려는 개수)</code> : 해당 index부터 개수 만큼 지움</li>
-  <li><code class="language-plaintext highlighter-rouge">splice(index number, 지우려는 개수, 'item1', 'item2')</code> : 해당 index부터 개수만큼 지우고 ‘item1’과 ‘item2’ 추가</li>
-</ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">splice(index number, 지우려는 개수, 'item1', 'item2')</code> : 해당 index부터 개수만큼 지우고 item1, item2 추가</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">fruits</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🍇</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🍏</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-7"><strong>Console</strong></h6>
-  <p>(6) [‘🍍,’🍦’, ‘🍉’, ‘🍈’, ‘🥥’, ‘🍊’]  <br />
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-11">Console</h6>
+      <p>(6) [‘🍍,’🍦’, ‘🍉’, ‘🍈’, ‘🥥’, ‘🍊’]  <br />
 (4) [‘🍍,’🍦’, ‘🍉’, ‘🍈’]<br />
 (2) [‘🍉’, ‘🍈’]<br />
 (3) [‘🍉’, ‘🍇’, ‘🍏’]</p>
-</blockquote>
-
-<h2 id="slice">slice</h2>
-<ul>
-  <li>vs. <code class="language-plaintext highlighter-rouge">splice</code> : 기존 배열 자체를 <strong>수정함</strong></li>
-  <li>
-    <p>배열의 특정한 부분을 <strong>배열로 리턴</strong></p>
+    </blockquote>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">slice(시작 index, 끝나는 index);</code><br />
-  ※ 이때, 끝나는 index는 배제됨(exclusive)!</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<h2 id="f-slice">f. slice</h2>
+<ul>
+  <li>( vs. <code class="language-plaintext highlighter-rouge">splice</code> : 기존 배열 자체를 <strong>수정함</strong>)</li>
+  <li>배열의 특정한 부분을 <strong>배열로 리턴</strong></li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">slice(시작 index, 끝나는 index);</code><br />
+  ※ 이때, 끝나는 index는 배제됨(exclusive)!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
 <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-8"><strong>Console</strong></h6>
-  <h6 id="3-3-4-5">(3) [3, 4, 5]</h6>
-  <h6 id="5-1-2-3-4-5">(5) [1, 2, 3, 4, 5]</h6>
-</blockquote>
-
-<h2 id="concat">concat</h2>
-
-<ul>
-  <li>서로 다른 두 배열을 연결함<br />
-  <code class="language-plaintext highlighter-rouge">array이름.concat(연결할 array);</code>
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">food</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">🍕</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🍔</span><span class="dl">'</span><span class="p">];</span>
-<span class="kd">const</span> <span class="nx">newFood</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">food</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newFood</span><span class="p">);</span>
 </code></pre></div>    </div>
     <blockquote>
-      <h6 id="console-9"><strong>Console</strong></h6>
+      <h6 id="console-12">Console</h6>
+      <p>(3) [3, 4, 5]<br />
+(5) [1, 2, 3, 4, 5]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="g-concat">g. concat</h2>
+<ul>
+  <li>
+    <p>서로 다른 두 배열을 연결함<br />
+  <code class="language-plaintext highlighter-rouge">array이름.concat(연결할 array);</code></p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">food</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">🍕</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">🍔</span><span class="dl">'</span><span class="p">];</span>
+  <span class="kd">const</span> <span class="nx">newFood</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">food</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newFood</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-13">Console</h6>
       <p>(3) [‘🍉’, ‘🍇’, ‘🍏’]<br />
 (5) [‘🍉’, ‘🍇’, ‘🍏’, ‘🍕’, ‘🍔’]</p>
     </blockquote>
@@ -465,32 +472,32 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
 </ul>
 
 <h1 id="searching">Searching</h1>
-
 <h2 id="a-indexof">a. indexOf</h2>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">array이름.indexOf('index를 알고 싶은 element', [검색을 시작할 index]);</code></li>
-  <li>배열 내에 item이 처음 등장하는 index 반환 <strong>(vs. lastIndexOf)</strong></li>
-  <li>해당 array에 없는 item일 경우 <code class="language-plaintext highlighter-rouge">-1</code> 반환</li>
-</ul>
+  <li>배열 내에 item이 처음 등장하는 index 반환 (vs. <strong><em>lastIndexOf</em></strong>)</li>
+  <li>
+    <p>해당 array에 없는 item일 경우 <code class="language-plaintext highlighter-rouge">-1</code> 반환</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍇</span><span class="dl">'</span><span class="p">));</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-10"><strong>Console</strong></h6>
-  <p>(3) [‘🍉’, ‘🍇’, ‘🍏’]</p>
-  <h6 id="1">1</h6>
-</blockquote>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-14">Console</h6>
+      <p>(3) [‘🍉’, ‘🍇’, ‘🍏’]<br />
+1</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>요소의 모든 index찾기</p>
 
-<ul>
-  <li>요소의 모든 index찾기
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">indices</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">d</span><span class="dl">'</span><span class="p">];</span>
 <span class="kd">let</span> <span class="nx">element</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">idx</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="nx">idx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-<span class="nx">indices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
-<span class="nx">idx</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nx">indices</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
+  <span class="nx">idx</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">indices</span><span class="p">);</span> <span class="c1">// [0, 2, 4]</span>
 </code></pre></div>    </div>
@@ -498,10 +505,12 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
   </li>
 </ul>
 
-<h2 id="lastindexof">lastIndexOf</h2>
+<h2 id="b-lastindexof">b. lastIndexOf</h2>
 <ul>
-  <li>배열 내에 같은 element가 두 개 이상 있을 때, 마지막 element index를 반환함</li>
-  <li><code class="language-plaintext highlighter-rouge">array이름.lastIndexOf('index를 알고 싶은 element');</code>
+  <li>배열 내에 <strong>둘 이상의 같은 element</strong>가 있을 때, <strong>마지막 element의 index</strong>를 반환함</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">array이름.lastIndexOf('index를 알고 싶은 element');</code></p>
+
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">indexOf</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍎</span><span class="dl">'</span><span class="p">))</span>
@@ -509,42 +518,45 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍎</span><span class="dl">'</span><span class="p">));</span>
 </code></pre></div>    </div>
     <blockquote>
-      <h6 id="console-11"><strong>Console</strong></h6>
-      <p>(5) [‘🍎’, ‘🍉’, ‘🍇’, ‘🍏’, ‘🍎’]</p>
-      <h6 id="0">0</h6>
-      <h6 id="4">4</h6>
+      <h6 id="console-15">Console</h6>
+      <p>(5) [‘🍎’, ‘🍉’, ‘🍇’, ‘🍏’, ‘🍎’]<br />
+0<br />
+4</p>
     </blockquote>
   </li>
 </ul>
 
-<h2 id="includes">includes</h2>
+<h2 id="c-includes">c. includes</h2>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">array이름.includes('element');</code></li>
-  <li>특정 element가 배열에 존재하는지 확인할 때</li>
-  <li><code class="language-plaintext highlighter-rouge">true</code>/<code class="language-plaintext highlighter-rouge">false</code> 반환
+  <li>특정 <strong>element가 배열에 존재하는지 확인</strong>할 때</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">true</code>/<code class="language-plaintext highlighter-rouge">false</code> 반환</p>
+
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍏</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// true</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">🍤</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// false</span>
 </code></pre></div>    </div>
     <blockquote>
-      <h6 id="console-12"><strong>Console</strong></h6>
-      <p>(5) [‘🍎’, ‘🍉’, ‘🍇’, ‘🍏’, ‘🍎’]</p>
-      <h6 id="true">true</h6>
-      <h6 id="false">false</h6>
+      <h6 id="console-16">Console</h6>
+      <p>(5) [‘🍎’, ‘🍉’, ‘🍇’, ‘🍏’, ‘🍎’]<br />
+true<br />
+false</p>
     </blockquote>
   </li>
 </ul>
 
-<h2 id="find">find</h2>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">find</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="k">this</span><span class="p">:</span> <span class="k">void</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">S</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+<h2 id="d-find">d. find</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">find</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="k">this</span><span class="p">:</span> <span class="k">void</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">S</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
 </code></pre></div></div>
 
 <ul>
-  <li>전달된 predicate(callbackfn)가 <strong>첫 번째로 true</strong>인 요소를 만나면 그 값을 반환(아니면 undefined 반환)하며 predicate는 종료됨</li>
-  <li><code class="language-plaintext highlighter-rouge">predicate(value, index, obj)</code>는 배열의 각 요소마다 적용되며, boolean을 반환해야 함</li>
-</ul>
+  <li>전달된 predicate(callbackfn)가 <strong>첫 번째로 true</strong>인 요소를 만나면 그 값을 반환<br />
+(아니면 undefined 반환)하며 predicate는 종료됨</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">predicate(value, index, obj)</code>는 배열의 각 요소마다 적용되며, boolean을 반환</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Student</span> <span class="p">{</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Student</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">enrolled</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
@@ -562,209 +574,209 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
 <span class="p">];</span>
 <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">student</span><span class="p">.</span><span class="nx">score</span> <span class="o">===</span> <span class="mi">90</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <h6 id="console-13"><strong>Console</strong></h6>
-  <h6 id="-student-name-c-age-30-enrolled-true-score-90">▶ Student {name: ‘C’, age: 30, enrolled: true, score: 90}</h6>
-</blockquote>
-
-<h2 id="filter">filter</h2>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">filter</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">S</span><span class="p">[];</span>
-</code></pre></div></div>
-<ul>
-  <li>predicate(callbackfn)를 전달해 이 함수가 true인 배열의 요소들만 모아서 <strong>새 배열을 반환</strong>함</li>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-17">Console</h6>
+      <h6 id="-student-name-c-age-30-enrolled-true-score-90">▶ Student {name: ‘C’, age: 30, enrolled: true, score: 90}</h6>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">student</span><span class="p">.</span><span class="nx">enrolled</span> <span class="o">===</span> <span class="kc">true</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<h2 id="e-filter">e. filter</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">filter</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">S</span><span class="p">[];</span>
 </code></pre></div></div>
+<ul>
+  <li>
+    <p>predicate(callbackfn)를 전달해 <strong>이 함수가 true인 배열의 요소</strong>들만 모아 <strong>새 배열을 반환</strong>함</p>
 
-<blockquote>
-  <h6 id="console-14"><strong>Console</strong></h6>
-  <h6 id="-3-student-student-student">▶ (3) [Student, Student, Student]</h6>
-  <h6 id="-0-student-name-a-age-29-enrolled-true-score-45">▶ 0: Student {name: ‘A’, age: 29, enrolled: true, score: 45}</h6>
-  <h6 id="-1-student-name-c-age-30-enrolled-true-score-90">▶ 1: Student {name: ‘C’, age: 30, enrolled: true, score: 90}</h6>
-  <h6 id="-2-student-name-e-age-18-enrolled-true-score-88">▶ 2: Student {name: ‘E’, age: 18, enrolled: true, score: 88}</h6>
-  <p>length: 3</p>
-  <h6 id="-prototype-array0">▶ [[Prototype]]: Array(0)</h6>
-</blockquote>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">student</span><span class="p">.</span><span class="nx">enrolled</span> <span class="o">===</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-18">Console</h6>
+      <h6 id="-3-student-student-student">▶ (3) [Student, Student, Student]</h6>
+      <h6 id="-0-student-name-a-age-29-enrolled-true-score-45">▶ 0: Student {name: ‘A’, age: 29, enrolled: true, score: 45}</h6>
+      <h6 id="-1-student-name-c-age-30-enrolled-true-score-90">▶ 1: Student {name: ‘C’, age: 30, enrolled: true, score: 90}</h6>
+      <h6 id="-2-student-name-e-age-18-enrolled-true-score-88">▶ 2: Student {name: ‘E’, age: 18, enrolled: true, score: 88}</h6>
+      <h6 id="length-3">length: 3</h6>
+      <h6 id="-prototype-array0">▶ [[Prototype]]: Array(0)</h6>
+    </blockquote>
+  </li>
+</ul>
 
 <h1 id="string">String</h1>
 
-<h2 id="join">join</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2462d42d-fb2a-49e4-a0e4-48c9daeb8c1a/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2462d42d-fb2a-49e4-a0e4-48c9daeb8c1a/Untitled.png" /></p>
-
+<h2 id="a-join">a. join</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">join</span><span class="p">(</span><span class="nx">separator</span><span class="p">?:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
 <ul>
   <li>배열의 모든 요소들을 더해서 string으로 반환</li>
-  <li>(opt) 원하는 separator(구분자)를 넣어서 반환할 수 있음</li>
-</ul>
+  <li>
+    <p>(opt) 원하는 separator(구분자)를 넣어서 반환할 수 있음</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">banana</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">orange</span><span class="dl">'</span><span class="p">];</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">banana</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">orange</span><span class="dl">'</span><span class="p">];</span>
 <span class="kd">const</span> <span class="nx">result1</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">result2</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">result3</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">|</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result3</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">result1</code>: w/o separator
+    <blockquote>
+      <h6 id="console-19">Console</h6>
+      <p>apple, banana, orange</p>
+    </blockquote>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">result2</code>: separator \n
+    <blockquote>
+      <h6 id="console-20">Console</h6>
+      <p>apple<br />
+banana<br />
+orange</p>
+    </blockquote>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">result3</code>: separator: <code class="language-plaintext highlighter-rouge">|</code>
+    <blockquote>
+      <h6 id="console-21">Console</h6>
+      <h6 id="applebananaorange">apple|banana|orange</h6>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="b-split">b. split</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">split</span><span class="p">(</span><span class="nx">separator</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nb">RegExp</span><span class="p">,</span> <span class="nx">limit</span><span class="p">?:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">[];</span>
 </code></pre></div></div>
-
 <ul>
+  <li><strong>separator</strong>(string 또는 정규표현식(<code class="language-plaintext highlighter-rouge">RegExp</code>))에 따라 여러 가지 문자열을 나눠 줌</li>
   <li>
-    <p>w/o separator</p>
+    <p>(opt) limit에 반환할 배열의 크기를 지정할 수 있음</p>
 
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b189fb71-4f0d-4ae1-9438-6915e1316de9/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b189fb71-4f0d-4ae1-9438-6915e1316de9/Untitled.png" /></p>
-  </li>
-  <li>
-    <p>separator : \n</p>
-
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a81b2774-5a77-4af1-82a1-ebbf3971d826/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a81b2774-5a77-4af1-82a1-ebbf3971d826/Untitled.png" /></p>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>separator:</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b4565948-5af9-4b3b-9aa3-6fc6b2f4aa5c/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b4565948-5af9-4b3b-9aa3-6fc6b2f4aa5c/Untitled.png" /></p>
-  </li>
-</ul>
-
-<h2 id="split">split</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8fae25e-a080-46e6-ace6-3a040670ca00/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8fae25e-a080-46e6-ace6-3a040670ca00/Untitled.png" /></p>
-
-<ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>separator(string</td>
-          <td>정규표현식)에 따라 여러 가지 문자열을 나눠 줌</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>(opt) limit로 반환할 배열의 크기를 지정할 수 있음</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">🍎, 🥝, 🍌, 🍒</span><span class="dl">'</span><span class="p">;</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">🍎, 🥝, 🍌, 🍒</span><span class="dl">'</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">result1</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">result2</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result1</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71e1b6a2-0961-43d2-bbd0-41eab546050f/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71e1b6a2-0961-43d2-bbd0-41eab546050f/Untitled.png" /></p>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97035d05-26f9-4682-9200-25375fce521f/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97035d05-26f9-4682-9200-25375fce521f/Untitled.png" /></p>
-
-<h2 id="reverse">reverse</h2>
-
-<ul>
-  <li>
-    <p>배열의 순서를 거꾸로 만들어 리턴</p>
-
-    <p><strong>※ (주의) 배열 자체가 변화됨!</strong></p>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-22">Console</h6>
+      <p>(4) [“🍎”, “🥝”, “🍌”, “🍒”]<br />
+(3) [“🍎”, “🥝”, “🍌”]</p>
+    </blockquote>
   </li>
 </ul>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/582d0748-aabc-4068-93f5-05cc6df272b2/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/582d0748-aabc-4068-93f5-05cc6df272b2/Untitled.png" /></p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<h2 id="c-reverse">c. reverse</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">reverse</span><span class="p">():</span> <span class="nx">T</span><span class="p">[];</span>
+</code></pre></div></div>
+<ul>
+  <li>배열의 <strong>순서를 거꾸로</strong> 만들어 리턴<br />
+<strong>※ (주의) 배열 자체가 변화됨!</strong>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
 <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-23">Console</h6>
+      <p>(5) [5, 4, 3, 2, 1]<br />
+(5) [5, 4, 3, 2, 1]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="d-sort">d. sort</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sort</span><span class="p">(</span><span class="nx">compareFn</span><span class="p">?:</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">number</span><span class="p">):</span> <span class="k">this</span><span class="p">;</span>
 </code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/959f5691-7a60-4d85-b601-8fc2b4a29fed/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/959f5691-7a60-4d85-b601-8fc2b4a29fed/Untitled.png" /></p>
-
-<h2 id="sort">sort</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f3da40f5-3abf-4644-811c-67da6fc93248/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f3da40f5-3abf-4644-811c-67da6fc93248/Untitled.png" /></p>
-
 <ul>
-  <li>compareFn(callbackfn)에 이전 값(a)과 현재 값(b)가 전달이 됨</li>
+  <li>compareFn(callbackfn)에 이전 값(a)과 현재 값(b)이 전달됨</li>
   <li>a - b의 결과가 음수이면, a &lt; b 이므로 a, b 순서로 정렬됨</li>
   <li>b, a 순서로 정렬하고 싶다면, b - a 를 리턴하게 하면 됨</li>
 </ul>
 
-<h2 id="map">map</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1556a95f-3c26-4312-a5cd-71375a03d590/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1556a95f-3c26-4312-a5cd-71375a03d590/Untitled.png" /></p>
-
+<h2 id="e-map">e. map</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">map</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">U</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">U</span><span class="p">[];</span>
+</code></pre></div></div>
 <ul>
-  <li>배열 내의 각 요소들이 callbackfn에 의해 다른 값으로 mapping해 반환</li>
+  <li>배열 내의 각 요소들이 callbackfn에 의해 다른 값으로 mapping되어 반환</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// students의 score만 배열로 반환</span>
-<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">student</span><span class="p">.</span><span class="nx">score</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// students의 score만 배열로 반환</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span><span class="o">=&gt;</span><span class="nx">student</span><span class="p">.</span><span class="nx">score</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
 </code></pre></div></div>
+<blockquote>
+  <h6 id="console-24">Console</h6>
+  <p>(5) [45, 80, 90, 66, 88]</p>
+</blockquote>
 
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c65969ae-382a-45fd-9cbb-a24812d2dbf4/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c65969ae-382a-45fd-9cbb-a24812d2dbf4/Untitled.png" /></p>
-
-<h2 id="some">some</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51353be5-9dd0-4332-b786-bf54cdb5e18c/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51353be5-9dd0-4332-b786-bf54cdb5e18c/Untitled.png" /></p>
-
+<h2 id="f-some">f. some</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">some</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">unknown</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+</code></pre></div></div>
 <ul>
   <li>배열의 요소 중 predicate(callbackfn)를 만족하는 것이 <strong>하나라도 있는지</strong> 확인함</li>
-  <li>vs. <code class="language-plaintext highlighter-rouge">every</code> : 배열의 요소 <strong>전부</strong>가 predicate(callbackfn)를 만족하는지 확인함</li>
-</ul>
+  <li>
+    <p>( vs. <code class="language-plaintext highlighter-rouge">every</code> : 배열의 요소 <strong>전부</strong>가 predicate(callbackfn)를 만족하는지 확인)</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// student의 score가 50점 미만인 요소가 있는지 확인</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// student의 score가 50점 미만인 요소가 있는지 확인</span>
 <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">some</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">student</span><span class="p">.</span><span class="nx">score</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-25">Console</h6>
+      <p>true</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="g-reduce">g. reduce</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">reduce</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">:</span> <span class="p">(</span><span class="nx">previousValue</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">currentValue</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">currentIndex</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span><span class="p">;</span>  
+<span class="nx">reduce</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">:</span> <span class="p">(</span><span class="nx">previousValue</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">currentValue</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">currentIndex</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span><span class="p">;</span>
 </code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1f0bd0-851a-495e-84ef-2cb51755f857/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a1f0bd0-851a-495e-84ef-2cb51755f857/Untitled.png" /></p>
-
-<h2 id="reduce">reduce</h2>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2bd161d-5bf8-49bb-9ddf-c444e790d2d5/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2bd161d-5bf8-49bb-9ddf-c444e790d2d5/Untitled.png" /></p>
-
 <ul>
   <li>원하는 시작부터 배열의 모든 요소의 값을 누적</li>
-  <li>return값의 정의 필수</li>
+  <li>return값 정의 필수</li>
   <li><code class="language-plaintext highlighter-rouge">previousValue</code> : 이전에 callbackfn에서 리턴한 값</li>
   <li><code class="language-plaintext highlighter-rouge">currentValue</code> : 배열의 요소를 순차적으로 전달 받은 값</li>
-  <li><code class="language-plaintext highlighter-rouge">initialValue</code>를 지정할 수 있음</li>
-</ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">initialValue</code>를 지정할 수 있음</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// student score의 평균 구하기</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// student score의 평균 구하기</span>
 <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">curr</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">prev</span> <span class="o">+</span> <span class="nx">curr</span><span class="p">.</span><span class="nx">score</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="o">/</span><span class="nx">students</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67a32bcb-aaa1-4d7a-96e4-a08d74d1d1f7/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67a32bcb-aaa1-4d7a-96e4-a08d74d1d1f7/Untitled.png" /></p>
-
-<h1 id="tip">tip!</h1>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">filter</code>, <code class="language-plaintext highlighter-rouge">join</code>과 같이 배열 자체를 리턴하는 함수들은 서로 섞어서 사용이 가능함</li>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-26">Console</h6>
+      <p>73.8</p>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span>
+<h1 id="tip">tip!</h1>
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">filter</code>, <code class="language-plaintext highlighter-rouge">join</code>과 같이 배열 자체를 리턴하는 함수들은 <strong>서로 섞어서 사용</strong>이 가능</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">students</span>
   <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">student</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">student</span><span class="p">.</span><span class="nx">score</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">score</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">score</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-</code></pre></div></div>
-
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16fea4d0-e267-45da-945d-16ecd961ea36/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16fea4d0-e267-45da-945d-16ecd961ea36/Untitled.png" /></p>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-27">Console</h6>
+      <p>80, 90, 66, 88</p>
+    </blockquote>
+  </li>
+</ul>
 
 <blockquote>
-  <p>‘자바스크립트 8. 배열 제대로 알고 쓰자. 자바스크립트 배열 개념과 APIs 총정리 | 프론트엔드 개발자 입문편 (JavaScript ES6 ),’ 유튜브 비디오, 32:07, 게시자 ‘드림코딩 by 엘리,’ 2020년 5월 17일, <a href="https://youtu.be/yOdAVDuHUKQ">https://youtu.be/tJieVCgGzhs</a></p>
-
+  <p>출처: ‘자바스크립트 8. 배열 제대로 알고 쓰자. 자바스크립트 배열 개념과 APIs 총정리 | 프론트엔드 개발자 입문편 (JavaScript ES6 ),’ 유튜브 비디오, 32:07, 게시자 ‘드림코딩 by 엘리,’ 2020년 5월 17일, <a href="https://youtu.be/yOdAVDuHUKQ">https://youtu.be/tJieVCgGzhs</a></p>
 </blockquote>
 
 <blockquote>
-  <p>‘자바스크립트 9. 유용한 10가지 배열 함수들. Array APIs 총정리 | 프론트엔드 개발자 입문편 ( JavaScript ES6),’ 유튜브 비디오, 37:13, 게시자 ‘드림코딩 by 엘리,’ 2020년 5월 24일, <a href="https://youtu.be/3CUjtKJ7PJg">https://youtu.be/tJieVCgGzhs</a></p>
-
+  <p>출처: ‘자바스크립트 9. 유용한 10가지 배열 함수들. Array APIs 총정리 | 프론트엔드 개발자 입문편 ( JavaScript ES6),’ 유튜브 비디오, 37:13, 게시자 ‘드림코딩 by 엘리,’ 2020년 5월 24일, <a href="https://youtu.be/3CUjtKJ7PJg">https://youtu.be/tJieVCgGzhs</a></p>
 </blockquote>
 
                 </div>
@@ -873,6 +885,14 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
                         
                         
                         
+                        
+                         <li><a href="/JavaScript-json">JavaScript(8) - JSON</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -894,8 +914,7 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
                         
                         
                         
-                         <li><a href="/JavaScript-function">JavaScript(4) - function</a></li>
-                            
+                        
                             
                             
                             
@@ -935,7 +954,7 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
                 <footer class="read-next-card-footer">
                     <a href="/tag/javascript/">
                         
-                        See all 6 posts →
+                        See all 7 posts →
                         
                     </a>
                 </footer>
@@ -944,6 +963,57 @@ logic이 한 줄이면 <code class="language-plaintext highlighter-rouge">{}</co
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/JavaScript-json">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/JavaScript-json">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">JavaScript(8) - JSON</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

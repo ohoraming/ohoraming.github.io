@@ -12,7 +12,7 @@
 
 
 
-    <title>JavaScript(6) - object</title>
+    <title>JavaScript(8) - JSON</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,24 +64,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/JavaScript-object" />
+    <link rel="canonical" href="https://ohoraming.github.io/JavaScript-json" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JavaScript(6) - object" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array ※ 참고: Object - JavaScript | MDN Literals and properties object = { key : value } → key와 value의 집합체 const" />
-    <meta property="og:url" content="https://ohoraming.github.io/JavaScript-object" />
+    <meta property="og:title" content="JavaScript(8) - JSON" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JSON JavaScript Object Notation ECMAScript 3rd 1999 Object { key : value } 에서 영감 받은 data format data를 주고 받을 수" />
+    <meta property="og:url" content="https://ohoraming.github.io/JavaScript-json" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-07-30T02:00:00+09:00" />
-    <meta property="article:modified_time" content="2021-07-30T02:00:00+09:00" />
+    <meta property="article:published_time" content="2021-08-11T16:22:00+09:00" />
+    <meta property="article:modified_time" content="2021-08-11T16:22:00+09:00" />
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JavaScript(6) - object" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array ※ 참고: Object - JavaScript | MDN Literals and properties object = { key : value } → key와 value의 집합체 const" />
+    <meta name="twitter:title" content="JavaScript(8) - JSON" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JSON JavaScript Object Notation ECMAScript 3rd 1999 Object { key : value } 에서 영감 받은 data format data를 주고 받을 수" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -102,7 +102,7 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/JavaScript-object",
+    "url": "https://ohoraming.github.io/JavaScript-json",
     "image": {
         "@type": "ImageObject",
         "url": "https://ohoraming.github.io/assets/built/images/javascript-logo.png",
@@ -111,9 +111,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/JavaScript-object"
+        "@id": "https://ohoraming.github.io/JavaScript-json"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array ※ 참고: Object - JavaScript | MDN Literals and properties object = { key : value } → key와 value의 집합체 const"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JSON JavaScript Object Notation ECMAScript 3rd 1999 Object { key : value } 에서 영감 받은 data format data를 주고 받을 수"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="JavaScript(6) - object" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="JavaScript(8) - JSON" href="/feed.xml" />
 
 
 </head>
@@ -187,7 +187,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="30 July 2021">30 July 2021</time>
+                    <time class="post-full-meta-date" datetime="11 August 2021">11 August 2021</time>
                     
                     <span class="date-divider">/</span>
                     
@@ -197,7 +197,7 @@ into the {body} of the default.hbs template -->
                     
                     
                 </section>
-                <h1 class="post-full-title">JavaScript(6) - object</h1>
+                <h1 class="post-full-title">JavaScript(8) - JSON</h1>
             </header>
 
             <!-- 
@@ -221,155 +221,181 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-array">JavaScript(7) - array</a></li>
 </ul>
 
-<p>※ 참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object - JavaScript | MDN</a></p>
+<h1 id="json">JSON</h1>
 
-<h1 id="literals-and-properties">Literals and properties</h1>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">object = { key : value }</code><br />
-  → key와 value의 집합체
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 'object literal' syntax</span>
-<span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span> <span class="c1">// 'object consrtuctor' syntax</span>
-<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">};</span>
-</code></pre></div>    </div>
-  </li>
-  <li>object literal syntax :  <code class="language-plaintext highlighter-rouge">{ }</code> curly braces를 사용해서 생성</li>
-  <li>object constructor syntax : <code class="language-plaintext highlighter-rouge">new</code> keyword를 사용해서 생성</li>
-  <li>{ } 안에 내용을 입력해서 생성</li>
+  <li><strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
+  <li>ECMAScript 3rd 1999 <code class="language-plaintext highlighter-rouge">Object { key : value }</code> 에서 영감 받은 data format</li>
+  <li><strong>data를 주고 받을 수 있는</strong> 가장 간단한 file format</li>
+  <li>text를 기반으로 해서 <strong>가벼움</strong></li>
+  <li><strong>읽기 쉬움</strong></li>
+  <li><strong>key와 value</strong>로 이루어진 file format</li>
+  <li>서버와 data를 주고 받을 때, <strong>data의 serialization과 전송</strong>을 위해 사용</li>
+  <li>프로그래밍 언어와 플랫폼에 상관 없이 사용 가능</li>
 </ul>
 
-<h1 id="computed-properties">Computed properties</h1>
+<h2 id="parse">parse();</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">reviver</span><span class="p">?:</span> <span class="p">(</span><span class="k">this</span><span class="p">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">key</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">any</span><span class="p">;</span>
+</code></pre></div></div>
 <ul>
-  <li>perperty에 접근할 때(일반적으로 coding을 할 때)는 <code class="language-plaintext highlighter-rouge">.</code> 을 사용함</li>
-  <li>실시간으로(동적으로)  원하는 key의 값을 받아오고 싶을 때는 <code class="language-plaintext highlighter-rouge">[]</code> 을 사용함</li>
+  <li><strong>string data</strong>를 받아 <strong>object type으로 변환</strong>함</li>
+  <li>optional type의 reviver이라는 callbackfn을 이용하면 보다 세밀한 조건을 적용해 data를 object로 바꿀 수 있음</li>
 </ul>
 
-<p>※ <strong>key</strong>는 반드시 <strong>string type</strong>으로 설정해야 함!</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">[</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]);</span>
+<h2 id="stringify">stringify();</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">stringify</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">replacer</span><span class="p">?:</span> <span class="p">(</span><span class="k">this</span><span class="p">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">key</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">space</span><span class="p">?:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span><span class="p">;</span>
 </code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="minji">minji</h6>
-  <h6 id="minji-1">minji</h6>
-</blockquote>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h1 id="property-value-shorthand">Property value shorthand</h1>
 <ul>
-  <li>반복되는 object를 생성할 때는 <strong>constructor function</strong>을 사용함</li>
+  <li><strong>object</strong>를 받아 <strong>string으로 변환</strong>함</li>
+  <li>optional type의 replacer이라는 callbackfn을 이용하면 보다 세밀한 조건을 적용해 object를 string으로 바꿀 수 있음</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">2</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">person2</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Steve</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">person3</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dave</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">};</span>
+<h1 id="object-to-json">Object to JSON</h1>
+<h2 id="stringifyobj">stringify(obj)</h2>
+<ol>
+  <li>
+    <p><strong>boolean / array를 JSON으로</strong> 변환</p>
 
-<span class="c1">// Constructor function</span>
-<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// this = {};</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="c1">// return this;</span>
-<span class="p">}</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// boolean to JSON</span>
+ <span class="kd">let</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> 
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">person4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person4</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="person-name-minji-age-5">person {name: “minji”, age: 5}</h6>
-</blockquote>
-
-<h1 id="in-operator">in operator</h1>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">in</code> keyword를 이용해 해당 object 내에 key가 존재하는 지 확인함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">age</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">random</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// false</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">random</span><span class="p">);</span> <span class="c1">// undefined</span>
+ <span class="c1">// array to JSON</span>
+ <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">([</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">banana</span><span class="dl">'</span><span class="p">]);</span> 
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
 </code></pre></div>    </div>
     <blockquote>
-      <p><strong>Console</strong></p>
-      <h6 id="true">true</h6>
-      <h6 id="true-1">true</h6>
-      <h6 id="false">false</h6>
-      <h6 id="undefined">undefined</h6>
+      <h6 id="console">Console</h6>
+      <p>true
+[“apple”, “banana”]</p>
+    </blockquote>
+
+    <p>※ array의 경우, <code class="language-plaintext highlighter-rouge">["  "]</code> 형태로 출력</p>
+  </li>
+  <li>
+    <p><strong>object를 JSON으로</strong> 변환</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// object to JSON</span>
+ <span class="kd">const</span> <span class="nx">rabbit</span> <span class="o">=</span> <span class="p">{</span> 
+     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">tokki</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">size</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+     <span class="na">birthDate</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+     <span class="na">symbol</span><span class="p">:</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">),</span> 
+     <span class="na">jump</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> can jump!`</span><span class="p">);</span>
+     <span class="p">},</span>
+ <span class="p">};</span>
+
+ <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <h6 id="console-1">Console</h6>
+      <h6 id="nametokkicolorwhitesizenullbirthdate2021-08-11t081116785z">{“name”:”tokki”,”color”:”white”,”size”:null,”birthDate”:”2021-08-11T08:11:16.785Z”}</h6>
+    </blockquote>
+
+    <p>※ console에서 null은 출력되지만, Symbol과 function은 누락됨.<br />
+ 즉, JSON으로 변환 불가!</p>
+
+    <p>⇒ boolean, array, object는 JSON으로 변환(serialize)가능<br />
+ Symbol이나 함수는 JSON으로 변환 불가</p>
+  </li>
+  <li>
+    <p>(array 형태 callbackfn 사용) <strong>원하는 property를 JSON으로</strong> 변환</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">,</span> <span class="p">[</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">color</span><span class="dl">'</span><span class="p">]);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-2">Console</h6>
+      <h6 id="nametokkicolorwhite">{“name”:”tokki”,”color”:”white”}</h6>
+    </blockquote>
+  </li>
+  <li>
+    <p>(함수 형태 callbackfn 사용) <strong>property를 JSON으로 변환 + 조건</strong> 추가</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">,</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`key: </span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">, value: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+     <span class="k">return</span> <span class="nx">key</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span> <span class="p">:</span> <span class="nx">value</span><span class="p">;</span> <span class="c1">// 조건 추가</span>
+ <span class="p">});</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-3">Console</h6>
+      <h6 id="key--value-object-object">key: , value: [object Object]</h6>
+      <h6 id="key-name-value-tokki">key: name, value: tokki</h6>
+      <h6 id="key-color-value-white">key: color, value: white</h6>
+      <h6 id="key-size-value-null">key: size, value: null</h6>
+      <h6 id="key-birthdate-value-2021-08-11t081116785z">key: birthDate, value: 2021-08-11T08:11:16.785Z</h6>
+      <h6 id="key-jump-value---consolelogthisname-can-jump">key: jump, value: () =&gt; {console.log(<code class="language-plaintext highlighter-rouge">${this.name} can jump!</code>);}</h6>
+      <h6 id="nameminjicolorwhitesizenullbirthdate2021-08-11t081116785z">{“name”:”minji”,”color”:”white”,”size”:null,”birthDate”:”2021-08-11T08:11:16.785Z”}</h6>
+    </blockquote>
+  </li>
+</ol>
+
+<h1 id="json-to-object">JSON to Object</h1>
+<h2 id="parsejson">parse(json)</h2>
+<ul>
+  <li>
+    <p>object를 JSON으로 변환하면 <strong>string type</strong>이 됨</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">json</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-4">Console</h6>
+      <h6 id="nametokkicolorwhitesizenullbirthdate2021-08-11t081116785z-1">{“name”:”tokki”,”color”:”white”,”size”:null,”birthDate”:”2021-08-11T08:11:16.785Z”}</h6>
+      <h6 id="string">string</h6>
     </blockquote>
   </li>
 </ul>
 
-<h1 id="forin-vs-forof">for…in vs. for…of</h1>
+<p>※주의※<br />
+JSON을 다시 object로 만들 때 역시 <strong>함수가 포함되지 않는다!</strong><br />
+(serialize 할 때(object to JSON), 함수는 포함되지 않았음)</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">rabbit</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">birthDate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">());</span> <span class="c1">// error!</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-5">Console</h6>
+  <h6 id="nametokkicolorwhitesizenullbirthdate2021-08-11t081116785z-2">{“name”:”tokki”,”color”:”white”,”size”:null,”birthDate”:”2021-08-11T08:11:16.785Z”}</h6>
+</blockquote>
+
+<p>※ object의 birthDate에 있던 <code class="language-plaintext highlighter-rouge">Date()</code>는 JSON으로 바뀌면서 string type이 되어 더이상 <code class="language-plaintext highlighter-rouge">getDate();</code>를 호출할 수 없게 됨</p>
+
 <ul>
-  <li>특정 object 안의 <strong>key</strong>들을 모두 받아오려고 할 때, <code class="language-plaintext highlighter-rouge">in</code> 을 사용함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
-<span class="p">}</span>
+  <li>
+    <p><strong>callbackfn을 이용</strong>해 object를 유의미하게 사용하기</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`key: </span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">, value: </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">key</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">birthDate</span><span class="dl">'</span> <span class="p">?</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">:</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">birthDate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">());</span>
 </code></pre></div>    </div>
-    <blockquote>
-      <p><strong>Console</strong></p>
-      <h6 id="name">name</h6>
-      <h6 id="age">age</h6>
-    </blockquote>
-  </li>
-  <li><strong>array나 list</strong>와 같은 data를 <strong>순차적으로</strong> 계산하거나 출력하려고 할 때, <code class="language-plaintext highlighter-rouge">of</code> 를 사용함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">value</span> <span class="k">of</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-<span class="p">}</span> 
-</code></pre></div>    </div>
-    <blockquote>
-      <p><strong>Console</strong></p>
-      <h6 id="1">1</h6>
-      <h6 id="2">2</h6>
-      <h6 id="4">4</h6>
-      <h6 id="5">5</h6>
-    </blockquote>
   </li>
 </ul>
 
-<p>※ <strong>새로운 함수나 API를 쓰기 전에는 항상 parameter와 return값을 숙지할 것!</strong></p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d21d7539-2acb-4923-a4b4-fa5eff438ea9/Untitled.png" alt="Untitled" /></p>
 
-<p><code class="language-plaintext highlighter-rouge">Object.assign();</code><br />
-참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() - Java Script | MDN</a><br />
-→ 복사하고자 하는 target과 원문인 source를 parameter로 전달하면, 이 둘을 합쳐 return함</p>
+<p>tip) 유용한 사이트:
+JSON Diff checker: <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbU4zZUF6NjR5RlY2eXk2cDYxVXpteVpwdXRPQXxBQ3Jtc0tsdGFqaWdPcWRCTnk3S2NYU29UWWNOZ2JITHpESE9JT3ZMVk1WYjcwZkZ0c296ejBHMjFlV0NzcVh3bGphekdPTXp0RmVhZzlDWmRYNXZlc3ZnZ0pfMU1hdVRZbUs2dk5IOFRWZk9Bb0JPTnVKMmptVQ&amp;q=http%3A%2F%2Fwww.jsondiff.com%2F">http://www.jsondiff.com/</a></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">user4</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 비어있는 target 생성</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">user4</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
-<span class="c1">// 또는</span>
-<span class="kd">const</span> <span class="nx">user4</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">user</span><span class="p">);</span>
+<p>JSON Beautifier/editor: <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbkJtdklzUFZJU1RVbTZobXFWYnp4dmljM3VrQXxBQ3Jtc0tuZHB6QjV6OE95eWd3aUtFbl84TDEyRGtnb2ExMmI2UldWNXYya3JLQTBNQTFwaWN2YmN1Qk4xZEZNTU1kRXNJN2hfV3c0OWxnWGNPZ3Q0ZEZ4Z0d0NjVWbS1GdnBVYzBWRlNrV002bW1JRkJuc3BoNA&amp;q=https%3A%2F%2Fjsonbeautifier.org%2F">https://jsonbeautifier.org/</a> 정렬이 어그러진 JSON파일을 읽기 쉽게 정렬해줌</p>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user4</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="name-minji-age-20">{name: “minji”, age: “20”}</h6>
-</blockquote>
+<p>JSON Parser: <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbE02M1YySllLSVQwQ3VwX091OGxSWUNzWVZwZ3xBQ3Jtc0trTGQwTGhBdE5qaTZ2aHUzWWFFY1F6eGhNMjRud1NRMkx4MDJqOXAxSDMtc0JEMGlleWlxWEVlOVA3eFJRMW5sT2hlZkdUbWg0VHJ3UDBWOEhyeGs2bnllWWNsdGd3LXk4UDZkUk5IdnA3YWdweEFfOA&amp;q=https%3A%2F%2Fjsonparser.org%2F">https://jsonparser.org/</a> JSON을 object type으로 변환시켜 보여줌</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruit1</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">fruit2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">small</span><span class="dl">'</span> <span class="p">};</span>
-<span class="kd">const</span> <span class="nx">fruit3</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">mixed1</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">mixed2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">,</span> <span class="nx">fruit3</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed1</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// yellow</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// green</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// small</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="yellow">yellow</h6>
-  <h6 id="green">green</h6>
-  <h6 id="small">small</h6>
-</blockquote>
-
-<p>※ <strong>주의!</strong> ※<br />
-<code class="language-plaintext highlighter-rouge">assign&lt;T, U, V&gt;(target: T, source1: U, source2: V): T &amp; U &amp; V;</code> 를 적용할 때,<br />
-나중에 나오는 source2는 먼저 있던 source1의 내용을 <strong>덮어 쓰게 됨</strong></p>
+<p>JSON Validator: <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqa3V5U29nYXVoN2lMMk1iQU13TW1IQXBZZWlFZ3xBQ3Jtc0ttUFUxaU8tSDVLdmZ2TFcwdVBDMm9BUVlZb0M2dTRCOFdEVUFQWmFZREpGRVBTZ0s5VjBWaDBuZmsyY21wX1d0cVpOd0huY3p2Nzd5b3JvelFtblhfR21rWGpZWmRJV012enhtSmdkVDc5ZTRtYUN4RQ&amp;q=https%3A%2F%2Ftools.learningcontainer.com%2Fjson-validator%2F">https://tools.learningcontainer.com/j…</a> JSON data 유효성 검사기</p>
 
 <blockquote>
-  <p>출처: “자바스크립트 7. 오브젝트 넌 뭐니? | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 23:03, 게시자 “드림코딩 by 엘리,” 2020년 5월 6일, <a href="https://youtu.be/1Lbr29tzAA8">https://youtu.be/tJieVCgGzhs</a></p>
+  <p>출처: “자바스크립트 10. JSON 개념 정리 와 활용방법 및 유용한 사이트 공유 JavaScript JSON | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 22:36, 게시자 “드림코딩 by 엘리,” 2020년 5월 31일, <a href="https://youtu.be/FN_D4Ihs3LE">https://youtu.be/tJieVCgGzhs</a></p>
 </blockquote>
 
                 </div>
@@ -434,9 +460,9 @@ into the {body} of the default.hbs template -->
                 <div id="disqus_thread"></div>
                 <script>
                     var disqus_config = function () {
-                        var this_page_url = 'https://ohoraming.github.io/JavaScript-object';
-                        var this_page_identifier = '/JavaScript-object';
-                        var this_page_title = 'JavaScript(6) - object';
+                        var this_page_url = 'https://ohoraming.github.io/JavaScript-json';
+                        var this_page_identifier = '/JavaScript-json';
+                        var this_page_title = 'JavaScript(8) - JSON';
                     };
                     (function () {
                         var d = document, s = d.createElement('script');
@@ -478,10 +504,6 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                        
-                         <li><a href="/JavaScript-json">JavaScript(8) - JSON</a></li>
-                            
-                            
                             
                             
                         
@@ -494,6 +516,10 @@ into the {body} of the default.hbs template -->
                             
                         
                         
+                        
+                         <li><a href="/JavaScript-object">JavaScript(6) - object</a></li>
+                            
+                            
                             
                             
                         
@@ -557,6 +583,9 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
             
 
     <article class="post-card post-template">
@@ -600,61 +629,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      7 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/JavaScript-classObject">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/JavaScript-classObject">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Javascript</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">JavaScript(5) - class vs. object</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      2 min read
+                      6 min read
                     
                 </span>
             </footer>
@@ -676,18 +651,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">JavaScript(6) - object</div>
+    <div class="floating-header-title">JavaScript(8) - JSON</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%286%29+-+object&amp;url=https://ohoraming.github.io/JavaScript-object"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%288%29+-+JSON&amp;url=https://ohoraming.github.io/JavaScript-json"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/JavaScript-object"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/JavaScript-json"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/JavaScript-json.html</loc>
+        
+        <lastmod>2021-08-11T16:22:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/JavaScript-array.html</loc>
         
         <lastmod>2021-07-30T02:00:00+09:00</lastmod>
