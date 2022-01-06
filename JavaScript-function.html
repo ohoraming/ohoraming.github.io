@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(4) - function" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Function 구조 function key word를 사용함 전달받을 값은 ()안에 기입함 함수 안에서 동작할 코드는 {}(code block)" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-function" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(4) - function" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Function 구조 function key word를 사용함 전달받을 값은 ()안에 기입함 함수 안에서 동작할 코드는 {}(code block)" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-function"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON Function 특징 program을 구성하는 기본적인 building block subprogram이라 불리며 여러 번 재사용이 가능함 한 가지의 일을 하거나, 값을 계산하기"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Function 구조 function key word를 사용함 전달받을 값은 ()안에 기입함 함수 안에서 동작할 코드는 {}(code block)"
 }
     </script>
 
@@ -220,47 +220,73 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-object">JavaScript(6) - object</a></li>
     <li><a href="./JavaScript-array">JavaScript(7) - array</a></li>
     <li><a href="./JavaScript-json">JavaScript(8) - JSON</a></li>
+    <li><a href="./JavaScript-callback">JavaScript(9) - callback</a></li>
 </ul>
 
 <h1 id="function">Function</h1>
-
 <ul>
-  <li>특징
-    <ol>
-      <li>program을 구성하는 기본적인 building block</li>
-      <li>subprogram이라 불리며 여러 번 재사용이 가능함</li>
-      <li>한 가지의 일을 하거나, 값을 계산하기 위해 사용됨</li>
-    </ol>
-  </li>
   <li>구조
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">name</span> <span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">logic</span><span class="p">...</span>
-  <span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>    </div>
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">function</code> <strong>key word</strong>를 사용함</li>
+      <li><strong>전달받을 값</strong>은 <code class="language-plaintext highlighter-rouge">()</code>안에 기입함</li>
+      <li>함수 안에서 <strong>동작할 코드</strong>는 <code class="language-plaintext highlighter-rouge">{}</code>(code block) 안에 작성
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">name</span> <span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">logic</span><span class="p">...</span>
+     <span class="k">return</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
   </li>
   <li>규칙
     <ol>
-      <li>하나의 함수는 하나의 일을 하도록 만들어야 함</li>
+      <li><strong>하나의 함수</strong>는 <strong>하나의 일</strong>을 하도록 만들어야 함</li>
       <li><strong>doSomething</strong>, <strong>command</strong>, <strong>verb</strong> 형태로 명명</li>
-      <li>JS에서 함수는 object임</li>
+      <li>JS에서 함수는 <strong><em>object</em></strong></li>
+    </ol>
+
+    <p><strong><em>cf.) First-class function</em></strong><br />
+          → variable에 할당 가능<br />
+          → 다른 함수의 parameter로 전달이 가능<br />
+          → return 값으로 지정 가능</p>
+  </li>
+  <li>함수의 종류
+    <ol>
+      <li>
+        <p>특정 <strong>기능을 수행</strong>하는 함수</p>
+
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello!</span><span class="dl">'</span><span class="p">);</span>
+ <span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>계산을 수행한 뒤 특정 <strong>값을 전달</strong>하는 함수</p>
+
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+     <span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+     <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>특징
+    <ol>
+      <li>program을 구성하는 기본적인 <strong>building block</strong></li>
+      <li>subprogram이라 불리며 여러 번 <strong>재사용이 가능</strong>함</li>
+      <li>한 가지의 <strong>일(=기능 수행)</strong>을 하거나, <strong>값을 계산/전달</strong>하기 위해 사용</li>
     </ol>
   </li>
 </ul>
 
-<p><strong><em>cf.) First-class function</em></strong><br />
-        → variable에 할당 가능<br />
-        → 다른 함수의 parameter로 전달이 가능<br />
-        → return 값으로 지정 가능</p>
-
-<h1 id="function-declaration">Function declaration</h1>
-
+<h1 id="function-declaration-함수-선언">Function declaration [함수 선언]</h1>
 <ul>
   <li><strong>hoist 가능</strong>: 함수가 선언되기 전에 호출이 가능함<br />
   (※ <strong><em>hoisting</em></strong>: 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림)</li>
 </ul>
 
-<p>※ JS에서는 parameter type과 return type을 명시하지 않음<br />
+<p>※ 다른 언어와 다르게, JS에서는 <strong>parameter type</strong>과 <strong>return type</strong>을 명시하지 않음<br />
     ⇒ <strong>TypeScript</strong>로 보완</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// javascript 코드</span>
@@ -269,7 +295,6 @@ into the {body} of the default.hbs template -->
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// typescript 코드</span>
 <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
@@ -279,9 +304,9 @@ into the {body} of the default.hbs template -->
 
 <p>※참고: <a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAGzgcwBQFsCmBnPAQzRwC5E8oAnGMNASnLBCwCMcrEBvAKEX8QQEeOMhwA6VJlwFiOegG4+AqjiggqSAAxKAvkA">TS Playground - An online editor for exploring TypeScript and JavaScript</a></p>
 
-<h1 id="function-expression">Function expression</h1>
+<h1 id="function-expression-함수-표현">Function expression [함수 표현]</h1>
 <ul>
-  <li>변수에 할당된 다음부터 호출이 가능함 (hoist 불가)
+  <li><strong>hoist 불가</strong>: 변수에 할당된 다음부터 호출이 가능함
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// annonymous function</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">print</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
@@ -596,6 +621,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                         <li><a href="/JavaScript-callback">JavaScript(9) - callback</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
                          <li><a href="/JavaScript-json">JavaScript(8) - JSON</a></li>
                             
                             
@@ -612,8 +645,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/JavaScript-object">JavaScript(6) - object</a></li>
-                            
+                        
                             
                             
                             
@@ -664,7 +696,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/javascript/">
                         
-                        See all 7 posts →
+                        See all 8 posts →
                         
                     </a>
                 </footer>

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-05T23:22:15+09:00</updated>
+  <updated>2022-01-06T23:07:17+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -32,6 +32,68 @@
 
   
     <entry>
+      <title type="html">JavaScript(9) - callback</title>
+      <link href="https://ohoraming.github.io/JavaScript-callback" rel="alternate" type="text/html" title="JavaScript(9) - callback" />
+      <published>2021-08-12T17:16:00+09:00</published>
+      <updated>2021-08-12T17:16:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-callback</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-callback">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;synchronous-vs-asynchronous&quot;&gt;synchronous vs. asynchronous&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;JavaScript는 synchronous(동기적)&lt;br /&gt;
+&lt;strong&gt;hoisting&lt;/strong&gt;이 된 순간, 순서에 맞추어 코드가 실행됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;hoisting&lt;/strong&gt;&lt;br /&gt;
+→ var, function declararion이 선언 지점과 상관 없이 JS engine에 의해 최상단으로 끌어올려짐&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“자바스크립트 11. 비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 21:15, 게시자 “드림코딩 by 엘리,” 2020년 6월 9일, &lt;a href=&quot;https://youtu.be/s1vpVCrT8f4&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">JavaScript(8) - JSON</title>
       <link href="https://ohoraming.github.io/JavaScript-json" rel="alternate" type="text/html" title="JavaScript(8) - JSON" />
       <published>2021-08-11T16:22:00+09:00</published>
@@ -50,6 +112,7 @@
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;json&quot;&gt;JSON&lt;/h1&gt;
@@ -281,6 +344,7 @@ JSON을 다시 object로 만들 때 역시 &lt;strong&gt;함수가 포함되지 
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;※ 참고: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&quot;&gt;Object - JavaScript | MDN&lt;/a&gt;&lt;/p&gt;
@@ -479,6 +543,7 @@ JSON을 다시 object로 만들 때 역시 &lt;strong&gt;함수가 포함되지 
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;declaration&quot;&gt;Declaration&lt;/h1&gt;
@@ -1084,6 +1149,7 @@ orange&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;class&quot;&gt;Class&lt;/h1&gt;
@@ -1367,47 +1433,73 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;function&quot;&gt;Function&lt;/h1&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;특징
-    &lt;ol&gt;
-      &lt;li&gt;program을 구성하는 기본적인 building block&lt;/li&gt;
-      &lt;li&gt;subprogram이라 불리며 여러 번 재사용이 가능함&lt;/li&gt;
-      &lt;li&gt;한 가지의 일을 하거나, 값을 계산하기 위해 사용됨&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
   &lt;li&gt;구조
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;param2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;logic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;function&lt;/code&gt; &lt;strong&gt;key word&lt;/strong&gt;를 사용함&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;전달받을 값&lt;/strong&gt;은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;()&lt;/code&gt;안에 기입함&lt;/li&gt;
+      &lt;li&gt;함수 안에서 &lt;strong&gt;동작할 코드&lt;/strong&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{}&lt;/code&gt;(code block) 안에 작성
+        &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;param2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;logic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;규칙
     &lt;ol&gt;
-      &lt;li&gt;하나의 함수는 하나의 일을 하도록 만들어야 함&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;하나의 함수&lt;/strong&gt;는 &lt;strong&gt;하나의 일&lt;/strong&gt;을 하도록 만들어야 함&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;doSomething&lt;/strong&gt;, &lt;strong&gt;command&lt;/strong&gt;, &lt;strong&gt;verb&lt;/strong&gt; 형태로 명명&lt;/li&gt;
-      &lt;li&gt;JS에서 함수는 object임&lt;/li&gt;
+      &lt;li&gt;JS에서 함수는 &lt;strong&gt;&lt;em&gt;object&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;cf.) First-class function&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+          → variable에 할당 가능&lt;br /&gt;
+          → 다른 함수의 parameter로 전달이 가능&lt;br /&gt;
+          → return 값으로 지정 가능&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수의 종류
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;특정 &lt;strong&gt;기능을 수행&lt;/strong&gt;하는 함수&lt;/p&gt;
+
+        &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;계산을 수행한 뒤 특정 &lt;strong&gt;값을 전달&lt;/strong&gt;하는 함수&lt;/p&gt;
+
+        &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;특징
+    &lt;ol&gt;
+      &lt;li&gt;program을 구성하는 기본적인 &lt;strong&gt;building block&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;subprogram이라 불리며 여러 번 &lt;strong&gt;재사용이 가능&lt;/strong&gt;함&lt;/li&gt;
+      &lt;li&gt;한 가지의 &lt;strong&gt;일(=기능 수행)&lt;/strong&gt;을 하거나, &lt;strong&gt;값을 계산/전달&lt;/strong&gt;하기 위해 사용&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;cf.) First-class function&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-        → variable에 할당 가능&lt;br /&gt;
-        → 다른 함수의 parameter로 전달이 가능&lt;br /&gt;
-        → return 값으로 지정 가능&lt;/p&gt;
-
-&lt;h1 id=&quot;function-declaration&quot;&gt;Function declaration&lt;/h1&gt;
-
+&lt;h1 id=&quot;function-declaration-함수-선언&quot;&gt;Function declaration [함수 선언]&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;hoist 가능&lt;/strong&gt;: 함수가 선언되기 전에 호출이 가능함&lt;br /&gt;
   (※ &lt;strong&gt;&lt;em&gt;hoisting&lt;/em&gt;&lt;/strong&gt;: 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;※ JS에서는 parameter type과 return type을 명시하지 않음&lt;br /&gt;
+&lt;p&gt;※ 다른 언어와 다르게, JS에서는 &lt;strong&gt;parameter type&lt;/strong&gt;과 &lt;strong&gt;return type&lt;/strong&gt;을 명시하지 않음&lt;br /&gt;
     ⇒ &lt;strong&gt;TypeScript&lt;/strong&gt;로 보완&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// javascript 코드&lt;/span&gt;
@@ -1416,7 +1508,6 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// typescript 코드&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -1426,9 +1517,9 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
 
 &lt;p&gt;※참고: &lt;a href=&quot;https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAGzgcwBQFsCmBnPAQzRwC5E8oAnGMNASnLBCwCMcrEBvAKEX8QQEeOMhwA6VJlwFiOegG4+AqjiggqSAAxKAvkA&quot;&gt;TS Playground - An online editor for exploring TypeScript and JavaScript&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;function-expression&quot;&gt;Function expression&lt;/h1&gt;
+&lt;h1 id=&quot;function-expression-함수-표현&quot;&gt;Function expression [함수 표현]&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;변수에 할당된 다음부터 호출이 가능함 (hoist 불가)
+  &lt;li&gt;&lt;strong&gt;hoist 불가&lt;/strong&gt;: 변수에 할당된 다음부터 호출이 가능함
     &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// annonymous function&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -1681,6 +1772,7 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;1-string-concatenation&quot;&gt;1. String concatenation&lt;/h1&gt;
@@ -1895,6 +1987,7 @@ console.log(`string literals:
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;1-strict-mode&quot;&gt;1. Strict Mode&lt;/h1&gt;
@@ -2209,6 +2302,7 @@ console.log(`string literals:
     &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-headtag내에서-script-srcmainjsscript-선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &amp;lt;script src=”main.js”&amp;gt;&amp;lt;/script&amp;gt; 선언할 때&lt;/h2&gt;
