@@ -280,7 +280,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h1 id="function-declaration-함수-선언">Function declaration [함수 선언]</h1>
+<h1 id="function-declaration-함수-선언식">Function declaration [함수 선언식]</h1>
 <ul>
   <li><strong>hoist 가능</strong>: 함수가 선언되기 전에 호출이 가능함<br />
   (※ <strong><em>hoisting</em></strong>: 선언 지점과 상관없이, JS engine이 선언을 맨 위로 끌어올림)</li>
@@ -301,33 +301,64 @@ into the {body} of the default.hbs template -->
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
 <p>※참고: <a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAGzgcwBQFsCmBnPAQzRwC5E8oAnGMNASnLBCwCMcrEBvAKEX8QQEeOMhwA6VJlwFiOegG4+AqjiggqSAAxKAvkA">TS Playground - An online editor for exploring TypeScript and JavaScript</a></p>
 
-<h1 id="function-expression-함수-표현">Function expression [함수 표현]</h1>
+<h1 id="function-expression-함수-표현식">Function expression [함수 표현식]</h1>
 <ul>
   <li><strong>hoist 불가</strong>: 변수에 할당된 다음부터 호출이 가능함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// annonymous function</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">print</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">print</span><span class="p">();</span> <span class="c1">// 함수 호출</span>
-<span class="kd">const</span> <span class="nx">printAgain</span> <span class="o">=</span> <span class="nx">print</span><span class="p">;</span>
-<span class="nx">printAgain</span><span class="p">();</span> <span class="c1">// 함수 호출</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// annonymous function</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">print</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
 </code></pre></div>    </div>
   </li>
-  <li>이름 없는 함수 ⇒ <em>annonymous function</em> (cf.) <em>named function</em>)</li>
-  <li><code class="language-plaintext highlighter-rouge">변수();</code> 의 형태로 할당된 함수를 호출할 수 있게 됨</li>
+</ul>
+
+<h1 id="call-a-function-함수-호출">Call a function [함수 호출]</h1>
+<ul>
+  <li>함수를 선언만하고 호출하지 않으면 코드블럭 안의 코드가 실행되지 않음</li>
+  <li>방법
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">함수이름();</code>으로 함수를 <strong>호출</strong>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">print</span><span class="p">();</span> <span class="c1">// 함수 호출</span>
+</code></pre></div>        </div>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">변수();</code>로 할당된 함수를 <strong>호출</strong>
+        <ul>
+          <li>함수를 변수에 할당 가능함</li>
+          <li><strong>‘함수 이름’</strong>만 변수에 할당함 <code class="language-plaintext highlighter-rouge">()</code>없이
+            <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">printAgain</span> <span class="o">=</span> <span class="nx">print</span><span class="p">;</span> <span class="c1">// print함수를 printAgain 변수에 할당</span>
+ <span class="nx">printAgain</span><span class="p">();</span> <span class="c1">// 호출</span>
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h1 id="parameters">Parameters</h1>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">함수 이름</code>을 이용해 함수 자체를 인자로 전달할 수 있음</li>
+  <li>주의: <code class="language-plaintext highlighter-rouge">함수()</code>형태로 쓰면 <strong>안 됨!</strong>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">doAnything</span><span class="p">(</span><span class="nx">add</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// add 함수를 인자로 전달</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">result_add</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result_add</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">doAnything</span><span class="p">(</span><span class="nx">add</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
 <h1 id="default-parameters">Default parameters</h1>
-
 <ul>
   <li>added in <em>ES6</em></li>
-  <li>parameter 옆에 원하는 default값을 지정할 수 있음
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">showMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="k">from</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">unknown</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2"> by </span><span class="p">${</span><span class="k">from</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">showMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi!</span><span class="dl">'</span><span class="p">);</span> 
+  <li>parameter<code class="language-plaintext highlighter-rouge">=</code> 옆에 원하는 default값을 지정할 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">showMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="k">from</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">unknown</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2"> by </span><span class="p">${</span><span class="k">from</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">showMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi!</span><span class="dl">'</span><span class="p">);</span> 
 </code></pre></div>    </div>
     <blockquote>
       <p><strong>Console</strong></p>
@@ -339,22 +370,24 @@ into the {body} of the default.hbs template -->
 <h1 id="rest-parameters">Rest parameters</h1>
 <ul>
   <li>added in ES6</li>
-  <li>parameter 자리에 <code class="language-plaintext highlighter-rouge">...</code> 을 입력하면 <strong>배열 형태로 전달</strong></li>
-</ul>
+  <li>
+    <p>parameter 자리에 <code class="language-plaintext highlighter-rouge">...</code> 을 입력하면 <strong>배열 형태로 전달</strong></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printAll</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">printAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">one</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">two</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">three</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="one">one</h6>
-  <h6 id="two">two</h6>
-  <h6 id="three">three</h6>
-</blockquote>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">printAll</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">printAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">one</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">two</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">three</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="one">one</h6>
+      <h6 id="two">two</h6>
+      <h6 id="three">three</h6>
+    </blockquote>
+  </li>
+</ul>
 
 <p>※ 위의 for문을 보다 <strong>간단</strong>하게 나타내면,</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.</span>
@@ -375,143 +408,152 @@ into the {body} of the default.hbs template -->
   ※ 참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope">Variable scope - JavaScript | MDN</a></li>
     </ul>
   </li>
-</ul>
+  <li><strong><em>밖에서는 안이 보이지 않고, 안에서만 밖을 볼 수 있다!</em></strong>
+    <ul>
+      <li><strong>block 안</strong>에서는 global/local variable에 <strong>접근 가능</strong>,<br />
+  <strong>block 밖</strong>에서는 local variable에 <strong>접근 불가</strong></li>
+      <li>
+        <p>parent/child function에서도 동일하게 적용됨</p>
 
-<p><strong><em>⇒ 밖에서는 안이 보이지 않고, 안에서만 밖을 볼 수 있다!</em></strong></p>
-<ul>
-  <li><strong>block 안</strong>에서는 global/local variable에 접근 가능,<br />
-  <strong>block 밖</strong>에서는 local variable에 접근 불가</li>
-  <li>parent/child function에서도 동일하게 적용됨</li>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">globalMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// global variable</span>
+  <span class="kd">function</span> <span class="nx">printMessage</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// local variable</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalMessage</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">printMessage</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">//error</span>
+</code></pre></div>        </div>
+        <blockquote>
+          <p><strong>Console</strong></p>
+          <h6 id="hello">hello</h6>
+          <h6 id="global">global</h6>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
 </ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">globalMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// global variable</span>
-<span class="kd">function</span> <span class="nx">printMessage</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// local variable</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalMessage</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">printMessage</span><span class="p">();</span>
-<span class="c1">// console.log(message); //error</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="hello">hello</h6>
-  <h6 id="global">global</h6>
-</blockquote>
 
 <h1 id="return-a-value">Return a value</h1>
 <ul>
-  <li>함수 내에서 <code class="language-plaintext highlighter-rouge">return;</code>을 기술하지 않은 경우, <code class="language-plaintext highlighter-rouge">return undefined;</code> 가 생략된 것으로 간주함</li>
+  <li>함수 내에 <code class="language-plaintext highlighter-rouge">return;</code>을 기술하지 않은 경우, <code class="language-plaintext highlighter-rouge">return undefined;</code> 가 생략된 것으로 간주함</li>
 </ul>
 
-<h1 id="tip-early-return-early-exit">📌Tip: Early return, early exit</h1>
+<h1 id="tip-early-return-early-exit">Tip: Early return, early exit</h1>
 <ul>
   <li>조건이 맞지 않을 때는 빨리 return 해서 함수를 종료 시킬 것!</li>
-  <li>필요한 logic들은 그 이후에 작성하는 것이 좋음</li>
+  <li>
+    <p>필요한 logic들은 그 이후에 작성하는 것이 좋음</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// bad</span>
+  <span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// long upgrade logic...</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// good</span>
+  <span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// long upgrade logic...</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// long upgrade logic...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">upgradeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">point</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// long upgrade logic...</span>
-<span class="p">}</span>
-</code></pre></div></div>
 
 <h1 id="callback-function">Callback function</h1>
 <ul>
-  <li>callback function이 parameter로 전달됨</li>
-</ul>
+  <li>
+    <p>callback function이 parameter로 전달됨</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">randomQuiz</span><span class="p">(</span><span class="nx">answer</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">printYes</span><span class="p">();</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">printNo</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// annonymous function</span>
-<span class="kd">const</span> <span class="nx">printYes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">yes!</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">};</span>
-<span class="c1">// named function</span>
-<span class="kd">const</span> <span class="nx">printNo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">no!</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">};</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">randomQuiz</span><span class="p">(</span><span class="nx">answer</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">printYes</span><span class="p">();</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">printNo</span><span class="p">();</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// annonymous function</span>
+  <span class="kd">const</span> <span class="nx">printYes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">yes!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">};</span>
+  <span class="c1">// named function</span>
+  <span class="kd">const</span> <span class="nx">printNo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">no!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">};</span>
 
-<span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">wrong</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
-<span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
-</code></pre></div></div>
+  <span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">wrong</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
+  <span class="nx">randomQuiz</span><span class="p">(</span><span class="dl">'</span><span class="s1">love you</span><span class="dl">'</span><span class="p">,</span> <span class="nx">printYes</span><span class="p">,</span> <span class="nx">printNo</span><span class="p">);</span>
+</code></pre></div>    </div>
 
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="no">no!</h6>
-  <h6 id="yes">yes!</h6>
-</blockquote>
-
-<ul>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="no">no!</h6>
+      <h6 id="yes">yes!</h6>
+    </blockquote>
+  </li>
   <li><strong><em>annonymous function</em></strong>: 이름 없는 함수</li>
   <li>
     <p><strong><em>named function</em></strong>: 이름 있는 함수</p>
 
-    <p>⇒ debugging할 때, stack trace에 함수 이름이 나오게 하기 위함</p>
-
-    <p>⇒ 또는 recursion할 때 사용 ( ※ call stack )</p>
+    <p>⇒ debugging할 때, stack trace에 함수 이름이 나오게 하기 위함
+  ⇒ 또는 recursion할 때 사용 ( ※ call stack )</p>
   </li>
 </ul>
 
 <h1 id="arrow-function">Arrow function</h1>
 <ul>
   <li><strong>항상 annonymous!</strong></li>
-  <li>function 키워드, return 키워드, curly braces를 지운 뒤, 이 둘을 <code class="language-plaintext highlighter-rouge">=&gt;</code> 로 연결</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">function</code> 키워드, <code class="language-plaintext highlighter-rouge">return</code> 키워드, <code class="language-plaintext highlighter-rouge">{}</code>curly braces를 지운 뒤, 이 둘을 <code class="language-plaintext highlighter-rouge">=&gt;</code> 로 연결</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Annonymous function</span>
+  <span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`simplePrint!`</span><span class="p">);</span>    
+  <span class="p">};</span>
+
+  <span class="c1">// Arrow function</span>
+  <span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">simplePrint!</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>함수의 내용이 길어진다면, <strong>block을 설정</strong>하면 됨!<br />
+이때, block을 설정했으므로 반드시 <strong>return 값</strong>을 기입해주어야 함!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">simpleMultiply</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// do something more</span>
+      <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
+  <span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Annonymous function</span>
-<span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`simplePrint!`</span><span class="p">);</span>    
-<span class="p">};</span>
-
-<span class="c1">// Arrow function</span>
-<span class="kd">const</span> <span class="nx">simplePrint</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">simplePrint!</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div></div>
-
-<ul>
-  <li>함수의 내용이 길어진다면, <strong>block을 설정</strong>하면 됨!<br />
-이때, block을 설정했으므로 반드시 <strong>return 값</strong>을 기입해주어야 함!</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">simpleMultiply</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// do something more</span>
-    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div></div>
-
-<h1 id="tip-iife">📌Tip: IIFE</h1>
+<h1 id="iife">IIFE</h1>
 <ul>
   <li><strong>I</strong>mmediately <strong>I</strong>nvoked <strong>F</strong>unction <strong>E</strong>xpression</li>
   <li>함수의 <strong>생성</strong>과 <strong>호출</strong>을 동시에 할 때 사용</li>
-  <li><code class="language-plaintext highlighter-rouge">(function)();</code></li>
-</ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">(function)();</code>형태로 사용</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">IIFE</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">})();</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="iife">IIFE</h6>
-</blockquote>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">IIFE</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">})();</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="iife-1">IIFE</h6>
+    </blockquote>
+  </li>
+</ul>
 
 <blockquote>
   <p>출처: “자바스크립트 5. Arrow Function은 무엇인가? 함수의 선언과 표현 | 프론트엔드 개발자 입문편(JavaScript ES6),” 유튜브 비디오, 25:01, 게시자 “드림코딩 by 엘리,” 2020년 4월 22일, <a href="https://youtu.be/e_lU39U-5bQ">https://youtu.be/tJieVCgGzhs</a></p>
+</blockquote>
+
+<blockquote>
+  <p>출처: “프로그래밍 포기 하지 마세요 (자바스크립트 함수 기본편),” 유튜브 비디오, 17:17, 게시자 “드림코딩 by 엘리,” 2020년 7월 10일, <a href="https://youtu.be/PuG2VW18O1E">https://youtu.be/PuG2VW18O1E</a></p>
 </blockquote>
 
                 </div>

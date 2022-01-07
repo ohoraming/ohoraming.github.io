@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(9) - callback" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback synchronous vs. asynchronous JavaScript는 synchronous(동기적) hoisting이 된 순간, 순서에 맞추어 코드가 실행됨 hoisting → var, function" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Synchronous vs. Asynchronous Synchronous(동기적) JavaScript는 synchronous(동기적) hoisting이 된 이후부터, 코드 작성 순서에 맞추어 동기적으로 실행됨 hoisting이란?" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-callback" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(9) - callback" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback synchronous vs. asynchronous JavaScript는 synchronous(동기적) hoisting이 된 순간, 순서에 맞추어 코드가 실행됨 hoisting → var, function" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Synchronous vs. Asynchronous Synchronous(동기적) JavaScript는 synchronous(동기적) hoisting이 된 이후부터, 코드 작성 순서에 맞추어 동기적으로 실행됨 hoisting이란?" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-callback"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback synchronous vs. asynchronous JavaScript는 synchronous(동기적) hoisting이 된 순간, 순서에 맞추어 코드가 실행됨 hoisting → var, function"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback Synchronous vs. Asynchronous Synchronous(동기적) JavaScript는 synchronous(동기적) hoisting이 된 이후부터, 코드 작성 순서에 맞추어 동기적으로 실행됨 hoisting이란?"
 }
     </script>
 
@@ -223,14 +223,185 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-callback">JavaScript(9) - callback</a></li>
 </ul>
 
-<h1 id="synchronous-vs-asynchronous">synchronous vs. asynchronous</h1>
+<h1 id="synchronous-vs-asynchronous">Synchronous vs. Asynchronous</h1>
+
+<h2 id="synchronous동기적">Synchronous(동기적)</h2>
 <ul>
-  <li>JavaScript는 synchronous(동기적)<br />
-<strong>hoisting</strong>이 된 순간, 순서에 맞추어 코드가 실행됨</li>
+  <li>JavaScript는 synchronous(동기적)
+    <ul>
+      <li><strong>hoisting</strong>이 된 이후부터, 코드 작성 순서에 맞추어 동기적으로 실행됨</li>
+      <li><strong>hoisting</strong>이란?<br />
+  <code class="language-plaintext highlighter-rouge">var</code>, <code class="language-plaintext highlighter-rouge">function declararion</code> 은 선언 지점과 상관 없이 JS engine에 의해 문서의 최상단으로 끌어올려짐</li>
+    </ul>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console">Console</h6>
+      <p>1<br />
+2<br />
+3</p>
+    </blockquote>
+  </li>
 </ul>
 
-<p><strong>hoisting</strong><br />
-→ var, function declararion이 선언 지점과 상관 없이 JS engine에 의해 최상단으로 끌어올려짐</p>
+<h2 id="asynchronous-비동기적">Asynchronous (비동기적)</h2>
+<ul>
+  <li>언제 코드가 실행될 지 예측 불가<br />
+  e.g.) <code class="language-plaintext highlighter-rouge">setTimeout()</code>: 지정한 시간이 지나면 전달한 callback fn을 호출함
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">handler</span><span class="p">:</span> <span class="nx">TimerHandler</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">?:</span> <span class="nx">number</span><span class="p">,</span> <span class="p">...</span><span class="nx">arguments</span><span class="p">:</span> <span class="nx">any</span><span class="p">[]):</span> <span class="nx">number</span>
+</code></pre></div>    </div>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>코드를 순차적으로 읽어감</p>
+
+    <p>→ <code class="language-plaintext highlighter-rouge">console.log(’1’);</code> 실행<br />
+  → <code class="language-plaintext highlighter-rouge">setTimeout()</code> 을 만나 1000ms(=1sec) 뒤 callback fn 실행 요청<br />
+  → <code class="language-plaintext highlighter-rouge">console.log(’3’)</code> 실행<br />
+  → 1초 뒤 <code class="language-plaintext highlighter-rouge">console.log(’2’)</code> 실행</p>
+  </li>
+</ul>
+
+<p>(tip) 위의 callback fn는 <strong>arrow fn</strong>으로 바꿔 쓸 수 있음</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="callback-fn">Callback fn</h1>
+<ul>
+  <li>나중에 다시(back) 부르는(call) 함수</li>
+  <li><strong>synchronous</strong>와 <strong>asynchronous</strong> 두 가지가 존재함</li>
+</ul>
+
+<h2 id="synchronous-callback">Synchronous callback</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printImmediately</span><span class="p">(</span><span class="nx">print</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nx">printImmediately</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="asynchronous-callback">Asynchronous callback</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printWithDelay</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">printWithDelay</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">async callback</span><span class="dl">'</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="result">Result</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Synchronous callback</span>
+<span class="kd">function</span> <span class="nx">printImmediately</span><span class="p">(</span><span class="nx">print</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nx">printImmediately</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">));</span>
+
+<span class="c1">// Asynchronous callback</span>
+<span class="kd">function</span> <span class="nx">printWithDelay</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">printWithDelay</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">async callback</span><span class="dl">'</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>코드 실행순으로 코드 나열을 다시 해보면,</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">printImmediately</span><span class="p">(</span><span class="nx">print</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// hoisting</span>
+      <span class="nx">print</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">printWithDelay</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// hoisting</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">print</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 동기</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// 비동기</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 동기</span>
+  <span class="nx">printImmediately</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// 동기</span>
+  <span class="nx">printWithDelay</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">async callback</span><span class="dl">'</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span> <span class="c1">// 비동기</span>
+</code></pre></div>    </div>
+
+    <p>function declaration은 hoist되므로 코드 최상단으로 끌어올려짐<br />
+  <code class="language-plaintext highlighter-rouge">function printImmediately</code>와 <code class="language-plaintext highlighter-rouge">function printWithDelay</code>가 상단으로 이동<br />
+  이후 코드들을 순서대로 실행함<br />
+  ‘1 → 3 → hello → 2 → async callback’ 순으로 console이 찍힘</p>
+  </li>
+</ul>
+
+<h1 id="callback-hell-example">Callback hell example</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">UserStorage</span> <span class="p">{</span>
+    <span class="nx">loginUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">,</span> <span class="nx">onError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">((</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">pass</span><span class="dl">'</span><span class="p">)</span> <span class="o">||</span>
+            <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">someone</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">pass too</span><span class="dl">'</span><span class="p">)</span>
+            <span class="p">)</span> <span class="p">{</span>
+                <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">onError</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">not found</span><span class="dl">'</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">getRoles</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">,</span> <span class="nx">onError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">user</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">onSuccess</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">role</span><span class="p">:</span> <span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span> <span class="p">});</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">onError</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">no access</span><span class="dl">'</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>사용자에게 <code class="language-plaintext highlighter-rouge">id</code>와 <code class="language-plaintext highlighter-rouge">password</code>를 입력 받음</li>
+  <li>서버에 <strong>login</strong></li>
+  <li>login이 성공적이라면 해당 id를 받아와 <strong>role 요청</strong></li>
+  <li>role을 성공적으로 받아오면 <code class="language-plaintext highlighter-rouge">name</code>과 <code class="language-plaintext highlighter-rouge">role</code>이 있는 사용자의 <strong>object를 출력</strong></li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">userStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserStorage</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">enter your id</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">enter your password</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">userStorage</span><span class="p">.</span><span class="nx">loginUser</span><span class="p">(</span>
+    <span class="nx">id</span><span class="p">,</span> 
+    <span class="nx">password</span><span class="p">,</span> 
+    <span class="nx">user</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">userStorage</span><span class="p">.</span><span class="nx">getRoles</span><span class="p">(</span>
+            <span class="nx">user</span><span class="p">,</span>
+            <span class="nx">userWithRole</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="nx">userWithRole</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, you have a </span><span class="p">${</span><span class="nx">userWithRole</span><span class="p">.</span><span class="nx">role</span><span class="p">}</span><span class="s2"> role`</span><span class="p">);</span>
+            <span class="p">},</span> 
+            <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+            <span class="p">}</span> 
+            <span class="p">);</span>
+    <span class="p">},</span> 
+    <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)});</span>
+</code></pre></div></div>
+
+<h3 id="문제점">문제점</h3>
+
+<ol>
+  <li>가독성이 떨어짐</li>
+  <li>error, debugging, 유지 보수가 어려움</li>
+</ol>
 
 <blockquote>
   <p>“자바스크립트 11. 비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 21:15, 게시자 “드림코딩 by 엘리,” 2020년 6월 9일, <a href="https://youtu.be/s1vpVCrT8f4">https://youtu.be/tJieVCgGzhs</a></p>
