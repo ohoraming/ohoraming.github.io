@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(10) - promise" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise JS에서 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의 기능을" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-promise" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(10) - promise" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise JS에서 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의 기능을" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-promise"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise JS에서 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise promise 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object 정해진 장시간의 기능을"
 }
     </script>
 
@@ -226,9 +226,13 @@ into the {body} of the default.hbs template -->
 
 <h1 id="promise">promise</h1>
 <ul>
-  <li>JS에서 비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object</li>
-  <li>정해진 장시간의 기능을 수행 후 정상적으로 기능이 수행이 되었다면 성공 메시지와 처리된 결괏값을 전달해줌</li>
-  <li>만약 기능 수행 중 예상치 못한 문제 발생 시 에러를 전달해줌</li>
+  <li>비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object</li>
+  <li>정해진 장시간의 기능을 수행 후
+    <ul>
+      <li>정상적으로 기능이 수행이 되었다면, <strong>성공 메시지</strong>와 <strong>처리된 결괏값</strong>을 전달해줌</li>
+      <li>만약 기능 수행 중 예상치 못한 문제가 발생하였다면, <strong>에러</strong>를 전달해줌</li>
+    </ul>
+  </li>
 </ul>
 
 <p>포인트</p>
@@ -258,30 +262,203 @@ file을 찾을 수 없거나 네트워크에 문제가 생기면 <strong>rejecte
   원하는 데이터를 소비</li>
 </ul>
 
-<h1 id="1-promise-만들기">(1) Promise 만들기</h1>
+<h1 id="1-producer">1. Producer</h1>
 <ul>
+  <li>Promise 만들기</li>
   <li>class라서 <code class="language-plaintext highlighter-rouge">new</code> 키워드를 이용해 object를 생성할 수 있음</li>
-  <li>
-    <p>promise 생성자를 보면 <code class="language-plaintext highlighter-rouge">executor</code>라는 callback fn을 전달해줘야 하며,<br />
-  이는 <code class="language-plaintext highlighter-rouge">resolve</code> (기능이 정상 수행되어 결괏값을 전달함)와<br />
-  <code class="language-plaintext highlighter-rouge">reject</code> (기능 수행 중 문제가 생기면 호출함)두 callback fn을 받음</p>
+  <li>promise 생성자를 보면 <code class="language-plaintext highlighter-rouge">executor</code>라는 callback fn을 전달해주어야 함
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">executor</code>는 <code class="language-plaintext highlighter-rouge">resolve</code> (기능이 정상 수행되어 결괏값을 전달함)와 <code class="language-plaintext highlighter-rouge">reject</code> (기능 수행 중 문제가 생기면 호출함)두 callback fn으로 구성됨</li>
+    </ul>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nb">Promise</span><span class="p">:</span> <span class="nx">PromiseConstructor</span> <span class="k">new</span> <span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">executor</span><span class="p">:</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span> <span class="nx">reject</span><span class="p">:</span> <span class="p">(</span><span class="nx">reason</span><span class="p">?:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span>
 </code></pre></div>    </div>
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// doing some heavy work(network, read files)</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">doing something...</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">});</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">success!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+  <span class="p">});</span>
 </code></pre></div>    </div>
+    <p>→ 어떤 일을 2000ms(=2sec)정도 하다가 잘 마무리 해서 <code class="language-plaintext highlighter-rouge">resolve</code> (callback fn)를 호출하여 ‘success!’라는 값을 전달하는 Promise</p>
   </li>
-  <li>promise안에서는 다소 heavy한 일을 함<br />
+  <li><strong>promise안에서는 다소 heavy한 일을 함</strong><br />
   네트워크에서 데이터를 받아오거나 파일에서 큰 데이터를 읽어오는 과정은 시간이 꽤 걸림<br />
   이런 과정들을 동기적(synchronous)으로 처리하면 그동안 다음 라인의 코드가 실행되지 않게 됨<br />
   그래서 시간이 좀 걸리는 일들은 Promise를 만들어 비동기적으로 처리하는 것이 좋음</li>
 </ul>
 
-<p>※주의※ <br />
-Promise를 만드는 순간, 우리가 만든 executor(callback fn)가 바로 자동 실행됨</p>
+<p><strong>※주의※</strong> <br />
+<strong>Promise를 만드는 순간,</strong> 우리가 만든 executor(callback fn)가 <strong>바로! 자동 실행</strong>됨</p>
+
+<h1 id="2-consumer">2. Consumer</h1>
+<ul>
+  <li>producer를 사용하는 주체</li>
+  <li><code class="language-plaintext highlighter-rouge">then</code>, <code class="language-plaintext highlighter-rouge">catch</code>, <code class="language-plaintext highlighter-rouge">finally</code> 로 값을 받아옴</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>⇒ 위에서 만든 <code class="language-plaintext highlighter-rouge">promise</code>가 정상적으로 수행이 된다면(<code class="language-plaintext highlighter-rouge">then</code>),  <code class="language-plaintext highlighter-rouge">value</code>라는 parameter를 받아오는 callback fn을 수행하게 됨</p>
+
+<p>※ 여기서 value는 <code class="language-plaintext highlighter-rouge">resolve</code>(callback fn)으로 전달된 ‘success!’라는 값</p>
+
+<blockquote>
+  <h6 id="console">Console</h6>
+  <h6 id="doing-something">doing something…</h6>
+  <h6 id="success">success!</h6>
+</blockquote>
+
+<h2 id="resolve가-아닌-reject를-사용한다면"><code class="language-plaintext highlighter-rouge">resolve</code>가 아닌 <code class="language-plaintext highlighter-rouge">reject</code>를 사용한다면?</h2>
+<ul>
+  <li>reject는 주로 Error object를 통해 값을 전달함</li>
+  <li>Error object에는 어떤 error가 발생했는지 이유를 잘 명시해야함</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// doing some heavy work(network, read files)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">doing something...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// resolve('success!');</span>
+        <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">no network</span><span class="dl">'</span><span class="p">));</span>
+    <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-1">Console</h6>
+  <h6 id="doing-something-1">doing something…</h6>
+  <h6 id="-uncaught-in-promise-error-no-network-at-promisejs1616">▶ Uncaught (in promise) Error: no network at promise.js:16:16</h6>
+</blockquote>
+
+<p>console장에 <code class="language-plaintext highlighter-rouge">Uncaught</code> (잡히지 않는)라고 뜨는 이유는 <code class="language-plaintext highlighter-rouge">then</code> 으로 성공적인 케이스만 다뤘기 때문임</p>
+
+<p>→ <code class="language-plaintext highlighter-rouge">catch</code> 를 이용해 error가 발생했을 때 어떻게 처리할 지 callback fn을 등록해주면 됨</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">promise</span> 
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-2">Console</h6>
+  <h6 id="doing-something-2">doing something…</h6>
+  <h6 id="error-no-network-at-promisejs1516">Error: no network at promise.js:15:16</h6>
+</blockquote>
+
+<p>⇒ <code class="language-plaintext highlighter-rouge">catch</code>의 등록으로 더는 error를 생성하지 않게 됨</p>
+
+<ul>
+  <li>
+    <p>then과 catch를 <strong>chaining</strong><br />
+  promise의 <code class="language-plaintext highlighter-rouge">then</code>을 호출하면, 똑같은 <strong>Promise를 리턴</strong>함<br />
+  리턴된 Promise에 catch를 호출할 수 있게 됨<br />
+  (array에서 map, sort, join함수를 중첩 사용하는 것도 chaining)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">.</span><span class="nx">then</span><span class="o">&lt;</span><span class="k">void</span><span class="p">,</span> <span class="nx">never</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">onfulfilled</span><span class="p">?:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="o">|</span> <span class="nx">PromiseLike</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">onrejected</span><span class="p">?:</span> <span class="p">(</span><span class="nx">reason</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">PromiseLike</span><span class="o">&lt;</span><span class="nx">never</span><span class="o">&gt;</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>finally는 성패와 상관 없이 무조건 마지막에 호출됨</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">doing something...</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">success!</span><span class="dl">'</span><span class="p">);</span>
+          <span class="c1">// reject(new Error('no network'));</span>
+      <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+  <span class="p">});</span>
+    
+  <span class="nx">promise</span> 
+      <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">finally!</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">});</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-3">Console</h6>
+      <h6 id="doing-something-3">doing something…</h6>
+      <h6 id="success-1">success!</h6>
+      <h6 id="finally">finally!</h6>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">doing something...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// resolve('success!');</span>
+        <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">no network</span><span class="dl">'</span><span class="p">));</span>
+    <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span> 
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">finally!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-4">Console</h6>
+  <h6 id="doing-something-4">doing something…</h6>
+  <h6 id="error-no-network-at-promisejs1516-1">Error: no network at promise.js:15:16</h6>
+  <h6 id="finally-1">finally!</h6>
+</blockquote>
+
+<h1 id="3-promise-chaining">3. Promise chaining</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fetchNumber</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// 1 전달</span>
+<span class="p">});</span>
+
+<span class="nx">fetchNumber</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">num</span> <span class="o">=&gt;</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 1 * 2 = 2</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">num</span> <span class="o">=&gt;</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// 2 * 3 = 6</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">num</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">num</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">});</span> <span class="c1">// 6 - 1 = 5</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">num</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">));</span> <span class="c1">// 5</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-5">Console</h6>
+  <h6 id="5">5</h6>
+</blockquote>
+
+<h1 id="4-오류-처리">4. 오류 처리</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getHen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">🐓</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">getEgg</span> <span class="o">=</span> <span class="nx">hen</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">hen</span><span class="p">}</span><span class="s2"> =&gt; 🥚`</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">cook</span> <span class="o">=</span> <span class="nx">egg</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">egg</span><span class="p">}</span><span class="s2"> =&gt; 🍳`</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">getHen</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">hen</span> <span class="o">=&gt;</span> <span class="nx">getEgg</span><span class="p">(</span><span class="nx">hen</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">egg</span> <span class="o">=&gt;</span> <span class="nx">cook</span><span class="p">(</span><span class="nx">egg</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">meal</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">meal</span><span class="p">));</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>“자바스크립트 12. 프로미스 개념부터 활용까지 JavaScript Promise | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 28:09, 게시자 “드림코딩 by 엘리,” 2020년 6월 18일, <a href="https://youtu.be/JB_yU6Oe2eE">https://youtu.be/tJieVCgGzhs</a></p>
