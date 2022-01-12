@@ -453,7 +453,7 @@ into the {body} of the default.hbs template -->
 </blockquote>
 
 <h1 id="4-error-handling">4. Error handling</h1>
-
+<h2 id="original-code">Original code</h2>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getHen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">🐓</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">});</span>
@@ -472,6 +472,57 @@ into the {body} of the default.hbs template -->
 <blockquote>
   <h6 id="console-6">Console</h6>
   <p>🐓 =&gt; 🥚 =&gt; 🍳</p>
+</blockquote>
+
+<h2 id="tip">tip</h2>
+<p><code class="language-plaintext highlighter-rouge">.then</code>에서 받아오는 value를 바로 callback fn의 parameter로 전달할 때, 중복되는 value는 생략이 가능함</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="error-발생">Error 발생</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getHen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">🐓</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">getEgg</span> <span class="o">=</span> <span class="nx">hen</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`error! </span><span class="p">${</span><span class="nx">hen</span><span class="p">}</span><span class="s2"> =&gt; 🥚`</span><span class="p">)),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">const</span> <span class="nx">cook</span> <span class="o">=</span> <span class="nx">egg</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">egg</span><span class="p">}</span><span class="s2"> =&gt; 🍳`</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-7">Console</h6>
+  <h6 id="-uncaught-referenceerror-cannot-access-gethen-before-initialization-at-promisejs621">▶ Uncaught ReferenceError: Cannot access ‘getHen’ before initialization at promise.js:62:1</h6>
+</blockquote>
+
+<h2 id="error를-catch로-잡아주면">Error를 <code class="language-plaintext highlighter-rouge">.catch</code>로 잡아주면,</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-8">Console</h6>
+  <h6 id="error-error----at-promisejs7129">Error: error! 🐓 =&gt; 🥚 at promise.js:71:29</h6>
+</blockquote>
+
+<h2 id="then뒤에-catch로-바로-error를-처리해주면-됨"><code class="language-plaintext highlighter-rouge">.then</code>뒤에 <code class="language-plaintext highlighter-rouge">.catch</code>로 바로 error를 처리해주면 됨</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">🥖</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-9">Console</h6>
+  <p>🥖 =&gt; 🍳</p>
 </blockquote>
 
 <blockquote>
