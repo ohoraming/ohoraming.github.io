@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-01-14T23:31:44+09:00</updated>
+  <id>https://ohoraming.github.io/tag/os/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">예비 개발자의 노트 | </title>
+  
+
+  
+    <subtitle>배움을 기록합니다</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">OS(1) - Introduction</title>
+      <link href="https://ohoraming.github.io/OS-intro" rel="alternate" type="text/html" title="OS(1) - Introduction" />
+      <published>2021-01-12T22:06:00+09:00</published>
+      <updated>2021-01-12T22:06:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-intro</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-intro">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;컴퓨터 &lt;strong&gt;하드웨어를 잘 관리&lt;/strong&gt;하여
+    &lt;ul&gt;
+      &lt;li&gt;HW: processor, memory, disk, keyboard, mouse, monitor…&lt;/li&gt;
+      &lt;li&gt;OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;성능&lt;/strong&gt;을 높이고
+    &lt;ul&gt;
+      &lt;li&gt;같은 HW라도 OS가 좋으면 성능이 향상됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자에게 &lt;strong&gt;편의성&lt;/strong&gt;을 제공
+    &lt;ul&gt;
+      &lt;li&gt;컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음&lt;/li&gt;
+      &lt;li&gt;과거, 1940s-1950s에는 전문가(oprator)들만 컴퓨터를 사용할 수 있었음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;부팅booting&quot;&gt;부팅(Booting)&lt;/h2&gt;
+&lt;p&gt;boot: &lt;em&gt;n. 목이 긴 신발, 부츠&lt;/em&gt;&lt;br /&gt;
+booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌어당김&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;전원을 켜면&lt;/li&gt;
+  &lt;li&gt;ROM의 code를 읽어와 실행
+    &lt;ul&gt;
+      &lt;li&gt;ROM: Read Only Memory&lt;/li&gt;
+      &lt;li&gt;RAM: main memory의 대부분을 차지(수GB(10^9))&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;POST 실행&lt;/li&gt;
+  &lt;li&gt;Boot loader실행&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
