@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(1) - Introduction" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 OS(1) - Introduction 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-intro" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(1) - Introduction" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 OS(1) - Introduction 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-intro"
     },
-    "description": "JavaScript 관련 포스팅 OS(1) - Introduction 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를 몇 번만 사용해보면 누구나"
 }
     </script>
 
@@ -211,9 +211,10 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">JavaScript 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./OS-intro">OS(1) - Introduction</a></li>
+    <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
 </ul>
 
 <h2 id="운영체제operating-system-os의-목적">운영체제(Operating System, OS)의 목적</h2>
@@ -269,26 +270,96 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 
 <h2 id="os--kernel--shell">OS = kernel + shell</h2>
 <ul>
-  <li>
-    <p>Application(App) ⊃ OS  ⊃ HW 
-<a href="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png"><img src="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png" alt="os diagram" width="50%" /></a></p>
-  </li>
-  <li>kernel
+  <li>Kernel
     <ul>
       <li>핵심</li>
       <li>HW를 둘러싸며 이를 제어, 관리함</li>
       <li>실제로 관리하는 프로그램</li>
     </ul>
   </li>
-  <li>shell
+  <li>Shell
     <ul>
       <li>OS의 껍질 부분</li>
+      <li>명령어 해석기(command interpreter)</li>
       <li>사용자로부터 명령을 받아 변역 후 해당 명령을 실행함</li>
       <li>명령: 아이콘 더블 클릭(Windows), 텍스트 입력(Linux <code class="language-plaintext highlighter-rouge">$ls</code>(현 directory file 보여줌), <code class="language-plaintext highlighter-rouge">$who</code>(사용자 확인), <code class="language-plaintext highlighter-rouge">$ds</code>(디스크 용량 확인) 등)</li>
     </ul>
   </li>
 </ul>
 
+<h2 id="os의-위치">OS의 위치</h2>
+<ul>
+  <li>Application(App) ⊃ OS  ⊃ HW 
+<a href="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png"><img src="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png" alt="os diagram" width="50%" /></a></li>
+  <li>정부(government)에 비유할 수 있음</li>
+  <li>주어진 자원을 <strong>할당</strong>(resource allocator)하고 <strong>관리</strong>함(resource manager)</li>
+  <li>OS가 직접 일을 하지 않고, 각 부서에 맞는 업무를 할당함</li>
+  <li>프로세스 관리와 메인 메모리 관리가 가장 중요한 업무</li>
+</ul>
+
+<h2 id="역사">역사</h2>
+<ol>
+  <li>컴퓨터의 역사
+    <ul>
+      <li>1940s, <strong>OS가 없었음</strong></li>
+      <li>programmer가 <strong>종이</strong>에 연필로 program을 작성해 전산실에 전달</li>
+      <li>전달받은대로 구멍(천공)을 뚫은 카드와 compiler 프로그램 카드를 <strong>카드 리더기</strong>에 올림</li>
+      <li>프로그램과 compiler가 <strong>메모리</strong>에 적재되고 기계어가 도출됨</li>
+      <li><strong>처리기(processor)</strong>가 기계어를 실행하면</li>
+      <li><strong>line printer</strong>가 망치로 두드려 결과를 인쇄</li>
+    </ul>
+  </li>
+  <li>Batch processing system(일괄처리)
+    <ul>
+      <li>resident monitor: <strong>최초의 OS</strong></li>
+      <li>사람(operator)이 직접 compiler, linker, loading을 했음</li>
+      <li>이 일련의 과정을 메모리에 프로그램으로 넣어(=<strong>상주</strong>시켜) <strong>자동으로 실행</strong>시킴</li>
+    </ul>
+  </li>
+  <li>Multiprogramming system(다중 프로그래밍)
+    <ul>
+      <li>컴퓨터는 비싼 자원</li>
+      <li>CPU에 비해 i/o의 처리 속도는 느리며, i/o 처리 시간 동안 CPU는 idle상태(가동되지 않는)가 됨</li>
+      <li>i/o 처리시 다음 user의 연산을 처리</li>
+      <li><strong>하나의 CPU를 여러 user(program)가 사용</strong>해 이용률을 증가시킴</li>
+      <li>user program의 효율적인 배치를 고민해야 함</li>
+    </ul>
+  </li>
+  <li>Time-sharing system(시공유 시스템)
+    <ul>
+      <li>아주 <strong>짧은 시간(1/100초~1/1000초)동안 각 user의 작업을 나눠서 처리</strong>함</li>
+      <li>혼자서 CPU를 쓰는 느낌을 줄 수 있음</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="os-기술-천이">OS 기술 천이</h2>
+<ul>
+  <li>컴퓨터 규모별 분류
+    <ul>
+      <li>
+        <p><strong>Supercomputer &gt; Mainframe &gt; Mini &gt; Micro</strong><br />
+  Supercomputer: 최강의 컴퓨터. 메모리 용량이 크고, CPU가 빠르며, 보조 기억장치가 뛰어남<br />
+  Mainframe: 수백 대의 단말기를 연결한 형태<br />
+  Mini: 수십 대의 단말기를 연결한 형태</p>
+      </li>
+      <li>
+        <p><strong>Supercomputer &gt; Server &gt; Workstation &gt; PC &gt; Handheld &gt; Embeded</strong><br />
+  Handheld: 노트북, 태블릿, 스마트 폰<br />
+  Embeded: 차나 가전에 내장된 형태</p>
+      </li>
+    </ul>
+  </li>
+  <li>고성능 컴퓨터의 기능이 Handheld, Embeded까지 적용됨</li>
+</ul>
+
+<h2 id="고등-운영체제">고등 운영체제</h2>
+<p>(※대학원 과정)</p>
+<ul>
+  <li>다중 프로세서 시스템</li>
+  <li>분산 시스템</li>
+  <li>실시간 시스템</li>
+</ul>
 
                 </div>
             </section>
@@ -380,6 +451,73 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
             
             
             
+            <article class="read-next-card" 
+                style="background-image: url(/assets/built/images/blog-cover1.jpg)" >
+                <header class="read-next-card-header">
+                    <small class="read-next-card-header-sitetitle">&mdash; 예비 개발자의 노트 &mdash;</small>
+                    
+                    <h3 class="read-next-card-header-title"><a href="/tag/os/">Os</a></h3>
+                    
+                </header>
+                <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                <div class="read-next-card-content">
+                    <ul>
+                        
+                        
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                         <li><a href="/OS-interrupt">OS(2) - Interrupt-Based System</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                    </ul>
+                </div>
+                <footer class="read-next-card-footer">
+                    <a href="/tag/os/">
+                        
+                        See all 1 posts →
+                        
+                    </a>
+                </footer>
+            </article>
+            
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
@@ -388,22 +526,22 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/JAVA-callByReference">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/java-logo.png)"></div>
+            <a class="post-card-image-link" href="/OS-interrupt">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/JAVA-callByReference">
+            <a class="post-card-content-link" href="/OS-interrupt">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Java</span>
+                                <span class="post-card-tags">Os</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">JAVA - Call by Reference</h2>
+                    <h2 class="post-card-title">OS(2) - Interrupt-Based System</h2>
                 </header>
                 <section class="post-card-excerpt">
                     

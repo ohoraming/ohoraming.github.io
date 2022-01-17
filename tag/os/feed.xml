@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-17T23:56:53+09:00</updated>
+  <updated>2022-01-18T01:10:01+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,69 @@
 
   
     <entry>
+      <title type="html">OS(2) - Interrupt-Based System</title>
+      <link href="https://ohoraming.github.io/OS-interrupt" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
+      <published>2021-01-18T01:18:00+09:00</published>
+      <updated>2021-01-18T01:18:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-interrupt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-interrupt">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
+&lt;p&gt;interrupt: v. 방해하다, 중단시키다&lt;br /&gt;
+→ 어떤 일을 하고 있는데 가로채서 다른 일을 함&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;현대 운영체제는 interrupt 기반 시스템
+    &lt;ul&gt;
+      &lt;li&gt;booting 완료 후, OS는 메모리에 상주함(resident)&lt;/li&gt;
+      &lt;li&gt;마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감 &amp;lt;HW interrupt&amp;gt;&lt;/li&gt;
+      &lt;li&gt;CPU는 하던 일을 중지하고 OS안의 마우스 Interrupt Service Routine(ISR)(코드)으로 점프&lt;/li&gt;
+      &lt;li&gt;특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &amp;lt;SW interrupt&amp;gt;&lt;/li&gt;
+      &lt;li&gt;하드 디스크 속 특정 프로그램을 메인 메모리에 올림&lt;/li&gt;
+      &lt;li&gt;바탕화면이 바뀌며 특정 프로그램의 화면이 나옴&lt;/li&gt;
+      &lt;li&gt;IRS 종료후 다시 user program으로 복귀&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;interrupt-기반-os&quot;&gt;interrupt 기반 OS&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;평소 OS는 대기상태&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(1) - Introduction</title>
       <link href="https://ohoraming.github.io/OS-intro" rel="alternate" type="text/html" title="OS(1) - Introduction" />
       <published>2021-01-12T22:06:00+09:00</published>
@@ -40,9 +103,10 @@
       <content type="html" xml:base="https://ohoraming.github.io/OS-intro">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
@@ -98,24 +162,95 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 
 &lt;h2 id=&quot;os--kernel--shell&quot;&gt;OS = kernel + shell&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Application(App) ⊃ OS  ⊃ HW 
-&lt;a href=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot;&gt;&lt;img src=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot; alt=&quot;os diagram&quot; width=&quot;50%&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;kernel
+  &lt;li&gt;Kernel
     &lt;ul&gt;
       &lt;li&gt;핵심&lt;/li&gt;
       &lt;li&gt;HW를 둘러싸며 이를 제어, 관리함&lt;/li&gt;
       &lt;li&gt;실제로 관리하는 프로그램&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;shell
+  &lt;li&gt;Shell
     &lt;ul&gt;
       &lt;li&gt;OS의 껍질 부분&lt;/li&gt;
+      &lt;li&gt;명령어 해석기(command interpreter)&lt;/li&gt;
       &lt;li&gt;사용자로부터 명령을 받아 변역 후 해당 명령을 실행함&lt;/li&gt;
       &lt;li&gt;명령: 아이콘 더블 클릭(Windows), 텍스트 입력(Linux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ls&lt;/code&gt;(현 directory file 보여줌), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$who&lt;/code&gt;(사용자 확인), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ds&lt;/code&gt;(디스크 용량 확인) 등)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;os의-위치&quot;&gt;OS의 위치&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Application(App) ⊃ OS  ⊃ HW 
+&lt;a href=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot;&gt;&lt;img src=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot; alt=&quot;os diagram&quot; width=&quot;50%&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;정부(government)에 비유할 수 있음&lt;/li&gt;
+  &lt;li&gt;주어진 자원을 &lt;strong&gt;할당&lt;/strong&gt;(resource allocator)하고 &lt;strong&gt;관리&lt;/strong&gt;함(resource manager)&lt;/li&gt;
+  &lt;li&gt;OS가 직접 일을 하지 않고, 각 부서에 맞는 업무를 할당함&lt;/li&gt;
+  &lt;li&gt;프로세스 관리와 메인 메모리 관리가 가장 중요한 업무&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;역사&quot;&gt;역사&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;컴퓨터의 역사
+    &lt;ul&gt;
+      &lt;li&gt;1940s, &lt;strong&gt;OS가 없었음&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;programmer가 &lt;strong&gt;종이&lt;/strong&gt;에 연필로 program을 작성해 전산실에 전달&lt;/li&gt;
+      &lt;li&gt;전달받은대로 구멍(천공)을 뚫은 카드와 compiler 프로그램 카드를 &lt;strong&gt;카드 리더기&lt;/strong&gt;에 올림&lt;/li&gt;
+      &lt;li&gt;프로그램과 compiler가 &lt;strong&gt;메모리&lt;/strong&gt;에 적재되고 기계어가 도출됨&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;처리기(processor)&lt;/strong&gt;가 기계어를 실행하면&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;line printer&lt;/strong&gt;가 망치로 두드려 결과를 인쇄&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Batch processing system(일괄처리)
+    &lt;ul&gt;
+      &lt;li&gt;resident monitor: &lt;strong&gt;최초의 OS&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;사람(operator)이 직접 compiler, linker, loading을 했음&lt;/li&gt;
+      &lt;li&gt;이 일련의 과정을 메모리에 프로그램으로 넣어(=&lt;strong&gt;상주&lt;/strong&gt;시켜) &lt;strong&gt;자동으로 실행&lt;/strong&gt;시킴&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multiprogramming system(다중 프로그래밍)
+    &lt;ul&gt;
+      &lt;li&gt;컴퓨터는 비싼 자원&lt;/li&gt;
+      &lt;li&gt;CPU에 비해 i/o의 처리 속도는 느리며, i/o 처리 시간 동안 CPU는 idle상태(가동되지 않는)가 됨&lt;/li&gt;
+      &lt;li&gt;i/o 처리시 다음 user의 연산을 처리&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;하나의 CPU를 여러 user(program)가 사용&lt;/strong&gt;해 이용률을 증가시킴&lt;/li&gt;
+      &lt;li&gt;user program의 효율적인 배치를 고민해야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Time-sharing system(시공유 시스템)
+    &lt;ul&gt;
+      &lt;li&gt;아주 &lt;strong&gt;짧은 시간(1/100초~1/1000초)동안 각 user의 작업을 나눠서 처리&lt;/strong&gt;함&lt;/li&gt;
+      &lt;li&gt;혼자서 CPU를 쓰는 느낌을 줄 수 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;os-기술-천이&quot;&gt;OS 기술 천이&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;컴퓨터 규모별 분류
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Supercomputer &amp;gt; Mainframe &amp;gt; Mini &amp;gt; Micro&lt;/strong&gt;&lt;br /&gt;
+  Supercomputer: 최강의 컴퓨터. 메모리 용량이 크고, CPU가 빠르며, 보조 기억장치가 뛰어남&lt;br /&gt;
+  Mainframe: 수백 대의 단말기를 연결한 형태&lt;br /&gt;
+  Mini: 수십 대의 단말기를 연결한 형태&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Supercomputer &amp;gt; Server &amp;gt; Workstation &amp;gt; PC &amp;gt; Handheld &amp;gt; Embeded&lt;/strong&gt;&lt;br /&gt;
+  Handheld: 노트북, 태블릿, 스마트 폰&lt;br /&gt;
+  Embeded: 차나 가전에 내장된 형태&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;고성능 컴퓨터의 기능이 Handheld, Embeded까지 적용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;고등-운영체제&quot;&gt;고등 운영체제&lt;/h2&gt;
+&lt;p&gt;(※대학원 과정)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;다중 프로세서 시스템&lt;/li&gt;
+  &lt;li&gt;분산 시스템&lt;/li&gt;
+  &lt;li&gt;실시간 시스템&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
