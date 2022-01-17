@@ -249,9 +249,46 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
       <li>RAM: main memory의 대부분을 차지(수GB(10^9))</li>
     </ul>
   </li>
-  <li>POST 실행</li>
-  <li>Boot loader실행</li>
+  <li>POST(Power-On Self-Test) 실행
+    <ul>
+      <li>전원을 켰을 때, 컴퓨터의 환경 설정이 제대로 되었는지 확인</li>
+    </ul>
+  </li>
+  <li>Boot loader실행
+    <ul>
+      <li>load: v.적재하다</li>
+      <li>하드 디스크 안의 OS를 메인 메모리로 가져옴</li>
+    </ul>
+  </li>
+  <li>OS가 메인 메모리(RAM)에 올라오면, 명령을 받아들일 준비를 마침
+    <ul>
+      <li>Windows의 경우 바탕화면이 뜨고, Linux의 경우 prompt 창이 뜸</li>
+    </ul>
+  </li>
 </ol>
+
+<h2 id="os--kernel--shell">OS = kernel + shell</h2>
+<ul>
+  <li>
+    <p>Application(App) ⊃ OS  ⊃ HW 
+<a href="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png"><img src="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png" alt="os diagram" width="50%" /></a></p>
+  </li>
+  <li>kernel
+    <ul>
+      <li>핵심</li>
+      <li>HW를 둘러싸며 이를 제어, 관리함</li>
+      <li>실제로 관리하는 프로그램</li>
+    </ul>
+  </li>
+  <li>shell
+    <ul>
+      <li>OS의 껍질 부분</li>
+      <li>사용자로부터 명령을 받아 변역 후 해당 명령을 실행함</li>
+      <li>명령: 아이콘 더블 클릭(Windows), 텍스트 입력(Linux <code class="language-plaintext highlighter-rouge">$ls</code>(현 directory file 보여줌), <code class="language-plaintext highlighter-rouge">$who</code>(사용자 확인), <code class="language-plaintext highlighter-rouge">$ds</code>(디스크 용량 확인) 등)</li>
+    </ul>
+  </li>
+</ul>
+
 
                 </div>
             </section>
