@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-18T01:10:01+09:00</updated>
+  <updated>2022-01-21T23:51:39+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -47,8 +47,8 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
-&lt;p&gt;interrupt: v. 방해하다, 중단시키다&lt;br /&gt;
-→ 어떤 일을 하고 있는데 가로채서 다른 일을 함&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;interrupt: v. 방해하다, 중단시키다&lt;/em&gt;&lt;br /&gt;
+→ 어떤 일을 하고 있는데 &lt;strong&gt;가로채서&lt;/strong&gt; 다른 일을 함&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;현대 운영체제는 interrupt 기반 시스템
     &lt;ul&gt;
@@ -58,14 +58,52 @@
       &lt;li&gt;특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &amp;lt;SW interrupt&amp;gt;&lt;/li&gt;
       &lt;li&gt;하드 디스크 속 특정 프로그램을 메인 메모리에 올림&lt;/li&gt;
       &lt;li&gt;바탕화면이 바뀌며 특정 프로그램의 화면이 나옴&lt;/li&gt;
-      &lt;li&gt;IRS 종료후 다시 user program으로 복귀&lt;/li&gt;
+      &lt;li&gt;IRS 종료후 다시 user program 또는 원래의 대기상태로 복귀&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt-기반-os&quot;&gt;interrupt 기반 OS&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;평소 OS는 대기상태&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;OS는 여러 가지 code들의 모임&lt;br /&gt;
+  → 평소에는 작동하지 않고 interrupt에 의해 작동함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;평소 OS는 대기상태&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;HW/SW/Internal(내부) interrupt에 의해 운영체제 코드(ISR)을 실행&lt;/li&gt;
+      &lt;li&gt;Internal interrupt&lt;br /&gt;
+  e.g.) divide by zero: 
+  결괏값이 무한대가 되어 컴퓨터에 저장 공간이 없음&lt;br /&gt;
+  → CPU가 내부적인 interrupt로 인식&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;이중-모드dual-mode&quot;&gt;이중 모드(Dual Mode)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;사용 환경
+    &lt;ul&gt;
+      &lt;li&gt;한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경&lt;/li&gt;
+      &lt;li&gt;또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)&lt;/li&gt;
+      &lt;li&gt;한 사람이 CPU 중지 명령어(STOP, HALT, RESET 등)를 입력하는 경우&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
+    &lt;ul&gt;
+      &lt;li&gt;CPU 동작 모드를 두 가지로 진행&lt;/li&gt;
+      &lt;li&gt;사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;특권 명령(Privileged instruction)
+    &lt;ul&gt;
+      &lt;li&gt;특권 모드에서만 내릴 수 있는 명령어&lt;/li&gt;
+      &lt;li&gt;STOP, HALT, RESET, SET_TIMER, SET_HW…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일반 User program은 하드 디스크에 접근이 불가함(보안 문제)&lt;br /&gt;
+  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       

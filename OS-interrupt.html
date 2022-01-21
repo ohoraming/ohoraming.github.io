@@ -218,8 +218,8 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <h2 id="interrupt">Interrupt</h2>
-<p>interrupt: v. 방해하다, 중단시키다<br />
-→ 어떤 일을 하고 있는데 가로채서 다른 일을 함</p>
+<p><em>interrupt: v. 방해하다, 중단시키다</em><br />
+→ 어떤 일을 하고 있는데 <strong>가로채서</strong> 다른 일을 함</p>
 <ul>
   <li>현대 운영체제는 interrupt 기반 시스템
     <ul>
@@ -229,14 +229,52 @@ into the {body} of the default.hbs template -->
       <li>특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &lt;SW interrupt&gt;</li>
       <li>하드 디스크 속 특정 프로그램을 메인 메모리에 올림</li>
       <li>바탕화면이 바뀌며 특정 프로그램의 화면이 나옴</li>
-      <li>IRS 종료후 다시 user program으로 복귀</li>
+      <li>IRS 종료후 다시 user program 또는 원래의 대기상태로 복귀</li>
     </ul>
   </li>
 </ul>
 
 <h2 id="interrupt-기반-os">interrupt 기반 OS</h2>
 <ul>
-  <li>평소 OS는 대기상태</li>
+  <li>
+    <p>OS는 여러 가지 code들의 모임<br />
+  → 평소에는 작동하지 않고 interrupt에 의해 작동함</p>
+  </li>
+  <li>
+    <p>평소 OS는 대기상태</p>
+    <ul>
+      <li>HW/SW/Internal(내부) interrupt에 의해 운영체제 코드(ISR)을 실행</li>
+      <li>Internal interrupt<br />
+  e.g.) divide by zero: 
+  결괏값이 무한대가 되어 컴퓨터에 저장 공간이 없음<br />
+  → CPU가 내부적인 interrupt로 인식</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="이중-모드dual-mode">이중 모드(Dual Mode)</h2>
+<ul>
+  <li>사용 환경
+    <ul>
+      <li>한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경</li>
+      <li>또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)</li>
+      <li>한 사람이 CPU 중지 명령어(STOP, HALT, RESET 등)를 입력하는 경우</li>
+    </ul>
+  </li>
+  <li>사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
+    <ul>
+      <li>CPU 동작 모드를 두 가지로 진행</li>
+      <li>사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함</li>
+    </ul>
+  </li>
+  <li>특권 명령(Privileged instruction)
+    <ul>
+      <li>특권 모드에서만 내릴 수 있는 명령어</li>
+      <li>STOP, HALT, RESET, SET_TIMER, SET_HW…</li>
+    </ul>
+  </li>
+  <li>일반 User program은 하드 디스크에 접근이 불가함(보안 문제)<br />
+  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻</li>
 </ul>
 
                 </div>
