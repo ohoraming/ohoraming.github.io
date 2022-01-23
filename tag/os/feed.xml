@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-21T23:51:39+09:00</updated>
+  <updated>2022-01-23T23:18:49+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -87,23 +87,74 @@
     &lt;ul&gt;
       &lt;li&gt;한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경&lt;/li&gt;
       &lt;li&gt;또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)&lt;/li&gt;
-      &lt;li&gt;한 사람이 CPU 중지 명령어(STOP, HALT, RESET 등)를 입력하는 경우&lt;/li&gt;
+      &lt;li&gt;또는 한 사람이 특권 명령을 입력하는 경우&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
     &lt;ul&gt;
-      &lt;li&gt;CPU 동작 모드를 두 가지로 진행&lt;/li&gt;
+      &lt;li&gt;CPU 동작 모드를 &lt;strong&gt;두 가지&lt;/strong&gt;로 진행&lt;/li&gt;
+      &lt;li&gt;OS 서비스가 실행될 때, HW/SW interrupt 발생할 때 &lt;strong&gt;관리자 모드&lt;/strong&gt; 실행&lt;/li&gt;
+      &lt;li&gt;사용자 프로그램이 실행될 때, OS 서비스가 끝나면 다시 &lt;strong&gt;사용자 모드&lt;/strong&gt; 실행&lt;/li&gt;
       &lt;li&gt;사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함&lt;/li&gt;
+      &lt;li&gt;관리자(supervisor) 모드 = 시스템(system) 모드 = 모니터(monitor)(감시자) 모드 = 특권(priviliged) 모드&lt;/li&gt;
+      &lt;li&gt;레지스터에 mode를 나타내는 flag가 존재함
+        &lt;ul&gt;
+          &lt;li&gt;register: 비트들의 모임&lt;/li&gt;
+          &lt;li&gt;flags(carry, negative, zero, overflow)에 monitor 비트를 추가해 0과 1로 이중모드를 구현&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;특권 명령(Privileged instruction)
     &lt;ul&gt;
       &lt;li&gt;특권 모드에서만 내릴 수 있는 명령어&lt;/li&gt;
-      &lt;li&gt;STOP, HALT, RESET, SET_TIMER, SET_HW…&lt;/li&gt;
+      &lt;li&gt;STOP/HALT/RESET(CPU 중지 명령어), SET_TIMER(일반 유저가 시간을 바꾸면 안 됨), SET_HW(HW의 값을 바꿈)…&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;일반 User program은 하드 디스크에 접근이 불가함(보안 문제)&lt;br /&gt;
-  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;일반 User program은 하드 디스크에 접근이 불가함&lt;br /&gt;
+  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻(보안 문제)&lt;br /&gt;
+  그래서 OS에 SW interrupt를 걸어 ISR을 실행해 필요한 작업을 하게 함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일반적인 프로그램의 실행
+    &lt;ol&gt;
+      &lt;li&gt;power on&lt;/li&gt;
+      &lt;li&gt;booting: 하드 디스크의 프로그램이 메인 메모리에 적재
+        &lt;ul&gt;
+          &lt;li&gt;monitor 비트 = 1 : system mode라는 뜻&lt;/li&gt;
+          &lt;li&gt;OS는 system mode에서 동작함&lt;/li&gt;
+          &lt;li&gt;일반 user는 못 내리는 명령 수행 가능&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;user mode &amp;gt; (키보드, 마우스) HW interrupt &amp;gt; system mode(ISR) &amp;gt; user mode &amp;gt; (모니터, 디스크, 프린터) &amp;gt; system mode &amp;gt; user mode
+        &lt;ul&gt;
+          &lt;li&gt;만약, user mode에서 CPU에 STOP 명령을 내리면,&lt;br /&gt;
+ CPU는 internal interrupt가 발생했다고 여겨 OS의 ISR로 점프해&lt;br /&gt;
+ 해당 명령을 내린 프로그램을 강제 종료시켜 메모리에서 내림&lt;br /&gt;
+  → protection과 연관됨&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;하드웨어 보호
+    &lt;ol&gt;
+      &lt;li&gt;입출력장치 보호
+        &lt;ul&gt;
+          &lt;li&gt;사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;메모리 보호
+        &lt;ul&gt;
+          &lt;li&gt;자신에게 주어진 메모리 영역을 넘어서는 것을 막음&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;CPU 보호
+        &lt;ul&gt;
+          &lt;li&gt;한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
