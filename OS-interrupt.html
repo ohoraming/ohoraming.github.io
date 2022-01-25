@@ -326,6 +326,32 @@ into the {body} of the default.hbs template -->
       </li>
     </ol>
   </li>
+  <li>(1) 입출력장치 보호
+    <ul>
+      <li>서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함</li>
+      <li>입출력 명령(<code class="language-plaintext highlighter-rouge">IN OUT</code>)을 <strong>특권 명령</strong>으로 지정함</li>
+      <li>SW interrupt(명령어: INT) &gt; OS에 요청(system mode로 전환) &gt; 입출력 실행 &gt; 다시 user mode로 복귀</li>
+      <li>이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함</li>
+      <li>user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)</li>
+    </ul>
+  </li>
+  <li>(2) 메모리 보호
+    <ul>
+      <li>다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함</li>
+      <li>MMU(<strong>M</strong>emory <strong>M</strong>anagement <strong>U</strong>nit)를 두어 다른 메모리 영역 침범을 감시함</li>
+      <li>일종의 문지기로 <strong>base registar</strong>와 <strong>limit register</strong> 사이의 값만 통과시킴</li>
+      <li>Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴</li>
+      <li>메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)</li>
+    </ul>
+  </li>
+  <li>(3) CPU 보호
+    <ul>
+      <li>한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함</li>
+      <li><strong>TIMER</strong>를 두어 일정 시간 경과시 timer interrupt 발생</li>
+      <li>timer가 cpu에 주기적으로 interrupt를 걸어줌</li>
+      <li>interrupt가 발생 &gt; ISR로 jump &gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &gt; 다른 프로그램으로 강제 전환</li>
+    </ul>
+  </li>
 </ul>
 
                 </div>
