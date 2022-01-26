@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-25T23:23:11+09:00</updated>
+  <updated>2022-01-26T23:35:15+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,57 @@
 
   
     <entry>
+      <title type="html">OS(3) - Process Management</title>
+      <link href="https://ohoraming.github.io/OS-process-mgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
+      <published>2021-01-26T23:10:00+09:00</published>
+      <updated>2021-01-26T23:10:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-process%20mgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-process-mgmt">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;프로세스&quot;&gt;프로세스&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;실행 중인 프로그램&lt;/li&gt;
+  &lt;li&gt;메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨&lt;/li&gt;
+  &lt;li&gt;program vs. process&lt;br /&gt;
+  → 아무 일도 못하는 program, 살아 움직이는 process&lt;/li&gt;
+  &lt;li&gt;상태: new, ready, running, waiting, terminated&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(2) - Interrupt-Based System</title>
       <link href="https://ohoraming.github.io/OS-interrupt" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
       <published>2021-01-18T01:18:00+09:00</published>
@@ -44,6 +95,7 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -136,49 +188,85 @@
       &lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
-  &lt;li&gt;하드웨어 보호
-    &lt;ol&gt;
-      &lt;li&gt;입출력장치 보호
-        &lt;ul&gt;
-          &lt;li&gt;사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;메모리 보호
-        &lt;ul&gt;
-          &lt;li&gt;자신에게 주어진 메모리 영역을 넘어서는 것을 막음&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;CPU 보호
-        &lt;ul&gt;
-          &lt;li&gt;한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;(1) 입출력장치 보호
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;하드웨어-보호&quot;&gt;하드웨어 보호&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;입출력장치 보호&lt;br /&gt;
+ → 사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함&lt;/li&gt;
+  &lt;li&gt;메모리 보호&lt;br /&gt;
+ → 자신에게 주어진 메모리 영역을 넘어서는 것을 막음&lt;/li&gt;
+  &lt;li&gt;CPU 보호&lt;br /&gt;
+ → 한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;1-입출력장치-보호&quot;&gt;(1) 입출력장치 보호&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함&lt;/li&gt;
+  &lt;li&gt;입출력 명령(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IN OUT&lt;/code&gt;)을 &lt;strong&gt;특권 명령&lt;/strong&gt;으로 지정함&lt;/li&gt;
+  &lt;li&gt;SW interrupt(명령어: INT) &amp;gt; OS에 요청(system mode로 전환) &amp;gt; 입출력 실행 &amp;gt; 다시 user mode로 복귀&lt;/li&gt;
+  &lt;li&gt;이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함&lt;/li&gt;
+  &lt;li&gt;user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-메모리-보호&quot;&gt;(2) 메모리 보호&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함&lt;/li&gt;
+  &lt;li&gt;MMU(&lt;strong&gt;M&lt;/strong&gt;emory &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;U&lt;/strong&gt;nit)를 두어 다른 메모리 영역 침범을 감시함&lt;/li&gt;
+  &lt;li&gt;일종의 문지기로 &lt;strong&gt;base registar&lt;/strong&gt;와 &lt;strong&gt;limit register&lt;/strong&gt; 사이의 값만 통과시킴&lt;/li&gt;
+  &lt;li&gt;Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴&lt;/li&gt;
+  &lt;li&gt;메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-cpu-보호&quot;&gt;(3) CPU 보호&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;TIMER&lt;/strong&gt;를 두어 일정 시간 경과시 timer interrupt 발생&lt;/li&gt;
+  &lt;li&gt;timer가 cpu에 주기적으로 interrupt를 걸어줌&lt;/li&gt;
+  &lt;li&gt;interrupt가 발생 &amp;gt; ISR로 jump &amp;gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &amp;gt; 다른 프로그램으로 강제 전환&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;os-서비스&quot;&gt;OS 서비스&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;프로세스 관리 ★★
     &lt;ul&gt;
-      &lt;li&gt;서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함&lt;/li&gt;
-      &lt;li&gt;입출력 명령(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IN OUT&lt;/code&gt;)을 &lt;strong&gt;특권 명령&lt;/strong&gt;으로 지정함&lt;/li&gt;
-      &lt;li&gt;SW interrupt(명령어: INT) &amp;gt; OS에 요청(system mode로 전환) &amp;gt; 입출력 실행 &amp;gt; 다시 user mode로 복귀&lt;/li&gt;
-      &lt;li&gt;이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함&lt;/li&gt;
-      &lt;li&gt;user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)&lt;/li&gt;
+      &lt;li&gt;process: 메모리에서 실행 중인 program&lt;br /&gt;
+  (vs. program: 하드 디스크에 존재)&lt;/li&gt;
+      &lt;li&gt;process의 생성, 소멸, 활동 일시 정지, 활동 재개, 통신, 동기화, 교착상태 처리 등&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;(2) 메모리 보호
+  &lt;li&gt;주기억장치 관리 ★
     &lt;ul&gt;
-      &lt;li&gt;다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함&lt;/li&gt;
-      &lt;li&gt;MMU(&lt;strong&gt;M&lt;/strong&gt;emory &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;U&lt;/strong&gt;nit)를 두어 다른 메모리 영역 침범을 감시함&lt;/li&gt;
-      &lt;li&gt;일종의 문지기로 &lt;strong&gt;base registar&lt;/strong&gt;와 &lt;strong&gt;limit register&lt;/strong&gt; 사이의 값만 통과시킴&lt;/li&gt;
-      &lt;li&gt;Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴&lt;/li&gt;
-      &lt;li&gt;메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)&lt;/li&gt;
+      &lt;li&gt;process에 메모리 공간 할당, process 종료시 메모리 회수, 가상 메모리&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;(3) CPU 보호
+  &lt;li&gt;파일 관리
     &lt;ul&gt;
-      &lt;li&gt;한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;TIMER&lt;/strong&gt;를 두어 일정 시간 경과시 timer interrupt 발생&lt;/li&gt;
-      &lt;li&gt;timer가 cpu에 주기적으로 interrupt를 걸어줌&lt;/li&gt;
-      &lt;li&gt;interrupt가 발생 &amp;gt; ISR로 jump &amp;gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &amp;gt; 다른 프로그램으로 강제 전환&lt;/li&gt;
+      &lt;li&gt;파일의 생성과 삭제, directory(folder))의 생성과 삭제, file 기본 동작, 백업&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;보조기억장치 관리
+    &lt;ul&gt;
+      &lt;li&gt;하드 디스크, 스마트 폰의 플래시 메모리 등&lt;/li&gt;
+      &lt;li&gt;빈 공간 관리, 저장공간 할당, 디스크 스케줄링&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;입출력장치 관리
+    &lt;ul&gt;
+      &lt;li&gt;장치 드라이브, 입출력 장치의 성능 향상
+…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;시스템-콜&quot;&gt;시스템 콜&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;OS 서비스를 받기 위한 호출(요청)&lt;/li&gt;
+  &lt;li&gt;주요 시스템 콜
+    &lt;ul&gt;
+      &lt;li&gt;Process: end(종료), abort(강제 종료), load(하드 디스크의 프로그램을 메인 메로리로 가져오는 것), execute(실행), create(process 생성), terminate(종료(=end)), get/set attributes(속성)&lt;/li&gt;
+      &lt;li&gt;Memory: allocate(새 객체 생성시 메모리가 필요해 OS에 요청), free(메모리를 다 쓰고 나서 돌려줌)&lt;/li&gt;
+      &lt;li&gt;File: create(생성), delete(삭제)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content>
@@ -222,6 +310,7 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
