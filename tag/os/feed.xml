@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-26T23:35:15+09:00</updated>
+  <updated>2022-01-29T23:56:50+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -33,27 +33,78 @@
   
     <entry>
       <title type="html">OS(3) - Process Management</title>
-      <link href="https://ohoraming.github.io/OS-process-mgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
+      <link href="https://ohoraming.github.io/OS-processmgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
       <published>2021-01-26T23:10:00+09:00</published>
       <updated>2021-01-26T23:10:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-process%20mgmt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-process-mgmt">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-processmgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-processmgmt">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;프로세스&quot;&gt;프로세스&lt;/h2&gt;
+&lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;실행 중인 프로그램&lt;/li&gt;
   &lt;li&gt;메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨&lt;/li&gt;
   &lt;li&gt;program vs. process&lt;br /&gt;
   → 아무 일도 못하는 program, 살아 움직이는 process&lt;/li&gt;
-  &lt;li&gt;상태: new, ready, running, waiting, terminated&lt;/li&gt;
+  &lt;li&gt;상태: new, ready, running, waiting, terminated
+&lt;a href=&quot;https://static.javatpoint.com/operating-system/images/os-process-state-diagram.png&quot;&gt;&lt;img src=&quot;https://static.javatpoint.com/operating-system/images/os-process-state-diagram.png&quot; alt=&quot;process state trasition diagram&quot; /&gt;&lt;/a&gt;
+(출처: &lt;a href=&quot;https://www.javatpoint.com/os-process-states&quot;&gt;https://www.javatpoint.com/os-process-states&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pcbprocess-control-block&quot;&gt;PCB(Process Control Block)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;= Task Control Block(TCB)&lt;/li&gt;
+  &lt;li&gt;C언어 구조체&lt;/li&gt;
+  &lt;li&gt;OS의 process management 안에 존재&lt;/li&gt;
+  &lt;li&gt;프로세스에 대한 모든 정보가 들어있음&lt;/li&gt;
+  &lt;li&gt;process state(running, ready, waiting, …), program counter(PC, 몇 번째로 실행할지), MMU info(base, limit), CPU time(독점 방지용 시간 기록), process id(고유 번호), …&lt;/li&gt;
+  &lt;li&gt;하나의 프로세스에 대해 하나의 PCB가 할당됨&lt;/li&gt;
+  &lt;li&gt;CPU가 프로그램을 실행하다 I/O를 만나거나 time expired가 되어 다른 프로세스로 갈 때 이전까지 실행했던 정보들을 가지고 있어야 CPU 서비스를 다시 받을 때 이전 상태부터 이어서 받을 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;queues&quot;&gt;Queues&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;OS의 process management 안에 존재&lt;/li&gt;
+  &lt;li&gt;각 queue마다 PCB들이 기다리고 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Job Queue
+    &lt;ul&gt;
+      &lt;li&gt;굉장히 더디며, 드물게 일어남&lt;/li&gt;
+      &lt;li&gt;프로세스가 완전히 끝나 메모리가 비워져야 이 scheduling이 일어남&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ready Queue
+    &lt;ul&gt;
+      &lt;li&gt;아주 짧은 시간에 빈번하게 발생&lt;/li&gt;
+      &lt;li&gt;프로세스 간의 이동이므로 switching이 빠름&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Device Queue
+    &lt;ul&gt;
+      &lt;li&gt;특정 장치(I/O)를 사용하기 위해 대기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;multiprogramming&quot;&gt;Multiprogramming&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;메인 메모리에 올려진 process의 수&lt;/li&gt;
+  &lt;li&gt;I/O 관련 작업인지 CPU 사용 관련 계싼 작업인지 구분&lt;/li&gt;
+  &lt;li&gt;midium-term scheduler&lt;br /&gt;
+  (※ Job scheduling: long term scheduler, CPU scheduling: short term scheduler)&lt;/li&gt;
+  &lt;li&gt;context switching&lt;br /&gt;
+  → process간 전환&lt;br /&gt;
+  → dispatcher: scheculer가 선택한 process를 실행하도록 여러 값을 바꿔줌&lt;br /&gt;
+  → 자주 일어나면 overhead가 발생하므로 low level 언어로 코드를 구성해야 함&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -95,7 +146,7 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -310,7 +361,7 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;

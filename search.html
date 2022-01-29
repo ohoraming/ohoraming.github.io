@@ -332,12 +332,12 @@ into the {body} of the default.hbs template -->
     }
     , 
     
-    "os-process-mgmt": {
+    "os-processmgmt": {
         "title": "OS(3) - Process Management",
             "author": "ohoraming",
                 "category": "",
-                    "content": "OS 관련 포스팅    OS(1) - Introduction    OS(2) - Interrupt-Based System    OS(3) - Process Management프로세스  실행 중인 프로그램  메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨  program vs. process  → 아무 일도 못하는 program, 살아 움직이는 process  상태: new, ready, running, waiting, terminated",
-        "url": "/OS-process-mgmt"
+                    "content": "OS 관련 포스팅    OS(1) - Introduction    OS(2) - Interrupt-Based System    OS(3) - Process ManagementProcess  실행 중인 프로그램  메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨  program vs. process  → 아무 일도 못하는 program, 살아 움직이는 process  상태: new, ready, running, waiting, terminated(출처: https://www.javatpoint.com/os-process-states)PCB(Process Control Block)  = Task Control Block(TCB)  C언어 구조체  OS의 process management 안에 존재  프로세스에 대한 모든 정보가 들어있음  process state(running, ready, waiting, …), program counter(PC, 몇 번째로 실행할지), MMU info(base, limit), CPU time(독점 방지용 시간 기록), process id(고유 번호), …  하나의 프로세스에 대해 하나의 PCB가 할당됨  CPU가 프로그램을 실행하다 I/O를 만나거나 time expired가 되어 다른 프로세스로 갈 때 이전까지 실행했던 정보들을 가지고 있어야 CPU 서비스를 다시 받을 때 이전 상태부터 이어서 받을 수 있음Queues  OS의 process management 안에 존재  각 queue마다 PCB들이 기다리고 있음  Job Queue          굉장히 더디며, 드물게 일어남      프로세스가 완전히 끝나 메모리가 비워져야 이 scheduling이 일어남        Ready Queue          아주 짧은 시간에 빈번하게 발생      프로세스 간의 이동이므로 switching이 빠름        Device Queue          특정 장치(I/O)를 사용하기 위해 대기      Multiprogramming  메인 메모리에 올려진 process의 수  I/O 관련 작업인지 CPU 사용 관련 계싼 작업인지 구분  midium-term scheduler  (※ Job scheduling: long term scheduler, CPU scheduling: short term scheduler)  context switching  → process간 전환  → dispatcher: scheculer가 선택한 process를 실행하도록 여러 값을 바꿔줌  → 자주 일어나면 overhead가 발생하므로 low level 언어로 코드를 구성해야 함",
+        "url": "/OS-processmgmt"
     }
     , 
     
