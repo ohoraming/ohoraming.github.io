@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-29T23:56:50+09:00</updated>
+  <updated>2022-01-30T23:14:56+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,10 +32,120 @@
 
   
     <entry>
+      <title type="html">OS(4) - CPU Scheduling</title>
+      <link href="https://ohoraming.github.io/OS-cpuscheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
+      <published>2022-01-30T00:01:00+09:00</published>
+      <updated>2022-01-30T00:01:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-cpuscheduling</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-cpuscheduling">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Preemptive(선점)&lt;br /&gt;
+  → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식&lt;/li&gt;
+  &lt;li&gt;Non-preemptive(비선점)&lt;br /&gt;
+  → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는 절대 scheduling이 일어나지 않는 방식&lt;/li&gt;
+  &lt;li&gt;CPU Utilization(CPU 이용률)&lt;br /&gt;
+  → CPU가 얼마나 열심히 일하고 있는가(%)&lt;/li&gt;
+  &lt;li&gt;Throughput(처리율)&lt;br /&gt;
+  → 시간당 몇 개의 작업을 처리하는가(jobs/sec)&lt;/li&gt;
+  &lt;li&gt;Turnaround time(반환시간)&lt;br /&gt;
+  → 어떤 작업이 ready queue에 들어가서 작업을 끝내고 나오는 시간(sec)&lt;/li&gt;
+  &lt;li&gt;Waiting time(대기시간)&lt;br /&gt;
+  → ready queue에서 기다린 시간(sec)&lt;/li&gt;
+  &lt;li&gt;Response time(응답시간)&lt;br /&gt;
+  → interactive system(대화형 시스템)에서 중요&lt;br /&gt;
+  → 첫 응답이 나오는 데까지 걸리는 시간&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cpu-scheduling-algorithms&quot;&gt;CPU Scheduling Algorithms&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-first-come-first-servedfcfs&quot;&gt;1. First-Come, First-Served(FCFS)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;먼저 들어오면, 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;간단하며, 공평하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
+  &lt;li&gt;Average Waiting Time(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
+  &lt;li&gt;단점: Convoy Effect(호위 효과) - burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
+  &lt;li&gt;Non-preeptive scheduling방식&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-shortest-job-firstsjf&quot;&gt;2. Shortest-Job-First(SJF)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;실행 시간이 짧은 것을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;대기 시간을 줄이는 면에서, 증명된 최적의 방법&lt;/li&gt;
+  &lt;li&gt;단점: 비현실적임(실제 CPU 시간은 실행을 해보기 전에는 모름),&lt;br /&gt;
+      예측이 필수(과거를 기억하고 있어야 함), overhead발생, 시간이 많이 걸림&lt;br /&gt;
+      → 현실적인 적용이 어려움&lt;/li&gt;
+  &lt;li&gt;선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능&lt;/li&gt;
+  &lt;li&gt;선점 방식의 경우 최소 잔여 시간 우선&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-priority-scheduling&quot;&gt;3. Priority Scheduling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;우선 순위가 높은 것을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;우선 순위 설정
+    &lt;ul&gt;
+      &lt;li&gt;내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등&lt;/li&gt;
+      &lt;li&gt;외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;선점 또는 비선점&lt;/li&gt;
+  &lt;li&gt;문제점: starvation 돌입 가능 - 우선 순위에서 밀리면 아무리 기다려도 서비스를 받지 못 함&lt;/li&gt;
+  &lt;li&gt;해결: aging - ready queue에서 오래 기다릴 수록 priority를 조금씩 상승시킴&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-round-robin&quot;&gt;4. Round-Robin&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;time-sharing system에서 많이 사용&lt;/li&gt;
+  &lt;li&gt;time quantum = time slice = Δ&lt;br /&gt;
+  → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생&lt;/li&gt;
+  &lt;li&gt;time quantum에 따라 성능이 달라짐&lt;/li&gt;
+  &lt;li&gt;Δ → ∞ : FCFS&lt;/li&gt;
+  &lt;li&gt;Δ → 0 : switching이 빈번해 여러 프로세스가 동시에 서비스 되는 것 같은 느낌을 줌&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;multilevel-queue-scheduling&quot;&gt;Multilevel Queue Scheduling&lt;/h2&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(3) - Process Management</title>
       <link href="https://ohoraming.github.io/OS-processmgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
-      <published>2021-01-26T23:10:00+09:00</published>
-      <updated>2021-01-26T23:10:00+09:00</updated>
+      <published>2022-01-26T23:10:00+09:00</published>
+      <updated>2022-01-26T23:10:00+09:00</updated>
       <id>https://ohoraming.github.io/OS-processmgmt</id>
       <content type="html" xml:base="https://ohoraming.github.io/OS-processmgmt">&lt;!-- 글 작성하기 --&gt;
 
@@ -45,6 +155,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -136,8 +247,8 @@
     <entry>
       <title type="html">OS(2) - Interrupt-Based System</title>
       <link href="https://ohoraming.github.io/OS-interrupt" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
-      <published>2021-01-18T01:18:00+09:00</published>
-      <updated>2021-01-18T01:18:00+09:00</updated>
+      <published>2022-01-18T01:18:00+09:00</published>
+      <updated>2022-01-18T01:18:00+09:00</updated>
       <id>https://ohoraming.github.io/OS-interrupt</id>
       <content type="html" xml:base="https://ohoraming.github.io/OS-interrupt">&lt;!-- 글 작성하기 --&gt;
 
@@ -147,6 +258,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -351,8 +463,8 @@
     <entry>
       <title type="html">OS(1) - Introduction</title>
       <link href="https://ohoraming.github.io/OS-intro" rel="alternate" type="text/html" title="OS(1) - Introduction" />
-      <published>2021-01-12T22:06:00+09:00</published>
-      <updated>2021-01-12T22:06:00+09:00</updated>
+      <published>2022-01-12T22:06:00+09:00</published>
+      <updated>2022-01-12T22:06:00+09:00</updated>
       <id>https://ohoraming.github.io/OS-intro</id>
       <content type="html" xml:base="https://ohoraming.github.io/OS-intro">&lt;!-- 글 작성하기 --&gt;
 
@@ -362,6 +474,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;

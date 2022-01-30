@@ -4,6 +4,70 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/OS-cpuscheduling.html</loc>
+        
+        <lastmod>2022-01-30T00:01:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://ohoraming.github.io/OS-processmgmt.html</loc>
+        
+        <lastmod>2022-01-26T23:10:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://ohoraming.github.io/OS-interrupt.html</loc>
+        
+        <lastmod>2022-01-18T01:18:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://ohoraming.github.io/OS-intro.html</loc>
+        
+        <lastmod>2022-01-12T22:06:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/JavaScript-promise.html</loc>
         
         <lastmod>2021-08-12T17:16:00+09:00</lastmod>
@@ -231,54 +295,6 @@
         <loc>https://ohoraming.github.io/JAVA-callByReference.html</loc>
         
         <lastmod>2021-07-10T14:45:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://ohoraming.github.io/OS-processmgmt.html</loc>
-        
-        <lastmod>2021-01-26T23:10:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://ohoraming.github.io/OS-interrupt.html</loc>
-        
-        <lastmod>2021-01-18T01:18:00+09:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://ohoraming.github.io/OS-intro.html</loc>
-        
-        <lastmod>2021-01-12T22:06:00+09:00</lastmod>
         
 
         

@@ -71,17 +71,17 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(1) - Introduction" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-intro" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2021-01-12T22:06:00+09:00" />
-    <meta property="article:modified_time" content="2021-01-12T22:06:00+09:00" />
+    <meta property="article:published_time" content="2022-01-12T22:06:00+09:00" />
+    <meta property="article:modified_time" content="2022-01-12T22:06:00+09:00" />
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(1) - Introduction" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-intro"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨 사용자에게 편의성을 제공 컴퓨터를"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling 운영체제(Operating System, OS)의 목적 컴퓨터 하드웨어를 잘 관리하여 HW: processor, memory, disk, keyboard, mouse, monitor… OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨 성능을 높이고 같은 HW라도 OS가 좋으면 성능이 향상됨"
 }
     </script>
 
@@ -188,7 +188,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="12 January 2021">12 January 2021</time>
+                    <time class="post-full-meta-date" datetime="12 January 2022">12 January 2022</time>
                     
                     <span class="date-divider">/</span>
                     
@@ -216,6 +216,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-intro">OS(1) - Introduction</a></li>
     <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
     <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
+    <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
 </ul>
 
 <h2 id="운영체제operating-system-os의-목적">운영체제(Operating System, OS)의 목적</h2>
@@ -467,34 +468,12 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                         
                         
                         
-                            
                         
-                            
                         
+                         <li><a href="/OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
                             
-                        
                             
-                        
                             
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
                             
                         
                         
@@ -516,12 +495,42 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                         
                             
                             
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 2 posts →
+                        See all 3 posts →
                         
                     </a>
                 </footer>
@@ -584,6 +593,57 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/JavaScript-promise">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/JavaScript-promise">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">JavaScript(10) - promise</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
         </div>

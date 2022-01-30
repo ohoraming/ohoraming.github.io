@@ -8,6 +8,66 @@
     
       
       <item>
+        <title>OS(4) - CPU Scheduling</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Sun, 30 Jan 2022 00:01:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/OS-cpuscheduling</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-cpuscheduling</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>OS(3) - Process Management</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Wed, 26 Jan 2022 23:10:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/OS-processmgmt</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-processmgmt</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>OS(2) - Interrupt-Based System</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Tue, 18 Jan 2022 01:18:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/OS-interrupt</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-interrupt</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>OS(1) - Introduction</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Wed, 12 Jan 2022 22:06:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/OS-intro</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-intro</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>JavaScript(10) - promise</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
@@ -233,51 +293,6 @@
         <link>
         https://ohoraming.github.io/JAVA-callByReference</link>
         <guid isPermaLink="true">https://ohoraming.github.io/JAVA-callByReference</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>OS(3) - Process Management</title>
-        
-          <description>&lt;!-- 글 작성하기 --&gt;
-
-</description>
-        
-        <pubDate>Tue, 26 Jan 2021 23:10:00 +0900</pubDate>
-        <link>
-        https://ohoraming.github.io/OS-processmgmt</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-processmgmt</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>OS(2) - Interrupt-Based System</title>
-        
-          <description>&lt;!-- 글 작성하기 --&gt;
-
-</description>
-        
-        <pubDate>Mon, 18 Jan 2021 01:18:00 +0900</pubDate>
-        <link>
-        https://ohoraming.github.io/OS-interrupt</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-interrupt</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>OS(1) - Introduction</title>
-        
-          <description>&lt;!-- 글 작성하기 --&gt;
-
-</description>
-        
-        <pubDate>Tue, 12 Jan 2021 22:06:00 +0900</pubDate>
-        <link>
-        https://ohoraming.github.io/OS-intro</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-intro</guid>
       </item>
       
     
