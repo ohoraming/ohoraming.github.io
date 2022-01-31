@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-30T23:14:56+09:00</updated>
+  <updated>2022-01-31T23:06:41+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,69 @@
 
   
     <entry>
+      <title type="html">OS(5) - Thread</title>
+      <link href="https://ohoraming.github.io/OS-thread" rel="alternate" type="text/html" title="OS(5) - Thread" />
+      <published>2022-01-31T22:59:00+09:00</published>
+      <updated>2022-01-31T22:59:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-thread</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-thread">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;하나의 프로그램은 하나의 흐름/맥이 있음(single thread)&lt;/li&gt;
+  &lt;li&gt;여러 흐름/맥이 있다면(multi threads)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;multithreads&quot;&gt;Multithreads&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;한 프로그램에 둘 이상의 흐름/맥이 있는 경우&lt;/li&gt;
+  &lt;li&gt;짧은 시간 간격으로 흐름이 switching됨&lt;br /&gt;
+  → 여러 흐름/맥이 동시에 실행되는 것 같음(concurrent)&lt;br /&gt;
+  cf.) simultaneous- 실제로 동시에 여러 thread가 실행됨(불가능)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;thread-vs-process&quot;&gt;Thread vs. Process&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(4) - CPU Scheduling</title>
       <link href="https://ohoraming.github.io/OS-cpuscheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
       <published>2022-01-30T00:01:00+09:00</published>
@@ -46,6 +109,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -103,7 +167,7 @@
   &lt;li&gt;해결: aging - ready queue에서 오래 기다릴 수록 priority를 조금씩 상승시킴&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;4-round-robin&quot;&gt;4. Round-Robin&lt;/h3&gt;
+&lt;h3 id=&quot;4-round-robinrr&quot;&gt;4. Round-Robin(RR)&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;time-sharing system에서 많이 사용&lt;/li&gt;
   &lt;li&gt;time quantum = time slice = Δ&lt;br /&gt;
@@ -113,7 +177,46 @@
   &lt;li&gt;Δ → 0 : switching이 빈번해 여러 프로세스가 동시에 서비스 되는 것 같은 느낌을 줌&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;multilevel-queue-scheduling&quot;&gt;Multilevel Queue Scheduling&lt;/h2&gt;</content>
+&lt;h2 id=&quot;multilevel-queue-scheduling&quot;&gt;Multilevel Queue Scheduling&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;process별로 queue를 달리해 서비스 함&lt;/li&gt;
+  &lt;li&gt;여러 single ready queue의 묶음&lt;/li&gt;
+  &lt;li&gt;queue마다 우선 순위는 다름&lt;/li&gt;
+  &lt;li&gt;CPU time을 각 queue에 차등 배분함&lt;/li&gt;
+  &lt;li&gt;queue별로 다른 scheduling 정책을 실행함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;multilevel-feedback-queue-scheduling&quot;&gt;Multilevel Feedback Queue Scheduling&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 개의 queue&lt;br /&gt;
+  → multilevel queue scheduling과의 공통점&lt;/li&gt;
+  &lt;li&gt;모든 process는 하나의 입구로 진입&lt;/li&gt;
+  &lt;li&gt;너무 많은 CPU time 소비 시, 기아 상태가 우려될 시 다른 queue로 이동&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;process-creation&quot;&gt;Process Creation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;프로세스는 프로세스에 의해 만들어짐&lt;br /&gt;
+  → parent/child/sibling process, process tree&lt;/li&gt;
+  &lt;li&gt;Process Identifier(PID)&lt;br /&gt;
+  → 사람의 주민등록번호와 같은 것&lt;br /&gt;
+  cf.) Parent Process Identifier(PPID)&lt;/li&gt;
+  &lt;li&gt;system call
+    &lt;ul&gt;
+      &lt;li&gt;fork(): parent process 복사&lt;/li&gt;
+      &lt;li&gt;exec(): 실행파일을 메모리로 가져오기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;process-termination&quot;&gt;Process Termination&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;system call
+    &lt;ul&gt;
+      &lt;li&gt;exit(): 해당 프로세스의 자원 OS에 반환&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -156,6 +259,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -259,6 +363,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -475,6 +580,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;

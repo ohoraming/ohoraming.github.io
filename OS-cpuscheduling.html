@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(4) - CPU Scheduling" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-cpuscheduling" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(4) - CPU Scheduling" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-cpuscheduling"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식 Non-preemptive(비선점) → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나"
 }
     </script>
 
@@ -217,6 +217,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
     <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
     <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
+    <li><a href="./OS-thread">OS(5) - Thread</a></li>
 </ul>
 
 <h2 id="cpu-scheduling">CPU Scheduling</h2>
@@ -274,7 +275,7 @@ into the {body} of the default.hbs template -->
   <li>해결: aging - ready queue에서 오래 기다릴 수록 priority를 조금씩 상승시킴</li>
 </ul>
 
-<h3 id="4-round-robin">4. Round-Robin</h3>
+<h3 id="4-round-robinrr">4. Round-Robin(RR)</h3>
 <ul>
   <li>time-sharing system에서 많이 사용</li>
   <li>time quantum = time slice = Δ<br />
@@ -285,6 +286,45 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <h2 id="multilevel-queue-scheduling">Multilevel Queue Scheduling</h2>
+<ul>
+  <li>process별로 queue를 달리해 서비스 함</li>
+  <li>여러 single ready queue의 묶음</li>
+  <li>queue마다 우선 순위는 다름</li>
+  <li>CPU time을 각 queue에 차등 배분함</li>
+  <li>queue별로 다른 scheduling 정책을 실행함</li>
+</ul>
+
+<h2 id="multilevel-feedback-queue-scheduling">Multilevel Feedback Queue Scheduling</h2>
+<ul>
+  <li>여러 개의 queue<br />
+  → multilevel queue scheduling과의 공통점</li>
+  <li>모든 process는 하나의 입구로 진입</li>
+  <li>너무 많은 CPU time 소비 시, 기아 상태가 우려될 시 다른 queue로 이동</li>
+</ul>
+
+<h2 id="process-creation">Process Creation</h2>
+<ul>
+  <li>프로세스는 프로세스에 의해 만들어짐<br />
+  → parent/child/sibling process, process tree</li>
+  <li>Process Identifier(PID)<br />
+  → 사람의 주민등록번호와 같은 것<br />
+  cf.) Parent Process Identifier(PPID)</li>
+  <li>system call
+    <ul>
+      <li>fork(): parent process 복사</li>
+      <li>exec(): 실행파일을 메모리로 가져오기</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="process-termination">Process Termination</h2>
+<ul>
+  <li>system call
+    <ul>
+      <li>exit(): 해당 프로세스의 자원 OS에 반환</li>
+    </ul>
+  </li>
+</ul>
 
                 </div>
             </section>
@@ -392,6 +432,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                         <li><a href="/OS-thread">OS(5) - Thread</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -413,8 +461,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-intro">OS(1) - Introduction</a></li>
-                            
+                        
                             
                             
                             
@@ -453,7 +500,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 3 posts →
+                        See all 4 posts →
                         
                     </a>
                 </footer>
@@ -462,6 +509,57 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OS-thread">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OS-thread">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Os</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">OS(5) - Thread</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

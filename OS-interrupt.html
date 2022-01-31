@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(2) - Interrupt-Based System" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-interrupt" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(2) - Interrupt-Based System" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-interrupt"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데 가로채서 다른 일을 함 현대 운영체제는 interrupt 기반 시스템 booting 완료 후, OS는 메모리에 상주함(resident) 마우스를 움직이면 전기신호(=interrupt)가 발생해"
 }
     </script>
 
@@ -217,6 +217,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
     <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
     <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
+    <li><a href="./OS-thread">OS(5) - Thread</a></li>
 </ul>
 
 <h2 id="interrupt">Interrupt</h2>
@@ -500,6 +501,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                         <li><a href="/OS-thread">OS(5) - Thread</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
                          <li><a href="/OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
                             
                             
@@ -520,8 +529,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-intro">OS(1) - Introduction</a></li>
-                            
+                        
                             
                             
                             
@@ -560,7 +568,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 3 posts →
+                        See all 4 posts →
                         
                     </a>
                 </footer>

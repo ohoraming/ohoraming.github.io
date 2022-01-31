@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/OS-thread.html</loc>
+        
+        <lastmod>2022-01-31T22:59:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/OS-cpuscheduling.html</loc>
         
         <lastmod>2022-01-30T00:01:00+09:00</lastmod>
