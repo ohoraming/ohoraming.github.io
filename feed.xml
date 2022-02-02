@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-01-31T23:06:41+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(5) - Thread</title><link href="https://ohoraming.github.io/OS-thread" rel="alternate" type="text/html" title="OS(5) - Thread" /><published>2022-01-31T22:59:00+09:00</published><updated>2022-01-31T22:59:00+09:00</updated><id>https://ohoraming.github.io/OS-thread</id><content type="html" xml:base="https://ohoraming.github.io/OS-thread">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-02-02T21:54:49+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(5) - Thread</title><link href="https://ohoraming.github.io/OS-thread" rel="alternate" type="text/html" title="OS(5) - Thread" /><published>2022-01-31T22:59:00+09:00</published><updated>2022-01-31T22:59:00+09:00</updated><id>https://ohoraming.github.io/OS-thread</id><content type="html" xml:base="https://ohoraming.github.io/OS-thread">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -21,12 +21,158 @@
   &lt;li&gt;한 프로그램에 둘 이상의 흐름/맥이 있는 경우&lt;/li&gt;
   &lt;li&gt;짧은 시간 간격으로 흐름이 switching됨&lt;br /&gt;
   → 여러 흐름/맥이 동시에 실행되는 것 같음(concurrent)&lt;br /&gt;
-  cf.) simultaneous- 실제로 동시에 여러 thread가 실행됨(불가능)&lt;/li&gt;
+  cf.) simultaneous - 실제로 동시에 여러 thread가 실행됨(불가능)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread-vs-process&quot;&gt;Thread vs. Process&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;하나의 process에는 하나 이상의 thread가 존재(multi-thread program)&lt;/li&gt;
+  &lt;li&gt;하나의 program은 code, data, stack으로 구성됨&lt;/li&gt;
+  &lt;li&gt;thread는 process의 메모리 공간(code, data) 및 자원(file, I/O)을 공유&lt;/li&gt;
+  &lt;li&gt;개별적인 program counter(PC), stack pointer(SP), registers, stack은 비공유&lt;/li&gt;
+  &lt;li&gt;thread가 switching 될 때마다 PC, SP, registers값 모두 변화되므로 공유하지 않음&lt;/li&gt;
+  &lt;li&gt;함수 호출시, stack에 return address, parameter 등을 저장함&lt;/li&gt;
+  &lt;li&gt;현대의 context switching 단위는 process가 아닌 thread!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;javalangthread&quot;&gt;java.lang.Thread&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;JAVA의 thread는 java.lang package 안에 있음&lt;/li&gt;
+  &lt;li&gt;Thread.&lt;strong&gt;run()&lt;/strong&gt; : thread가 시작되면 run() 메서드가 실행됨&lt;/li&gt;
+  &lt;li&gt;run() 메서드를 override
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyThread&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;c1&quot;&gt;// code&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;process-synchronization프로세스-동기화&quot;&gt;Process Synchronization(프로세스 동기화)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;엄밀히 말하면 현대 OS는 context switching의 단위가 thread이므로 &lt;strong&gt;thread synchronization&lt;/strong&gt;이 맞음&lt;/li&gt;
+  &lt;li&gt;일반적으로, main memory에 올라간 process간에는 어떤 식으로든 &lt;strong&gt;영향&lt;/strong&gt;을 주고 받음(cooperating process)&lt;/li&gt;
+  &lt;li&gt;하나의 데이터베이스와 같은 &lt;strong&gt;공통된 자원(common resources)&lt;/strong&gt;에 서로 접근하려 하기때문에 영향을 주고 받게 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bank-account-problem&quot;&gt;Bank Account Problem&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;parent는 deposit(입금), child는 withdraw(출금)을 진행&lt;/li&gt;
+  &lt;li&gt;common variable인 balance(잔액)에 대해 동시 update가 발생함&lt;/li&gt;
+  &lt;li&gt;코드를 읽어가다가 context switching이 일어날 경우, balance에 오류가 생김&lt;/li&gt;
+  &lt;li&gt;high level language는 기계어(assembly어)로 변환되는 과정을 거침&lt;/li&gt;
+  &lt;li&gt;한 줄의 코드가 여러 줄의 기계어로 번역될 때 context switching 일어나면 잘못된 결과가 발생&lt;/li&gt;
+  &lt;li&gt;common variable update 진행 중에는 context switching 일어나면 안 됨&lt;br /&gt;
+  → common variable에 대해 한번에 하나의 thread만 update&lt;br /&gt;
+  → Critical-Section Problem (임계 구역 문제)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;critical-section-problem&quot;&gt;Critical-Section Problem&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Critical-Section (C.S.)&lt;/strong&gt;&lt;br /&gt;
+  → multiple thread로 구성된 system&lt;br /&gt;
+  → common variable changing이 일어날 수 있는 구간&lt;/li&gt;
+  &lt;li&gt;해결&lt;br /&gt;
+  → &lt;strong&gt;Mutual exclusion&lt;/strong&gt; (상호 배타): 하나의 thread만 진입&lt;br /&gt;
+  → Progress (진행): 유한 시간 내에 C.S.에 누가 먼저 진입할 지 결정&lt;br /&gt;
+  → Bounded waiting (유한 대기): 유한 시간 내에 C.S.에 진입할 기회가 생김&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;synchronization-tools&quot;&gt;Synchronization Tools&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Semaphores (세마포): 가장 전통적인 동기화 도구&lt;/li&gt;
+  &lt;li&gt;Monitor (모니터): java에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;semaphore&quot;&gt;Semaphore&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;네덜란드의 Edsger Kijkstra가 제안&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;정수형 변수&lt;/strong&gt;와 &lt;strong&gt;두 개의 동작&lt;/strong&gt;(&lt;strong&gt;P, V&lt;/strong&gt;)으로 구성&lt;/li&gt;
+  &lt;li&gt;네덜란드어(&lt;strong&gt;P&lt;/strong&gt;roberen, &lt;strong&gt;V&lt;/strong&gt;erhogen)를 영어로 변환&lt;/li&gt;
+  &lt;li&gt;P: &lt;strong&gt;acquire()&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;V: &lt;strong&gt;release()&lt;/strong&gt;
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Semaphore&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;Semaphore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// code&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;wakeup&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정수형 변수: number of permits&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;acquire()&lt;/strong&gt;&lt;br /&gt;
+  → 정수값이 1감소&lt;br /&gt;
+  → 감소된 정수값이 0보다 작으면 호출한 process/thread를 queue안에 넣음&lt;br /&gt;
+      (block상태(= ready queue에 못 감))&lt;br /&gt;
+  → interrupted exception발생(try~catch)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;release()&lt;/strong&gt;&lt;br /&gt;
+  → 정수값이 1증가&lt;br /&gt;
+  → 증가된 정수값이 0보다 작거나 같으면(= queue에 block된 thread 존재) 호출한 process/thread를 queue에서 꺼냄(wake up)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;일반적-사용1-mutual-exclusion&quot;&gt;일반적 사용(1): Mutual exclusion&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;number of permits = 1&lt;br /&gt;
+  → C.S.에 하나의 process/thread만 들임&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;acquire();&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Critical-Section&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;release();&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;일반적-사용2-ordering&quot;&gt;일반적 사용(2): Ordering&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;number of permits = 1&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;p1&lt;/td&gt;
+          &lt;td&gt;p2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;acquire();&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;S1;&lt;/td&gt;
+          &lt;td&gt;S2;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;release();&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">OS(4) - CPU Scheduling</title><link href="https://ohoraming.github.io/OS-cpuscheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" /><published>2022-01-30T00:01:00+09:00</published><updated>2022-01-30T00:01:00+09:00</updated><id>https://ohoraming.github.io/OS-cpuscheduling</id><content type="html" xml:base="https://ohoraming.github.io/OS-cpuscheduling">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;

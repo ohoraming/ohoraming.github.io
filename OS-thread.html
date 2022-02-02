@@ -231,12 +231,158 @@ into the {body} of the default.hbs template -->
   <li>한 프로그램에 둘 이상의 흐름/맥이 있는 경우</li>
   <li>짧은 시간 간격으로 흐름이 switching됨<br />
   → 여러 흐름/맥이 동시에 실행되는 것 같음(concurrent)<br />
-  cf.) simultaneous- 실제로 동시에 여러 thread가 실행됨(불가능)</li>
+  cf.) simultaneous - 실제로 동시에 여러 thread가 실행됨(불가능)</li>
 </ul>
 
 <h2 id="thread-vs-process">Thread vs. Process</h2>
 <ul>
-  <li></li>
+  <li>하나의 process에는 하나 이상의 thread가 존재(multi-thread program)</li>
+  <li>하나의 program은 code, data, stack으로 구성됨</li>
+  <li>thread는 process의 메모리 공간(code, data) 및 자원(file, I/O)을 공유</li>
+  <li>개별적인 program counter(PC), stack pointer(SP), registers, stack은 비공유</li>
+  <li>thread가 switching 될 때마다 PC, SP, registers값 모두 변화되므로 공유하지 않음</li>
+  <li>함수 호출시, stack에 return address, parameter 등을 저장함</li>
+  <li>현대의 context switching 단위는 process가 아닌 thread!</li>
+</ul>
+
+<h2 id="javalangthread">java.lang.Thread</h2>
+<ul>
+  <li>JAVA의 thread는 java.lang package 안에 있음</li>
+  <li>Thread.<strong>run()</strong> : thread가 시작되면 run() 메서드가 실행됨</li>
+  <li>run() 메서드를 override
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="kd">class</span> <span class="nc">MyThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+              <span class="c1">// code</span>
+          <span class="o">}</span>
+      <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="process-synchronization프로세스-동기화">Process Synchronization(프로세스 동기화)</h2>
+<ul>
+  <li>엄밀히 말하면 현대 OS는 context switching의 단위가 thread이므로 <strong>thread synchronization</strong>이 맞음</li>
+  <li>일반적으로, main memory에 올라간 process간에는 어떤 식으로든 <strong>영향</strong>을 주고 받음(cooperating process)</li>
+  <li>하나의 데이터베이스와 같은 <strong>공통된 자원(common resources)</strong>에 서로 접근하려 하기때문에 영향을 주고 받게 됨</li>
+</ul>
+
+<h2 id="bank-account-problem">Bank Account Problem</h2>
+<ul>
+  <li>parent는 deposit(입금), child는 withdraw(출금)을 진행</li>
+  <li>common variable인 balance(잔액)에 대해 동시 update가 발생함</li>
+  <li>코드를 읽어가다가 context switching이 일어날 경우, balance에 오류가 생김</li>
+  <li>high level language는 기계어(assembly어)로 변환되는 과정을 거침</li>
+  <li>한 줄의 코드가 여러 줄의 기계어로 번역될 때 context switching 일어나면 잘못된 결과가 발생</li>
+  <li>common variable update 진행 중에는 context switching 일어나면 안 됨<br />
+  → common variable에 대해 한번에 하나의 thread만 update<br />
+  → Critical-Section Problem (임계 구역 문제)</li>
+</ul>
+
+<h2 id="critical-section-problem">Critical-Section Problem</h2>
+<ul>
+  <li><strong>Critical-Section (C.S.)</strong><br />
+  → multiple thread로 구성된 system<br />
+  → common variable changing이 일어날 수 있는 구간</li>
+  <li>해결<br />
+  → <strong>Mutual exclusion</strong> (상호 배타): 하나의 thread만 진입<br />
+  → Progress (진행): 유한 시간 내에 C.S.에 누가 먼저 진입할 지 결정<br />
+  → Bounded waiting (유한 대기): 유한 시간 내에 C.S.에 진입할 기회가 생김</li>
+</ul>
+
+<h2 id="synchronization-tools">Synchronization Tools</h2>
+<ul>
+  <li>Semaphores (세마포): 가장 전통적인 동기화 도구</li>
+  <li>Monitor (모니터): java에서 사용</li>
+</ul>
+
+<h2 id="semaphore">Semaphore</h2>
+<ul>
+  <li>네덜란드의 Edsger Kijkstra가 제안</li>
+  <li><strong>정수형 변수</strong>와 <strong>두 개의 동작</strong>(<strong>P, V</strong>)으로 구성</li>
+  <li>네덜란드어(<strong>P</strong>roberen, <strong>V</strong>erhogen)를 영어로 변환</li>
+  <li>P: <strong>acquire()</strong></li>
+  <li>V: <strong>release()</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Semaphore</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+  <span class="nc">Semaphore</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// code</span>
+  <span class="o">}</span>
+  <span class="kt">void</span> <span class="nf">acquire</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">value</span><span class="o">--;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">add</span> <span class="k">this</span> <span class="n">process</span><span class="o">/</span><span class="n">thread</span> <span class="n">to</span> <span class="n">list</span><span class="o">;</span>
+          <span class="n">block</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kt">void</span> <span class="nf">release</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">value</span><span class="o">++;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">remove</span> <span class="n">a</span> <span class="n">process</span> <span class="no">P</span> <span class="n">from</span> <span class="n">list</span><span class="o">;</span>
+          <span class="n">wakeup</span> <span class="no">P</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>정수형 변수: number of permits</li>
+  <li><strong>acquire()</strong><br />
+  → 정수값이 1감소<br />
+  → 감소된 정수값이 0보다 작으면 호출한 process/thread를 queue안에 넣음<br />
+      (block상태(= ready queue에 못 감))<br />
+  → interrupted exception발생(try~catch)</li>
+  <li><strong>release()</strong><br />
+  → 정수값이 1증가<br />
+  → 증가된 정수값이 0보다 작거나 같으면(= queue에 block된 thread 존재) 호출한 process/thread를 queue에서 꺼냄(wake up)</li>
+</ul>
+
+<h3 id="일반적-사용1-mutual-exclusion">일반적 사용(1): Mutual exclusion</h3>
+<ul>
+  <li>
+    <p>number of permits = 1<br />
+  → C.S.에 하나의 process/thread만 들임</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>acquire();</td>
+        </tr>
+        <tr>
+          <td><strong>Critical-Section</strong></td>
+        </tr>
+        <tr>
+          <td>release();</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="일반적-사용2-ordering">일반적 사용(2): Ordering</h3>
+<ul>
+  <li>
+    <p>number of permits = 1</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>p1</td>
+          <td>p2</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td>acquire();</td>
+        </tr>
+        <tr>
+          <td>S1;</td>
+          <td>S2;</td>
+        </tr>
+        <tr>
+          <td>release();</td>
+          <td> </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
 </ul>
 
                 </div>
