@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(5) - Thread" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨 → 여러 흐름/맥이 동시에 실행되는" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-thread" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(5) - Thread" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨 → 여러 흐름/맥이 동시에 실행되는" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-thread"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨 → 여러 흐름/맥이 동시에 실행되는"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Thread 하나의 프로그램은 하나의 흐름/맥이 있음(single thread) 여러 흐름/맥이 있다면(multi threads) Multithreads 한 프로그램에 둘 이상의 흐름/맥이 있는 경우 짧은 시간 간격으로 흐름이 switching됨"
 }
     </script>
 
@@ -218,6 +218,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
     <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
+    <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
 </ul>
 
 <h2 id="thread">Thread</h2>
@@ -491,6 +492,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                         <li><a href="/OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -512,8 +521,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-interrupt">OS(2) - Interrupt-Based System</a></li>
-                            
+                        
                             
                             
                             
@@ -559,7 +567,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 4 posts →
+                        See all 5 posts →
                         
                     </a>
                 </footer>
@@ -568,6 +576,57 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OS-classicalsync">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OS-classicalsync">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Os</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">OS(6) - Classical Synchronization Problems</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-02T21:54:49+09:00</updated>
+  <updated>2022-02-03T23:02:40+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,86 @@
 
   
     <entry>
+      <title type="html">OS(6) - Classical Synchronization Problems</title>
+      <link href="https://ohoraming.github.io/OS-classicalsync" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" />
+      <published>2022-02-02T21:58:00+09:00</published>
+      <updated>2022-02-02T21:58:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-classicalsync</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-classicalsync">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;producer(생산자)가 data를 생산하면 consumer(소비자)가 소비&lt;/li&gt;
+  &lt;li&gt;e.g.) compiler와 assembler의 경우,&lt;br /&gt;
+  compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된 assembly어를 기계어로 번역&lt;/li&gt;
+  &lt;li&gt;e.g.) 파일 서버와 클라이언트의 경우,&lt;br /&gt;
+  web browser(= consumer)가 요청을 보내면, server(= producer)가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bounded Buffer(유한 버퍼)&lt;/strong&gt;&lt;br /&gt;
+  → 생산한 데이터는 버퍼에 우선 저장함&lt;br /&gt;
+  → buffer의 사이즈는 유한함&lt;br /&gt;
+  → producer는 buffer가 가득 차면 더이상 데이터를 넣을 수 없으며,&lt;br /&gt;
+  → consumer는 buffer가 비면 더이상 데이터를 뺄 수 없음&lt;/li&gt;
+  &lt;li&gt;같은 수의 생산(insert)과 소비(remove)가 이루어졌다면, 결괏값은 0이 나와야 함&lt;/li&gt;
+  &lt;li&gt;common variable인 count와 buf[]를 업데이트하는 C.S.(critical-section)에 동시 진입이 이루어져 최종 결괏값으로 0이 나오지 않음&lt;/li&gt;
+  &lt;li&gt;solution&lt;br /&gt;
+  → &lt;strong&gt;mutual exclusion&lt;/strong&gt;&lt;br /&gt;
+  → semaphore를 이용해 동시접근 방지&lt;br /&gt;
+  → number of permits = 1&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Busy-wait&lt;/strong&gt;&lt;br /&gt;
+  → producer: buffer가 가득차면 기다려야하며,&lt;br /&gt;
+  → consumer: buffer가 비면 기다려야 함&lt;br /&gt;
+  → OS의 ‘효율성 증가’의 목적에 위배됨&lt;br /&gt;
+  → semaphore를 사용해 busy-wait회피&lt;br /&gt;
+  → 무한 loop(while문)를 돌며 기다리지않고 semaphore에 가둠&lt;br /&gt;
+  → CPU 서비스를 받지 않고 block됨&lt;br /&gt;
+  → 빈공간이 생기면 producer를 깨우고, 데이터가 들어오면 consumer를 깨움&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;readers-writers-problem&quot;&gt;Readers-Writers Problem&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dining-philosopher-problem&quot;&gt;Dining Philosopher Problem&lt;/h2&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(5) - Thread</title>
       <link href="https://ohoraming.github.io/OS-thread" rel="alternate" type="text/html" title="OS(5) - Thread" />
       <published>2022-01-31T22:59:00+09:00</published>
@@ -47,6 +127,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -256,6 +337,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -406,6 +488,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -510,6 +593,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -727,6 +811,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;

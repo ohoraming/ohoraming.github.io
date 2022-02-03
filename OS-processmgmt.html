@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(3) - Process Management" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아 움직이는 process 상태: new, ready," />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-processmgmt" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(3) - Process Management" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아 움직이는 process 상태: new, ready," />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-processmgmt"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아 움직이는 process 상태: new, ready,"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Process 실행 중인 프로그램 메인 메모리에 프로그램이 올라오면, text(code) + data + stack도 메인메모리에 생성됨 program vs. process → 아무 일도 못하는 program, 살아"
 }
     </script>
 
@@ -218,6 +218,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
     <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
+    <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
 </ul>
 
 <h2 id="process">Process</h2>
@@ -388,6 +389,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                         <li><a href="/OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
                          <li><a href="/OS-thread">OS(5) - Thread</a></li>
                             
                             
@@ -408,8 +417,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-interrupt">OS(2) - Interrupt-Based System</a></li>
-                            
+                        
                             
                             
                             
@@ -455,7 +463,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 4 posts →
+                        See all 5 posts →
                         
                     </a>
                 </footer>
