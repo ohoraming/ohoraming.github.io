@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-03T23:02:40+09:00</updated>
+  <updated>2022-02-04T23:01:12+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -53,10 +53,10 @@
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;producer(생산자)가 data를 생산하면 consumer(소비자)가 소비&lt;/li&gt;
-  &lt;li&gt;e.g.) compiler와 assembler의 경우,&lt;br /&gt;
-  compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된 assembly어를 기계어로 번역&lt;/li&gt;
-  &lt;li&gt;e.g.) 파일 서버와 클라이언트의 경우,&lt;br /&gt;
-  web browser(= consumer)가 요청을 보내면, server(= producer)가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌&lt;/li&gt;
+  &lt;li&gt;e.g.) compiler(= producer)와 assembler(= consumer)의 경우,&lt;br /&gt;
+  compiler가 high level language를 low level language(assembly어)로 번역하면,  assembler가 번역된 assembly어를 기계어로 번역&lt;/li&gt;
+  &lt;li&gt;e.g.) 파일 서버(= producer)와 클라이언트(= consumer)의 경우,&lt;br /&gt;
+  web browser가 요청을 보내면, server가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Bounded Buffer(유한 버퍼)&lt;/strong&gt;&lt;br /&gt;
   → 생산한 데이터는 버퍼에 우선 저장함&lt;br /&gt;
   → buffer의 사이즈는 유한함&lt;br /&gt;
@@ -67,7 +67,7 @@
   &lt;li&gt;solution&lt;br /&gt;
   → &lt;strong&gt;mutual exclusion&lt;/strong&gt;&lt;br /&gt;
   → semaphore를 이용해 동시접근 방지&lt;br /&gt;
-  → number of permits = 1&lt;/li&gt;
+  → number of permit = 1&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Busy-wait&lt;/strong&gt;&lt;br /&gt;
   → producer: buffer가 가득차면 기다려야하며,&lt;br /&gt;
   → consumer: buffer가 비면 기다려야 함&lt;br /&gt;
@@ -80,10 +80,23 @@
 
 &lt;h2 id=&quot;readers-writers-problem&quot;&gt;Readers-Writers Problem&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Reader: C.S.을 편집하지 않고 읽기만 함&lt;/li&gt;
+  &lt;li&gt;Writer: C.S.를 읽고 편집함&lt;/li&gt;
+  &lt;li&gt;Reader에 mutual exclusion을 적용하면 비효율적임&lt;/li&gt;
+  &lt;li&gt;Reader가 들어왔는데 다른 Writer가 들어오려하면 block&lt;/li&gt;
+  &lt;li&gt;Writer가 들어와 있으면 Reader는 block&lt;/li&gt;
+  &lt;li&gt;Reader가 들어와 있는데 다른 Reader가 들어온다면 허용(효율성 제고)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;dining-philosopher-problem&quot;&gt;Dining Philosopher Problem&lt;/h2&gt;</content>
+&lt;h2 id=&quot;dining-philosopher-problem&quot;&gt;Dining Philosopher Problem&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;5명의 철학자와 5개의 젓가락이 서로 엇갈려 한 테이블에 존재&lt;/li&gt;
+  &lt;li&gt;‘생각 → 식사’의 반복&lt;/li&gt;
+  &lt;li&gt;왼쪽 젓가락을 든 뒤, 오른쪽 젓가락을 듬&lt;/li&gt;
+  &lt;li&gt;number of permit = 1 : 두 철학자 중 한 명만 젓가락 드는 것이 허용됨&lt;/li&gt;
+  &lt;li&gt;결과: starvation: 모든 철학자들이 굶어 죽는 상황 발생&lt;/li&gt;
+  &lt;li&gt;모두가 동시에 젓가락을 드는 상황이 있으면 deadlock에 빠짐&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       

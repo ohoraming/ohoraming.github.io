@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(6) - Classical Synchronization Problems" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler와 assembler의 경우, compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-classicalsync" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(6) - Classical Synchronization Problems" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler와 assembler의 경우, compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-classicalsync"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler와 assembler의 경우, compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를"
 }
     </script>
 
@@ -224,10 +224,10 @@ into the {body} of the default.hbs template -->
 <h2 id="producer-consumer-problem">Producer-Consumer Problem</h2>
 <ul>
   <li>producer(생산자)가 data를 생산하면 consumer(소비자)가 소비</li>
-  <li>e.g.) compiler와 assembler의 경우,<br />
-  compiler(= producer)가 high level language를 low level language(보통, assembly어)로 번역하면, assembler(= consumer)가 번역된 assembly어를 기계어로 번역</li>
-  <li>e.g.) 파일 서버와 클라이언트의 경우,<br />
-  web browser(= consumer)가 요청을 보내면, server(= producer)가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌</li>
+  <li>e.g.) compiler(= producer)와 assembler(= consumer)의 경우,<br />
+  compiler가 high level language를 low level language(assembly어)로 번역하면,  assembler가 번역된 assembly어를 기계어로 번역</li>
+  <li>e.g.) 파일 서버(= producer)와 클라이언트(= consumer)의 경우,<br />
+  web browser가 요청을 보내면, server가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌</li>
   <li><strong>Bounded Buffer(유한 버퍼)</strong><br />
   → 생산한 데이터는 버퍼에 우선 저장함<br />
   → buffer의 사이즈는 유한함<br />
@@ -238,7 +238,7 @@ into the {body} of the default.hbs template -->
   <li>solution<br />
   → <strong>mutual exclusion</strong><br />
   → semaphore를 이용해 동시접근 방지<br />
-  → number of permits = 1</li>
+  → number of permit = 1</li>
   <li><strong>Busy-wait</strong><br />
   → producer: buffer가 가득차면 기다려야하며,<br />
   → consumer: buffer가 비면 기다려야 함<br />
@@ -251,11 +251,23 @@ into the {body} of the default.hbs template -->
 
 <h2 id="readers-writers-problem">Readers-Writers Problem</h2>
 <ul>
-  <li></li>
+  <li>Reader: C.S.을 편집하지 않고 읽기만 함</li>
+  <li>Writer: C.S.를 읽고 편집함</li>
+  <li>Reader에 mutual exclusion을 적용하면 비효율적임</li>
+  <li>Reader가 들어왔는데 다른 Writer가 들어오려하면 block</li>
+  <li>Writer가 들어와 있으면 Reader는 block</li>
+  <li>Reader가 들어와 있는데 다른 Reader가 들어온다면 허용(효율성 제고)</li>
 </ul>
 
 <h2 id="dining-philosopher-problem">Dining Philosopher Problem</h2>
-
+<ul>
+  <li>5명의 철학자와 5개의 젓가락이 서로 엇갈려 한 테이블에 존재</li>
+  <li>‘생각 → 식사’의 반복</li>
+  <li>왼쪽 젓가락을 든 뒤, 오른쪽 젓가락을 듬</li>
+  <li>number of permit = 1 : 두 철학자 중 한 명만 젓가락 드는 것이 허용됨</li>
+  <li>결과: starvation: 모든 철학자들이 굶어 죽는 상황 발생</li>
+  <li>모두가 동시에 젓가락을 드는 상황이 있으면 deadlock에 빠짐</li>
+</ul>
 
                 </div>
             </section>
