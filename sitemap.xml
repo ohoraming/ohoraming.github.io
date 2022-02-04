@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/OS-deadlock.html</loc>
+        
+        <lastmod>2022-02-04T23:03:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/OS-classicalsync.html</loc>
         
         <lastmod>2022-02-02T21:58:00+09:00</lastmod>

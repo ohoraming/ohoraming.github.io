@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(6) - Classical Synchronization Problems" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면," />
     <meta property="og:url" content="https://ohoraming.github.io/OS-classicalsync" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(6) - Classical Synchronization Problems" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면," />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-classicalsync"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면, assembler가 번역된 assembly어를"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Producer-Consumer Problem producer(생산자)가 data를 생산하면 consumer(소비자)가 소비 e.g.) compiler(= producer)와 assembler(= consumer)의 경우, compiler가 high level language를 low level language(assembly어)로 번역하면,"
 }
     </script>
 
@@ -219,6 +219,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
     <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
+    <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
 </ul>
 
 <h2 id="producer-consumer-problem">Producer-Consumer Problem</h2>
@@ -375,6 +376,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                         <li><a href="/OS-deadlock">OS(7) - Deadlock</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -396,8 +405,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-processmgmt">OS(3) - Process Management</a></li>
-                            
+                        
                             
                             
                             
@@ -450,7 +458,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 5 posts →
+                        See all 6 posts →
                         
                     </a>
                 </footer>
@@ -459,6 +467,57 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OS-deadlock">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OS-deadlock">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Os</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">OS(7) - Deadlock</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
