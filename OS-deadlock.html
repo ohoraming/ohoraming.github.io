@@ -256,30 +256,58 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <h2 id="deadlock-처리">Deadlock 처리</h2>
-<ul>
+<ol>
   <li>Deadlock Prevention(교착상태 방지)</li>
   <li>Deadlock Avoidance(교착상태 회피)</li>
   <li>Deadlock Detection &amp; Recovery(교착상태 검출 및 복구)</li>
   <li>Don’t Care(교착상태 무시)</li>
-</ul>
+</ol>
 
 <h2 id="1-교착상태-방지">(1) 교착상태 방지</h2>
 <ul>
   <li>교착상태 필요조건 4가지 중 한 가지 이상 불만족</li>
-  <li>Mutual exclution(상호배타) 깨려면,<br />
+  <li><strong>Mutual exclution(상호배타)</strong> 깨려면,<br />
   → 자원을 공유<br />
   → CPU의 경우 시간을 두고 switching은 가능하지만 동시에 사용 불가<br />
   → 원천적으로 불가한 조건</li>
-  <li>Hold and wait(보유 및 점유) 깨려면,<br />
+  <li><strong>Hold and wait(보유 및 점유)</strong> 깨려면,<br />
   → 일부의 자원만 가지고 있을 경우, 다른 자원을 기다려야한다면 보유한 자원을 모두 포기<br />
   → 단점: 자원 활용율 저하, starvation(process가 진행을 못 함)</li>
-  <li>No preemption(비선점) 깨려면,<br />
+  <li><strong>No preemption(비선점)</strong> 깨려면,<br />
   → 자원을 강제로 빼앗음<br />
   → CPU는 context switching해서 사용이 가능하나, printer는 불가능함<br />
   → 원천적으로 불가한 조건</li>
-  <li>Circular wait(환형대기) 깨려면,<br />
+  <li><strong>Circular wait(환형대기)</strong> 깨려면,<br />
   → e.g.) 자원에 번호를 부여해 순서대로 자원을 요청<br />
   → 단점: 자원 활용율 저하</li>
+</ul>
+
+<h2 id="2-교착상태-회피">(2) 교착상태 회피</h2>
+<ul>
+  <li>deadlock을 자원 요청에 대한 잘못된 승인으로 해석</li>
+  <li>대출 전문 은행(Banker’s Algorithm)의 파산과 같다고 생각해 더이상 거래가 불가능한 상태로 인식</li>
+  <li>OS는 자원을 할당할 때 불안전한 할당(Unsafe allocation)이 되지 않도록 해야 함</li>
+</ul>
+
+<h2 id="3-교착상태-검출-및-복구">(3) 교착상태 검출 및 복구</h2>
+<ul>
+  <li>hold and wait 되더라도 말리지 않고 원하는 대로 자원을 나눠주다보면 deadlock 발생할 수 있음</li>
+  <li>deadlock 발생을 허용하며 주기적으로 검사함</li>
+  <li>검사(detection)시 overhead 발생<br />
+  → CPU 계산, memory<br />
+  → 너무 자주하면 deadlock 발견은 빠르지만 overhead 발생 가능성 증가</li>
+  <li>복구(recovery)<br />
+  → process 일부 강제 종료<br />
+  → 자원 선점해 일부 process에 할당<br />
+  → deadlock 발생 전으로 되돌리려면 주기적으로 현상태를 기억해야 하기에 memory필요</li>
+</ul>
+
+<h2 id="4-교착상태-무시">(4) 교착상태 무시</h2>
+<ul>
+  <li>deadlock은 실제로 잘 일어나지 않음</li>
+  <li>4개의 필요조건을 모두 만족하더라도 반드시 일어나는 것 아님</li>
+  <li>개인 PC의 경우 deadlock발생시 재부팅하면 해결됨</li>
+  <li>그래서 다른 방법을 시도하는 것 보다는 재부팅이 효율적일 수 있음</li>
 </ul>
 
 

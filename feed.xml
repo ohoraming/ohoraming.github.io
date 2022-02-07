@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-02-05T00:37:25+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(7) - Deadlock</title><link href="https://ohoraming.github.io/OS-deadlock" rel="alternate" type="text/html" title="OS(7) - Deadlock" /><published>2022-02-04T23:03:00+09:00</published><updated>2022-02-04T23:03:00+09:00</updated><id>https://ohoraming.github.io/OS-deadlock</id><content type="html" xml:base="https://ohoraming.github.io/OS-deadlock">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-02-07T22:54:10+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(7) - Deadlock</title><link href="https://ohoraming.github.io/OS-deadlock" rel="alternate" type="text/html" title="OS(7) - Deadlock" /><published>2022-02-04T23:03:00+09:00</published><updated>2022-02-04T23:03:00+09:00</updated><id>https://ohoraming.github.io/OS-deadlock</id><content type="html" xml:base="https://ohoraming.github.io/OS-deadlock">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -46,30 +46,58 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock-처리&quot;&gt;Deadlock 처리&lt;/h2&gt;
-&lt;ul&gt;
+&lt;ol&gt;
   &lt;li&gt;Deadlock Prevention(교착상태 방지)&lt;/li&gt;
   &lt;li&gt;Deadlock Avoidance(교착상태 회피)&lt;/li&gt;
   &lt;li&gt;Deadlock Detection &amp;amp; Recovery(교착상태 검출 및 복구)&lt;/li&gt;
   &lt;li&gt;Don’t Care(교착상태 무시)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&quot;1-교착상태-방지&quot;&gt;(1) 교착상태 방지&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;교착상태 필요조건 4가지 중 한 가지 이상 불만족&lt;/li&gt;
-  &lt;li&gt;Mutual exclution(상호배타) 깨려면,&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;Mutual exclution(상호배타)&lt;/strong&gt; 깨려면,&lt;br /&gt;
   → 자원을 공유&lt;br /&gt;
   → CPU의 경우 시간을 두고 switching은 가능하지만 동시에 사용 불가&lt;br /&gt;
   → 원천적으로 불가한 조건&lt;/li&gt;
-  &lt;li&gt;Hold and wait(보유 및 점유) 깨려면,&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;Hold and wait(보유 및 점유)&lt;/strong&gt; 깨려면,&lt;br /&gt;
   → 일부의 자원만 가지고 있을 경우, 다른 자원을 기다려야한다면 보유한 자원을 모두 포기&lt;br /&gt;
   → 단점: 자원 활용율 저하, starvation(process가 진행을 못 함)&lt;/li&gt;
-  &lt;li&gt;No preemption(비선점) 깨려면,&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;No preemption(비선점)&lt;/strong&gt; 깨려면,&lt;br /&gt;
   → 자원을 강제로 빼앗음&lt;br /&gt;
   → CPU는 context switching해서 사용이 가능하나, printer는 불가능함&lt;br /&gt;
   → 원천적으로 불가한 조건&lt;/li&gt;
-  &lt;li&gt;Circular wait(환형대기) 깨려면,&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;Circular wait(환형대기)&lt;/strong&gt; 깨려면,&lt;br /&gt;
   → e.g.) 자원에 번호를 부여해 순서대로 자원을 요청&lt;br /&gt;
   → 단점: 자원 활용율 저하&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-교착상태-회피&quot;&gt;(2) 교착상태 회피&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;deadlock을 자원 요청에 대한 잘못된 승인으로 해석&lt;/li&gt;
+  &lt;li&gt;대출 전문 은행(Banker’s Algorithm)의 파산과 같다고 생각해 더이상 거래가 불가능한 상태로 인식&lt;/li&gt;
+  &lt;li&gt;OS는 자원을 할당할 때 불안전한 할당(Unsafe allocation)이 되지 않도록 해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-교착상태-검출-및-복구&quot;&gt;(3) 교착상태 검출 및 복구&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;hold and wait 되더라도 말리지 않고 원하는 대로 자원을 나눠주다보면 deadlock 발생할 수 있음&lt;/li&gt;
+  &lt;li&gt;deadlock 발생을 허용하며 주기적으로 검사함&lt;/li&gt;
+  &lt;li&gt;검사(detection)시 overhead 발생&lt;br /&gt;
+  → CPU 계산, memory&lt;br /&gt;
+  → 너무 자주하면 deadlock 발견은 빠르지만 overhead 발생 가능성 증가&lt;/li&gt;
+  &lt;li&gt;복구(recovery)&lt;br /&gt;
+  → process 일부 강제 종료&lt;br /&gt;
+  → 자원 선점해 일부 process에 할당&lt;br /&gt;
+  → deadlock 발생 전으로 되돌리려면 주기적으로 현상태를 기억해야 하기에 memory필요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-교착상태-무시&quot;&gt;(4) 교착상태 무시&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;deadlock은 실제로 잘 일어나지 않음&lt;/li&gt;
+  &lt;li&gt;4개의 필요조건을 모두 만족하더라도 반드시 일어나는 것 아님&lt;/li&gt;
+  &lt;li&gt;개인 PC의 경우 deadlock발생시 재부팅하면 해결됨&lt;/li&gt;
+  &lt;li&gt;그래서 다른 방법을 시도하는 것 보다는 재부팅이 효율적일 수 있음&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">OS(6) - Classical Synchronization Problems</title><link href="https://ohoraming.github.io/OS-classicalsync" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" /><published>2022-02-02T21:58:00+09:00</published><updated>2022-02-02T21:58:00+09:00</updated><id>https://ohoraming.github.io/OS-classicalsync</id><content type="html" xml:base="https://ohoraming.github.io/OS-classicalsync">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
