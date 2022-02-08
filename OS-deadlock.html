@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(7) - Deadlock" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에 빠지게 됨 Necessary" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-deadlock" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(7) - Deadlock" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에 빠지게 됨 Necessary" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-deadlock"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에 빠지게 됨 Necessary"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor Deadlock OS는 자원(Resources)을 Application에 잘 나누어주는 역할을 함 자원: CPU, memory, file, printer… 자원을 잘 못 나누어주면 deadlock에"
 }
     </script>
 
@@ -220,6 +220,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
     <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
     <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
+    <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
 </ul>
 
 <h2 id="deadlock">Deadlock</h2>
@@ -417,6 +418,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                         <li><a href="/OS-monitor">OS(8) - Monitor</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -438,8 +447,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
-                            
+                        
                             
                             
                             
@@ -499,7 +507,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 6 posts →
+                        See all 7 posts →
                         
                     </a>
                 </footer>
@@ -508,6 +516,57 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OS-monitor">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OS-monitor">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Os</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">OS(8) - Monitor</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

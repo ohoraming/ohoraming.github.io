@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-07T22:54:10+09:00</updated>
+  <updated>2022-02-08T16:45:54+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,121 @@
 
   
     <entry>
+      <title type="html">OS(8) - Monitor</title>
+      <link href="https://ohoraming.github.io/OS-monitor" rel="alternate" type="text/html" title="OS(8) - Monitor" />
+      <published>2022-02-07T22:58:00+09:00</published>
+      <updated>2022-02-07T22:58:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-monitor</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-monitor">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;semaphore 이후 process synchronization tool&lt;/li&gt;
+  &lt;li&gt;semaphore(assembly 수준) 보다 고수준(high level language 수준) 개념&lt;/li&gt;
+  &lt;li&gt;구조&lt;br /&gt;
+  → &lt;strong&gt;공유자원&lt;/strong&gt;(common variable) + &lt;strong&gt;공유자원 접근함수&lt;/strong&gt;&lt;br /&gt;
+  → 2개의 queues: &lt;strong&gt;배타동기&lt;/strong&gt; + &lt;strong&gt;조건동기&lt;/strong&gt;&lt;br /&gt;
+  → 공유자원 접근함수에는 최대 1개의 thread만 진입(배타동기) &lt;br /&gt;
+      : mutual exclusion&lt;br /&gt;
+  → common variable에 접근한 method를 실행하고 있다면 다른 thread는 queue에 대기&lt;br /&gt;
+  → 진입 thread가 조건동기(wait())로 block되면 새 thread 진입가능&lt;br /&gt;
+      : conditional synchronization&lt;br /&gt;
+      : wait()을 부르면 실행중인 thread가 queue에 갇힘(= 새 thread 진입가능)&lt;br /&gt;
+  → 새 thread는 조건동기(notify())로 block된 thread를 깨울 수 있음&lt;br /&gt;
+  → 깨운 thread는 현재의 thread가 나가면 진입할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;java-monitor&quot;&gt;Java Monitor&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Java의 모든 객체는 monitor가 될 수 있음&lt;br /&gt;
+  → 배타동기: &lt;strong&gt;synchronized&lt;/strong&gt; 키워드 사용&lt;br /&gt;
+  → 조건동기: &lt;strong&gt;wait(), notify(), notifyAll()&lt;/strong&gt; method사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;일반적-사용1-mutual-exclusion&quot;&gt;일반적 사용(1): Mutual exclusion&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;synchronized {&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Critical-Section&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;→ &lt;strong&gt;synchronized&lt;/strong&gt; 키워드만 사용하면 됨: 간단&lt;br /&gt;
+→ monitor는 초깃값 설정 없음&lt;br /&gt;
+→ semaphore는 semaphore import, 초깃값(= 1) 설정,&lt;br /&gt;
+    C.S. 앞뒤로 acquire(), release() 선언: 복잡&lt;/p&gt;
+
+&lt;h3 id=&quot;일반적-사용2-ordering&quot;&gt;일반적 사용(2): Ordering&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;p1&lt;/td&gt;
+      &lt;td&gt;p2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;wait();&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;S1;&lt;/td&gt;
+      &lt;td&gt;S2;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;notify();&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(7) - Deadlock</title>
       <link href="https://ohoraming.github.io/OS-deadlock" rel="alternate" type="text/html" title="OS(7) - Deadlock" />
       <published>2022-02-04T23:03:00+09:00</published>
@@ -49,6 +164,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -183,6 +299,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -277,6 +394,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -488,6 +606,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -640,6 +759,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -746,6 +866,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -965,6 +1086,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
