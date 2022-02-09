@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(4) - CPU Scheduling" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-cpuscheduling" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(4) - CPU Scheduling" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-cpuscheduling"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm CPU Scheduling Preemptive(선점) → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수"
 }
     </script>
 
@@ -221,6 +221,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
     <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
     <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
+    <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
 </ul>
 
 <h2 id="cpu-scheduling">CPU Scheduling</h2>
@@ -246,19 +247,21 @@ into the {body} of the default.hbs template -->
 
 <h3 id="1-first-come-first-servedfcfs">1. First-Come, First-Served(FCFS)</h3>
 <ul>
-  <li>먼저 들어오면, 먼저 서비스 함</li>
-  <li>간단하며, 공평하지만 반드시 좋은 성능을 보장하지는 않음</li>
-  <li>Average Waiting Time(AWT): ready queue에서 기다리는 시간</li>
-  <li>단점: Convoy Effect(호위 효과) - burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유</li>
-  <li>Non-preeptive scheduling방식</li>
+  <li><strong>먼저 들어오면</strong>, 먼저 서비스 함</li>
+  <li><strong>간단</strong>하며, <strong>공평</strong>하지만 반드시 좋은 성능을 보장하지는 않음</li>
+  <li><strong>A</strong>verage <strong>W</strong>aiting <strong>T</strong>ime(AWT): ready queue에서 기다리는 시간</li>
+  <li>단점: Convoy Effect(호위 효과)<br />
+  → burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유</li>
+  <li><strong>Non-preeptive</strong> scheduling방식</li>
 </ul>
 
 <h3 id="2-shortest-job-firstsjf">2. Shortest-Job-First(SJF)</h3>
 <ul>
-  <li>실행 시간이 짧은 것을 먼저 서비스 함</li>
-  <li>대기 시간을 줄이는 면에서, 증명된 최적의 방법</li>
-  <li>단점: 비현실적임(실제 CPU 시간은 실행을 해보기 전에는 모름),<br />
-      예측이 필수(과거를 기억하고 있어야 함), overhead발생, 시간이 많이 걸림<br />
+  <li><strong>실행 시간이 짧은 것</strong>을 먼저 서비스 함</li>
+  <li>대기 시간을 줄이는 최적의 방법</li>
+  <li>단점: 비현실적임(실제 CPU 사용 시간은 실행을 해보기 전에는 알 수 없음)<br />
+      예측이 필수(과거를 기억하고 있어야 함)<br />
+      → overhead 발생, 시간이 많이 걸림<br />
       → 현실적인 적용이 어려움</li>
   <li>선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능</li>
   <li>선점 방식의 경우 최소 잔여 시간 우선</li>
@@ -266,9 +269,10 @@ into the {body} of the default.hbs template -->
 
 <h3 id="3-priority-scheduling">3. Priority Scheduling</h3>
 <ul>
-  <li>우선 순위가 높은 것을 먼저 서비스 함</li>
+  <li><strong>우선 순위가 높은 것</strong>을 먼저 서비스 함</li>
   <li>우선 순위 설정
     <ul>
+      <li>integer number</li>
       <li>내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등</li>
       <li>외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등</li>
     </ul>
@@ -281,7 +285,7 @@ into the {body} of the default.hbs template -->
 <h3 id="4-round-robinrr">4. Round-Robin(RR)</h3>
 <ul>
   <li>time-sharing system에서 많이 사용</li>
-  <li>time quantum = time slice = Δ<br />
+  <li><strong>time quantum</strong>(시간 양자) = time slice = <strong>Δ</strong><br />
   → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생</li>
   <li>time quantum에 따라 성능이 달라짐</li>
   <li>Δ → ∞ : FCFS</li>
@@ -436,6 +440,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                         <li><a href="/OS-midterm">OS(9) - Midterm</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
                          <li><a href="/OS-monitor">OS(8) - Monitor</a></li>
                             
                             
@@ -452,8 +464,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
-                            
+                        
                             
                             
                             
@@ -524,7 +535,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 7 posts →
+                        See all 8 posts →
                         
                     </a>
                 </footer>

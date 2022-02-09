@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-08T16:45:54+09:00</updated>
+  <updated>2022-02-09T23:18:55+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,6 +32,107 @@
 
   
     <entry>
+      <title type="html">OS(9) - Midterm</title>
+      <link href="https://ohoraming.github.io/OS-midterm" rel="alternate" type="text/html" title="OS(9) - Midterm" />
+      <published>2022-02-09T22:58:00+09:00</published>
+      <updated>2022-02-09T22:58:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-midterm</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-midterm">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
+&lt;p&gt;프로세스 P1, P2, P3 의 CPU burst time 은 각각 4, 2, 8 msec 이며,&lt;br /&gt;
+세 프로세스는 각각 다른 시간에 ready queue 에 도착했다.&lt;br /&gt;
+즉 P1 은 0 msec에, P2 는 1 msec에, P3 는 5 msec 에 각각 도착했다.&lt;br /&gt;
+CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
+(※ 각 경우마다 Gantt chart를 그리고 수식도 적어라.&lt;br /&gt;
+답은 계산하지 않아도 되지만, 반드시 단위는 기록해야 한다).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(a) FCFS 스케쥴링을 사용하면 평균 대기시간(average waiting time)은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(b) 선점형(preemptive) SJF 스케쥴링을 사용할 때 평균반환시간(average turnaround time)은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(c) Time quantum 이 무한대 (∞) 인 Round-Robin scheduling을 적용하면 평균반환시간은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(d) 비선점형(nonpreemptive) 우선순위(priority) 스케쥴링을 사용하면 처리율(throughput)은 얼마인가? 단, 프로세스 P1, P2, P3 의 우선순위는 각각 3, 2, 1 이며, 숫자가 작을수록 우선순위가 높다.&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;h2 id=&quot;2&quot;&gt;2.&lt;/h2&gt;
+&lt;p&gt;프로세스 P1, P2, P3 의 코드는 각각 다음과 같다. 세마포(semaphore)를 사용하여 아래 조건이 각각 만족되도록 프로세스의 코드를 수정하라. 세마포의 초기값도 나타내어야 한다. 세마포는 한 개 또는 여러 개를 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;P1: S1&lt;br /&gt;
+P2: S2&lt;br /&gt;
+P3: S3&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.&lt;/strong&gt;&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); sem.release();&lt;br /&gt;
+    → P2: sem.acquire(); S2;  &lt;br /&gt;
+    → P3: sem.acquire(); S3;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(b) S1 과 S2 가 모두 끝나야만 S3 가 실행된다. S1, S2 의 순서는 상관없다.&lt;/strong&gt;&lt;br /&gt;
+    semaphore 2개 쓰는 경우,&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → sem2.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); &lt;br /&gt;
+    → P2: S2; sem2.release();  &lt;br /&gt;
+    → P3: sem.acquire(); sem2.acquire(); S3;&lt;br /&gt;
+    semaphore 1개 쓰는 경우,&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); &lt;br /&gt;
+    → P2: S2; sem.release();  &lt;br /&gt;
+    → P3: sem.acquire(); sem.acquire(); S3;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.&lt;/strong&gt;&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → sem2.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release();&lt;br /&gt;
+    → P2: sem.acquire(); S2; sem2.release();&lt;br /&gt;
+    → P3: sem2.acquire(); S3;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(8) - Monitor</title>
       <link href="https://ohoraming.github.io/OS-monitor" rel="alternate" type="text/html" title="OS(8) - Monitor" />
       <published>2022-02-07T22:58:00+09:00</published>
@@ -50,6 +151,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -165,6 +267,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -300,6 +403,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -395,6 +499,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -607,6 +712,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -632,19 +738,21 @@
 
 &lt;h3 id=&quot;1-first-come-first-servedfcfs&quot;&gt;1. First-Come, First-Served(FCFS)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;먼저 들어오면, 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;간단하며, 공평하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
-  &lt;li&gt;Average Waiting Time(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
-  &lt;li&gt;단점: Convoy Effect(호위 효과) - burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
-  &lt;li&gt;Non-preeptive scheduling방식&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;먼저 들어오면&lt;/strong&gt;, 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;간단&lt;/strong&gt;하며, &lt;strong&gt;공평&lt;/strong&gt;하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;verage &lt;strong&gt;W&lt;/strong&gt;aiting &lt;strong&gt;T&lt;/strong&gt;ime(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
+  &lt;li&gt;단점: Convoy Effect(호위 효과)&lt;br /&gt;
+  → burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Non-preeptive&lt;/strong&gt; scheduling방식&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;2-shortest-job-firstsjf&quot;&gt;2. Shortest-Job-First(SJF)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;실행 시간이 짧은 것을 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;대기 시간을 줄이는 면에서, 증명된 최적의 방법&lt;/li&gt;
-  &lt;li&gt;단점: 비현실적임(실제 CPU 시간은 실행을 해보기 전에는 모름),&lt;br /&gt;
-      예측이 필수(과거를 기억하고 있어야 함), overhead발생, 시간이 많이 걸림&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;실행 시간이 짧은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;대기 시간을 줄이는 최적의 방법&lt;/li&gt;
+  &lt;li&gt;단점: 비현실적임(실제 CPU 사용 시간은 실행을 해보기 전에는 알 수 없음)&lt;br /&gt;
+      예측이 필수(과거를 기억하고 있어야 함)&lt;br /&gt;
+      → overhead 발생, 시간이 많이 걸림&lt;br /&gt;
       → 현실적인 적용이 어려움&lt;/li&gt;
   &lt;li&gt;선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능&lt;/li&gt;
   &lt;li&gt;선점 방식의 경우 최소 잔여 시간 우선&lt;/li&gt;
@@ -652,9 +760,10 @@
 
 &lt;h3 id=&quot;3-priority-scheduling&quot;&gt;3. Priority Scheduling&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;우선 순위가 높은 것을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;우선 순위가 높은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
   &lt;li&gt;우선 순위 설정
     &lt;ul&gt;
+      &lt;li&gt;integer number&lt;/li&gt;
       &lt;li&gt;내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등&lt;/li&gt;
       &lt;li&gt;외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등&lt;/li&gt;
     &lt;/ul&gt;
@@ -667,7 +776,7 @@
 &lt;h3 id=&quot;4-round-robinrr&quot;&gt;4. Round-Robin(RR)&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;time-sharing system에서 많이 사용&lt;/li&gt;
-  &lt;li&gt;time quantum = time slice = Δ&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;time quantum&lt;/strong&gt;(시간 양자) = time slice = &lt;strong&gt;Δ&lt;/strong&gt;&lt;br /&gt;
   → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생&lt;/li&gt;
   &lt;li&gt;time quantum에 따라 성능이 달라짐&lt;/li&gt;
   &lt;li&gt;Δ → ∞ : FCFS&lt;/li&gt;
@@ -760,6 +869,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -867,6 +977,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -1087,6 +1198,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
@@ -1465,360 +1577,6 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 &lt;blockquote&gt;
   &lt;p&gt;“자바스크립트 11. 비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 21:15, 게시자 “드림코딩 by 엘리,” 2020년 6월 9일, &lt;a href=&quot;https://youtu.be/s1vpVCrT8f4&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
 
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">JavaScript(10) - promise</title>
-      <link href="https://ohoraming.github.io/JavaScript-promise" rel="alternate" type="text/html" title="JavaScript(10) - promise" />
-      <published>2021-08-12T17:16:00+09:00</published>
-      <updated>2021-08-12T17:16:00+09:00</updated>
-      <id>https://ohoraming.github.io/JavaScript-promise</id>
-      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-promise">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;promise&quot;&gt;promise&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;비동기(asynchronous)를 callback fn 대신 간편하게 처리하도록 도와주는 내장 object&lt;/li&gt;
-  &lt;li&gt;정해진 장시간의 기능을 수행 후
-    &lt;ul&gt;
-      &lt;li&gt;정상적으로 기능이 수행이 되었다면, &lt;strong&gt;성공 메시지&lt;/strong&gt;와 &lt;strong&gt;처리된 결괏값&lt;/strong&gt;을 전달해줌&lt;/li&gt;
-      &lt;li&gt;만약 기능 수행 중 예상치 못한 문제가 발생하였다면, &lt;strong&gt;에러&lt;/strong&gt;를 전달해줌&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;포인트&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;State [상태] 이해&lt;br /&gt;
- 프로세스가 heavy한 명령을 수행하고 있는지,
- 기능 수행 완료 후 성공했는지, 실패했는지&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Producer vs. Consumer&lt;br /&gt;
- Producer: 우리가 원하는 데이터를 제공하는 사람&lt;br /&gt;
- Consumer: 제공된 데이터를 쓰는/필요로 하는 사람&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;state-promise의-상태&quot;&gt;State [promise의 상태]&lt;/h1&gt;
-&lt;p&gt;promise가 만들어져서,&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;지정한 operation을 수행하고 있는 중이라면 &lt;strong&gt;pending상태&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;operation을 성공적으로 끝내게 되면 &lt;strong&gt;fulfilled상태&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;file을 찾을 수 없거나 네트워크에 문제가 생기면 &lt;strong&gt;rejected상태&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;producer-vs-consumer&quot;&gt;Producer vs. Consumer&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Producer&lt;br /&gt;
-  원하는 기능을 수행해 해당하는 데이터를 만들어내는 promise object&lt;/li&gt;
-  &lt;li&gt;Consumer&lt;br /&gt;
-  원하는 데이터를 소비&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;1-producer&quot;&gt;1. Producer&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Promise 만들기&lt;/li&gt;
-  &lt;li&gt;class라서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt; 키워드를 이용해 object를 생성할 수 있음&lt;/li&gt;
-  &lt;li&gt;promise 생성자를 보면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;executor&lt;/code&gt;라는 callback fn을 전달해주어야 함
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;executor&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resolve&lt;/code&gt; (기능이 &lt;strong&gt;정상 수행&lt;/strong&gt;되어 결괏값을 전달함)와&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reject&lt;/code&gt; (기능 수행 중 &lt;strong&gt;문제가 생기면&lt;/strong&gt; 호출함) 두 개의 callback fn으로 구성됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PromiseConstructor&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reason&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// doing some heavy work(network, read files)&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;doing something...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;success!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;→ 어떤 일을 2000ms(=2sec)정도 하다가 잘 마무리 해서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resolve&lt;/code&gt; (callback fn)를 호출하여 ‘success!’라는 값을 전달하는 Promise&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;promise안에서는 다소 heavy한 일을 함&lt;/strong&gt;&lt;br /&gt;
-  네트워크에서 데이터를 받아오거나 파일에서 큰 데이터를 읽어오는 과정은 시간이 꽤 걸림&lt;br /&gt;
-  &lt;strong&gt;시간이 많이 소요되는 과정&lt;/strong&gt;들을 과정들을 동기적(synchronous)으로 처리하는 동안에 다음 라인의 코드는 실행되지 않게 됨&lt;br /&gt;
-  그래서 시간이 좀 걸리는 일들은 Promise를 만들어 &lt;strong&gt;비동기적으로 처리&lt;/strong&gt;하는 것이 좋음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;※주의※&lt;/strong&gt; &lt;br /&gt;
-&lt;strong&gt;Promise를 만드는 순간,&lt;/strong&gt; 우리가 만든 executor(callback fn)가 &lt;strong&gt;바로! 자동 실행&lt;/strong&gt;됨&lt;/p&gt;
-
-&lt;h1 id=&quot;2-consumer&quot;&gt;2. Consumer&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;producer를 사용하는 주체&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;then&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;finally&lt;/code&gt; 로 값을 받아옴&lt;/p&gt;
-
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;⇒ 위에서 만든 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;promise&lt;/code&gt;가 정상적으로 수행이 된다면(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;then&lt;/code&gt;),&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;value&lt;/code&gt;라는 parameter를 받아오는 callback fn을 수행하게 됨&lt;/p&gt;
-
-    &lt;p&gt;※ 여기서 value는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resolve&lt;/code&gt;(callback fn)으로 전달된 ‘success!’라는 값&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;doing-something&quot;&gt;doing something…&lt;/h6&gt;
-  &lt;h6 id=&quot;success&quot;&gt;success!&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;resolve가-아닌-reject를-사용한다면&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resolve&lt;/code&gt;가 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reject&lt;/code&gt;를 사용한다면?&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;reject는 주로 Error object를 통해 값을 전달함&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Error object에는 어떤 error가 발생했는지 이유를 잘 명시해야함&lt;/p&gt;
-
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;// doing some heavy work(network, read files)&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;doing something...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;c1&quot;&gt;// resolve('success!');&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;no network&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;blockquote&gt;
-      &lt;h6 id=&quot;console-1&quot;&gt;Console&lt;/h6&gt;
-      &lt;h6 id=&quot;doing-something-1&quot;&gt;doing something…&lt;/h6&gt;
-      &lt;h6 id=&quot;-uncaught-in-promise-error-no-network-at-promisejs1616&quot;&gt;▶ Uncaught (in promise) Error: no network at promise.js:16:16&lt;/h6&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;console장에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uncaught&lt;/code&gt; (잡히지 않는)라고 뜨는 이유는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;then&lt;/code&gt; 으로 성공적인 케이스만 다뤘기 때문임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt; 를 이용해 error가 발생했을 때 어떻게 처리할 지 callback fn을 등록해주면 됨&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-2&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;doing-something-2&quot;&gt;doing something…&lt;/h6&gt;
-  &lt;h6 id=&quot;error-no-network-at-promisejs1516&quot;&gt;Error: no network at promise.js:15:16&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;⇒ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt;의 등록으로 더는 error를 생성하지 않게 됨&lt;/p&gt;
-
-&lt;h2 id=&quot;then과-catch를-chaining&quot;&gt;then과 catch를 &lt;strong&gt;chaining&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;promise의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;then&lt;/code&gt;을 호출하면, 똑같은 &lt;strong&gt;Promise를 리턴&lt;/strong&gt;함&lt;br /&gt;
-  리턴된 Promise에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt;를 호출할 수 있게 됨&lt;br /&gt;
-  (array에서 map, sort, join함수를 중첩 사용하는 것도 chaining)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;never&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onfulfilled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PromiseLike&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onrejected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reason&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PromiseLike&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;never&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;finally는-성패와-상관-없이-무조건-마지막에-호출됨&quot;&gt;finally는 성패와 상관 없이 무조건 마지막에 호출됨&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;doing something...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;success!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// reject(new Error('no network'));&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;finally&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;finally!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-3&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;doing-something-3&quot;&gt;doing something…&lt;/h6&gt;
-  &lt;h6 id=&quot;success-1&quot;&gt;success!&lt;/h6&gt;
-  &lt;h6 id=&quot;finally&quot;&gt;finally!&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;doing something...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// resolve('success!');&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;no network&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;finally&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;finally!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-4&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;doing-something-4&quot;&gt;doing something…&lt;/h6&gt;
-  &lt;h6 id=&quot;error-no-network-at-promisejs1516-1&quot;&gt;Error: no network at promise.js:15:16&lt;/h6&gt;
-  &lt;h6 id=&quot;finally-1&quot;&gt;finally!&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;3-promise-chaining&quot;&gt;3. Promise chaining&lt;/h1&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetchNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 전달&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;fetchNumber&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 * 2 = 2&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 2 * 3 = 6&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 6 - 1 = 5&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 5&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-5&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;5&quot;&gt;5&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;4-error-handling&quot;&gt;4. Error handling&lt;/h1&gt;
-&lt;h2 id=&quot;original-code&quot;&gt;Original code&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🐓&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; =&amp;gt; 🥚`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; =&amp;gt; 🍳`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;meal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;meal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-6&quot;&gt;Console&lt;/h6&gt;
-  &lt;p&gt;🐓 =&amp;gt; 🥚 =&amp;gt; 🍳&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;tip&quot;&gt;tip&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.then&lt;/code&gt;에서 받아오는 value를 바로 callback fn의 parameter로 전달할 때, 중복되는 value는 생략이 가능함&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;error-발생&quot;&gt;Error 발생&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🐓&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`error! &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; =&amp;gt; 🥚`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;egg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; =&amp;gt; 🍳`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-7&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;-uncaught-referenceerror-cannot-access-gethen-before-initialization-at-promisejs621&quot;&gt;▶ Uncaught ReferenceError: Cannot access ‘getHen’ before initialization at promise.js:62:1&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;error를-catch로-잡아주면&quot;&gt;Error를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.catch&lt;/code&gt;로 잡아주면,&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-8&quot;&gt;Console&lt;/h6&gt;
-  &lt;h6 id=&quot;error-error----at-promisejs7129&quot;&gt;Error: error! 🐓 =&amp;gt; 🥚 at promise.js:71:29&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;then뒤에-catch로-바로-error를-처리해주면-됨&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.then&lt;/code&gt;뒤에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.catch&lt;/code&gt;로 바로 error를 처리해주면 됨&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getHen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getEgg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🥖&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-9&quot;&gt;Console&lt;/h6&gt;
-  &lt;p&gt;🥖 =&amp;gt; 🍳&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“자바스크립트 12. 프로미스 개념부터 활용까지 JavaScript Promise | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 28:09, 게시자 “드림코딩 by 엘리,” 2020년 6월 18일, &lt;a href=&quot;https://youtu.be/JB_yU6Oe2eE&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       

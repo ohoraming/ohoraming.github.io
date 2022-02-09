@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-08T16:45:54+09:00</updated>
+  <updated>2022-02-09T23:18:55+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,107 @@
 
   
     <entry>
+      <title type="html">OS(9) - Midterm</title>
+      <link href="https://ohoraming.github.io/OS-midterm" rel="alternate" type="text/html" title="OS(9) - Midterm" />
+      <published>2022-02-09T22:58:00+09:00</published>
+      <updated>2022-02-09T22:58:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-midterm</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-midterm">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
+&lt;p&gt;프로세스 P1, P2, P3 의 CPU burst time 은 각각 4, 2, 8 msec 이며,&lt;br /&gt;
+세 프로세스는 각각 다른 시간에 ready queue 에 도착했다.&lt;br /&gt;
+즉 P1 은 0 msec에, P2 는 1 msec에, P3 는 5 msec 에 각각 도착했다.&lt;br /&gt;
+CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
+(※ 각 경우마다 Gantt chart를 그리고 수식도 적어라.&lt;br /&gt;
+답은 계산하지 않아도 되지만, 반드시 단위는 기록해야 한다).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(a) FCFS 스케쥴링을 사용하면 평균 대기시간(average waiting time)은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(b) 선점형(preemptive) SJF 스케쥴링을 사용할 때 평균반환시간(average turnaround time)은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(c) Time quantum 이 무한대 (∞) 인 Round-Robin scheduling을 적용하면 평균반환시간은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(d) 비선점형(nonpreemptive) 우선순위(priority) 스케쥴링을 사용하면 처리율(throughput)은 얼마인가? 단, 프로세스 P1, P2, P3 의 우선순위는 각각 3, 2, 1 이며, 숫자가 작을수록 우선순위가 높다.&lt;/strong&gt;&lt;br /&gt;
+    →&lt;/p&gt;
+
+&lt;h2 id=&quot;2&quot;&gt;2.&lt;/h2&gt;
+&lt;p&gt;프로세스 P1, P2, P3 의 코드는 각각 다음과 같다. 세마포(semaphore)를 사용하여 아래 조건이 각각 만족되도록 프로세스의 코드를 수정하라. 세마포의 초기값도 나타내어야 한다. 세마포는 한 개 또는 여러 개를 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;P1: S1&lt;br /&gt;
+P2: S2&lt;br /&gt;
+P3: S3&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.&lt;/strong&gt;&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); sem.release();&lt;br /&gt;
+    → P2: sem.acquire(); S2;  &lt;br /&gt;
+    → P3: sem.acquire(); S3;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(b) S1 과 S2 가 모두 끝나야만 S3 가 실행된다. S1, S2 의 순서는 상관없다.&lt;/strong&gt;&lt;br /&gt;
+    semaphore 2개 쓰는 경우,&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → sem2.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); &lt;br /&gt;
+    → P2: S2; sem2.release();  &lt;br /&gt;
+    → P3: sem.acquire(); sem2.acquire(); S3;&lt;br /&gt;
+    semaphore 1개 쓰는 경우,&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release(); &lt;br /&gt;
+    → P2: S2; sem.release();  &lt;br /&gt;
+    → P3: sem.acquire(); sem.acquire(); S3;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.&lt;/strong&gt;&lt;br /&gt;
+    → sem.value = 0;&lt;br /&gt;
+    → sem2.value = 0;&lt;br /&gt;
+    → P1: S1; sem.release();&lt;br /&gt;
+    → P2: sem.acquire(); S2; sem2.release();&lt;br /&gt;
+    → P3: sem2.acquire(); S3;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(8) - Monitor</title>
       <link href="https://ohoraming.github.io/OS-monitor" rel="alternate" type="text/html" title="OS(8) - Monitor" />
       <published>2022-02-07T22:58:00+09:00</published>
@@ -50,6 +151,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -165,6 +267,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -300,6 +403,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -395,6 +499,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -607,6 +712,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -632,19 +738,21 @@
 
 &lt;h3 id=&quot;1-first-come-first-servedfcfs&quot;&gt;1. First-Come, First-Served(FCFS)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;먼저 들어오면, 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;간단하며, 공평하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
-  &lt;li&gt;Average Waiting Time(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
-  &lt;li&gt;단점: Convoy Effect(호위 효과) - burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
-  &lt;li&gt;Non-preeptive scheduling방식&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;먼저 들어오면&lt;/strong&gt;, 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;간단&lt;/strong&gt;하며, &lt;strong&gt;공평&lt;/strong&gt;하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;verage &lt;strong&gt;W&lt;/strong&gt;aiting &lt;strong&gt;T&lt;/strong&gt;ime(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
+  &lt;li&gt;단점: Convoy Effect(호위 효과)&lt;br /&gt;
+  → burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Non-preeptive&lt;/strong&gt; scheduling방식&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;2-shortest-job-firstsjf&quot;&gt;2. Shortest-Job-First(SJF)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;실행 시간이 짧은 것을 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;대기 시간을 줄이는 면에서, 증명된 최적의 방법&lt;/li&gt;
-  &lt;li&gt;단점: 비현실적임(실제 CPU 시간은 실행을 해보기 전에는 모름),&lt;br /&gt;
-      예측이 필수(과거를 기억하고 있어야 함), overhead발생, 시간이 많이 걸림&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;실행 시간이 짧은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;대기 시간을 줄이는 최적의 방법&lt;/li&gt;
+  &lt;li&gt;단점: 비현실적임(실제 CPU 사용 시간은 실행을 해보기 전에는 알 수 없음)&lt;br /&gt;
+      예측이 필수(과거를 기억하고 있어야 함)&lt;br /&gt;
+      → overhead 발생, 시간이 많이 걸림&lt;br /&gt;
       → 현실적인 적용이 어려움&lt;/li&gt;
   &lt;li&gt;선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능&lt;/li&gt;
   &lt;li&gt;선점 방식의 경우 최소 잔여 시간 우선&lt;/li&gt;
@@ -652,9 +760,10 @@
 
 &lt;h3 id=&quot;3-priority-scheduling&quot;&gt;3. Priority Scheduling&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;우선 순위가 높은 것을 먼저 서비스 함&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;우선 순위가 높은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
   &lt;li&gt;우선 순위 설정
     &lt;ul&gt;
+      &lt;li&gt;integer number&lt;/li&gt;
       &lt;li&gt;내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등&lt;/li&gt;
       &lt;li&gt;외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등&lt;/li&gt;
     &lt;/ul&gt;
@@ -667,7 +776,7 @@
 &lt;h3 id=&quot;4-round-robinrr&quot;&gt;4. Round-Robin(RR)&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;time-sharing system에서 많이 사용&lt;/li&gt;
-  &lt;li&gt;time quantum = time slice = Δ&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;time quantum&lt;/strong&gt;(시간 양자) = time slice = &lt;strong&gt;Δ&lt;/strong&gt;&lt;br /&gt;
   → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생&lt;/li&gt;
   &lt;li&gt;time quantum에 따라 성능이 달라짐&lt;/li&gt;
   &lt;li&gt;Δ → ∞ : FCFS&lt;/li&gt;
@@ -760,6 +869,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -867,6 +977,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -1087,6 +1198,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
