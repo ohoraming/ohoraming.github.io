@@ -238,8 +238,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.<br />
   <thead>
     <tr>
       <th style="text-align: center">process</th>
-      <th style="text-align: center">Arrival Time</th>
-      <th style="text-align: center">Burst Time</th>
+      <th style="text-align: center">Arrival Time(msec)</th>
+      <th style="text-align: center">Burst Time(msec)</th>
       <th style="text-align: center">Priority</th>
     </tr>
   </thead>
@@ -269,6 +269,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.<br />
     → <strong>F</strong>irst <strong>C</strong>ome <strong>F</strong>irst <strong>S</strong>erved<br />
     → AWT = ( 0 + 3 + 1) / 3 = 4/3msec</p>
 
+<div id="gantt"> <table id="chart" style="table-layout: fixed;border-collapse: collapse;width: 100%;border-spacing: 0;"> <thead id="thead"><tr><th rowid="0" colid="0" style="width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;">P1</th><th rowid="0" colid="1" style="width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;">P2</th><th rowid="0" colid="2" style="width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;">P3</th></tr></thead> <tbody id="tbody"><tr><td rowid="0" colid="0" style="border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;">&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<br />↑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑<br />P1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P2</td><td rowid="0" colid="1" style="border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P3</td><td rowid="0" colid="2" style="text-align: center; border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14</td></tr></tbody> </table> </div>
+
 <p><strong>(b) 선점형(preemptive) SJF 스케쥴링을 사용할 때 평균반환시간(average turnaround time)은 얼마인가?</strong><br />
     → <strong>S</strong>hortest <strong>J</strong>ob <strong>F</strong>irst<br />
     → P1의 burst time은 4로 P2보다 길지만 0msec에 P1만 도착해있으므로 P1부터 실행함<br />
@@ -294,11 +296,13 @@ CPU scheduling 에 대한 아래 물음에 답하라.<br />
 P2: S2<br />
 P3: S3</p>
 
-<p><strong>(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.</strong><br />
-    → <strong>sem.value</strong> = 0;<br />
-    <strong>P1</strong>: S1; sem.release(); sem.release();<br />
-    <strong>P2</strong>: sem.acquire(); S2;  <br />
-    <strong>P3</strong>: sem.acquire(); S3;</p>
+<p><strong>(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.</strong></p>
+<ul>
+  <li><strong>sem.value</strong> = 0;<br />
+  <strong>P1</strong>: S1; sem.release(); sem.release();<br />
+  <strong>P2</strong>: sem.acquire(); S2;  <br />
+  <strong>P3</strong>: sem.acquire(); S3;</li>
+</ul>
 
 <p><strong>(b) S1 과 S2 가 모두 끝나야만 S3 가 실행된다. S1, S2 의 순서는 상관없다.</strong></p>
 <ul>
@@ -315,12 +319,14 @@ P3: S3</p>
   <strong>P3</strong>: sem.acquire(); sem.acquire(); S3;</li>
 </ul>
 
-<p><strong>(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.</strong><br />
-    → <strong>sem.value</strong> = 0;<br />
-    <strong>sem2.value</strong> = 0;<br />
-    <strong>P1</strong>: S1; sem.release();<br />
-    <strong>P2</strong>: sem.acquire(); S2; sem2.release();<br />
-    <strong>P3</strong>: sem2.acquire(); S3;</p>
+<p><strong>(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.</strong></p>
+<ul>
+  <li><strong>sem.value</strong> = 0;<br />
+  <strong>sem2.value</strong> = 0;<br />
+  <strong>P1</strong>: S1; sem.release();<br />
+  <strong>P2</strong>: sem.acquire(); S2; sem2.release();<br />
+  <strong>P3</strong>: sem2.acquire(); S3;</li>
+</ul>
 
 <h2 id="3">3.</h2>
 <p><strong>a) 프로세스 동기화(process synchronization)란 무엇을 의미하는가?</strong><br />
@@ -369,8 +375,15 @@ P3: S3</p>
 <p>생산자-소비자 문제는 mutex, empty, full 등 세 가지 세마포를 사용하여 해결할 수 있다. 
 mutex 는 상호배타 목적, empty 와 full 은 각각 버퍼의 빈 공간 및 차있는 공간에 대한 접근목적으로 사용한다.</p>
 
-<p><strong>a) 버퍼에서 데이터를 빼내어 소비하는 동작을 위 세마포를 포함한 코드로 작성하라.</strong> <br />
-    →</p>
+<p><strong>a) 버퍼에서 데이터를 빼내어 소비하는 동작을 위 세마포를 포함한 코드로 작성하라.</strong></p>
+<ul>
+  <li>full.acquire();<br />
+mutex.acquire();<br />
+buf<br />
+count–;<br />
+mutex.release();<br />
+empty.release();</li>
+</ul>
 
 <p><strong>b) 생산자와 소비자는 프로세스, 각 세마포는 자원이라고 가정하자.</strong> <br />
 <strong>생산자는 버퍼에 대한 접근 허용을 기다리고 있고, 소비자는 버퍼에서 데이터를 빼내어 소비하는 상황을 나타내는 자원할당도(resource allocation graph)를 그려라.</strong> <br />
@@ -379,10 +392,104 @@ mutex 는 상호배타 목적, empty 와 full 은 각각 버퍼의 빈 공간 �
 
 <h2 id="7">7.</h2>
 <p><strong>a) 교착상태(deadlock)가 일어나기 위한 네 가지 필요조건 중 보유 및 대기(hold and wait) 란 무슨 의미인가?</strong><br />
-    →</p>
+    → 한 가지 자원을 가지고 있으면서 또 다른 자원을 가지려고 대기하는 것</p>
 
 <p><strong>b) 식사하는 철학자 문제(dining philosopher problem)에서 보유 및 대기 조건이 만족되지 않게 하려면 어떻게 해야 하는가?</strong><br />
-    →</p>
+    → 1. 젓가락 두 개를 동시에 집도록 함<br />
+    → 2. 한 젓가락을 집고, 다른 하나는 이미 사용 중이라면 가지고 있던 젓가락을 내려 놓음 <br />
+    (일부 자원만 이용가능하면 보유 자원을 모두 포기)</p>
+
+<h2 id="cf">cf.</h2>
+<p><strong>a) 교착상태(deadlock)가 일어나기 위한 네 가지 필요조건 중 환형대기(circular wait) 란 무슨 의미인가?</strong><br />
+    → 자원할당도 상에 원이 만들어짐</p>
+
+<p><strong>b) 식사하는 철학자 문제(dining philosopher problem)에서 환형대기 조건이 만족되지 않게 하려면 어떻게 해야 하는가?</strong><br />
+    → 자원에 번호를 부여하고 오름(또는 내림) 차순으로 요청하기<br />
+    → 짝수번 철학자는 왼쪽에서 오른쪽 순서로, 홀수번 철학자는 오른쪽에서 왼쪽 순서로 젓가락 들기</p>
+
+<h2 id="8">8.</h2>
+<p><strong>아래 문제에서 변수 n, i, s 는 각 프로세스의 지역변수이며, value 는 모든 프로세스가 공통적으로 사용하는 전역변수이다. 프로세스 P1 과 P2 의 코드는 각각 다음과 같다.</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">P1</span> <span class="nf">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span>
+    <span class="n">n</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+<span class="no">P2</span> <span class="nf">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span><span class="o">;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">-</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>(a) 프로세스 동기화 문제에서 임계구역(critical section)이란 무엇을 의미하는가?</strong><br />
+→ 공통 변수(common variable)를 업데이트 하는 구간</p>
+
+<p><strong>(b) 위 P2 프로세스의 코드 내용 중 임계구역에 해당되는 부분은 어디인가? 이유도 설명하라.</strong><br />
+→ value = value - s;<br />
+→ 이유: 임계구역은 공통변수를 업데이트하는 구간임.<br />
+value는 모든 프로세스가 공통 사용하는 공통변수</p>
+
+<p><strong>(c) 세마포어(semaphore)를 사용하여 P1, P2  코드의 임계구역 문제를 해결하라. 세마포어의 초기 값도 나타내어라.</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sem</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// mutual exclusion용 semaphore  </span>
+<span class="no">P1</span> <span class="nf">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>  
+    <span class="n">sem</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span>  
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span>  <span class="c1">// Critical Section</span>
+    <span class="n">sem</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>  
+    <span class="n">n</span><span class="o">++;</span>  
+<span class="o">}</span>  
+<span class="no">P1</span> <span class="nf">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>  
+    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>  
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span><span class="o">;</span>  
+        <span class="n">sem</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span>  
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">-</span> <span class="n">s</span><span class="o">;</span>  <span class="c1">// Critical Section</span>
+        <span class="n">sem</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>  
+<span class="o">}</span>
+</code></pre></div></div>
+<p><strong>(d) 프로세스 스케쥴링 방식과 관계없이 항상 P1 이 P2 보다 전역변수 value 값을 먼저 업데이트 하도록 세마포어를 사용하여 위 P1, P2 의 코드를 수정하여라. 세마포어의 초기 값도 나타내어라.</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sem</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// mutual exclusion용 semaphore</span>
+<span class="n">sem2</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// ordering용 semaphore</span>
+<span class="no">P1</span> <span class="nf">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">sem</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span> 
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span> <span class="c1">// Critical Section</span>
+    <span class="n">sem</span><span class="o">.</span><span class="na">release</span><span class="o">();</span> 
+    <span class="n">sem2</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
+    <span class="n">n</span><span class="o">++;</span>
+<span class="o">}</span>
+<span class="no">P1</span> <span class="nf">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span><span class="o">;</span>
+        <span class="n">sem</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span>
+        <span class="n">sem2</span><span class="o">.</span><span class="na">acquire</span><span class="o">();</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">-</span> <span class="n">s</span><span class="o">;</span> <span class="c1">// Critical Section</span>
+        <span class="n">sem</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="9">9.</h2>
+<p><strong>프로세스(process)와 쓰레드(thread)의 유사점 및 차이점을 각각 설명하라.</strong></p>
+<ul>
+  <li>process → 메모리 공간이 따로 존재</li>
+  <li>thread → 동일한 메모리 공간을 공유</li>
+  <li>유사점 → context switching이 일어남</li>
+</ul>
+
+<h2 id="10">10.</h2>
+<p><strong>a) 프로세서(processor)의 이중모드(dual mode)란 무엇을 의미하는가?</strong><br />
+→ 한 컴퓨터를 여러 사람이 동시에 접속하거나, 한 사람이 여러 프로그램을 동시에 사용하는 환경에서 사용자 모드와 관리자 모드를 나누는 것. 관리자 모드에서만 특권명령과 하드웨어 접근이 가능함</p>
+
+<p><strong>b) 이중모드를 사용한 입출력장치(i/o devices) 보호 방법에 대해 설명하여라.</strong><br />
+→ I/O 명령을 관리자(시스템)모드로 만들어 사용자 모드에서 I/O명령 사용시 SW interrupt가 발생해 해당 process를 종료함</p>
+
+<h2 id="11">11.</h2>
+<p>프로세스의 상태는 new, ready, running, waiting, terminated 등 다섯 종류로 나눌 수 있다.<br />
+<strong>a) 프로세스 상태 변화를 보여주는 상태천이도(state transition diagram)를 그려라.</strong><br />
+→</p>
+
+<p><strong>b) ready 와 waiting 상태는 어떻게 다른지 구분하여 설명하라.</strong><br />
+→ ready: CPU 서비스를 받기 위해 기다리는 것<br />
+→ waiting: I/O 서비스를 받기 위해 기다리는 것</p>
 
                 </div>
             </section>

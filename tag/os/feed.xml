@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-14T23:19:29+09:00</updated>
+  <updated>2022-02-17T22:40:56+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -67,8 +67,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;process&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Arrival Time&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Burst Time&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Arrival Time(msec)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Burst Time(msec)&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Priority&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -98,6 +98,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
     → &lt;strong&gt;F&lt;/strong&gt;irst &lt;strong&gt;C&lt;/strong&gt;ome &lt;strong&gt;F&lt;/strong&gt;irst &lt;strong&gt;S&lt;/strong&gt;erved&lt;br /&gt;
     → AWT = ( 0 + 3 + 1) / 3 = 4/3msec&lt;/p&gt;
 
+&lt;div id=&quot;gantt&quot;&gt; &lt;table id=&quot;chart&quot; style=&quot;table-layout: fixed;border-collapse: collapse;width: 100%;border-spacing: 0;&quot;&gt; &lt;thead id=&quot;thead&quot;&gt;&lt;tr&gt;&lt;th rowid=&quot;0&quot; colid=&quot;0&quot; style=&quot;width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;&quot;&gt;P1&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;1&quot; style=&quot;width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;&quot;&gt;P2&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;2&quot; style=&quot;width: 10px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center; user-select: none; padding: 0.5rem; position: relative;&quot;&gt;P3&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tbody id=&quot;tbody&quot;&gt;&lt;tr&gt;&lt;td rowid=&quot;0&quot; colid=&quot;0&quot; style=&quot;border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;&quot;&gt;&amp;nbsp;0&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;4&lt;br /&gt;↑&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;↑&lt;br /&gt;P1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;P2&lt;/td&gt;&lt;td rowid=&quot;0&quot; colid=&quot;1&quot; style=&quot;border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;↑&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;P3&lt;/td&gt;&lt;td rowid=&quot;0&quot; colid=&quot;2&quot; style=&quot;text-align: center; border-width: 0px; border-color: rgb(224, 0, 0); user-select: none; padding: 0.5rem; position: relative;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;14&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; &lt;/table&gt; &lt;/div&gt;
+
 &lt;p&gt;&lt;strong&gt;(b) 선점형(preemptive) SJF 스케쥴링을 사용할 때 평균반환시간(average turnaround time)은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
     → &lt;strong&gt;S&lt;/strong&gt;hortest &lt;strong&gt;J&lt;/strong&gt;ob &lt;strong&gt;F&lt;/strong&gt;irst&lt;br /&gt;
     → P1의 burst time은 4로 P2보다 길지만 0msec에 P1만 도착해있으므로 P1부터 실행함&lt;br /&gt;
@@ -123,11 +125,13 @@ CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
 P2: S2&lt;br /&gt;
 P3: S3&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.&lt;/strong&gt;&lt;br /&gt;
-    → &lt;strong&gt;sem.value&lt;/strong&gt; = 0;&lt;br /&gt;
-    &lt;strong&gt;P1&lt;/strong&gt;: S1; sem.release(); sem.release();&lt;br /&gt;
-    &lt;strong&gt;P2&lt;/strong&gt;: sem.acquire(); S2;  &lt;br /&gt;
-    &lt;strong&gt;P3&lt;/strong&gt;: sem.acquire(); S3;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(a) S1 이 끝나야 S2 나 S3 가 실행된다. S2, S3 의 순서는 상관없다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;sem.value&lt;/strong&gt; = 0;&lt;br /&gt;
+  &lt;strong&gt;P1&lt;/strong&gt;: S1; sem.release(); sem.release();&lt;br /&gt;
+  &lt;strong&gt;P2&lt;/strong&gt;: sem.acquire(); S2;  &lt;br /&gt;
+  &lt;strong&gt;P3&lt;/strong&gt;: sem.acquire(); S3;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;(b) S1 과 S2 가 모두 끝나야만 S3 가 실행된다. S1, S2 의 순서는 상관없다.&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -144,12 +148,14 @@ P3: S3&lt;/p&gt;
   &lt;strong&gt;P3&lt;/strong&gt;: sem.acquire(); sem.acquire(); S3;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.&lt;/strong&gt;&lt;br /&gt;
-    → &lt;strong&gt;sem.value&lt;/strong&gt; = 0;&lt;br /&gt;
-    &lt;strong&gt;sem2.value&lt;/strong&gt; = 0;&lt;br /&gt;
-    &lt;strong&gt;P1&lt;/strong&gt;: S1; sem.release();&lt;br /&gt;
-    &lt;strong&gt;P2&lt;/strong&gt;: sem.acquire(); S2; sem2.release();&lt;br /&gt;
-    &lt;strong&gt;P3&lt;/strong&gt;: sem2.acquire(); S3;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(c) S1, S2, S3 의 순서대로 실행된다. 즉 S1 → S2 → S3 의 순서를 따라야 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;sem.value&lt;/strong&gt; = 0;&lt;br /&gt;
+  &lt;strong&gt;sem2.value&lt;/strong&gt; = 0;&lt;br /&gt;
+  &lt;strong&gt;P1&lt;/strong&gt;: S1; sem.release();&lt;br /&gt;
+  &lt;strong&gt;P2&lt;/strong&gt;: sem.acquire(); S2; sem2.release();&lt;br /&gt;
+  &lt;strong&gt;P3&lt;/strong&gt;: sem2.acquire(); S3;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;3&quot;&gt;3.&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;a) 프로세스 동기화(process synchronization)란 무엇을 의미하는가?&lt;/strong&gt;&lt;br /&gt;
@@ -198,8 +204,15 @@ P3: S3&lt;/p&gt;
 &lt;p&gt;생산자-소비자 문제는 mutex, empty, full 등 세 가지 세마포를 사용하여 해결할 수 있다. 
 mutex 는 상호배타 목적, empty 와 full 은 각각 버퍼의 빈 공간 및 차있는 공간에 대한 접근목적으로 사용한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;a) 버퍼에서 데이터를 빼내어 소비하는 동작을 위 세마포를 포함한 코드로 작성하라.&lt;/strong&gt; &lt;br /&gt;
-    →&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;a) 버퍼에서 데이터를 빼내어 소비하는 동작을 위 세마포를 포함한 코드로 작성하라.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;full.acquire();&lt;br /&gt;
+mutex.acquire();&lt;br /&gt;
+buf&lt;br /&gt;
+count–;&lt;br /&gt;
+mutex.release();&lt;br /&gt;
+empty.release();&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;b) 생산자와 소비자는 프로세스, 각 세마포는 자원이라고 가정하자.&lt;/strong&gt; &lt;br /&gt;
 &lt;strong&gt;생산자는 버퍼에 대한 접근 허용을 기다리고 있고, 소비자는 버퍼에서 데이터를 빼내어 소비하는 상황을 나타내는 자원할당도(resource allocation graph)를 그려라.&lt;/strong&gt; &lt;br /&gt;
@@ -208,10 +221,104 @@ mutex 는 상호배타 목적, empty 와 full 은 각각 버퍼의 빈 공간 �
 
 &lt;h2 id=&quot;7&quot;&gt;7.&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;a) 교착상태(deadlock)가 일어나기 위한 네 가지 필요조건 중 보유 및 대기(hold and wait) 란 무슨 의미인가?&lt;/strong&gt;&lt;br /&gt;
-    →&lt;/p&gt;
+    → 한 가지 자원을 가지고 있으면서 또 다른 자원을 가지려고 대기하는 것&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;b) 식사하는 철학자 문제(dining philosopher problem)에서 보유 및 대기 조건이 만족되지 않게 하려면 어떻게 해야 하는가?&lt;/strong&gt;&lt;br /&gt;
-    →&lt;/p&gt;</content>
+    → 1. 젓가락 두 개를 동시에 집도록 함&lt;br /&gt;
+    → 2. 한 젓가락을 집고, 다른 하나는 이미 사용 중이라면 가지고 있던 젓가락을 내려 놓음 &lt;br /&gt;
+    (일부 자원만 이용가능하면 보유 자원을 모두 포기)&lt;/p&gt;
+
+&lt;h2 id=&quot;cf&quot;&gt;cf.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;a) 교착상태(deadlock)가 일어나기 위한 네 가지 필요조건 중 환형대기(circular wait) 란 무슨 의미인가?&lt;/strong&gt;&lt;br /&gt;
+    → 자원할당도 상에 원이 만들어짐&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;b) 식사하는 철학자 문제(dining philosopher problem)에서 환형대기 조건이 만족되지 않게 하려면 어떻게 해야 하는가?&lt;/strong&gt;&lt;br /&gt;
+    → 자원에 번호를 부여하고 오름(또는 내림) 차순으로 요청하기&lt;br /&gt;
+    → 짝수번 철학자는 왼쪽에서 오른쪽 순서로, 홀수번 철학자는 오른쪽에서 왼쪽 순서로 젓가락 들기&lt;/p&gt;
+
+&lt;h2 id=&quot;8&quot;&gt;8.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;아래 문제에서 변수 n, i, s 는 각 프로세스의 지역변수이며, value 는 모든 프로세스가 공통적으로 사용하는 전역변수이다. 프로세스 P1 과 P2 의 코드는 각각 다음과 같다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;P1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;P2&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;(a) 프로세스 동기화 문제에서 임계구역(critical section)이란 무엇을 의미하는가?&lt;/strong&gt;&lt;br /&gt;
+→ 공통 변수(common variable)를 업데이트 하는 구간&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(b) 위 P2 프로세스의 코드 내용 중 임계구역에 해당되는 부분은 어디인가? 이유도 설명하라.&lt;/strong&gt;&lt;br /&gt;
+→ value = value - s;&lt;br /&gt;
+→ 이유: 임계구역은 공통변수를 업데이트하는 구간임.&lt;br /&gt;
+value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(c) 세마포어(semaphore)를 사용하여 P1, P2  코드의 임계구역 문제를 해결하라. 세마포어의 초기 값도 나타내어라.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// mutual exclusion용 semaphore  &lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;P1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Critical Section&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;  
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;no&quot;&gt;P1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt;  
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  
+        &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;  
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Critical Section&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;  
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;(d) 프로세스 스케쥴링 방식과 관계없이 항상 P1 이 P2 보다 전역변수 value 값을 먼저 업데이트 하도록 세마포어를 사용하여 위 P1, P2 의 코드를 수정하여라. 세마포어의 초기 값도 나타내어라.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// mutual exclusion용 semaphore&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sem2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ordering용 semaphore&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;P1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Critical Section&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;sem2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;P1&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sem2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Critical Section&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;9&quot;&gt;9.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;프로세스(process)와 쓰레드(thread)의 유사점 및 차이점을 각각 설명하라.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;process → 메모리 공간이 따로 존재&lt;/li&gt;
+  &lt;li&gt;thread → 동일한 메모리 공간을 공유&lt;/li&gt;
+  &lt;li&gt;유사점 → context switching이 일어남&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;10&quot;&gt;10.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;a) 프로세서(processor)의 이중모드(dual mode)란 무엇을 의미하는가?&lt;/strong&gt;&lt;br /&gt;
+→ 한 컴퓨터를 여러 사람이 동시에 접속하거나, 한 사람이 여러 프로그램을 동시에 사용하는 환경에서 사용자 모드와 관리자 모드를 나누는 것. 관리자 모드에서만 특권명령과 하드웨어 접근이 가능함&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;b) 이중모드를 사용한 입출력장치(i/o devices) 보호 방법에 대해 설명하여라.&lt;/strong&gt;&lt;br /&gt;
+→ I/O 명령을 관리자(시스템)모드로 만들어 사용자 모드에서 I/O명령 사용시 SW interrupt가 발생해 해당 process를 종료함&lt;/p&gt;
+
+&lt;h2 id=&quot;11&quot;&gt;11.&lt;/h2&gt;
+&lt;p&gt;프로세스의 상태는 new, ready, running, waiting, terminated 등 다섯 종류로 나눌 수 있다.&lt;br /&gt;
+&lt;strong&gt;a) 프로세스 상태 변화를 보여주는 상태천이도(state transition diagram)를 그려라.&lt;/strong&gt;&lt;br /&gt;
+→&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;b) ready 와 waiting 상태는 어떻게 다른지 구분하여 설명하라.&lt;/strong&gt;&lt;br /&gt;
+→ ready: CPU 서비스를 받기 위해 기다리는 것&lt;br /&gt;
+→ waiting: I/O 서비스를 받기 위해 기다리는 것&lt;/p&gt;</content>
 
       
       
