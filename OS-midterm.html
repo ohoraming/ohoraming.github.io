@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(9) - Midterm" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm 1. 프로세스 P1, P2, P3 의 CPU burst time 은 각각 4, 2, 8 msec" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-midterm" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(9) - Midterm" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm 1. 프로세스 P1, P2, P3 의 CPU burst time 은 각각 4, 2, 8 msec" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-midterm"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm 1. 프로세스 P1, P2, P3 의 CPU burst time 은 각각 4, 2, 8 msec"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은"
 }
     </script>
 
@@ -222,6 +222,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
     <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
     <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
+    <li><a href="./OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
 </ul>
 
 <h2 id="1">1.</h2>
@@ -278,6 +279,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.<br />
     → preemptive이므로 강제전환 가능<br />
     → ATT: 도착부터 서비스가 끝나서 나가기까지 걸리는 시간<br />
     → ATT = ( 6 + 2 + 9) / 3 = 17/3msec</p>
+
+<div id="gantt" draggable="false"> <table id="chart" style="table-layout: auto; border-collapse: collapse; width: 100%; border-spacing: 0px;"> <thead id="thead"><tr><th rowid="0" colid="0" style="background-color: rgb(255, 255, 255); font-size: 20px; width: 60px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;">P1</th><th rowid="0" colid="1" style="background-color: rgb(255, 255, 255); font-size: 20px; width: 120px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;">P2</th><th rowid="0" colid="2" style="background-color: rgb(255, 255, 255); font-size: 20px; width: 120px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;">P1</th><th rowid="0" colid="3" style="background-color: rgb(255, 255, 255); font-size: 20px; width: 60px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;">P1</th><th rowid="0" colid="4" style="background-color: rgb(255, 255, 255); font-size: 20px; width: 480px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;">P3</th></tr><tr><th rowid="1" colid="0" style="background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;">0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</th><th rowid="1" colid="1" style="background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</th><th rowid="1" colid="2" style="background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5</th><th rowid="1" colid="3" style="background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</th><th rowid="1" colid="4" style="background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14</th></tr></thead> <tbody id="tbody"></tbody> </table> </div>
 
 <p><strong>(c) Time quantum 이 무한대 (∞) 인 Round-Robin scheduling을 적용하면 평균반환시간은 얼마인가?</strong><br />
     → Time quantum = ∞ 이므로 FCFS와 같은 scheduling 양상을 보임<br />
@@ -597,6 +600,14 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                         
                         
                         
+                        
+                         <li><a href="/OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -618,8 +629,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                         
                         
                         
-                         <li><a href="/OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
-                            
+                        
                             
                             
                             
@@ -693,7 +703,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 8 posts →
+                        See all 9 posts →
                         
                     </a>
                 </footer>
@@ -702,6 +712,57 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OS-mainmemorymgmt">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OS-mainmemorymgmt">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Os</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">OS(10) - Main Memory Management</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-17T22:40:56+09:00</updated>
+  <updated>2022-02-24T22:34:11+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,6 +32,76 @@
 
   
     <entry>
+      <title type="html">OS(10) - Main Memory Management</title>
+      <link href="https://ohoraming.github.io/OS-mainmemorymgmt" rel="alternate" type="text/html" title="OS(10) - Main Memory Management" />
+      <published>2022-02-24T22:24:00+09:00</published>
+      <updated>2022-02-24T22:24:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-mainmemorymgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-mainmemorymgmt">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;메모리-역사&quot;&gt;메모리 역사&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Core memory&lt;br /&gt;
+  → 반지 모양의 철심에 자성 물질을 바른 뒤 전기 흘려 자기장이 발생해 순간적으로 자석이 되는 원리를 이용해 메모리를 만듦&lt;/li&gt;
+  &lt;li&gt;진공관 메모리&lt;br /&gt;
+  → 50s ~ 60s, 손가락 3-4개 정도의 크기로 1bit 저장시 4-5개 필요&lt;/li&gt;
+  &lt;li&gt;트랜지스터 메모리
+  → 60s ~ 70s, 반도체 칩 안의 소자로 손톱만한 크기
+  → 1bit 저장시 4-6개 필요&lt;/li&gt;
+  &lt;li&gt;집적회로 메모리
+  → SRAM: 주로 캐시 메모리 만들 때 사용
+  → DRAM: 메인 메모리 만들 때 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;언제나-부족한-메모리&quot;&gt;언제나 부족한 메모리&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;메모리 용량은 1970s(64KB)에서 현재(수GB)로 늘어났지만,&lt;br /&gt;
+그와 동시에 &lt;strong&gt;프로그램의 크기도 계속 증가&lt;/strong&gt;해 메모리는 여전히 부족함&lt;br /&gt;
+→ 과거에 했던 메모리 관리가 여전히 중요한 이유&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">OS(9) - Midterm</title>
       <link href="https://ohoraming.github.io/OS-midterm" rel="alternate" type="text/html" title="OS(9) - Midterm" />
       <published>2022-02-09T22:58:00+09:00</published>
@@ -51,6 +121,7 @@
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
@@ -107,6 +178,8 @@ CPU scheduling 에 대한 아래 물음에 답하라.&lt;br /&gt;
     → preemptive이므로 강제전환 가능&lt;br /&gt;
     → ATT: 도착부터 서비스가 끝나서 나가기까지 걸리는 시간&lt;br /&gt;
     → ATT = ( 6 + 2 + 9) / 3 = 17/3msec&lt;/p&gt;
+
+&lt;div id=&quot;gantt&quot; draggable=&quot;false&quot;&gt; &lt;table id=&quot;chart&quot; style=&quot;table-layout: auto; border-collapse: collapse; width: 100%; border-spacing: 0px;&quot;&gt; &lt;thead id=&quot;thead&quot;&gt;&lt;tr&gt;&lt;th rowid=&quot;0&quot; colid=&quot;0&quot; style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; width: 60px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;&quot;&gt;P1&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;1&quot; style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; width: 120px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;&quot;&gt;P2&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;2&quot; style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; width: 120px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;&quot;&gt;P1&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;3&quot; style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; width: 60px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;&quot;&gt;P1&lt;/th&gt;&lt;th rowid=&quot;0&quot; colid=&quot;4&quot; style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; width: 480px; border-width: 3px; border-color: rgb(0, 0, 0); text-align: center;&quot;&gt;P3&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th rowid=&quot;1&quot; colid=&quot;0&quot; style=&quot;background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;&quot;&gt;0&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;/th&gt;&lt;th rowid=&quot;1&quot; colid=&quot;1&quot; style=&quot;background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;/th&gt;&lt;th rowid=&quot;1&quot; colid=&quot;2&quot; style=&quot;background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5&lt;/th&gt;&lt;th rowid=&quot;1&quot; colid=&quot;3&quot; style=&quot;background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6&lt;/th&gt;&lt;th rowid=&quot;1&quot; colid=&quot;4&quot; style=&quot;background-color: rgb(255, 255, 255); text-align: center; border-style: solid hidden hidden; border-top-width: 1px; padding-right: 0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;14&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tbody id=&quot;tbody&quot;&gt;&lt;/tbody&gt; &lt;/table&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;(c) Time quantum 이 무한대 (∞) 인 Round-Robin scheduling을 적용하면 평균반환시간은 얼마인가?&lt;/strong&gt;&lt;br /&gt;
     → Time quantum = ∞ 이므로 FCFS와 같은 scheduling 양상을 보임&lt;br /&gt;
@@ -366,6 +439,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -482,6 +556,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -618,6 +693,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -714,6 +790,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -927,6 +1004,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -1084,6 +1162,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -1192,6 +1271,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -1413,6 +1493,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
