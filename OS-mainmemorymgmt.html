@@ -227,25 +227,97 @@ into the {body} of the default.hbs template -->
 
 <h2 id="메모리-역사">메모리 역사</h2>
 <ul>
-  <li>Core memory<br />
+  <li><strong>Core memory</strong><br />
   → 반지 모양의 철심에 자성 물질을 바른 뒤 전기 흘려 자기장이 발생해 순간적으로 자석이 되는 원리를 이용해 메모리를 만듦</li>
-  <li>진공관 메모리<br />
-  → 50s ~ 60s, 손가락 3-4개 정도의 크기로 1bit 저장시 4-5개 필요</li>
-  <li>트랜지스터 메모리
-  → 60s ~ 70s, 반도체 칩 안의 소자로 손톱만한 크기
+  <li><strong>진공관 메모리</strong><br />
+  → 1950s ~ 1960s, 손가락 3-4개 정도의 크기로 1bit 저장시 4-5개 필요</li>
+  <li><strong>트랜지스터 메모리</strong><br />
+  → 1960s ~ 1970s, 반도체 칩 안의 소자로 손톱만한 크기<br />
   → 1bit 저장시 4-6개 필요</li>
-  <li>집적회로 메모리
-  → SRAM: 주로 캐시 메모리 만들 때 사용
+  <li>결국,<br />
+  공간을 많이 차지해 큰 메모리를 저장하기가 힘듦</li>
+  <li><strong>집적회로 메모리</strong>(현재)<br />
+  → SRAM: 주로 캐시 메모리 만들 때 사용<br />
   → DRAM: 메인 메모리 만들 때 사용</li>
 </ul>
 
 <h2 id="언제나-부족한-메모리">언제나 부족한 메모리</h2>
 <ul>
-  <li>메모리 용량은 1970s(64KB)에서 현재(수GB)로 늘어났지만,<br />
-그와 동시에 <strong>프로그램의 크기도 계속 증가</strong>해 메모리는 여전히 부족함<br />
-→ 과거에 했던 메모리 관리가 여전히 중요한 이유</li>
+  <li>
+    <p>메모리 용량은 1970s(64KB)에서 현재(수GB)로 늘어났지만,<br />
+<strong>프로그램의 크기도 증가</strong>해 메모리는 여전히 부족함<br />
+→ 과거(1960s)의 <strong>메모리 관리가 여전히 중요</strong>한 이유</p>
+  </li>
+  <li>
+    <p>메모리의 효과적인 사용<br />
+  → 메모리 낭비 없애기<br />
+  → <strong>virtual memory</strong>(가상 메모리): 실제 물리적인 memory보다 크게 보이도록 하는 기술</p>
+  </li>
 </ul>
 
+<h2 id="프로그램을-메모리에-올리기">프로그램을 메모리에 올리기</h2>
+<ul>
+  <li>
+    <p>메모리 구조<br />
+  → <strong>address</strong>: cpu가 읽고자하는 memory의 주소<br />
+  → <strong>data</strong>: 해당 주소에 있는 내용을 cpu에 전송(양방향)</p>
+  </li>
+  <li>프로그램 개발
+    <ol>
+      <li><strong>source file</strong>: high level language 또는 assembly language <br />
+ → high level language로 코드 작성<br />
+ → <strong>compiler</strong>가 compile하면 기계어로 번역됨<br />
+ 또는,<br />
+ → assembly어로 코드 작성<br />
+ → <strong>assembler</strong>가 assemble하면 기계어로 번역됨</li>
+      <li><strong>object file</strong>: compile 또는 assemble 결과 = 기계어<br />
+ → 유용한 함수들을 모아놓은 library와 object file을 <strong>linker</strong>가 연결(link)<br />
+ = 실행 파일</li>
+      <li><strong>executable file</strong>: 실행 파일<br />
+ → 하드 디스크에 들어감  <br />
+ → 프로그램을 실행하려면 <strong>loader</strong>가 main memory에 적재(load)
+ → <strong>code + data + stack</strong> 으로 구성<br />
+ e.g.) ‘a와 b 중 더 큰 수를 구하라’에서<br />
+ a, b는 <strong>data</strong>, 더 큰 수를 구하는 것은 <strong>code</strong>,<br />
+ 함수 호출시 돌아오는 주소 저장 또는 지역 변수를 저장하는 것은 <strong>stack</strong></li>
+    </ol>
+  </li>
+  <li>실행 파일을 메모리에 올릴 때,<br />
+몇 번지의 메모리에 올릴지 → <strong>loader</strong>가 결정<br />
+메인 메모리에 여러 process가 올라와 있다면 → 메모리 번지 변화 → <strong>MMU</strong>사용</li>
+  <li><strong>MMU</strong>(<strong>M</strong>emory <strong>M</strong>anagement <strong>U</strong>nit)<br />
+  → cpu와 memory 사이에 존재<br />
+  → base, limit, relocation register 존재<br />
+  → cpu에서 나온 address가 바로 memory로 가는 것을 방지(memory 보호)<br />
+  → 실행 중인 process가 address를 침범하는지 수시로 감시<br />
+  e.g.) main.exe가 0번지(<strong>logical address</strong>: cpu가 보내는 주소)에서 실행하도록 프로그래밍 되어있는데<br />
+  실행 가능한 메모리는 500번지(<strong>physical address</strong>: 실제 메인 메모리로 가는 주소)가 비어있다면,<br />
+  os가 MMU의 <strong>relocation register</strong> 값을 500으로 변경함<br />
+  cpu가 봤을 때는 0번지에서 실행되지만, 실제로는 500번지에서 실행되도록 함<br />
+  (→ <strong>address translation</strong>)</li>
+</ul>
+
+<h2 id="메모리-낭비-방지">메모리 낭비 방지</h2>
+<h3 id="1-dynamic-loading동적-적재">1. Dynamic Loading(동적 적재)</h3>
+<ul>
+  <li>현대 OS의 처리 방식</li>
+  <li>프로그램 실행에 반드시 필요한 routine/data만 메모리에 적재(load)</li>
+  <li>오류처리, 버퍼 용량, java의 class 등이 항상 다 사용되는 것 아님</li>
+  <li><strong>필요할 때 해당 부분을 메모리에 올림</strong></li>
+  <li>과거에는 Static Loading(정적 적재)를 많이 했음</li>
+</ul>
+
+<h3 id="2-dynamic-linking동적-연결">2. Dynamic Linking(동적 연결)</h3>
+<ul>
+  <li>여러 프로그램에 공통으로 사용되는 library를 메모리에 중복해 올리면 메모리 낭비 발생</li>
+  <li>과거의 Static linking(정적 연결)의 경우, compile후 실행 파일 만들기 전에 link가 일어나 memory 낭비가 있었음</li>
+  <li>common library를 제외한 나머지 부분을 memory에 load 한 뒤, 실행할 때 lib를 load해 link</li>
+  <li>library routine 연결(link)을 실행(load)할 때로 미루는 방법
+  → Linux: shared library 확장자 .so(shared object)파일<br />
+  → Windows: Dyanamic Linking Library(DLL) 확장자 .dll파일</li>
+</ul>
+
+<h3 id="3-swapping">3. Swapping</h3>
 
                 </div>
             </section>
