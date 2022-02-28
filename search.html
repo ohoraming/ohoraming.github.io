@@ -153,6 +153,7 @@ into the {body} of the default.hbs template -->
     <li class="nav-about" role="menuitem"><a href="/about/">Portfolio</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/java/">JAVA</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/javascript/">JavaScript</a></li>
+    <li class="nav-archive" role="menuitem"><a href="/tag/python/">Python</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/os/">OS</a></li>
     <li class="nav-archive" role="menuitem"><a href="/archive.html">All Posts</a></li>
     <li class="nav-archive" role="menuitem"><a href="/author_archive.html">All Tags</a></li>
@@ -196,6 +197,15 @@ into the {body} of the default.hbs template -->
 
 <script>
     window.store = {
+    
+    "python-django": {
+        "title": "Python(1) - Django 설치",
+            "author": "ohoraming",
+                "category": "",
+                    "content": "OS 관련 포스팅    Python(1) - Django 설치1. Django 설치$ python -m pip install Django설치를 하면, django-admin 명령을 쓸 수 있음$ django-admin 입력시 사용 가능한 서브 명령이 출력됨2. Project 시작2-1.$ django-admin startproject [project 이름]→ 현재 디렉터리에 project파일이 생성되고 그 안에 같은 이름의 project파일이 생김$ django-admin startproject [project 이름] .→ 현재 디렉터리에 project파일이 생성됨2-2. project 파일(myproject) 구성myproject/    manage.py    myproject/        __init__.py\t\t\t\tasgi.py        settings.py        urls.py        wsgi.py  urls.py→ 사용자가 접속하는 path에 따라 그 요청 처리를 지정(routing)3. Django 실행3-1. manage.py를 이용함$ python manage.py입력시 사용 가능한 서브 명령이 출력됨(※ 반드시 현재의 디렉터리가 project폴더인지 확인하기!)$ python manage.py runserver 입력→ 8000번 포트에서 서버가 성공적으로 열림※ python 개발 서버는 기본적으로 8000번 포트에서 리스닝하게 되어있음3-2. 서버를 끄고 싶다면, ctrl + c 입력3-3. 포트 번호를 바꾸고 싶다면,$ python manage.py runserver [포트 번호] 를 입력하면 됨4. Application 설치4-1. django-admin startapp [app 이름]4-2. app 파일 구성(myapp)myapp/\t\tmigrations/        __init__.py    __init__.py    admin.py    apps.py    models.py    tests.py    views.py5. Routing5-1. [project]/urls.py 설정큰 틀의 라우팅은 [project]/urls.py 에서 지정myproject/urls.pyfrom django.urls import include, pathurlpatterns = [    path('', include('myapp.urls'))]→ urlpatterns 정의해야 함(routing 관련 정보를 기록)→ path() 를 이용해 url을 넣어줌path('접속 경로/', include('연결할 app.urls'))include() →  import 필요→ user가 접속할 시 myapp.urls 로 연결함5-2. [app]/urls.py 생성 및 설정myapp/urls.pyfrom django.urls import include, pathurlpatterns = [    path(''),    path('create/'),    path('read/1/')]→ user가 각 경로로 접속했을 때, views.py로 전달→ views.py에 client로 정보를 전달할 함수 작성(index, create, read)myapp/views.pyfrom django.http import HttpResponsefrom django.shortcuts import render# Create your views here.def index(request):    return HttpResponse('Welcome!')def create(request):    return HttpResponse('Create!')def read(request):    return HttpResponse('Read!')5-3. [app]/urls.py 수정→ 사용자가 기본 포트로 접속 시, myapp/views.py의 index 함수를 실행하도록 수정→ views.index를 import 해 옴from django.urls import pathfrom myapp import viewsurlpatterns = [    path('', views.index),    path('create/', view.create),    path('read/1/', view.read)]cf.) path('read/1/', view.read) 에서 1이 바뀔 수 있는 숫자라면, &lt;&gt;를 이용해 작성해 줌myapp/urls.pypath('read/&lt;id&gt;/', views.read)views.py의 read()가 해당 인자(id)를 받아서 처리 하면 됨myapp/views.pydef read(request, id):    return HttpResponse('Read!'+id)  routing 정리          user가 read/1 경로로 접속      myproject/urls.py로 감          urlpatterns = [   path('', include('myapp.urls'))  ]                      myapp/urls.py로 위임     path('read/&lt;id&gt;/', views.read)        위 코드에 걸림    myapp/views.py로 위임     def read(request, id):     return HttpResponse('Read!'+id)        read 함수 실행  client에게 반환 값 전송",
+        "url": "/Python-django"
+    }
+    , 
     
     "os-mainmemorymgmt": {
         "title": "OS(10) - Main Memory Management",
