@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>OS(11) - Contiguous Memory Allocation</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Tue, 01 Mar 2022 15:23:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/OS-contiguous-memory-allocation</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-contiguous-memory-allocation</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Python(1) - Django 설치</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
@@ -31,8 +46,8 @@
         
         <pubDate>Thu, 24 Feb 2022 22:24:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/OS-mainmemorymgmt</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-mainmemorymgmt</guid>
+        https://ohoraming.github.io/OS-main-memory-mgmt</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-main-memory-mgmt</guid>
       </item>
       
     
@@ -91,8 +106,8 @@
         
         <pubDate>Wed, 02 Feb 2022 21:58:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/OS-classicalsync</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-classicalsync</guid>
+        https://ohoraming.github.io/OS-classical-sync-problems</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-classical-sync-problems</guid>
       </item>
       
     
@@ -121,8 +136,8 @@
         
         <pubDate>Sun, 30 Jan 2022 00:01:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/OS-cpuscheduling</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-cpuscheduling</guid>
+        https://ohoraming.github.io/OS-cpu-scheduling</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-cpu-scheduling</guid>
       </item>
       
     
@@ -136,8 +151,8 @@
         
         <pubDate>Wed, 26 Jan 2022 23:10:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/OS-processmgmt</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-processmgmt</guid>
+        https://ohoraming.github.io/OS-process-mgmt</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-process-mgmt</guid>
       </item>
       
     
@@ -151,8 +166,8 @@
         
         <pubDate>Tue, 18 Jan 2022 01:18:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/OS-interrupt</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/OS-interrupt</guid>
+        https://ohoraming.github.io/OS-interrupt-based-system</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/OS-interrupt-based-system</guid>
       </item>
       
     

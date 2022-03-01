@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OS(9) - Midterm" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 1. 프로세스 P1, P2, P3" />
     <meta property="og:url" content="https://ohoraming.github.io/OS-midterm" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OS(9) - Midterm" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 1. 프로세스 P1, P2, P3" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/OS-midterm"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management 1. 프로세스 P1, P2, P3 의 CPU burst time 은"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 1. 프로세스 P1, P2, P3"
 }
     </script>
 
@@ -215,15 +215,16 @@ into the {body} of the default.hbs template -->
 <p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./OS-intro">OS(1) - Introduction</a></li>
-    <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
-    <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
-    <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
+    <li><a href="./OS-interrupt-based-system">OS(2) - Interrupt-Based System</a></li>
+    <li><a href="./OS-process-mgmt">OS(3) - Process Management</a></li>
+    <li><a href="./OS-cpu-scheduling">OS(4) - CPU Scheduling</a></li>
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
-    <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
+    <li><a href="./OS-classical-sync-problems">OS(6) - Classical Synchronization Problems</a></li>
     <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
     <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
     <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
-    <li><a href="./OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
+    <li><a href="./OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
+    <li><a href="./OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
 </ul>
 
 <h2 id="1">1.</h2>
@@ -600,11 +601,19 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                         
                         
                         
+                        
+                        
+                         <li><a href="/OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
+                            
+                            
+                            
+                            
+                        
                             
                         
                         
                         
-                         <li><a href="/OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
+                         <li><a href="/OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
                             
                             
                             
@@ -624,8 +633,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                         
                         
                         
-                         <li><a href="/OS-deadlock">OS(7) - Deadlock</a></li>
-                            
+                        
                             
                             
                             
@@ -706,7 +714,7 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 9 posts →
+                        See all 10 posts →
                         
                     </a>
                 </footer>
@@ -720,12 +728,12 @@ value는 모든 프로세스가 공통 사용하는 공통변수</p>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/OS-mainmemorymgmt">
+            <a class="post-card-image-link" href="/OS-main-memory-mgmt">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-mainmemorymgmt">
+            <a class="post-card-content-link" href="/OS-main-memory-mgmt">
                 <header class="post-card-header">
                     
                         

@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/OS-contiguous-memory-allocation.html</loc>
+        
+        <lastmod>2022-03-01T15:23:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/Python-django.html</loc>
         
         <lastmod>2022-02-28T22:40:00+09:00</lastmod>
@@ -20,7 +36,7 @@
     </url>
     
     <url>
-        <loc>https://ohoraming.github.io/OS-mainmemorymgmt.html</loc>
+        <loc>https://ohoraming.github.io/OS-main-memory-mgmt.html</loc>
         
         <lastmod>2022-02-24T22:24:00+09:00</lastmod>
         
@@ -84,7 +100,7 @@
     </url>
     
     <url>
-        <loc>https://ohoraming.github.io/OS-classicalsync.html</loc>
+        <loc>https://ohoraming.github.io/OS-classical-sync-problems.html</loc>
         
         <lastmod>2022-02-02T21:58:00+09:00</lastmod>
         
@@ -116,7 +132,7 @@
     </url>
     
     <url>
-        <loc>https://ohoraming.github.io/OS-cpuscheduling.html</loc>
+        <loc>https://ohoraming.github.io/OS-cpu-scheduling.html</loc>
         
         <lastmod>2022-01-30T00:01:00+09:00</lastmod>
         
@@ -132,7 +148,7 @@
     </url>
     
     <url>
-        <loc>https://ohoraming.github.io/OS-processmgmt.html</loc>
+        <loc>https://ohoraming.github.io/OS-process-mgmt.html</loc>
         
         <lastmod>2022-01-26T23:10:00+09:00</lastmod>
         
@@ -148,7 +164,7 @@
     </url>
     
     <url>
-        <loc>https://ohoraming.github.io/OS-interrupt.html</loc>
+        <loc>https://ohoraming.github.io/OS-interrupt-based-system.html</loc>
         
         <lastmod>2022-01-18T01:18:00+09:00</lastmod>
         

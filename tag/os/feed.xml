@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-28T23:11:52+09:00</updated>
+  <updated>2022-03-01T23:02:51+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -32,26 +32,120 @@
 
   
     <entry>
-      <title type="html">OS(10) - Main Memory Management</title>
-      <link href="https://ohoraming.github.io/OS-mainmemorymgmt" rel="alternate" type="text/html" title="OS(10) - Main Memory Management" />
-      <published>2022-02-24T22:24:00+09:00</published>
-      <updated>2022-02-24T22:24:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-mainmemorymgmt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-mainmemorymgmt">&lt;!-- 글 작성하기 --&gt;
+      <title type="html">OS(11) - Contiguous Memory Allocation</title>
+      <link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" />
+      <published>2022-03-01T15:23:00+09:00</published>
+      <updated>2022-03-01T15:23:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;contiguous-memory-allocation-연속-메모리-할당&quot;&gt;Contiguous Memory Allocation (연속 메모리 할당)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;최초의 컴퓨터&lt;/strong&gt;&lt;br /&gt;
+  → OS 없었음&lt;br /&gt;
+  → 하나의 process만 main memory에서 돎&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;OS 등장&lt;/strong&gt;&lt;br /&gt;
+  → OS와 하나의 process가 돎&lt;br /&gt;
+  → MS-DOS&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multi-programming&lt;/strong&gt; 환경&lt;br /&gt;
+  → OS와 여러 개의 process가 돎&lt;br /&gt;
+  → booting 직후에는 OS와 &lt;strong&gt;big single hole&lt;/strong&gt;(비어있는 하나의 큰 메모리)&lt;br /&gt;
+  → process 생성과 종료의 반복 후에는 OS와 &lt;strong&gt;scattered holes&lt;/strong&gt;(흩어져있는 여러 메모리)&lt;br /&gt;
+  → memory가 흩어져 있으면 새 process 적재 불가&lt;br /&gt;
+      (hole을 모두 합하면 적재할 process 용량보다 커도 이어져있지 않으면 사용 불가)
+      (= 외부 단편화(&lt;strong&gt;external fragmentation&lt;/strong&gt;))&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;연속 메모리 할당 방식&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;First-fit&lt;/strong&gt;&lt;br /&gt;
+  → memory를 위(또는 아래)에서 순차적으로 훑어 처음으로 만난 적합한 공간에 할당&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Best-fit&lt;/strong&gt;&lt;br /&gt;
+  → 빈 hole 중에서 새 process 용량과 가장 크기가 비슷한 곳에 할당&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Worst-fit&lt;/strong&gt;&lt;br /&gt;
+  → 빈 hole 중에서 새 process 용량과 가장 크기가 크게 차이나는 곳에 할당&lt;/li&gt;
+      &lt;li&gt;속도: first-fit이 가장 빠름&lt;br /&gt;
+  → 조건에 부합하는 첫 메모리 공간에 할당하기 때문&lt;/li&gt;
+      &lt;li&gt;이용률: first-fit, best-fit이 실행 못하는 process 수가 비교적 적음&lt;/li&gt;
+      &lt;li&gt;first-fit, best-fit만 선택하더라도  &lt;br /&gt;
+  여전히 external fragmentation은 발생함
+  → memory의 약 1/3은 사용 불가&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;compaction&lt;/strong&gt;: 흩어져 있는 hole들을 한 곳으로 모으는 것&lt;br /&gt;
+  → 최적의 알고리즘의 부재, 고부담의 단점이 존재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;paging-페이징&quot;&gt;Paging (페이징)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;memory에 process가 연속 할당되어야 한다는 생각때문에 발생한 &lt;strong&gt;external fragmentation의 해결책&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;memory&lt;/strong&gt;를 일정한 크기(= &lt;strong&gt;frame&lt;/strong&gt;)로 자르고 &lt;strong&gt;process&lt;/strong&gt; 역시 같은 일정한 크기(= &lt;strong&gt;page&lt;/strong&gt;)로 자름&lt;/li&gt;
+  &lt;li&gt;여러 개의 MMU가 relocation register값을 바꿔주면 각 page들이 hole의 frame에 각각 배치될 때, CPU는 process가 연속 할당되었다고 속음&lt;/li&gt;
+  &lt;li&gt;이때의 MMU는 특별히 &lt;strong&gt;page table&lt;/strong&gt;이라고 함&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">OS(10) - Main Memory Management</title>
+      <link href="https://ohoraming.github.io/OS-main-memory-mgmt" rel="alternate" type="text/html" title="OS(10) - Main Memory Management" />
+      <published>2022-02-24T22:24:00+09:00</published>
+      <updated>2022-02-24T22:24:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-main-memory-mgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-main-memory-mgmt">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;메모리-역사&quot;&gt;메모리 역사&lt;/h2&gt;
@@ -97,15 +191,15 @@
  → high level language로 코드 작성&lt;br /&gt;
  → &lt;strong&gt;compiler&lt;/strong&gt;가 compile하면 기계어로 번역됨&lt;br /&gt;
  또는,&lt;br /&gt;
- → assembly어로 코드 작성&lt;br /&gt;
+ → assembly language로 코드 작성&lt;br /&gt;
  → &lt;strong&gt;assembler&lt;/strong&gt;가 assemble하면 기계어로 번역됨&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;object file&lt;/strong&gt;: compile 또는 assemble 결과 = 기계어&lt;br /&gt;
  → 유용한 함수들을 모아놓은 library와 object file을 &lt;strong&gt;linker&lt;/strong&gt;가 연결(link)&lt;br /&gt;
- = 실행 파일&lt;/li&gt;
+ = 실행 파일(exe file)&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;executable file&lt;/strong&gt;: 실행 파일&lt;br /&gt;
  → 하드 디스크에 들어감  &lt;br /&gt;
- → 프로그램을 실행하려면 &lt;strong&gt;loader&lt;/strong&gt;가 main memory에 적재(load)
- → &lt;strong&gt;code + data + stack&lt;/strong&gt; 으로 구성&lt;br /&gt;
+ → 프로그램을 실행하려면 &lt;strong&gt;loader&lt;/strong&gt;가 main memory에 적재(load)&lt;br /&gt;
+ → &lt;strong&gt;‘code + data + stack’&lt;/strong&gt; 으로 구성&lt;br /&gt;
  e.g.) ‘a와 b 중 더 큰 수를 구하라’에서&lt;br /&gt;
  a, b는 &lt;strong&gt;data&lt;/strong&gt;, 더 큰 수를 구하는 것은 &lt;strong&gt;code&lt;/strong&gt;,&lt;br /&gt;
  함수 호출시 돌아오는 주소 저장 또는 지역 변수를 저장하는 것은 &lt;strong&gt;stack&lt;/strong&gt;&lt;/li&gt;
@@ -115,14 +209,14 @@
 몇 번지의 메모리에 올릴지 → &lt;strong&gt;loader&lt;/strong&gt;가 결정&lt;br /&gt;
 메인 메모리에 여러 process가 올라와 있다면 → 메모리 번지 변화 → &lt;strong&gt;MMU&lt;/strong&gt;사용&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;MMU&lt;/strong&gt;(&lt;strong&gt;M&lt;/strong&gt;emory &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;U&lt;/strong&gt;nit)&lt;br /&gt;
-  → cpu와 memory 사이에 존재&lt;br /&gt;
+  → CPU와 memory 사이에 존재&lt;br /&gt;
   → base, limit, relocation register 존재&lt;br /&gt;
-  → cpu에서 나온 address가 바로 memory로 가는 것을 방지(memory 보호)&lt;br /&gt;
+  → CPU에서 나온 address가 바로 memory로 가는 것을 방지(memory 보호)&lt;br /&gt;
   → 실행 중인 process가 address를 침범하는지 수시로 감시&lt;br /&gt;
-  e.g.) main.exe가 0번지(&lt;strong&gt;logical address&lt;/strong&gt;: cpu가 보내는 주소)에서 실행하도록 프로그래밍 되어있는데&lt;br /&gt;
-  실행 가능한 메모리는 500번지(&lt;strong&gt;physical address&lt;/strong&gt;: 실제 메인 메모리로 가는 주소)가 비어있다면,&lt;br /&gt;
-  os가 MMU의 &lt;strong&gt;relocation register&lt;/strong&gt; 값을 500으로 변경함&lt;br /&gt;
-  cpu가 봤을 때는 0번지에서 실행되지만, 실제로는 500번지에서 실행되도록 함&lt;br /&gt;
+  e.g.) main.exe가&lt;br /&gt;
+  0번지(→ &lt;strong&gt;logical address&lt;/strong&gt;: CPU가 보내는 주소)에서 실행하도록 프로그래밍 되어있는데, 실행 가능한 메모리는 500번지(→ &lt;strong&gt;physical address&lt;/strong&gt;: 실제 메인 메모리로 가는 주소)가 비어있다면,&lt;br /&gt;
+  OS가 MMU의 &lt;strong&gt;relocation register&lt;/strong&gt; 값을 500으로 변경함&lt;br /&gt;
+  즉, CPU가 봤을 땐 0번지에서 실행, 실제로는 500번지에서 실행되도록 함&lt;br /&gt;
   (→ &lt;strong&gt;address translation&lt;/strong&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -132,21 +226,29 @@
   &lt;li&gt;현대 OS의 처리 방식&lt;/li&gt;
   &lt;li&gt;프로그램 실행에 반드시 필요한 routine/data만 메모리에 적재(load)&lt;/li&gt;
   &lt;li&gt;오류처리, 버퍼 용량, java의 class 등이 항상 다 사용되는 것 아님&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;필요할 때 해당 부분을 메모리에 올림&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;‘필요할 때’ 해당 부분을 메모리에 올림&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;과거에는 Static Loading(정적 적재)를 많이 했음&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;2-dynamic-linking동적-연결&quot;&gt;2. Dynamic Linking(동적 연결)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;여러 프로그램에 공통으로 사용되는 library를 메모리에 중복해 올리면 메모리 낭비 발생&lt;/li&gt;
-  &lt;li&gt;과거의 Static linking(정적 연결)의 경우, compile후 실행 파일 만들기 전에 link가 일어나 memory 낭비가 있었음&lt;/li&gt;
-  &lt;li&gt;common library를 제외한 나머지 부분을 memory에 load 한 뒤, 실행할 때 lib를 load해 link&lt;/li&gt;
-  &lt;li&gt;library routine 연결(link)을 실행(load)할 때로 미루는 방법
+  &lt;li&gt;여러 프로그램에 &lt;strong&gt;공통으로 사용되는 library를 메모리에 중복해 올리면 메모리 낭비&lt;/strong&gt; 발생&lt;/li&gt;
+  &lt;li&gt;과거의 &lt;strong&gt;Static linking(정적 연결)&lt;/strong&gt;의 경우, compile후 실행 파일 만들기 전에 link가 일어나 memory 낭비가 있었음&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamic Linking(동적 연결)&lt;/strong&gt;은 common library를 제외한 나머지 부분을 memory에 load 후, 실행할 때 lib를 load해 link&lt;/li&gt;
+  &lt;li&gt;library routine 연결(link)을 실행(load)할 때로 미루는 방법임&lt;br /&gt;
   → Linux: shared library 확장자 .so(shared object)파일&lt;br /&gt;
   → Windows: Dyanamic Linking Library(DLL) 확장자 .dll파일&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;3-swapping&quot;&gt;3. Swapping&lt;/h3&gt;</content>
+&lt;h3 id=&quot;3-swapping&quot;&gt;3. Swapping&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;main memory에 적재되어 있지만, 현재는 사용하지 않고 있는 &lt;strong&gt;process image&lt;/strong&gt;를 &lt;strong&gt;backing store&lt;/strong&gt;로 몰아냄&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;backing store&lt;/strong&gt;&lt;br /&gt;
+→ 하드 디스크의 일부분으로 실행파일이 저장되어있는 부분(→ &lt;strong&gt;file system&lt;/strong&gt;)과는 다른 곳 &lt;br /&gt;
+→ 대략 main memory 정도의 크기면 됨&lt;/li&gt;
+  &lt;li&gt;swapping되어 backing store에 들어가면, 해당 main memory 공간은 비워지고 다른 process가 들어갈 수 있게 됨&lt;/li&gt;
+  &lt;li&gt;backing store에서 main memory로 복귀시 이전과는 다른 자리에 들어가지만, &lt;strong&gt;relocation register&lt;/strong&gt;를 사용하므로 적재 위치는 무관함&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -186,15 +288,16 @@
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
@@ -504,15 +607,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -621,15 +725,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -748,25 +853,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(6) - Classical Synchronization Problems</title>
-      <link href="https://ohoraming.github.io/OS-classicalsync" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" />
+      <link href="https://ohoraming.github.io/OS-classical-sync-problems" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" />
       <published>2022-02-02T21:58:00+09:00</published>
       <updated>2022-02-02T21:58:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-classicalsync</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-classicalsync">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-classical-sync-problems</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-classical-sync-problems">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -855,15 +961,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -1059,25 +1166,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(4) - CPU Scheduling</title>
-      <link href="https://ohoraming.github.io/OS-cpuscheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
+      <link href="https://ohoraming.github.io/OS-cpu-scheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
       <published>2022-01-30T00:01:00+09:00</published>
       <updated>2022-01-30T00:01:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-cpuscheduling</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-cpuscheduling">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-cpu-scheduling</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-cpu-scheduling">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -1217,25 +1325,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(3) - Process Management</title>
-      <link href="https://ohoraming.github.io/OS-processmgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
+      <link href="https://ohoraming.github.io/OS-process-mgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
       <published>2022-01-26T23:10:00+09:00</published>
       <updated>2022-01-26T23:10:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-processmgmt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-processmgmt">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-process-mgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-process-mgmt">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -1326,25 +1435,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(2) - Interrupt-Based System</title>
-      <link href="https://ohoraming.github.io/OS-interrupt" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
+      <link href="https://ohoraming.github.io/OS-interrupt-based-system" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
       <published>2022-01-18T01:18:00+09:00</published>
       <updated>2022-01-18T01:18:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-interrupt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-interrupt">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-interrupt-based-system</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-interrupt-based-system">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
@@ -1518,199 +1628,6 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
       &lt;li&gt;File: create(생성), delete(삭제)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="OS" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">OS(1) - Introduction</title>
-      <link href="https://ohoraming.github.io/OS-intro" rel="alternate" type="text/html" title="OS(1) - Introduction" />
-      <published>2022-01-12T22:06:00+09:00</published>
-      <updated>2022-01-12T22:06:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-intro</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-intro">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;운영체제operating-system-os의-목적&quot;&gt;운영체제(Operating System, OS)의 목적&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;컴퓨터 &lt;strong&gt;하드웨어를 잘 관리&lt;/strong&gt;하여
-    &lt;ul&gt;
-      &lt;li&gt;HW: processor, memory, disk, keyboard, mouse, monitor…&lt;/li&gt;
-      &lt;li&gt;OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;성능&lt;/strong&gt;을 높이고
-    &lt;ul&gt;
-      &lt;li&gt;같은 HW라도 OS가 좋으면 성능이 향상됨&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자에게 &lt;strong&gt;편의성&lt;/strong&gt;을 제공
-    &lt;ul&gt;
-      &lt;li&gt;컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음&lt;/li&gt;
-      &lt;li&gt;과거, 1940s-1950s에는 전문가(oprator)들만 컴퓨터를 사용할 수 있었음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;부팅booting&quot;&gt;부팅(Booting)&lt;/h2&gt;
-&lt;p&gt;boot: &lt;em&gt;n. 목이 긴 신발, 부츠&lt;/em&gt;&lt;br /&gt;
-booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌어당김&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;전원을 켜면&lt;/li&gt;
-  &lt;li&gt;ROM의 code를 읽어와 실행
-    &lt;ul&gt;
-      &lt;li&gt;ROM: Read Only Memory&lt;/li&gt;
-      &lt;li&gt;RAM: main memory의 대부분을 차지(수GB(10^9))&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;POST(Power-On Self-Test) 실행
-    &lt;ul&gt;
-      &lt;li&gt;전원을 켰을 때, 컴퓨터의 환경 설정이 제대로 되었는지 확인&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Boot loader실행
-    &lt;ul&gt;
-      &lt;li&gt;load: v.적재하다&lt;/li&gt;
-      &lt;li&gt;하드 디스크 안의 OS를 메인 메모리로 가져옴&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;OS가 메인 메모리(RAM)에 올라오면, 명령을 받아들일 준비를 마침
-    &lt;ul&gt;
-      &lt;li&gt;Windows의 경우 바탕화면이 뜨고, Linux의 경우 prompt 창이 뜸&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;os--kernel--shell&quot;&gt;OS = kernel + shell&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Kernel
-    &lt;ul&gt;
-      &lt;li&gt;핵심&lt;/li&gt;
-      &lt;li&gt;HW를 둘러싸며 이를 제어, 관리함&lt;/li&gt;
-      &lt;li&gt;실제로 관리하는 프로그램&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Shell
-    &lt;ul&gt;
-      &lt;li&gt;OS의 껍질 부분&lt;/li&gt;
-      &lt;li&gt;명령어 해석기(command interpreter)&lt;/li&gt;
-      &lt;li&gt;사용자로부터 명령을 받아 변역 후 해당 명령을 실행함&lt;/li&gt;
-      &lt;li&gt;명령: 아이콘 더블 클릭(Windows), 텍스트 입력(Linux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ls&lt;/code&gt;(현 directory file 보여줌), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$who&lt;/code&gt;(사용자 확인), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ds&lt;/code&gt;(디스크 용량 확인) 등)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;os의-위치&quot;&gt;OS의 위치&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Application(App) ⊃ OS  ⊃ HW 
-&lt;a href=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot;&gt;&lt;img src=&quot;https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png&quot; alt=&quot;os diagram&quot; width=&quot;50%&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;정부(government)에 비유할 수 있음&lt;/li&gt;
-  &lt;li&gt;주어진 자원을 &lt;strong&gt;할당&lt;/strong&gt;(resource allocator)하고 &lt;strong&gt;관리&lt;/strong&gt;함(resource manager)&lt;/li&gt;
-  &lt;li&gt;OS가 직접 일을 하지 않고, 각 부서에 맞는 업무를 할당함&lt;/li&gt;
-  &lt;li&gt;프로세스 관리와 메인 메모리 관리가 가장 중요한 업무&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;역사&quot;&gt;역사&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;컴퓨터의 역사
-    &lt;ul&gt;
-      &lt;li&gt;1940s, &lt;strong&gt;OS가 없었음&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;programmer가 &lt;strong&gt;종이&lt;/strong&gt;에 연필로 program을 작성해 전산실에 전달&lt;/li&gt;
-      &lt;li&gt;전달받은대로 구멍(천공)을 뚫은 카드와 compiler 프로그램 카드를 &lt;strong&gt;카드 리더기&lt;/strong&gt;에 올림&lt;/li&gt;
-      &lt;li&gt;프로그램과 compiler가 &lt;strong&gt;메모리&lt;/strong&gt;에 적재되고 기계어가 도출됨&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;처리기(processor)&lt;/strong&gt;가 기계어를 실행하면&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;line printer&lt;/strong&gt;가 망치로 두드려 결과를 인쇄&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Batch processing system(일괄처리)
-    &lt;ul&gt;
-      &lt;li&gt;resident monitor: &lt;strong&gt;최초의 OS&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;사람(operator)이 직접 compiler, linker, loading을 했음&lt;/li&gt;
-      &lt;li&gt;이 일련의 과정을 메모리에 프로그램으로 넣어(=&lt;strong&gt;상주&lt;/strong&gt;시켜) &lt;strong&gt;자동으로 실행&lt;/strong&gt;시킴&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Multiprogramming system(다중 프로그래밍)
-    &lt;ul&gt;
-      &lt;li&gt;컴퓨터는 비싼 자원&lt;/li&gt;
-      &lt;li&gt;CPU에 비해 i/o의 처리 속도는 느리며, i/o 처리 시간 동안 CPU는 idle상태(가동되지 않는)가 됨&lt;/li&gt;
-      &lt;li&gt;i/o 처리시 다음 user의 연산을 처리&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;하나의 CPU를 여러 user(program)가 사용&lt;/strong&gt;해 이용률을 증가시킴&lt;/li&gt;
-      &lt;li&gt;user program의 효율적인 배치를 고민해야 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Time-sharing system(시공유 시스템)
-    &lt;ul&gt;
-      &lt;li&gt;아주 &lt;strong&gt;짧은 시간(1/100초~1/1000초)동안 각 user의 작업을 나눠서 처리&lt;/strong&gt;함&lt;/li&gt;
-      &lt;li&gt;혼자서 CPU를 쓰는 느낌을 줄 수 있음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;os-기술-천이&quot;&gt;OS 기술 천이&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;컴퓨터 규모별 분류
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Supercomputer &amp;gt; Mainframe &amp;gt; Mini &amp;gt; Micro&lt;/strong&gt;&lt;br /&gt;
-  Supercomputer: 최강의 컴퓨터. 메모리 용량이 크고, CPU가 빠르며, 보조 기억장치가 뛰어남&lt;br /&gt;
-  Mainframe: 수백 대의 단말기를 연결한 형태&lt;br /&gt;
-  Mini: 수십 대의 단말기를 연결한 형태&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Supercomputer &amp;gt; Server &amp;gt; Workstation &amp;gt; PC &amp;gt; Handheld &amp;gt; Embeded&lt;/strong&gt;&lt;br /&gt;
-  Handheld: 노트북, 태블릿, 스마트 폰&lt;br /&gt;
-  Embeded: 차나 가전에 내장된 형태&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;고성능 컴퓨터의 기능이 Handheld, Embeded까지 적용됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;고등-운영체제&quot;&gt;고등 운영체제&lt;/h2&gt;
-&lt;p&gt;(※대학원 과정)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;다중 프로세서 시스템&lt;/li&gt;
-  &lt;li&gt;분산 시스템&lt;/li&gt;
-  &lt;li&gt;실시간 시스템&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       

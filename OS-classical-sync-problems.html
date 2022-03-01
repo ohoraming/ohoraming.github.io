@@ -12,7 +12,7 @@
 
 
 
-    <title>OS(2) - Interrupt-Based System</title>
+    <title>OS(6) - Classical Synchronization Problems</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,24 +64,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/OS-interrupt" />
+    <link rel="canonical" href="https://ohoraming.github.io/OS-classical-sync-problems" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OS(2) - Interrupt-Based System" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데" />
-    <meta property="og:url" content="https://ohoraming.github.io/OS-interrupt" />
+    <meta property="og:title" content="OS(6) - Classical Synchronization Problems" />
+    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Producer-Consumer Problem producer(생산자)가 data를 생산하면" />
+    <meta property="og:url" content="https://ohoraming.github.io/OS-classical-sync-problems" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-01-18T01:18:00+09:00" />
-    <meta property="article:modified_time" content="2022-01-18T01:18:00+09:00" />
+    <meta property="article:published_time" content="2022-02-02T21:58:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-02T21:58:00+09:00" />
     <meta property="article:tag" content="Os" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OS(2) - Interrupt-Based System" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데" />
+    <meta name="twitter:title" content="OS(6) - Classical Synchronization Problems" />
+    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Producer-Consumer Problem producer(생산자)가 data를 생산하면" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -102,7 +102,7 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/OS-interrupt",
+    "url": "https://ohoraming.github.io/OS-classical-sync-problems",
     "image": {
         "@type": "ImageObject",
         "url": "https://ohoraming.github.io/assets/built/images/os-logo.png",
@@ -111,9 +111,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/OS-interrupt"
+        "@id": "https://ohoraming.github.io/OS-classical-sync-problems"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management Interrupt interrupt: v. 방해하다, 중단시키다 → 어떤 일을 하고 있는데"
+    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Producer-Consumer Problem producer(생산자)가 data를 생산하면"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="OS(2) - Interrupt-Based System" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="OS(6) - Classical Synchronization Problems" href="/feed.xml" />
 
 
 </head>
@@ -189,7 +189,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="18 January 2022">18 January 2022</time>
+                    <time class="post-full-meta-date" datetime=" 2 February 2022"> 2 February 2022</time>
                     
                     <span class="date-divider">/</span>
                     
@@ -199,7 +199,7 @@ into the {body} of the default.hbs template -->
                     
                     
                 </section>
-                <h1 class="post-full-title">OS(2) - Interrupt-Based System</h1>
+                <h1 class="post-full-title">OS(6) - Classical Synchronization Problems</h1>
             </header>
 
             <!-- 
@@ -215,190 +215,65 @@ into the {body} of the default.hbs template -->
 <p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./OS-intro">OS(1) - Introduction</a></li>
-    <li><a href="./OS-interrupt">OS(2) - Interrupt-Based System</a></li>
-    <li><a href="./OS-processmgmt">OS(3) - Process Management</a></li>
-    <li><a href="./OS-cpuscheduling">OS(4) - CPU Scheduling</a></li>
+    <li><a href="./OS-interrupt-based-system">OS(2) - Interrupt-Based System</a></li>
+    <li><a href="./OS-process-mgmt">OS(3) - Process Management</a></li>
+    <li><a href="./OS-cpu-scheduling">OS(4) - CPU Scheduling</a></li>
     <li><a href="./OS-thread">OS(5) - Thread</a></li>
-    <li><a href="./OS-classicalsync">OS(6) - Classical Synchronization Problems</a></li>
+    <li><a href="./OS-classical-sync-problems">OS(6) - Classical Synchronization Problems</a></li>
     <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
     <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
     <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
-    <li><a href="./OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
+    <li><a href="./OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
+    <li><a href="./OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
 </ul>
 
-<h2 id="interrupt">Interrupt</h2>
-<p><em>interrupt: v. 방해하다, 중단시키다</em><br />
-→ 어떤 일을 하고 있는데 <strong>가로채서</strong> 다른 일을 함</p>
+<h2 id="producer-consumer-problem">Producer-Consumer Problem</h2>
 <ul>
-  <li>현대 운영체제는 interrupt 기반 시스템
-    <ul>
-      <li>booting 완료 후, OS는 메모리에 상주함(resident)</li>
-      <li>마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감 &lt;HW interrupt&gt;</li>
-      <li>CPU는 하던 일을 중지하고 OS안의 마우스 Interrupt Service Routine(ISR)(코드)으로 점프</li>
-      <li>특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &lt;SW interrupt&gt;</li>
-      <li>하드 디스크 속 특정 프로그램을 메인 메모리에 올림</li>
-      <li>바탕화면이 바뀌며 특정 프로그램의 화면이 나옴</li>
-      <li>IRS 종료후 다시 user program 또는 원래의 대기상태로 복귀</li>
-    </ul>
-  </li>
+  <li>producer(생산자)가 data를 생산하면 consumer(소비자)가 소비</li>
+  <li>e.g.) compiler(= producer)와 assembler(= consumer)의 경우,<br />
+  compiler가 high level language를 low level language(assembly어)로 번역하면,  assembler가 번역된 assembly어를 기계어로 번역</li>
+  <li>e.g.) 파일 서버(= producer)와 클라이언트(= consumer)의 경우,<br />
+  web browser가 요청을 보내면, server가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌</li>
+  <li><strong>Bounded Buffer(유한 버퍼)</strong><br />
+  → 생산한 데이터는 버퍼에 우선 저장함<br />
+  → buffer의 사이즈는 유한함<br />
+  → producer는 buffer가 가득 차면 더이상 데이터를 넣을 수 없으며,<br />
+  → consumer는 buffer가 비면 더이상 데이터를 뺄 수 없음</li>
+  <li>같은 수의 생산(insert)과 소비(remove)가 이루어졌다면, 결괏값은 0이 나와야 함</li>
+  <li>common variable인 count와 buf[]를 업데이트하는 C.S.(critical-section)에 동시 진입이 이루어져 최종 결괏값으로 0이 나오지 않음</li>
+  <li>solution<br />
+  → <strong>mutual exclusion</strong><br />
+  → semaphore를 이용해 동시접근 방지<br />
+  → number of permit = 1</li>
+  <li><strong>Busy-wait</strong><br />
+  → producer: buffer가 가득차면 기다려야하며,<br />
+  → consumer: buffer가 비면 기다려야 함<br />
+  → OS의 ‘효율성 증가’의 목적에 위배됨<br />
+  → semaphore를 사용해 busy-wait회피<br />
+  → 무한 loop(while문)를 돌며 기다리지않고 semaphore에 가둠<br />
+  → CPU 서비스를 받지 않고 block됨<br />
+  → 빈공간이 생기면 producer를 깨우고, 데이터가 들어오면 consumer를 깨움</li>
 </ul>
 
-<h2 id="interrupt-기반-os">interrupt 기반 OS</h2>
+<h2 id="readers-writers-problem">Readers-Writers Problem</h2>
 <ul>
-  <li>
-    <p>OS는 여러 가지 code들의 모임<br />
-  → 평소에는 작동하지 않고 interrupt에 의해 작동함</p>
-  </li>
-  <li>
-    <p>평소 OS는 대기상태</p>
-    <ul>
-      <li>HW/SW/Internal(내부) interrupt에 의해 운영체제 코드(ISR)을 실행</li>
-      <li>Internal interrupt<br />
-  e.g.) divide by zero: 
-  결괏값이 무한대가 되어 컴퓨터에 저장 공간이 없음<br />
-  → CPU가 내부적인 interrupt로 인식</li>
-    </ul>
-  </li>
+  <li>Reader: C.S.을 편집하지 않고 읽기만 함</li>
+  <li>Writer: C.S.를 읽고 편집함</li>
+  <li>Reader에 mutual exclusion을 적용하면 비효율적임</li>
+  <li>Reader가 들어왔는데 다른 Writer가 들어오려하면 block</li>
+  <li>Writer가 들어와 있으면 Reader는 block</li>
+  <li>Reader가 들어와 있는데 다른 Reader가 들어온다면 허용(효율성 제고)</li>
 </ul>
 
-<h2 id="이중-모드dual-mode">이중 모드(Dual Mode)</h2>
+<h2 id="dining-philosopher-problem">Dining Philosopher Problem</h2>
 <ul>
-  <li>사용 환경
-    <ul>
-      <li>한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경</li>
-      <li>또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)</li>
-      <li>또는 한 사람이 특권 명령을 입력하는 경우</li>
-    </ul>
-  </li>
-  <li>사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
-    <ul>
-      <li>CPU 동작 모드를 <strong>두 가지</strong>로 진행</li>
-      <li>OS 서비스가 실행될 때, HW/SW interrupt 발생할 때 <strong>관리자 모드</strong> 실행</li>
-      <li>사용자 프로그램이 실행될 때, OS 서비스가 끝나면 다시 <strong>사용자 모드</strong> 실행</li>
-      <li>사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함</li>
-      <li>관리자(supervisor) 모드 = 시스템(system) 모드 = 모니터(monitor)(감시자) 모드 = 특권(priviliged) 모드</li>
-      <li>레지스터에 mode를 나타내는 flag가 존재함
-        <ul>
-          <li>register: 비트들의 모임</li>
-          <li>flags(carry, negative, zero, overflow)에 monitor 비트를 추가해 0과 1로 이중모드를 구현</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>특권 명령(Privileged instruction)
-    <ul>
-      <li>특권 모드에서만 내릴 수 있는 명령어</li>
-      <li>STOP/HALT/RESET(CPU 중지 명령어), SET_TIMER(일반 유저가 시간을 바꾸면 안 됨), SET_HW(HW의 값을 바꿈)…</li>
-    </ul>
-  </li>
-  <li>
-    <p>일반 User program은 하드 디스크에 접근이 불가함<br />
-  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻(보안 문제)<br />
-  그래서 OS에 SW interrupt를 걸어 ISR을 실행해 필요한 작업을 하게 함</p>
-  </li>
-  <li>일반적인 프로그램의 실행
-    <ol>
-      <li>power on</li>
-      <li>booting: 하드 디스크의 프로그램이 메인 메모리에 적재
-        <ul>
-          <li>monitor 비트 = 1 : system mode라는 뜻</li>
-          <li>OS는 system mode에서 동작함</li>
-          <li>일반 user는 못 내리는 명령 수행 가능</li>
-        </ul>
-      </li>
-      <li>user mode &gt; (키보드, 마우스) HW interrupt &gt; system mode(ISR) &gt; user mode &gt; (모니터, 디스크, 프린터) &gt; system mode &gt; user mode
-        <ul>
-          <li>만약, user mode에서 CPU에 STOP 명령을 내리면,<br />
- CPU는 internal interrupt가 발생했다고 여겨 OS의 ISR로 점프해<br />
- 해당 명령을 내린 프로그램을 강제 종료시켜 메모리에서 내림<br />
-  → protection과 연관됨</li>
-        </ul>
-      </li>
-    </ol>
-  </li>
+  <li>5명의 철학자와 5개의 젓가락이 서로 엇갈려 한 테이블에 존재</li>
+  <li>‘생각 → 식사’의 반복</li>
+  <li>왼쪽 젓가락을 든 뒤, 오른쪽 젓가락을 듬</li>
+  <li>number of permit = 1 : 두 철학자 중 한 명만 젓가락 드는 것이 허용됨</li>
+  <li>결과: starvation: 모든 철학자들이 굶어 죽는 상황 발생</li>
+  <li>모두가 동시에 젓가락을 드는 상황이 있으면 deadlock에 빠짐</li>
 </ul>
-
-<h2 id="하드웨어-보호">하드웨어 보호</h2>
-<ol>
-  <li>입출력장치 보호<br />
- → 사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함</li>
-  <li>메모리 보호<br />
- → 자신에게 주어진 메모리 영역을 넘어서는 것을 막음</li>
-  <li>CPU 보호<br />
- → 한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음</li>
-</ol>
-
-<h2 id="1-입출력장치-보호">(1) 입출력장치 보호</h2>
-<ul>
-  <li>서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함</li>
-  <li>입출력 명령(<code class="language-plaintext highlighter-rouge">IN OUT</code>)을 <strong>특권 명령</strong>으로 지정함</li>
-  <li>SW interrupt(명령어: INT) &gt; OS에 요청(system mode로 전환) &gt; 입출력 실행 &gt; 다시 user mode로 복귀</li>
-  <li>이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함</li>
-  <li>user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)</li>
-</ul>
-
-<h2 id="2-메모리-보호">(2) 메모리 보호</h2>
-<ul>
-  <li>다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함</li>
-  <li>MMU(<strong>M</strong>emory <strong>M</strong>anagement <strong>U</strong>nit)를 두어 다른 메모리 영역 침범을 감시함</li>
-  <li>일종의 문지기로 <strong>base registar</strong>와 <strong>limit register</strong> 사이의 값만 통과시킴</li>
-  <li>Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴</li>
-  <li>메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)</li>
-</ul>
-
-<h2 id="3-cpu-보호">(3) CPU 보호</h2>
-<ul>
-  <li>한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함</li>
-  <li><strong>TIMER</strong>를 두어 일정 시간 경과시 timer interrupt 발생</li>
-  <li>timer가 cpu에 주기적으로 interrupt를 걸어줌</li>
-  <li>interrupt가 발생 &gt; ISR로 jump &gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &gt; 다른 프로그램으로 강제 전환</li>
-</ul>
-
-<h2 id="os-서비스">OS 서비스</h2>
-<ol>
-  <li>프로세스 관리 ★★
-    <ul>
-      <li>process: 메모리에서 실행 중인 program<br />
-  (vs. program: 하드 디스크에 존재)</li>
-      <li>process의 생성, 소멸, 활동 일시 정지, 활동 재개, 통신, 동기화, 교착상태 처리 등</li>
-    </ul>
-  </li>
-  <li>주기억장치 관리 ★
-    <ul>
-      <li>process에 메모리 공간 할당, process 종료시 메모리 회수, 가상 메모리</li>
-    </ul>
-  </li>
-  <li>파일 관리
-    <ul>
-      <li>파일의 생성과 삭제, directory(folder))의 생성과 삭제, file 기본 동작, 백업</li>
-    </ul>
-  </li>
-  <li>보조기억장치 관리
-    <ul>
-      <li>하드 디스크, 스마트 폰의 플래시 메모리 등</li>
-      <li>빈 공간 관리, 저장공간 할당, 디스크 스케줄링</li>
-    </ul>
-  </li>
-  <li>입출력장치 관리
-    <ul>
-      <li>장치 드라이브, 입출력 장치의 성능 향상
-…</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="시스템-콜">시스템 콜</h2>
-<ul>
-  <li>OS 서비스를 받기 위한 호출(요청)</li>
-  <li>주요 시스템 콜
-    <ul>
-      <li>Process: end(종료), abort(강제 종료), load(하드 디스크의 프로그램을 메인 메로리로 가져오는 것), execute(실행), create(process 생성), terminate(종료(=end)), get/set attributes(속성)</li>
-      <li>Memory: allocate(새 객체 생성시 메모리가 필요해 OS에 요청), free(메모리를 다 쓰고 나서 돌려줌)</li>
-      <li>File: create(생성), delete(삭제)</li>
-    </ul>
-  </li>
-</ul>
-
 
                 </div>
             </section>
@@ -462,9 +337,9 @@ into the {body} of the default.hbs template -->
                 <div id="disqus_thread"></div>
                 <script>
                     var disqus_config = function () {
-                        var this_page_url = 'https://ohoraming.github.io/OS-interrupt';
-                        var this_page_identifier = '/OS-interrupt';
-                        var this_page_title = 'OS(2) - Interrupt-Based System';
+                        var this_page_url = 'https://ohoraming.github.io/OS-classical-sync-problems';
+                        var this_page_identifier = '/OS-classical-sync-problems';
+                        var this_page_title = 'OS(6) - Classical Synchronization Problems';
                     };
                     (function () {
                         var d = document, s = d.createElement('script');
@@ -505,11 +380,19 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                        
+                         <li><a href="/OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
+                            
+                            
+                            
+                            
+                        
                             
                         
                         
                         
-                         <li><a href="/OS-mainmemorymgmt">OS(10) - Main Memory Management</a></li>
+                         <li><a href="/OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
                             
                             
                             
@@ -525,14 +408,6 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/OS-monitor">OS(8) - Monitor</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
                         
                             
                             
@@ -542,6 +417,10 @@ into the {body} of the default.hbs template -->
                         
                         
                             
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -567,6 +446,9 @@ into the {body} of the default.hbs template -->
                             
                         
                         
+                        
+                        
+                            
                             
                             
                         
@@ -611,7 +493,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/os/">
                         
-                        See all 9 posts →
+                        See all 10 posts →
                         
                     </a>
                 </footer>
@@ -625,12 +507,12 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/OS-processmgmt">
+            <a class="post-card-image-link" href="/OS-deadlock">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-processmgmt">
+            <a class="post-card-content-link" href="/OS-deadlock">
                 <header class="post-card-header">
                     
                         
@@ -640,7 +522,7 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">OS(3) - Process Management</h2>
+                    <h2 class="post-card-title">OS(7) - Deadlock</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -664,7 +546,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -679,12 +561,12 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/OS-intro">
+            <a class="post-card-image-link" href="/OS-thread">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-intro">
+            <a class="post-card-content-link" href="/OS-thread">
                 <header class="post-card-header">
                     
                         
@@ -694,7 +576,7 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">OS(1) - Introduction</h2>
+                    <h2 class="post-card-title">OS(5) - Thread</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -740,18 +622,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">OS(2) - Interrupt-Based System</div>
+    <div class="floating-header-title">OS(6) - Classical Synchronization Problems</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=OS%282%29+-+Interrupt-Based+System&amp;url=https://ohoraming.github.io/OS-interrupt"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=OS%286%29+-+Classical+Synchronization+Problems&amp;url=https://ohoraming.github.io/OS-classical-sync-problems"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/OS-interrupt"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/OS-classical-sync-problems"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

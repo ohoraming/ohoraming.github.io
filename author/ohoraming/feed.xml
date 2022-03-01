@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-28T23:11:52+09:00</updated>
+  <updated>2022-03-01T23:02:51+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,6 +32,99 @@
 
   
     <entry>
+      <title type="html">OS(11) - Contiguous Memory Allocation</title>
+      <link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" />
+      <published>2022-03-01T15:23:00+09:00</published>
+      <updated>2022-03-01T15:23:00+09:00</updated>
+      <id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;contiguous-memory-allocation-연속-메모리-할당&quot;&gt;Contiguous Memory Allocation (연속 메모리 할당)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;최초의 컴퓨터&lt;/strong&gt;&lt;br /&gt;
+  → OS 없었음&lt;br /&gt;
+  → 하나의 process만 main memory에서 돎&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;OS 등장&lt;/strong&gt;&lt;br /&gt;
+  → OS와 하나의 process가 돎&lt;br /&gt;
+  → MS-DOS&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multi-programming&lt;/strong&gt; 환경&lt;br /&gt;
+  → OS와 여러 개의 process가 돎&lt;br /&gt;
+  → booting 직후에는 OS와 &lt;strong&gt;big single hole&lt;/strong&gt;(비어있는 하나의 큰 메모리)&lt;br /&gt;
+  → process 생성과 종료의 반복 후에는 OS와 &lt;strong&gt;scattered holes&lt;/strong&gt;(흩어져있는 여러 메모리)&lt;br /&gt;
+  → memory가 흩어져 있으면 새 process 적재 불가&lt;br /&gt;
+      (hole을 모두 합하면 적재할 process 용량보다 커도 이어져있지 않으면 사용 불가)
+      (= 외부 단편화(&lt;strong&gt;external fragmentation&lt;/strong&gt;))&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;연속 메모리 할당 방식&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;First-fit&lt;/strong&gt;&lt;br /&gt;
+  → memory를 위(또는 아래)에서 순차적으로 훑어 처음으로 만난 적합한 공간에 할당&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Best-fit&lt;/strong&gt;&lt;br /&gt;
+  → 빈 hole 중에서 새 process 용량과 가장 크기가 비슷한 곳에 할당&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Worst-fit&lt;/strong&gt;&lt;br /&gt;
+  → 빈 hole 중에서 새 process 용량과 가장 크기가 크게 차이나는 곳에 할당&lt;/li&gt;
+      &lt;li&gt;속도: first-fit이 가장 빠름&lt;br /&gt;
+  → 조건에 부합하는 첫 메모리 공간에 할당하기 때문&lt;/li&gt;
+      &lt;li&gt;이용률: first-fit, best-fit이 실행 못하는 process 수가 비교적 적음&lt;/li&gt;
+      &lt;li&gt;first-fit, best-fit만 선택하더라도  &lt;br /&gt;
+  여전히 external fragmentation은 발생함
+  → memory의 약 1/3은 사용 불가&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;compaction&lt;/strong&gt;: 흩어져 있는 hole들을 한 곳으로 모으는 것&lt;br /&gt;
+  → 최적의 알고리즘의 부재, 고부담의 단점이 존재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;paging-페이징&quot;&gt;Paging (페이징)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;memory에 process가 연속 할당되어야 한다는 생각때문에 발생한 &lt;strong&gt;external fragmentation의 해결책&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;memory&lt;/strong&gt;를 일정한 크기(= &lt;strong&gt;frame&lt;/strong&gt;)로 자르고 &lt;strong&gt;process&lt;/strong&gt; 역시 같은 일정한 크기(= &lt;strong&gt;page&lt;/strong&gt;)로 자름&lt;/li&gt;
+  &lt;li&gt;여러 개의 MMU가 relocation register값을 바꿔주면 각 page들이 hole의 frame에 각각 배치될 때, CPU는 process가 연속 할당되었다고 속음&lt;/li&gt;
+  &lt;li&gt;이때의 MMU는 특별히 &lt;strong&gt;page table&lt;/strong&gt;이라고 함&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="OS" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Python(1) - Django 설치</title>
       <link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" />
       <published>2022-02-28T22:40:00+09:00</published>
@@ -46,163 +139,171 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-django-설치&quot;&gt;1. Django 설치&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python -m pip install Django&lt;/code&gt;&lt;br /&gt;
-설치를 하면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin&lt;/code&gt; 명령을 쓸 수 있음&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin&lt;/code&gt; 입력시 사용 가능한 서브 명령이 출력됨&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python -m pip install Django&lt;/code&gt;입력&lt;br /&gt;
+설치 끝나면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin&lt;/code&gt; 명령을 쓸 수 있음&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin&lt;/code&gt; 입력시 사용 가능한 서브 명령이 출력됨&lt;/p&gt;
 
 &lt;h2 id=&quot;2-project-시작&quot;&gt;2. Project 시작&lt;/h2&gt;
-&lt;p&gt;2-1.&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;br /&gt;
-→ 현재 디렉터리에 project파일이 생성되고 그 안에 같은 이름의 project파일이 생김&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름] .&lt;/code&gt;&lt;br /&gt;
+&lt;h3 id=&quot;2-1-project-생성&quot;&gt;2-1. project 생성&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;br /&gt;
+→ 현재 디렉터리에 &lt;strong&gt;project파일이 생성되고&lt;/strong&gt; 그 안에 같은 이름의 project파일이 생김&lt;br /&gt;
+&lt;strong&gt;또는,&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름] .&lt;/code&gt;&lt;br /&gt;
 → 현재 디렉터리에 project파일이 생성됨&lt;/p&gt;
 
-&lt;p&gt;2-2. project 파일(myproject) 구성&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myproject/
-    manage.py
-    myproject/
-        __init__.py
-				asgi.py
-        settings.py
-        urls.py
-        wsgi.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
+&lt;h3 id=&quot;2-2-project-파일-구성&quot;&gt;2-2. project 파일 구성&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt;
-→ 사용자가 접속하는 path에 따라 그 요청 처리를 지정(routing)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject&lt;/code&gt; 폴더
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myproject/
+      manage.py
+      myproject/
+          __init__.py
+          asgi.py
+          settings.py
+          urls.py
+          wsgi.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt;파일&lt;br /&gt;
+  → 사용자가 접속하는 path에 따라 그 요청 처리를 지정(routing)&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;3-django-실행&quot;&gt;3. Django 실행&lt;/h2&gt;
-&lt;p&gt;3-1. manage.py를 이용함&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py&lt;/code&gt;입력시 사용 가능한 서브 명령이 출력됨&lt;br /&gt;
+&lt;h3 id=&quot;3-1-managepy를-이용&quot;&gt;3-1. manage.py를 이용&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py&lt;/code&gt;입력시 사용 가능한 서브 명령이 출력됨&lt;br /&gt;
 (※ 반드시 현재의 디렉터리가 project폴더인지 확인하기!)&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver&lt;/code&gt; 입력&lt;br /&gt;
 → 8000번 포트에서 서버가 성공적으로 열림&lt;br /&gt;
-※ python 개발 서버는 기본적으로 8000번 포트에서 리스닝하게 되어있음&lt;/p&gt;
+(※ python 개발 서버는 기본적으로 8000번 포트에서 리스닝)&lt;/p&gt;
 
-&lt;p&gt;3-2. 서버를 끄고 싶다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + c&lt;/code&gt; 입력&lt;br /&gt;
-3-3. 포트 번호를 바꾸고 싶다면,&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver [포트 번호]&lt;/code&gt; 를 입력하면 됨&lt;/p&gt;
+&lt;h3 id=&quot;3-2-서버를-끄고-싶다면&quot;&gt;3-2. 서버를 끄고 싶다면,&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + c&lt;/code&gt; 입력&lt;/p&gt;
+&lt;h3 id=&quot;3-3-포트-번호를-바꾸고-싶다면&quot;&gt;3-3. 포트 번호를 바꾸고 싶다면,&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver [바꿀 포트 번호]&lt;/code&gt; 를 입력&lt;/p&gt;
 
 &lt;h2 id=&quot;4-application-설치&quot;&gt;4. Application 설치&lt;/h2&gt;
-&lt;p&gt;4-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin startapp [app 이름]&lt;/code&gt;&lt;br /&gt;
-4-2. app 파일 구성(myapp)&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myapp/
-		migrations/
-        __init__.py
-    __init__.py
-    admin.py
-    apps.py
-    models.py
-    tests.py
-    views.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;5-routing&quot;&gt;5. Routing&lt;/h2&gt;
-&lt;p&gt;5-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 설정&lt;br /&gt;
-큰 틀의 라우팅은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 에서 지정&lt;/p&gt;
-
-&lt;p&gt;myproject/urls.py&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlpatterns&lt;/code&gt; 정의해야 함(routing 관련 정보를 기록)&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path()&lt;/code&gt; 를 이용해 url을 넣어줌&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('접속 경로/', include('연결할 app.urls'))&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include()&lt;/code&gt; →  import 필요&lt;/p&gt;
-
-&lt;p&gt;→ user가 접속할 시 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp.urls&lt;/code&gt; 로 연결함&lt;/p&gt;
-
-&lt;p&gt;5-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 생성 및 설정&lt;br /&gt;
-myapp/urls.py&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ user가 각 경로로 접속했을 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;로 전달&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;에 client로 정보를 전달할 &lt;strong&gt;함수 작성&lt;/strong&gt;(index, create, read)&lt;/p&gt;
-
-&lt;p&gt;myapp/views.py&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create your views here.
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Welcome!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Create!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;5-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 수정&lt;br /&gt;
-→ 사용자가 기본 포트로 접속 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;의 index 함수를 실행하도록 수정&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.index&lt;/code&gt;를 import 해 옴&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;myapp&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;cf.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('read/1/', view.read)&lt;/code&gt; 에서 1이 바뀔 수 있는 숫자라면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt;를 이용해 작성해 줌&lt;/p&gt;
-
-&lt;p&gt;myapp/urls.py&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/&amp;lt;id&amp;gt;/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;views.py의 read()가 해당 인자(id)를 받아서 처리 하면 됨&lt;/p&gt;
-
-&lt;p&gt;myapp/views.py&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
+&lt;h3 id=&quot;4-1-django-admin-startapp-app-이름&quot;&gt;4-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin startapp [app 이름]&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;4-2-app-파일-구성&quot;&gt;4-2. app 파일 구성&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;routing 정리
-    &lt;ol&gt;
-      &lt;li&gt;user가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read/1&lt;/code&gt; 경로로 접속&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject/urls.py&lt;/code&gt;로 감
-        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp&lt;/code&gt; 폴더
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myapp/
+      migrations/
+          __init__.py
+      __init__.py
+      admin.py
+      apps.py
+      models.py
+      tests.py
+      views.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;5-routing&quot;&gt;5. Routing&lt;/h2&gt;
+&lt;h3 id=&quot;5-1-projecturlspy-설정&quot;&gt;5-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 설정&lt;/h3&gt;
+&lt;p&gt;→ 큰 틀의 라우팅은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 에서 지정&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject/urls.py&lt;/code&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlpatterns&lt;/code&gt; 정의(routing 관련 정보를 기록)&lt;br /&gt;
+  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path()&lt;/code&gt; 를 이용해 url을 넣어줌&lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('접속 경로/', include('연결할 app.urls'))&lt;/code&gt;&lt;br /&gt;
+  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include()&lt;/code&gt;: import 필요&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;→ user 접속시 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp.urls&lt;/code&gt; 로 연결&lt;/p&gt;
+
+&lt;h3 id=&quot;5-2-appurlspy-생성-및-설정&quot;&gt;5-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 생성 및 설정&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;→ user가 각 경로로 접속했을 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;로 전달&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;: client로 정보를 전달할 &lt;strong&gt;함수 작성&lt;/strong&gt;(index, create, read)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Create your views here.
+&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Welcome!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Create!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 수정&lt;br /&gt;
+→ 사용자가 기본 포트로 접속 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;의 index 함수를 실행하도록 수정&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.index&lt;/code&gt; import&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;myapp&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;cf.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('read/1/', view.read)&lt;/code&gt; 에서 1이 바뀔 수 있는 숫자라면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt;를 이용해 작성&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
+        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/&amp;lt;id&amp;gt;/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;의 read()가 해당 인자(id)를 받아서 처리&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;
+        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;routing-정리&quot;&gt;&amp;lt;routing 정리&amp;gt;&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;myapp/urls.py로 위임
+  &lt;li&gt;user가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read/1&lt;/code&gt; 경로로 접속시&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject/urls.py&lt;/code&gt;로 감
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;로 위임
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/&amp;lt;id&amp;gt;/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;위 코드에 걸림&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;myapp/views.py로 위임
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;로 위임
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;read 함수 실행&lt;/li&gt;
-  &lt;li&gt;client에게 반환 값 전송&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read() 함수&lt;/code&gt;실행&lt;/li&gt;
+  &lt;li&gt;client에 반환 값 전송&lt;/li&gt;
 &lt;/ol&gt;</content>
 
       
@@ -233,25 +334,26 @@ myapp/urls.py&lt;/p&gt;
   
     <entry>
       <title type="html">OS(10) - Main Memory Management</title>
-      <link href="https://ohoraming.github.io/OS-mainmemorymgmt" rel="alternate" type="text/html" title="OS(10) - Main Memory Management" />
+      <link href="https://ohoraming.github.io/OS-main-memory-mgmt" rel="alternate" type="text/html" title="OS(10) - Main Memory Management" />
       <published>2022-02-24T22:24:00+09:00</published>
       <updated>2022-02-24T22:24:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-mainmemorymgmt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-mainmemorymgmt">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-main-memory-mgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-main-memory-mgmt">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;메모리-역사&quot;&gt;메모리 역사&lt;/h2&gt;
@@ -297,15 +399,15 @@ myapp/urls.py&lt;/p&gt;
  → high level language로 코드 작성&lt;br /&gt;
  → &lt;strong&gt;compiler&lt;/strong&gt;가 compile하면 기계어로 번역됨&lt;br /&gt;
  또는,&lt;br /&gt;
- → assembly어로 코드 작성&lt;br /&gt;
+ → assembly language로 코드 작성&lt;br /&gt;
  → &lt;strong&gt;assembler&lt;/strong&gt;가 assemble하면 기계어로 번역됨&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;object file&lt;/strong&gt;: compile 또는 assemble 결과 = 기계어&lt;br /&gt;
  → 유용한 함수들을 모아놓은 library와 object file을 &lt;strong&gt;linker&lt;/strong&gt;가 연결(link)&lt;br /&gt;
- = 실행 파일&lt;/li&gt;
+ = 실행 파일(exe file)&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;executable file&lt;/strong&gt;: 실행 파일&lt;br /&gt;
  → 하드 디스크에 들어감  &lt;br /&gt;
- → 프로그램을 실행하려면 &lt;strong&gt;loader&lt;/strong&gt;가 main memory에 적재(load)
- → &lt;strong&gt;code + data + stack&lt;/strong&gt; 으로 구성&lt;br /&gt;
+ → 프로그램을 실행하려면 &lt;strong&gt;loader&lt;/strong&gt;가 main memory에 적재(load)&lt;br /&gt;
+ → &lt;strong&gt;‘code + data + stack’&lt;/strong&gt; 으로 구성&lt;br /&gt;
  e.g.) ‘a와 b 중 더 큰 수를 구하라’에서&lt;br /&gt;
  a, b는 &lt;strong&gt;data&lt;/strong&gt;, 더 큰 수를 구하는 것은 &lt;strong&gt;code&lt;/strong&gt;,&lt;br /&gt;
  함수 호출시 돌아오는 주소 저장 또는 지역 변수를 저장하는 것은 &lt;strong&gt;stack&lt;/strong&gt;&lt;/li&gt;
@@ -315,14 +417,14 @@ myapp/urls.py&lt;/p&gt;
 몇 번지의 메모리에 올릴지 → &lt;strong&gt;loader&lt;/strong&gt;가 결정&lt;br /&gt;
 메인 메모리에 여러 process가 올라와 있다면 → 메모리 번지 변화 → &lt;strong&gt;MMU&lt;/strong&gt;사용&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;MMU&lt;/strong&gt;(&lt;strong&gt;M&lt;/strong&gt;emory &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;U&lt;/strong&gt;nit)&lt;br /&gt;
-  → cpu와 memory 사이에 존재&lt;br /&gt;
+  → CPU와 memory 사이에 존재&lt;br /&gt;
   → base, limit, relocation register 존재&lt;br /&gt;
-  → cpu에서 나온 address가 바로 memory로 가는 것을 방지(memory 보호)&lt;br /&gt;
+  → CPU에서 나온 address가 바로 memory로 가는 것을 방지(memory 보호)&lt;br /&gt;
   → 실행 중인 process가 address를 침범하는지 수시로 감시&lt;br /&gt;
-  e.g.) main.exe가 0번지(&lt;strong&gt;logical address&lt;/strong&gt;: cpu가 보내는 주소)에서 실행하도록 프로그래밍 되어있는데&lt;br /&gt;
-  실행 가능한 메모리는 500번지(&lt;strong&gt;physical address&lt;/strong&gt;: 실제 메인 메모리로 가는 주소)가 비어있다면,&lt;br /&gt;
-  os가 MMU의 &lt;strong&gt;relocation register&lt;/strong&gt; 값을 500으로 변경함&lt;br /&gt;
-  cpu가 봤을 때는 0번지에서 실행되지만, 실제로는 500번지에서 실행되도록 함&lt;br /&gt;
+  e.g.) main.exe가&lt;br /&gt;
+  0번지(→ &lt;strong&gt;logical address&lt;/strong&gt;: CPU가 보내는 주소)에서 실행하도록 프로그래밍 되어있는데, 실행 가능한 메모리는 500번지(→ &lt;strong&gt;physical address&lt;/strong&gt;: 실제 메인 메모리로 가는 주소)가 비어있다면,&lt;br /&gt;
+  OS가 MMU의 &lt;strong&gt;relocation register&lt;/strong&gt; 값을 500으로 변경함&lt;br /&gt;
+  즉, CPU가 봤을 땐 0번지에서 실행, 실제로는 500번지에서 실행되도록 함&lt;br /&gt;
   (→ &lt;strong&gt;address translation&lt;/strong&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -332,21 +434,29 @@ myapp/urls.py&lt;/p&gt;
   &lt;li&gt;현대 OS의 처리 방식&lt;/li&gt;
   &lt;li&gt;프로그램 실행에 반드시 필요한 routine/data만 메모리에 적재(load)&lt;/li&gt;
   &lt;li&gt;오류처리, 버퍼 용량, java의 class 등이 항상 다 사용되는 것 아님&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;필요할 때 해당 부분을 메모리에 올림&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;‘필요할 때’ 해당 부분을 메모리에 올림&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;과거에는 Static Loading(정적 적재)를 많이 했음&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;2-dynamic-linking동적-연결&quot;&gt;2. Dynamic Linking(동적 연결)&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;여러 프로그램에 공통으로 사용되는 library를 메모리에 중복해 올리면 메모리 낭비 발생&lt;/li&gt;
-  &lt;li&gt;과거의 Static linking(정적 연결)의 경우, compile후 실행 파일 만들기 전에 link가 일어나 memory 낭비가 있었음&lt;/li&gt;
-  &lt;li&gt;common library를 제외한 나머지 부분을 memory에 load 한 뒤, 실행할 때 lib를 load해 link&lt;/li&gt;
-  &lt;li&gt;library routine 연결(link)을 실행(load)할 때로 미루는 방법
+  &lt;li&gt;여러 프로그램에 &lt;strong&gt;공통으로 사용되는 library를 메모리에 중복해 올리면 메모리 낭비&lt;/strong&gt; 발생&lt;/li&gt;
+  &lt;li&gt;과거의 &lt;strong&gt;Static linking(정적 연결)&lt;/strong&gt;의 경우, compile후 실행 파일 만들기 전에 link가 일어나 memory 낭비가 있었음&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamic Linking(동적 연결)&lt;/strong&gt;은 common library를 제외한 나머지 부분을 memory에 load 후, 실행할 때 lib를 load해 link&lt;/li&gt;
+  &lt;li&gt;library routine 연결(link)을 실행(load)할 때로 미루는 방법임&lt;br /&gt;
   → Linux: shared library 확장자 .so(shared object)파일&lt;br /&gt;
   → Windows: Dyanamic Linking Library(DLL) 확장자 .dll파일&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;3-swapping&quot;&gt;3. Swapping&lt;/h3&gt;</content>
+&lt;h3 id=&quot;3-swapping&quot;&gt;3. Swapping&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;main memory에 적재되어 있지만, 현재는 사용하지 않고 있는 &lt;strong&gt;process image&lt;/strong&gt;를 &lt;strong&gt;backing store&lt;/strong&gt;로 몰아냄&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;backing store&lt;/strong&gt;&lt;br /&gt;
+→ 하드 디스크의 일부분으로 실행파일이 저장되어있는 부분(→ &lt;strong&gt;file system&lt;/strong&gt;)과는 다른 곳 &lt;br /&gt;
+→ 대략 main memory 정도의 크기면 됨&lt;/li&gt;
+  &lt;li&gt;swapping되어 backing store에 들어가면, 해당 main memory 공간은 비워지고 다른 process가 들어갈 수 있게 됨&lt;/li&gt;
+  &lt;li&gt;backing store에서 main memory로 복귀시 이전과는 다른 자리에 들어가지만, &lt;strong&gt;relocation register&lt;/strong&gt;를 사용하므로 적재 위치는 무관함&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -386,15 +496,16 @@ myapp/urls.py&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
@@ -704,15 +815,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -821,15 +933,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -948,25 +1061,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(6) - Classical Synchronization Problems</title>
-      <link href="https://ohoraming.github.io/OS-classicalsync" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" />
+      <link href="https://ohoraming.github.io/OS-classical-sync-problems" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" />
       <published>2022-02-02T21:58:00+09:00</published>
       <updated>2022-02-02T21:58:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-classicalsync</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-classicalsync">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-classical-sync-problems</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-classical-sync-problems">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -1055,15 +1169,16 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -1259,25 +1374,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(4) - CPU Scheduling</title>
-      <link href="https://ohoraming.github.io/OS-cpuscheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
+      <link href="https://ohoraming.github.io/OS-cpu-scheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
       <published>2022-01-30T00:01:00+09:00</published>
       <updated>2022-01-30T00:01:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-cpuscheduling</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-cpuscheduling">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-cpu-scheduling</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-cpu-scheduling">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -1417,25 +1533,26 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   
     <entry>
       <title type="html">OS(3) - Process Management</title>
-      <link href="https://ohoraming.github.io/OS-processmgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
+      <link href="https://ohoraming.github.io/OS-process-mgmt" rel="alternate" type="text/html" title="OS(3) - Process Management" />
       <published>2022-01-26T23:10:00+09:00</published>
       <updated>2022-01-26T23:10:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-processmgmt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-processmgmt">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/OS-process-mgmt</id>
+      <content type="html" xml:base="https://ohoraming.github.io/OS-process-mgmt">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -1496,228 +1613,6 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   → process간 전환&lt;br /&gt;
   → dispatcher: scheculer가 선택한 process를 실행하도록 여러 값을 바꿔줌&lt;br /&gt;
   → 자주 일어나면 overhead가 발생하므로 low level 언어로 코드를 구성해야 함&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="OS" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">OS(2) - Interrupt-Based System</title>
-      <link href="https://ohoraming.github.io/OS-interrupt" rel="alternate" type="text/html" title="OS(2) - Interrupt-Based System" />
-      <published>2022-01-18T01:18:00+09:00</published>
-      <updated>2022-01-18T01:18:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-interrupt</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-interrupt">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-processmgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpuscheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classicalsync&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-mainmemorymgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;interrupt: v. 방해하다, 중단시키다&lt;/em&gt;&lt;br /&gt;
-→ 어떤 일을 하고 있는데 &lt;strong&gt;가로채서&lt;/strong&gt; 다른 일을 함&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;현대 운영체제는 interrupt 기반 시스템
-    &lt;ul&gt;
-      &lt;li&gt;booting 완료 후, OS는 메모리에 상주함(resident)&lt;/li&gt;
-      &lt;li&gt;마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감 &amp;lt;HW interrupt&amp;gt;&lt;/li&gt;
-      &lt;li&gt;CPU는 하던 일을 중지하고 OS안의 마우스 Interrupt Service Routine(ISR)(코드)으로 점프&lt;/li&gt;
-      &lt;li&gt;특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &amp;lt;SW interrupt&amp;gt;&lt;/li&gt;
-      &lt;li&gt;하드 디스크 속 특정 프로그램을 메인 메모리에 올림&lt;/li&gt;
-      &lt;li&gt;바탕화면이 바뀌며 특정 프로그램의 화면이 나옴&lt;/li&gt;
-      &lt;li&gt;IRS 종료후 다시 user program 또는 원래의 대기상태로 복귀&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;interrupt-기반-os&quot;&gt;interrupt 기반 OS&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;OS는 여러 가지 code들의 모임&lt;br /&gt;
-  → 평소에는 작동하지 않고 interrupt에 의해 작동함&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;평소 OS는 대기상태&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;HW/SW/Internal(내부) interrupt에 의해 운영체제 코드(ISR)을 실행&lt;/li&gt;
-      &lt;li&gt;Internal interrupt&lt;br /&gt;
-  e.g.) divide by zero: 
-  결괏값이 무한대가 되어 컴퓨터에 저장 공간이 없음&lt;br /&gt;
-  → CPU가 내부적인 interrupt로 인식&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;이중-모드dual-mode&quot;&gt;이중 모드(Dual Mode)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;사용 환경
-    &lt;ul&gt;
-      &lt;li&gt;한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경&lt;/li&gt;
-      &lt;li&gt;또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)&lt;/li&gt;
-      &lt;li&gt;또는 한 사람이 특권 명령을 입력하는 경우&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
-    &lt;ul&gt;
-      &lt;li&gt;CPU 동작 모드를 &lt;strong&gt;두 가지&lt;/strong&gt;로 진행&lt;/li&gt;
-      &lt;li&gt;OS 서비스가 실행될 때, HW/SW interrupt 발생할 때 &lt;strong&gt;관리자 모드&lt;/strong&gt; 실행&lt;/li&gt;
-      &lt;li&gt;사용자 프로그램이 실행될 때, OS 서비스가 끝나면 다시 &lt;strong&gt;사용자 모드&lt;/strong&gt; 실행&lt;/li&gt;
-      &lt;li&gt;사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함&lt;/li&gt;
-      &lt;li&gt;관리자(supervisor) 모드 = 시스템(system) 모드 = 모니터(monitor)(감시자) 모드 = 특권(priviliged) 모드&lt;/li&gt;
-      &lt;li&gt;레지스터에 mode를 나타내는 flag가 존재함
-        &lt;ul&gt;
-          &lt;li&gt;register: 비트들의 모임&lt;/li&gt;
-          &lt;li&gt;flags(carry, negative, zero, overflow)에 monitor 비트를 추가해 0과 1로 이중모드를 구현&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;특권 명령(Privileged instruction)
-    &lt;ul&gt;
-      &lt;li&gt;특권 모드에서만 내릴 수 있는 명령어&lt;/li&gt;
-      &lt;li&gt;STOP/HALT/RESET(CPU 중지 명령어), SET_TIMER(일반 유저가 시간을 바꾸면 안 됨), SET_HW(HW의 값을 바꿈)…&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;일반 User program은 하드 디스크에 접근이 불가함&lt;br /&gt;
-  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻(보안 문제)&lt;br /&gt;
-  그래서 OS에 SW interrupt를 걸어 ISR을 실행해 필요한 작업을 하게 함&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;일반적인 프로그램의 실행
-    &lt;ol&gt;
-      &lt;li&gt;power on&lt;/li&gt;
-      &lt;li&gt;booting: 하드 디스크의 프로그램이 메인 메모리에 적재
-        &lt;ul&gt;
-          &lt;li&gt;monitor 비트 = 1 : system mode라는 뜻&lt;/li&gt;
-          &lt;li&gt;OS는 system mode에서 동작함&lt;/li&gt;
-          &lt;li&gt;일반 user는 못 내리는 명령 수행 가능&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;user mode &amp;gt; (키보드, 마우스) HW interrupt &amp;gt; system mode(ISR) &amp;gt; user mode &amp;gt; (모니터, 디스크, 프린터) &amp;gt; system mode &amp;gt; user mode
-        &lt;ul&gt;
-          &lt;li&gt;만약, user mode에서 CPU에 STOP 명령을 내리면,&lt;br /&gt;
- CPU는 internal interrupt가 발생했다고 여겨 OS의 ISR로 점프해&lt;br /&gt;
- 해당 명령을 내린 프로그램을 강제 종료시켜 메모리에서 내림&lt;br /&gt;
-  → protection과 연관됨&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;하드웨어-보호&quot;&gt;하드웨어 보호&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;입출력장치 보호&lt;br /&gt;
- → 사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함&lt;/li&gt;
-  &lt;li&gt;메모리 보호&lt;br /&gt;
- → 자신에게 주어진 메모리 영역을 넘어서는 것을 막음&lt;/li&gt;
-  &lt;li&gt;CPU 보호&lt;br /&gt;
- → 한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;1-입출력장치-보호&quot;&gt;(1) 입출력장치 보호&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함&lt;/li&gt;
-  &lt;li&gt;입출력 명령(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IN OUT&lt;/code&gt;)을 &lt;strong&gt;특권 명령&lt;/strong&gt;으로 지정함&lt;/li&gt;
-  &lt;li&gt;SW interrupt(명령어: INT) &amp;gt; OS에 요청(system mode로 전환) &amp;gt; 입출력 실행 &amp;gt; 다시 user mode로 복귀&lt;/li&gt;
-  &lt;li&gt;이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함&lt;/li&gt;
-  &lt;li&gt;user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-메모리-보호&quot;&gt;(2) 메모리 보호&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함&lt;/li&gt;
-  &lt;li&gt;MMU(&lt;strong&gt;M&lt;/strong&gt;emory &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;U&lt;/strong&gt;nit)를 두어 다른 메모리 영역 침범을 감시함&lt;/li&gt;
-  &lt;li&gt;일종의 문지기로 &lt;strong&gt;base registar&lt;/strong&gt;와 &lt;strong&gt;limit register&lt;/strong&gt; 사이의 값만 통과시킴&lt;/li&gt;
-  &lt;li&gt;Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴&lt;/li&gt;
-  &lt;li&gt;메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-cpu-보호&quot;&gt;(3) CPU 보호&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;TIMER&lt;/strong&gt;를 두어 일정 시간 경과시 timer interrupt 발생&lt;/li&gt;
-  &lt;li&gt;timer가 cpu에 주기적으로 interrupt를 걸어줌&lt;/li&gt;
-  &lt;li&gt;interrupt가 발생 &amp;gt; ISR로 jump &amp;gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &amp;gt; 다른 프로그램으로 강제 전환&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;os-서비스&quot;&gt;OS 서비스&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;프로세스 관리 ★★
-    &lt;ul&gt;
-      &lt;li&gt;process: 메모리에서 실행 중인 program&lt;br /&gt;
-  (vs. program: 하드 디스크에 존재)&lt;/li&gt;
-      &lt;li&gt;process의 생성, 소멸, 활동 일시 정지, 활동 재개, 통신, 동기화, 교착상태 처리 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;주기억장치 관리 ★
-    &lt;ul&gt;
-      &lt;li&gt;process에 메모리 공간 할당, process 종료시 메모리 회수, 가상 메모리&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;파일 관리
-    &lt;ul&gt;
-      &lt;li&gt;파일의 생성과 삭제, directory(folder))의 생성과 삭제, file 기본 동작, 백업&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;보조기억장치 관리
-    &lt;ul&gt;
-      &lt;li&gt;하드 디스크, 스마트 폰의 플래시 메모리 등&lt;/li&gt;
-      &lt;li&gt;빈 공간 관리, 저장공간 할당, 디스크 스케줄링&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;입출력장치 관리
-    &lt;ul&gt;
-      &lt;li&gt;장치 드라이브, 입출력 장치의 성능 향상
-…&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;시스템-콜&quot;&gt;시스템 콜&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;OS 서비스를 받기 위한 호출(요청)&lt;/li&gt;
-  &lt;li&gt;주요 시스템 콜
-    &lt;ul&gt;
-      &lt;li&gt;Process: end(종료), abort(강제 종료), load(하드 디스크의 프로그램을 메인 메로리로 가져오는 것), execute(실행), create(process 생성), terminate(종료(=end)), get/set attributes(속성)&lt;/li&gt;
-      &lt;li&gt;Memory: allocate(새 객체 생성시 메모리가 필요해 OS에 요청), free(메모리를 다 쓰고 나서 돌려줌)&lt;/li&gt;
-      &lt;li&gt;File: create(생성), delete(삭제)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
