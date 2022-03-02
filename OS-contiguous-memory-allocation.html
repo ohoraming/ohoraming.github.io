@@ -252,9 +252,9 @@ into the {body} of the default.hbs template -->
   → 빈 hole 중에서 새 process 용량과 가장 크기가 크게 차이나는 곳에 할당</li>
       <li>속도: first-fit이 가장 빠름<br />
   → 조건에 부합하는 첫 메모리 공간에 할당하기 때문</li>
-      <li>이용률: first-fit, best-fit이 실행 못하는 process 수가 비교적 적음</li>
-      <li>first-fit, best-fit만 선택하더라도  <br />
-  여전히 external fragmentation은 발생함
+      <li>이용률: first-fit, best-fit 방식이 실행 못하는 process 수가 비교적 적음</li>
+      <li>first-fit이나 best-fit을 선택하더라도  <br />
+  <strong>여전히 external fragmentation 발생</strong><br />
   → memory의 약 1/3은 사용 불가</li>
       <li><strong>compaction</strong>: 흩어져 있는 hole들을 한 곳으로 모으는 것<br />
   → 최적의 알고리즘의 부재, 고부담의 단점이 존재</li>
@@ -265,9 +265,23 @@ into the {body} of the default.hbs template -->
 <h2 id="paging-페이징">Paging (페이징)</h2>
 <ul>
   <li>memory에 process가 연속 할당되어야 한다는 생각때문에 발생한 <strong>external fragmentation의 해결책</strong></li>
-  <li><strong>memory</strong>를 일정한 크기(= <strong>frame</strong>)로 자르고 <strong>process</strong> 역시 같은 일정한 크기(= <strong>page</strong>)로 자름</li>
+  <li><strong>memory</strong>를 일정한 크기(= <strong>frame</strong>)로 자르고 <strong>process</strong> 역시 같은 일정한 크기(= <strong>page</strong>)로 자름<br />
+  → size: frame = page</li>
   <li>여러 개의 MMU가 relocation register값을 바꿔주면 각 page들이 hole의 frame에 각각 배치될 때, CPU는 process가 연속 할당되었다고 속음</li>
-  <li>이때의 MMU는 특별히 <strong>page table</strong>이라고 함</li>
+  <li>이때의 MMU는 <strong>page table</strong>이라고 함</li>
+</ul>
+
+<h2 id="address-translation-주소-변환">Address Translation (주소 변환)</h2>
+<ul>
+  <li>Logical address(논리 주소)와 Physical address(물리 주소)는 MMU를 기준으로 나뉨</li>
+  <li>Logical address<br />
+  → CPU가 내는 주소, 2진수(binary)<br />
+  → 전체 <strong>m</strong>비트, 하위 <strong>n</strong>비트(offset 또는 <strong>displacement(d)</strong>), 상위 <strong>m-n</strong>비트(<strong>page number(p)</strong>)</li>
+  <li>Address translation: Logical address → Physical address<br />
+  → page number: page table의 index 값<br />
+  → frame number: 해당 page number의 내용<br />
+  → displacement(변위): 변하지 않음
+  → page table의 entry 수 = 해당 process가 사용하는 page 수</li>
 </ul>
 
                 </div>
