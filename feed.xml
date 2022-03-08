@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-02T22:42:56+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(11) - Contiguous Memory Allocation</title><link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" /><published>2022-03-01T15:23:00+09:00</published><updated>2022-03-01T15:23:00+09:00</updated><id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id><content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-08T22:38:03+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(11) - Contiguous Memory Allocation</title><link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" /><published>2022-03-01T15:23:00+09:00</published><updated>2022-03-01T15:23:00+09:00</updated><id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id><content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -19,7 +19,7 @@
 &lt;h2 id=&quot;contiguous-memory-allocation-연속-메모리-할당&quot;&gt;Contiguous Memory Allocation (연속 메모리 할당)&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;최초의 컴퓨터&lt;/strong&gt;&lt;br /&gt;
-  → OS 없었음&lt;br /&gt;
+  → OS 없음&lt;br /&gt;
   → 하나의 process만 main memory에서 돎&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;OS 등장&lt;/strong&gt;&lt;br /&gt;
   → OS와 하나의 process가 돎&lt;br /&gt;
@@ -60,7 +60,7 @@
   &lt;li&gt;이때의 MMU는 &lt;strong&gt;page table&lt;/strong&gt;이라고 함&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;address-translation-주소-변환&quot;&gt;Address Translation (주소 변환)&lt;/h2&gt;
+&lt;h2 id=&quot;address-translation-주소-변환-&quot;&gt;Address Translation (주소 변환) ★★★★★&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Logical address(논리 주소)와 Physical address(물리 주소)는 MMU를 기준으로 나뉨&lt;/li&gt;
   &lt;li&gt;Logical address&lt;br /&gt;
@@ -71,7 +71,123 @@
   → frame number: 해당 page number의 내용&lt;br /&gt;
   → displacement(변위): 변하지 않음
   → page table의 entry 수 = 해당 process가 사용하는 page 수&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">Python(1) - Django 설치</title><link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" /><published>2022-02-28T22:40:00+09:00</published><updated>2022-02-28T22:40:00+09:00</updated><id>https://ohoraming.github.io/Python-django</id><content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
+  &lt;li&gt;예제 # 01
+    &lt;ul&gt;
+      &lt;li&gt;page size = 4byte&lt;/li&gt;
+      &lt;li&gt;page table: 5 6 1 2&lt;/li&gt;
+      &lt;li&gt;logical address = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;13&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;pysical address = ?&lt;br /&gt;
+sol.)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;index number&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;page table&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;page size (= frame size) = 4byte = 2^n = 2^2 → &lt;strong&gt;n = 2&lt;/strong&gt;&lt;br /&gt;
+logical address: 13(10) = 1101(2)&lt;br /&gt;
+logical address = &lt;strong&gt;‘page number(p)’&lt;/strong&gt; + &lt;strong&gt;‘displacement(d)’&lt;/strong&gt;&lt;br /&gt;
+logical address의 뒤에서부터 두 자리(=&lt;strong&gt;n&lt;/strong&gt;)는 &lt;strong&gt;(d)&lt;/strong&gt;, 남은 앞의 두 자리는 &lt;strong&gt;(p)&lt;/strong&gt;&lt;br /&gt;
+→ p: 11/01 :d&lt;br /&gt;
+page number: 11(2) = 3(10)이며, page table 3번 index의 frame number는 2(10) = 10(2)&lt;br /&gt;
+pysical address = ‘frame number(&lt;strong&gt;f&lt;/strong&gt;)’ + ‘displacement(&lt;strong&gt;d&lt;/strong&gt;, ※불변)’이므로&lt;br /&gt;
+&lt;strong&gt;pysical address&lt;/strong&gt; = 1001(2) = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9&lt;/code&gt;(10)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;예제 # 02
+    &lt;ul&gt;
+      &lt;li&gt;page size = 1KB&lt;/li&gt;
+      &lt;li&gt;page table: 1 2 5 4 8 3 0 6&lt;/li&gt;
+      &lt;li&gt;logical address = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3000&lt;/code&gt;, pysical address = ?&lt;/li&gt;
+      &lt;li&gt;pysical address = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x1A53&lt;/code&gt;, logical address = ? &lt;br /&gt;
+sol.)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;index number&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;page table&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;page size = frame size = 1KB = 2^n = 2^10 → &lt;strong&gt;n = 10&lt;/strong&gt;&lt;br /&gt;
+logical address: 3000(10) = 1011 1011 1000(2)&lt;br /&gt;
+logical address = &lt;strong&gt;‘page number(p)’&lt;/strong&gt; + &lt;strong&gt;‘displacement(d)’&lt;/strong&gt;&lt;br /&gt;
+logical address의 뒤에서부터 열 자리(=&lt;strong&gt;n&lt;/strong&gt;)는 &lt;strong&gt;(d)&lt;/strong&gt;, 남은 앞의 두 자리는 &lt;strong&gt;(p)&lt;/strong&gt;&lt;br /&gt;
+ → p: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;11 1011 1000&lt;/code&gt; :d&lt;br /&gt;
+page number: 10(2) = 2(10)이며, page table 2번 index의 &lt;strong&gt;frame number(f)&lt;/strong&gt;는 5(10) = 101(2)&lt;br /&gt;
+pysical address = frame number(&lt;strong&gt;f&lt;/strong&gt;):101(2) + displacement(&lt;strong&gt;d&lt;/strong&gt;, ※불변): 11 1011 1000(2)이므로&lt;br /&gt;
+&lt;strong&gt;pysical address&lt;/strong&gt; = 1 0111 1011 1000(2) = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6072&lt;/code&gt;(10)&lt;/p&gt;
+
+&lt;p&gt;pysical address: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x1A53&lt;/code&gt; = 1 1010 0101 0011(2)&lt;br /&gt;
+n = 10, pysical address = ‘frame number(&lt;strong&gt;f&lt;/strong&gt;)’ + ‘displacement(&lt;strong&gt;d&lt;/strong&gt;, ※불변)’이므로&lt;br /&gt;
+→ f: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1 10&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10 0101 0011&lt;/code&gt; :d&lt;br /&gt;
+frame number: 110(2) = 6(10)이며, frame number 6의 index number는 7(10) = 111(2)&lt;br /&gt;
+logical address = page number(&lt;strong&gt;p&lt;/strong&gt;):111(2) + displacement(&lt;strong&gt;d&lt;/strong&gt;, ※불변):10 0101 0011(2)이므로&lt;br /&gt;
+&lt;strong&gt;logical address&lt;/strong&gt; = 1 1110 0101 0011(2) = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x1E53&lt;/code&gt;&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">Python(1) - Django 설치</title><link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" /><published>2022-02-28T22:40:00+09:00</published><updated>2022-02-28T22:40:00+09:00</updated><id>https://ohoraming.github.io/Python-django</id><content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;

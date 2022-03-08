@@ -230,7 +230,7 @@ into the {body} of the default.hbs template -->
 <h2 id="contiguous-memory-allocation-연속-메모리-할당">Contiguous Memory Allocation (연속 메모리 할당)</h2>
 <ul>
   <li><strong>최초의 컴퓨터</strong><br />
-  → OS 없었음<br />
+  → OS 없음<br />
   → 하나의 process만 main memory에서 돎</li>
   <li><strong>OS 등장</strong><br />
   → OS와 하나의 process가 돎<br />
@@ -271,7 +271,7 @@ into the {body} of the default.hbs template -->
   <li>이때의 MMU는 <strong>page table</strong>이라고 함</li>
 </ul>
 
-<h2 id="address-translation-주소-변환">Address Translation (주소 변환)</h2>
+<h2 id="address-translation-주소-변환-">Address Translation (주소 변환) ★★★★★</h2>
 <ul>
   <li>Logical address(논리 주소)와 Physical address(물리 주소)는 MMU를 기준으로 나뉨</li>
   <li>Logical address<br />
@@ -282,7 +282,123 @@ into the {body} of the default.hbs template -->
   → frame number: 해당 page number의 내용<br />
   → displacement(변위): 변하지 않음
   → page table의 entry 수 = 해당 process가 사용하는 page 수</li>
+  <li>예제 # 01
+    <ul>
+      <li>page size = 4byte</li>
+      <li>page table: 5 6 1 2</li>
+      <li>logical address = <code class="language-plaintext highlighter-rouge">13</code></li>
+      <li>pysical address = ?<br />
+sol.)</li>
+    </ul>
+  </li>
 </ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">index number</th>
+      <th style="text-align: center">page table</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>page size (= frame size) = 4byte = 2^n = 2^2 → <strong>n = 2</strong><br />
+logical address: 13(10) = 1101(2)<br />
+logical address = <strong>‘page number(p)’</strong> + <strong>‘displacement(d)’</strong><br />
+logical address의 뒤에서부터 두 자리(=<strong>n</strong>)는 <strong>(d)</strong>, 남은 앞의 두 자리는 <strong>(p)</strong><br />
+→ p: 11/01 :d<br />
+page number: 11(2) = 3(10)이며, page table 3번 index의 frame number는 2(10) = 10(2)<br />
+pysical address = ‘frame number(<strong>f</strong>)’ + ‘displacement(<strong>d</strong>, ※불변)’이므로<br />
+<strong>pysical address</strong> = 1001(2) = <code class="language-plaintext highlighter-rouge">9</code>(10)</p>
+
+<ul>
+  <li>예제 # 02
+    <ul>
+      <li>page size = 1KB</li>
+      <li>page table: 1 2 5 4 8 3 0 6</li>
+      <li>logical address = <code class="language-plaintext highlighter-rouge">3000</code>, pysical address = ?</li>
+      <li>pysical address = <code class="language-plaintext highlighter-rouge">0x1A53</code>, logical address = ? <br />
+sol.)</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">index number</th>
+      <th style="text-align: center">page table</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>page size = frame size = 1KB = 2^n = 2^10 → <strong>n = 10</strong><br />
+logical address: 3000(10) = 1011 1011 1000(2)<br />
+logical address = <strong>‘page number(p)’</strong> + <strong>‘displacement(d)’</strong><br />
+logical address의 뒤에서부터 열 자리(=<strong>n</strong>)는 <strong>(d)</strong>, 남은 앞의 두 자리는 <strong>(p)</strong><br />
+ → p: <code class="language-plaintext highlighter-rouge">10</code>/<code class="language-plaintext highlighter-rouge">11 1011 1000</code> :d<br />
+page number: 10(2) = 2(10)이며, page table 2번 index의 <strong>frame number(f)</strong>는 5(10) = 101(2)<br />
+pysical address = frame number(<strong>f</strong>):101(2) + displacement(<strong>d</strong>, ※불변): 11 1011 1000(2)이므로<br />
+<strong>pysical address</strong> = 1 0111 1011 1000(2) = <code class="language-plaintext highlighter-rouge">6072</code>(10)</p>
+
+<p>pysical address: <code class="language-plaintext highlighter-rouge">0x1A53</code> = 1 1010 0101 0011(2)<br />
+n = 10, pysical address = ‘frame number(<strong>f</strong>)’ + ‘displacement(<strong>d</strong>, ※불변)’이므로<br />
+→ f: <code class="language-plaintext highlighter-rouge">1 10</code>/<code class="language-plaintext highlighter-rouge">10 0101 0011</code> :d<br />
+frame number: 110(2) = 6(10)이며, frame number 6의 index number는 7(10) = 111(2)<br />
+logical address = page number(<strong>p</strong>):111(2) + displacement(<strong>d</strong>, ※불변):10 0101 0011(2)이므로<br />
+<strong>logical address</strong> = 1 1110 0101 0011(2) = <code class="language-plaintext highlighter-rouge">0x1E53</code></p>
 
                 </div>
             </section>
