@@ -384,7 +384,7 @@ sol.)</li>
   </tbody>
 </table>
 
-<p>page size = frame size = 1KB = 2^n = 2^10 → <strong>n = 10</strong><br />
+<p>page size (= frame size) = 1KB = 2^n = 2^10 → <strong>n = 10</strong><br />
 logical address: 3000(10) = 1011 1011 1000(2)<br />
 logical address = <strong>‘page number(p)’</strong> + <strong>‘displacement(d)’</strong><br />
 logical address의 뒤에서부터 열 자리(=<strong>n</strong>)는 <strong>(d)</strong>, 남은 앞의 두 자리는 <strong>(p)</strong><br />
@@ -399,6 +399,54 @@ n = 10, pysical address = ‘frame number(<strong>f</strong>)’ + ‘displaceme
 frame number: 110(2) = 6(10)이며, frame number 6의 index number는 7(10) = 111(2)<br />
 logical address = page number(<strong>p</strong>):111(2) + displacement(<strong>d</strong>, ※불변):10 0101 0011(2)이므로<br />
 <strong>logical address</strong> = 1 1110 0101 0011(2) = <code class="language-plaintext highlighter-rouge">0x1E53</code></p>
+
+<h2 id="internal-fragmentation내부-단편화">Internal Fragmentation(내부 단편화)</h2>
+<ul>
+  <li>process size가 page size의 배수가 아니어서 마지막 page는 한 frame을 다 못 채우는 것<br />
+e.g.) process: 15byte, page size: 4byte 일 때,<br />
+|  4  |  4  |  4  |  3  |으로 마지막 frame의 남은 1byte는 못 쓰게 됨 → 낭비</li>
+  <li>내부 단편화는 비교적 미미한 낭비라 큰 문제는 아님</li>
+  <li>내부 단편화의 최대 크기 = page size - 1byte</li>
+</ul>
+
+<h2 id="page-table-만들기">page table 만들기</h2>
+<ol>
+  <li><strong>CPU register</strong>로 page table 만들기
+    <ul>
+      <li>CPU 안의 기억장치인 CPU register로 page table을 만들면,<br />
+ → 장점: 주소 변환 <strong>속도 빠름</strong><br />
+ → 단점: CPU는 memory가 아니라서 table entry <strong>저장 용량이 작음</strong></li>
+    </ul>
+  </li>
+  <li><strong>Memory</strong>로 page table 만들기
+    <ul>
+      <li>main memory 안에 넣는 방법으로,<br />
+ → 장점: table entry 수가 많아도 <strong>저장 용량에 문제 없음</strong><br />
+ → 단점: CPU가 낸 주소는 OS 안으로 가는데 그 주소를 한 번 읽어 frame number를 알아낸 뒤, 해당 frame number의 주소를 또 읽어야 해서 <strong>속도가 두 배로 느림</strong></li>
+    </ul>
+  </li>
+  <li><strong>TLB(Translation Look-aside Buffer)</strong>로 page table 만들기
+    <ul>
+      <li>주소 변환을 목적으로 별도의 SRAM 칩으로 만듦</li>
+      <li>원리는 cash memory와 비슷</li>
+      <li>CPU보다는 느리지만 보다 많은 entry 저장 가능</li>
+      <li>CPU와 memory의 중간 성격</li>
+      <li><strong>Effective Memory Access Time(유효 메모리 접근 시간)</strong><br />
+  → CPU가 주소를 내고, 메모리의 내용을 읽어오는데 걸리는 시간<br />
+  → <strong>Tm</strong>: 메모리 내용을 읽는데 걸리는 시간<br />
+  <strong>Tb</strong>: buffer를 읽는데 걸리는 시간<br />
+  <strong>hit ratio(h)</strong>: 주소에 해당하는 page table entry가 buffer에 존재할 확률<br />
+  (buffer의 크기는 충분히 크지 않아서 entry 중 일부만 buffer에 있고 나머지는 memory에 존재)<br />
+  <strong>(★ 중요 예제 ★)</strong><br />
+  Tm: 100ns, Tb: 20ns, hit ratio(h): 80% 일때, Teff=?<br />
+  sol.) h(Tb+Tm) + (1-h)(Tb+Tm+Tm)<br />
+  = (0.8*120ns) + (0.2)(220ns)<br />
+  = 140ns<br />
+  → Tm: 100ns인데 40%의 손실이 발생한 결과임<br />
+  → 하지만, 실제 hit ratio는 95%이상이므로 손실은 아주 작음</li>
+    </ul>
+  </li>
+</ol>
 
                 </div>
             </section>

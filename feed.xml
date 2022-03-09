@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-08T22:38:03+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(11) - Contiguous Memory Allocation</title><link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" /><published>2022-03-01T15:23:00+09:00</published><updated>2022-03-01T15:23:00+09:00</updated><id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id><content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-09T22:33:52+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">OS(11) - Contiguous Memory Allocation</title><link href="https://ohoraming.github.io/OS-contiguous-memory-allocation" rel="alternate" type="text/html" title="OS(11) - Contiguous Memory Allocation" /><published>2022-03-01T15:23:00+09:00</published><updated>2022-03-01T15:23:00+09:00</updated><id>https://ohoraming.github.io/OS-contiguous-memory-allocation</id><content type="html" xml:base="https://ohoraming.github.io/OS-contiguous-memory-allocation">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -173,7 +173,7 @@ sol.)&lt;/li&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;page size = frame size = 1KB = 2^n = 2^10 → &lt;strong&gt;n = 10&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;page size (= frame size) = 1KB = 2^n = 2^10 → &lt;strong&gt;n = 10&lt;/strong&gt;&lt;br /&gt;
 logical address: 3000(10) = 1011 1011 1000(2)&lt;br /&gt;
 logical address = &lt;strong&gt;‘page number(p)’&lt;/strong&gt; + &lt;strong&gt;‘displacement(d)’&lt;/strong&gt;&lt;br /&gt;
 logical address의 뒤에서부터 열 자리(=&lt;strong&gt;n&lt;/strong&gt;)는 &lt;strong&gt;(d)&lt;/strong&gt;, 남은 앞의 두 자리는 &lt;strong&gt;(p)&lt;/strong&gt;&lt;br /&gt;
@@ -187,7 +187,55 @@ n = 10, pysical address = ‘frame number(&lt;strong&gt;f&lt;/strong&gt;)’ + �
 → f: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1 10&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10 0101 0011&lt;/code&gt; :d&lt;br /&gt;
 frame number: 110(2) = 6(10)이며, frame number 6의 index number는 7(10) = 111(2)&lt;br /&gt;
 logical address = page number(&lt;strong&gt;p&lt;/strong&gt;):111(2) + displacement(&lt;strong&gt;d&lt;/strong&gt;, ※불변):10 0101 0011(2)이므로&lt;br /&gt;
-&lt;strong&gt;logical address&lt;/strong&gt; = 1 1110 0101 0011(2) = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x1E53&lt;/code&gt;&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">Python(1) - Django 설치</title><link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" /><published>2022-02-28T22:40:00+09:00</published><updated>2022-02-28T22:40:00+09:00</updated><id>https://ohoraming.github.io/Python-django</id><content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
+&lt;strong&gt;logical address&lt;/strong&gt; = 1 1110 0101 0011(2) = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x1E53&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;internal-fragmentation내부-단편화&quot;&gt;Internal Fragmentation(내부 단편화)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;process size가 page size의 배수가 아니어서 마지막 page는 한 frame을 다 못 채우는 것&lt;br /&gt;
+e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
+|  4  |  4  |  4  |  3  |으로 마지막 frame의 남은 1byte는 못 쓰게 됨 → 낭비&lt;/li&gt;
+  &lt;li&gt;내부 단편화는 비교적 미미한 낭비라 큰 문제는 아님&lt;/li&gt;
+  &lt;li&gt;내부 단편화의 최대 크기 = page size - 1byte&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;page-table-만들기&quot;&gt;page table 만들기&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;CPU register&lt;/strong&gt;로 page table 만들기
+    &lt;ul&gt;
+      &lt;li&gt;CPU 안의 기억장치인 CPU register로 page table을 만들면,&lt;br /&gt;
+ → 장점: 주소 변환 &lt;strong&gt;속도 빠름&lt;/strong&gt;&lt;br /&gt;
+ → 단점: CPU는 memory가 아니라서 table entry &lt;strong&gt;저장 용량이 작음&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Memory&lt;/strong&gt;로 page table 만들기
+    &lt;ul&gt;
+      &lt;li&gt;main memory 안에 넣는 방법으로,&lt;br /&gt;
+ → 장점: table entry 수가 많아도 &lt;strong&gt;저장 용량에 문제 없음&lt;/strong&gt;&lt;br /&gt;
+ → 단점: CPU가 낸 주소는 OS 안으로 가는데 그 주소를 한 번 읽어 frame number를 알아낸 뒤, 해당 frame number의 주소를 또 읽어야 해서 &lt;strong&gt;속도가 두 배로 느림&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;TLB(Translation Look-aside Buffer)&lt;/strong&gt;로 page table 만들기
+    &lt;ul&gt;
+      &lt;li&gt;주소 변환을 목적으로 별도의 SRAM 칩으로 만듦&lt;/li&gt;
+      &lt;li&gt;원리는 cash memory와 비슷&lt;/li&gt;
+      &lt;li&gt;CPU보다는 느리지만 보다 많은 entry 저장 가능&lt;/li&gt;
+      &lt;li&gt;CPU와 memory의 중간 성격&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Effective Memory Access Time(유효 메모리 접근 시간)&lt;/strong&gt;&lt;br /&gt;
+  → CPU가 주소를 내고, 메모리의 내용을 읽어오는데 걸리는 시간&lt;br /&gt;
+  → &lt;strong&gt;Tm&lt;/strong&gt;: 메모리 내용을 읽는데 걸리는 시간&lt;br /&gt;
+  &lt;strong&gt;Tb&lt;/strong&gt;: buffer를 읽는데 걸리는 시간&lt;br /&gt;
+  &lt;strong&gt;hit ratio(h)&lt;/strong&gt;: 주소에 해당하는 page table entry가 buffer에 존재할 확률&lt;br /&gt;
+  (buffer의 크기는 충분히 크지 않아서 entry 중 일부만 buffer에 있고 나머지는 memory에 존재)&lt;br /&gt;
+  &lt;strong&gt;(★ 중요 예제 ★)&lt;/strong&gt;&lt;br /&gt;
+  Tm: 100ns, Tb: 20ns, hit ratio(h): 80% 일때, Teff=?&lt;br /&gt;
+  sol.) h(Tb+Tm) + (1-h)(Tb+Tm+Tm)&lt;br /&gt;
+  = (0.8*120ns) + (0.2)(220ns)&lt;br /&gt;
+  = 140ns&lt;br /&gt;
+  → Tm: 100ns인데 40%의 손실이 발생한 결과임&lt;br /&gt;
+  → 하지만, 실제 hit ratio는 95%이상이므로 손실은 아주 작음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">Python(1) - Django 설치</title><link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" /><published>2022-02-28T22:40:00+09:00</published><updated>2022-02-28T22:40:00+09:00</updated><id>https://ohoraming.github.io/Python-django</id><content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
