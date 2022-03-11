@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/Python-mysql.html</loc>
+        
+        <lastmod>2022-03-11T22:35:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/git-convention.html</loc>
         
         <lastmod>2022-03-10T21:25:00+09:00</lastmod>

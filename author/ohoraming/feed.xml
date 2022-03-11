@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-10T22:10:01+09:00</updated>
+  <updated>2022-03-11T23:45:46+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -30,6 +30,123 @@
   
   
 
+  
+    <entry>
+      <title type="html">Python(2) - MySQL</title>
+      <link href="https://ohoraming.github.io/Python-mysql" rel="alternate" type="text/html" title="Python(2) - MySQL" />
+      <published>2022-03-11T22:35:00+09:00</published>
+      <updated>2022-03-11T22:35:00+09:00</updated>
+      <id>https://ohoraming.github.io/Python-mysql</id>
+      <content type="html" xml:base="https://ohoraming.github.io/Python-mysql">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-pymysql-설치&quot;&gt;1. pymysql 설치&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install pymysql&lt;/code&gt; 입력&lt;/p&gt;
+
+&lt;h2 id=&quot;2-db-연결&quot;&gt;2. db 연결&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;pymysql import&lt;/li&gt;
+  &lt;li&gt;연결하려는 db의 기본 정보 입력
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pymysql&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pymysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1234&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dbpractice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-cursor-설정&quot;&gt;3. cursor 설정&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;cursor 가져오기&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curs = conn.cursor()&lt;/code&gt;
+→ tuple로 반환&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curs = conn.cursor(pymysql.cursors.DictCursor)&lt;/code&gt;&lt;br /&gt;
+→ parameter로 pymysql.cursors.DictCursor 전달&lt;br /&gt;
+→ dictionary로 반환
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;curs.execute('USE dbpractice;')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-crud&quot;&gt;4. CRUD&lt;/h2&gt;
+&lt;h3 id=&quot;1-insert&quot;&gt;(1) INSERT&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;execute()
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'INSERT INTO user (id, name, region, insdt) VALUES(&quot;hong&quot;, &quot;홍길동&quot;, &quot;서울&quot;, now());'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;sql 변수를 만들어 넣는 방법
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;INSERT INTO user (id, name, region, insdt) VALUES('hong2', '홍길동2', '서울2', now())&quot;&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# cursor를 가져온 상태에서 sql문을 실행
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-select&quot;&gt;(2) SELECT&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SELECT * FROM user&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SELECT * FROM user WHERE region=%s&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# cursor를 가져온 상태에서 sql문을 실행
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'서울'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# %s에 들어갈 문자열을 추가함
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetchall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 실행한 데이터를 가져옴
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;fetchall: 모든 레코드를 가져옴&lt;/li&gt;
+  &lt;li&gt;fetmany: 지정한 개수만큼 레코드를 가져옴&lt;/li&gt;
+  &lt;li&gt;fetchone: 하나의 레코드만 가져옴
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 모든 행을 가져옴
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 특정 행, 열의 내용을 가져옴
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-update&quot;&gt;(3) UPDATE&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UPDATE user SET name='포로리' WHERE name='테스트'&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-delete&quot;&gt;(4) DELETE&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;DELETE FROM user WHERE name='홍길동'&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;curs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Python" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Git - Git Convention</title>
@@ -488,6 +605,7 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-django-설치&quot;&gt;1. Django 설치&lt;/h2&gt;
@@ -1695,165 +1813,6 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="OS" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">OS(4) - CPU Scheduling</title>
-      <link href="https://ohoraming.github.io/OS-cpu-scheduling" rel="alternate" type="text/html" title="OS(4) - CPU Scheduling" />
-      <published>2022-01-30T00:01:00+09:00</published>
-      <updated>2022-01-30T00:01:00+09:00</updated>
-      <id>https://ohoraming.github.io/OS-cpu-scheduling</id>
-      <content type="html" xml:base="https://ohoraming.github.io/OS-cpu-scheduling">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Preemptive(선점)&lt;br /&gt;
-  → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식&lt;/li&gt;
-  &lt;li&gt;Non-preemptive(비선점)&lt;br /&gt;
-  → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는 절대 scheduling이 일어나지 않는 방식&lt;/li&gt;
-  &lt;li&gt;CPU Utilization(CPU 이용률)&lt;br /&gt;
-  → CPU가 얼마나 열심히 일하고 있는가(%)&lt;/li&gt;
-  &lt;li&gt;Throughput(처리율)&lt;br /&gt;
-  → 시간당 몇 개의 작업을 처리하는가(jobs/sec)&lt;/li&gt;
-  &lt;li&gt;Turnaround time(반환시간)&lt;br /&gt;
-  → 어떤 작업이 ready queue에 들어가서 작업을 끝내고 나오는 시간(sec)&lt;/li&gt;
-  &lt;li&gt;Waiting time(대기시간)&lt;br /&gt;
-  → ready queue에서 기다린 시간(sec)&lt;/li&gt;
-  &lt;li&gt;Response time(응답시간)&lt;br /&gt;
-  → interactive system(대화형 시스템)에서 중요&lt;br /&gt;
-  → 첫 응답이 나오는 데까지 걸리는 시간&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cpu-scheduling-algorithms&quot;&gt;CPU Scheduling Algorithms&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-first-come-first-servedfcfs&quot;&gt;1. First-Come, First-Served(FCFS)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;먼저 들어오면&lt;/strong&gt;, 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;간단&lt;/strong&gt;하며, &lt;strong&gt;공평&lt;/strong&gt;하지만 반드시 좋은 성능을 보장하지는 않음&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;verage &lt;strong&gt;W&lt;/strong&gt;aiting &lt;strong&gt;T&lt;/strong&gt;ime(AWT): ready queue에서 기다리는 시간&lt;/li&gt;
-  &lt;li&gt;단점: Convoy Effect(호위 효과)&lt;br /&gt;
-  → burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Non-preeptive&lt;/strong&gt; scheduling방식&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-shortest-job-firstsjf&quot;&gt;2. Shortest-Job-First(SJF)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;실행 시간이 짧은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;대기 시간을 줄이는 최적의 방법&lt;/li&gt;
-  &lt;li&gt;단점: 비현실적임(실제 CPU 사용 시간은 실행을 해보기 전에는 알 수 없음)&lt;br /&gt;
-      예측이 필수(과거를 기억하고 있어야 함)&lt;br /&gt;
-      → overhead 발생, 시간이 많이 걸림&lt;br /&gt;
-      → 현실적인 적용이 어려움&lt;/li&gt;
-  &lt;li&gt;선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능&lt;/li&gt;
-  &lt;li&gt;선점 방식의 경우 최소 잔여 시간 우선&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;3-priority-scheduling&quot;&gt;3. Priority Scheduling&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;우선 순위가 높은 것&lt;/strong&gt;을 먼저 서비스 함&lt;/li&gt;
-  &lt;li&gt;우선 순위 설정
-    &lt;ul&gt;
-      &lt;li&gt;integer number&lt;/li&gt;
-      &lt;li&gt;내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등&lt;/li&gt;
-      &lt;li&gt;외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;선점 또는 비선점&lt;/li&gt;
-  &lt;li&gt;문제점: starvation 돌입 가능 - 우선 순위에서 밀리면 아무리 기다려도 서비스를 받지 못 함&lt;/li&gt;
-  &lt;li&gt;해결: aging - ready queue에서 오래 기다릴 수록 priority를 조금씩 상승시킴&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;4-round-robinrr&quot;&gt;4. Round-Robin(RR)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;time-sharing system에서 많이 사용&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;time quantum&lt;/strong&gt;(시간 양자) = time slice = &lt;strong&gt;Δ&lt;/strong&gt;&lt;br /&gt;
-  → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생&lt;/li&gt;
-  &lt;li&gt;time quantum에 따라 성능이 달라짐&lt;/li&gt;
-  &lt;li&gt;Δ → ∞ : FCFS&lt;/li&gt;
-  &lt;li&gt;Δ → 0 : switching이 빈번해 여러 프로세스가 동시에 서비스 되는 것 같은 느낌을 줌&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;multilevel-queue-scheduling&quot;&gt;Multilevel Queue Scheduling&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;process별로 queue를 달리해 서비스 함&lt;/li&gt;
-  &lt;li&gt;여러 single ready queue의 묶음&lt;/li&gt;
-  &lt;li&gt;queue마다 우선 순위는 다름&lt;/li&gt;
-  &lt;li&gt;CPU time을 각 queue에 차등 배분함&lt;/li&gt;
-  &lt;li&gt;queue별로 다른 scheduling 정책을 실행함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;multilevel-feedback-queue-scheduling&quot;&gt;Multilevel Feedback Queue Scheduling&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;여러 개의 queue&lt;br /&gt;
-  → multilevel queue scheduling과의 공통점&lt;/li&gt;
-  &lt;li&gt;모든 process는 하나의 입구로 진입&lt;/li&gt;
-  &lt;li&gt;너무 많은 CPU time 소비 시, 기아 상태가 우려될 시 다른 queue로 이동&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;process-creation&quot;&gt;Process Creation&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;프로세스는 프로세스에 의해 만들어짐&lt;br /&gt;
-  → parent/child/sibling process, process tree&lt;/li&gt;
-  &lt;li&gt;Process Identifier(PID)&lt;br /&gt;
-  → 사람의 주민등록번호와 같은 것&lt;br /&gt;
-  cf.) Parent Process Identifier(PPID)&lt;/li&gt;
-  &lt;li&gt;system call
-    &lt;ul&gt;
-      &lt;li&gt;fork(): parent process 복사&lt;/li&gt;
-      &lt;li&gt;exec(): 실행파일을 메모리로 가져오기&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;process-termination&quot;&gt;Process Termination&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;system call
-    &lt;ul&gt;
-      &lt;li&gt;exit(): 해당 프로세스의 자원 OS에 반환&lt;/li&gt;
-    &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content>
 
