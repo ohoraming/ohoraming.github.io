@@ -1,10 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-14T15:00:35+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Python(2) - MySQL 연결</title><link href="https://ohoraming.github.io/Python-mysql" rel="alternate" type="text/html" title="Python(2) - MySQL 연결" /><published>2022-03-11T22:35:00+09:00</published><updated>2022-03-11T22:35:00+09:00</updated><id>https://ohoraming.github.io/Python-mysql</id><content type="html" xml:base="https://ohoraming.github.io/Python-mysql">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-16T14:37:11+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Python(3) - PostgreSQL 연결</title><link href="https://ohoraming.github.io/Python-postgresql" rel="alternate" type="text/html" title="Python(3) - PostgreSQL 연결" /><published>2022-03-16T13:35:00+09:00</published><updated>2022-03-16T13:35:00+09:00</updated><id>https://ohoraming.github.io/Python-postgresql</id><content type="html" xml:base="https://ohoraming.github.io/Python-postgresql">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-선행-작업&quot;&gt;1. 선행 작업&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;django 설치&lt;/li&gt;
+  &lt;li&gt;현재 directory에 project 만들기&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;project파일 위치로 이동해 app 만들기&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ cd [project 이름]&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startapp [app 이름]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;server 실행&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pgAdmin 4 다운로드&lt;br /&gt;
+  &lt;a href=&quot;https://www.pgadmin.org/download/&quot;&gt;https://www.pgadmin.org/download/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-pgadmin-4-실행&quot;&gt;2. pgAdmin 4 실행&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Servers&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Databases&lt;/code&gt; 우클릭 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Database...&lt;/code&gt; 선택&lt;/li&gt;
+  &lt;li&gt;Database 이름 기입 후, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Save&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-database-설정&quot;&gt;3. Database 설정&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/settings.py&lt;/code&gt; 수정
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'testdb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'postgres'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1234'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 127.0.0.1 도 가능
+&lt;/span&gt;          &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'5432'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ENGINE&lt;/code&gt;: 자신이 사용할 db 엔진&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NAME&lt;/code&gt;: db 이름&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HOST&lt;/code&gt;: db host&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PORT&lt;/code&gt;: db 실행할 포트(기본값 5432)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# app 등록 
+&lt;/span&gt;      &lt;span class=&quot;s&quot;&gt;'django.contrib.admin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'django.contrib.auth'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'django.contrib.contenttypes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'django.contrib.sessions'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'django.contrib.messages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;'django.contrib.staticfiles'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;만든 app을 INSTALLED_APPS에 추가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-table-만들기&quot;&gt;4. Table 만들기&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/model.py&lt;/code&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Question&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;question_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;pub_date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date published'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;question&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Question&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on_delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CASCADE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;choice_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;votes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;table 이름&lt;/strong&gt;을 &lt;strong&gt;class 이름&lt;/strong&gt;으로, &lt;strong&gt;column 이름&lt;/strong&gt;은 &lt;strong&gt;변수 이름&lt;/strong&gt;으로 설정&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;field type&lt;/strong&gt;은 아래 문서 참고
+  &lt;a href=&quot;https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types&quot;&gt;https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;5-db연결-및-table-생성&quot;&gt;5. DB연결 및 table 생성&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;psycopg2 설치: Django와 PostgreSQL을 연결&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install psycopg2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;migrations 폴더 생성&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py makemigrations&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;model class로부터 table 생성 및 수정 실행, 실제 migration을 DB에 적용&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py migrate&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry><entry><title type="html">Python(2) - MySQL 연결</title><link href="https://ohoraming.github.io/Python-mysql" rel="alternate" type="text/html" title="Python(2) - MySQL 연결" /><published>2022-03-11T22:35:00+09:00</published><updated>2022-03-11T22:35:00+09:00</updated><id>https://ohoraming.github.io/Python-mysql</id><content type="html" xml:base="https://ohoraming.github.io/Python-mysql">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-pymysql-설치&quot;&gt;1. pymysql 설치&lt;/h2&gt;
@@ -36,6 +134,20 @@
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;tuple&lt;/strong&gt; 자료형&lt;br /&gt;
+→ 요솟값이 ()에 둘러싸임&lt;br /&gt;
+t3 = (1, 2, 3)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;dictionary&lt;/strong&gt; 자료형&lt;br /&gt;
+→ Key : Value 쌍 여러 개가 쉼표(,)로 구분되어 { }로 둘러싸여 있음&lt;br /&gt;
+→ Key에는 변하지 않는 고윳값을 사용&lt;br /&gt;
+→ Value에는 문자열과 리스트 모두 사용 가능&lt;br /&gt;
+{Key1:Value1, Key2:Value2, Key3:Value3, …}&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;4-crud-query문-작성&quot;&gt;4. CRUD query문 작성&lt;/h2&gt;
 &lt;ul&gt;
@@ -478,10 +590,11 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
 &lt;/ol&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">Python(1) - Django 설치</title><link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" /><published>2022-02-28T22:40:00+09:00</published><updated>2022-02-28T22:40:00+09:00</updated><id>https://ohoraming.github.io/Python-django</id><content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-django-설치&quot;&gt;1. Django 설치&lt;/h2&gt;
@@ -1305,185 +1418,4 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   &lt;li&gt;number of permit = 1 : 두 철학자 중 한 명만 젓가락 드는 것이 허용됨&lt;/li&gt;
   &lt;li&gt;결과: starvation: 모든 철학자들이 굶어 죽는 상황 발생&lt;/li&gt;
   &lt;li&gt;모두가 동시에 젓가락을 드는 상황이 있으면 deadlock에 빠짐&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">OS(5) - Thread</title><link href="https://ohoraming.github.io/OS-thread" rel="alternate" type="text/html" title="OS(5) - Thread" /><published>2022-01-31T22:59:00+09:00</published><updated>2022-01-31T22:59:00+09:00</updated><id>https://ohoraming.github.io/OS-thread</id><content type="html" xml:base="https://ohoraming.github.io/OS-thread">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;하나의 프로그램은 하나의 흐름/맥이 있음(single thread)&lt;/li&gt;
-  &lt;li&gt;여러 흐름/맥이 있다면(multi threads)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;multithreads&quot;&gt;Multithreads&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;한 프로그램에 둘 이상의 흐름/맥이 있는 경우&lt;/li&gt;
-  &lt;li&gt;짧은 시간 간격으로 흐름이 switching됨&lt;br /&gt;
-  → 여러 흐름/맥이 동시에 실행되는 것 같음(concurrent)&lt;br /&gt;
-  cf.) simultaneous - 실제로 동시에 여러 thread가 실행됨(불가능)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;thread-vs-process&quot;&gt;Thread vs. Process&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;하나의 process에는 하나 이상의 thread가 존재(multi-thread program)&lt;/li&gt;
-  &lt;li&gt;하나의 program은 code, data, stack으로 구성됨&lt;/li&gt;
-  &lt;li&gt;thread는 process의 메모리 공간(code, data) 및 자원(file, I/O)을 공유&lt;/li&gt;
-  &lt;li&gt;개별적인 program counter(PC), stack pointer(SP), registers, stack은 비공유&lt;/li&gt;
-  &lt;li&gt;thread가 switching 될 때마다 PC, SP, registers값 모두 변화되므로 공유하지 않음&lt;/li&gt;
-  &lt;li&gt;함수 호출시, stack에 return address, parameter 등을 저장함&lt;/li&gt;
-  &lt;li&gt;현대의 context switching 단위는 process가 아닌 thread!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;javalangthread&quot;&gt;java.lang.Thread&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;JAVA의 thread는 java.lang package 안에 있음&lt;/li&gt;
-  &lt;li&gt;Thread.&lt;strong&gt;run()&lt;/strong&gt; : thread가 시작되면 run() 메서드가 실행됨&lt;/li&gt;
-  &lt;li&gt;run() 메서드를 override
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyThread&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-              &lt;span class=&quot;c1&quot;&gt;// code&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;process-synchronization프로세스-동기화&quot;&gt;Process Synchronization(프로세스 동기화)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;엄밀히 말하면 현대 OS는 context switching의 단위가 thread이므로 &lt;strong&gt;‘thread synchronization’&lt;/strong&gt;이 맞음&lt;/li&gt;
-  &lt;li&gt;일반적으로, main memory에 올라간 process간에는 어떤 식으로든 &lt;strong&gt;영향&lt;/strong&gt;을 주고 받음(cooperating process)&lt;/li&gt;
-  &lt;li&gt;하나의 데이터베이스와 같은 &lt;strong&gt;공통된 자원(common resources)&lt;/strong&gt;에 서로 접근하려 하기때문에 영향을 주고 받게 됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;bank-account-problem&quot;&gt;Bank Account Problem&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;parent는 deposit(입금), child는 withdraw(출금)을 진행&lt;/li&gt;
-  &lt;li&gt;common variable인 balance(잔액)에 대해 동시 update가 발생함&lt;/li&gt;
-  &lt;li&gt;코드를 읽어가다가 context switching이 일어날 경우, balance에 오류가 생김&lt;/li&gt;
-  &lt;li&gt;high level language는 기계어(assembly어)로 변환되는 과정을 거침&lt;/li&gt;
-  &lt;li&gt;한 줄의 코드가 여러 줄의 기계어로 번역될 때 context switching 일어나면 잘못된 결과가 발생&lt;/li&gt;
-  &lt;li&gt;common variable update 진행 중에는 context switching 일어나면 안 됨&lt;br /&gt;
-  → common variable에 대해 한번에 하나의 thread만 update&lt;br /&gt;
-  → Critical-Section Problem (임계 구역 문제)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;critical-section-problem&quot;&gt;Critical-Section Problem&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Critical-Section (C.S.)&lt;/strong&gt;&lt;br /&gt;
-  → multiple thread로 구성된 system&lt;br /&gt;
-  → common variable changing이 일어날 수 있는 구간&lt;/li&gt;
-  &lt;li&gt;해결&lt;br /&gt;
-  → &lt;strong&gt;Mutual exclusion&lt;/strong&gt; (상호 배타): 하나의 thread만 진입&lt;br /&gt;
-  → Progress (진행): 유한 시간 내에 C.S.에 누가 먼저 진입할 지 결정&lt;br /&gt;
-  → Bounded waiting (유한 대기): 유한 시간 내에 C.S.에 진입할 기회가 생김&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;synchronization-tools&quot;&gt;Synchronization Tools&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Semaphores (세마포): 가장 전통적인 동기화 도구&lt;/li&gt;
-  &lt;li&gt;Monitor (모니터): java에서 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;semaphore&quot;&gt;Semaphore&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;네덜란드의 Edsger Kijkstra가 제안&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;정수형 변수&lt;/strong&gt;와 &lt;strong&gt;두 개의 동작&lt;/strong&gt;(&lt;strong&gt;P, V&lt;/strong&gt;)으로 구성&lt;/li&gt;
-  &lt;li&gt;네덜란드어(&lt;strong&gt;P&lt;/strong&gt;roberen, &lt;strong&gt;V&lt;/strong&gt;erhogen)를 영어로 변환&lt;/li&gt;
-  &lt;li&gt;P: &lt;strong&gt;acquire()&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;V: &lt;strong&gt;release()&lt;/strong&gt;
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Semaphore&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nc&quot;&gt;Semaphore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;// code&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;release&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;wakeup&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;정수형 변수: number of permits&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;acquire()&lt;/strong&gt;&lt;br /&gt;
-  → 정수값이 1감소&lt;br /&gt;
-  → 감소된 정수값이 0보다 작으면 호출한 process/thread를 queue안에 넣음&lt;br /&gt;
-      (block상태(= ready queue에 못 감))&lt;br /&gt;
-  → interrupted exception발생(try~catch)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;release()&lt;/strong&gt;&lt;br /&gt;
-  → 정수값이 1증가&lt;br /&gt;
-  → 증가된 정수값이 0보다 작거나 같으면(= queue에 block된 thread 존재) 호출한 process/thread를 queue에서 꺼냄(wake up)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;일반적-사용1-mutual-exclusion&quot;&gt;일반적 사용(1): Mutual exclusion&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;number of permits = 1&lt;br /&gt;
-  → C.S.에 하나의 process/thread만 들임&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;acquire();&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Critical-Section&lt;/strong&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;release();&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;일반적-사용2-ordering&quot;&gt;일반적 사용(2): Ordering&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;number of permits = 1&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;p1&lt;/td&gt;
-          &lt;td&gt;p2&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;acquire();&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;S1;&lt;/td&gt;
-          &lt;td&gt;S2;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;release();&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry></feed>
