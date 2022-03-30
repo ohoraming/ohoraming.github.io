@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-16T14:37:11+09:00</updated>
+  <updated>2022-03-30T23:28:39+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,81 @@
 
   
     <entry>
+      <title type="html">Test Code</title>
+      <link href="https://ohoraming.github.io/Test-Code" rel="alternate" type="text/html" title="Test Code" />
+      <published>2022-03-30T22:26:00+09:00</published>
+      <updated>2022-03-30T22:26:00+09:00</updated>
+      <id>https://ohoraming.github.io/Test%20Code</id>
+      <content type="html" xml:base="https://ohoraming.github.io/Test-Code">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-test-code를-작성하는-이유&quot;&gt;1. Test Code를 작성하는 이유&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;bug 발생 시점이 이를 수록 수정 비용이 적게 듦&lt;br /&gt;
+수정 비용: 요구 분석/기획 &amp;lt; 설계 &amp;lt; 구현 &amp;lt; 테스트(QA) &amp;lt; 유지 보수/배포&lt;/li&gt;
+  &lt;li&gt;기획 단계에서 요구 조건을 보다 명확하게 이해할 수 있음&lt;/li&gt;
+  &lt;li&gt;예외 케이스의 처리 방식을 다각도로 생각해 볼 수 있음&lt;/li&gt;
+  &lt;li&gt;기능을 구현할 때마다 이미 쌓여있는 Test Code를 모두 테스트하면, 현재의 코드로 인해 다른 코드들이 받을 수 있는 side effect를 즉시 감지할 수 있음(회귀 테스트(Regression Test))&lt;/li&gt;
+  &lt;li&gt;test coverage만큼 코드에 대해 확실할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-test-code를-작성하는-방법&quot;&gt;2. Test Code를 작성하는 방법&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;케이스 단위로 테스트를 정리(기능별 분리)&lt;/li&gt;
+  &lt;li&gt;케이스 별로 실제 행위 유발&lt;/li&gt;
+  &lt;li&gt;행위의 결과 확인(pass/fail return)&lt;/li&gt;
+  &lt;li&gt;케이스의 자동화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-주의-사항&quot;&gt;3. 주의 사항&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;많은 Test Code를 작성하고 유지하는 데 시간이 걸림&lt;/li&gt;
+  &lt;li&gt;이후, 제품을 완전히 변경한다고 하면 시간 낭비일 수 있음&lt;/li&gt;
+  &lt;li&gt;Test Code와 실제 code를 작성하는 개발자가 같다면 사각지대가 발생할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-unit-test-tip&quot;&gt;4. Unit Test Tip&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 테스트에 동일한 데이터를 재사용하지 않아야 함&lt;br /&gt;
+→ global instance의 재사용 금지&lt;/li&gt;
+  &lt;li&gt;python의 built-in function은 test하지 않아도 됨&lt;br /&gt;
+→ 표준 라이브러리는 test의 목표가 되어선 안 됨&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Git - Git Convention</title>
       <link href="https://ohoraming.github.io/git-convention" rel="alternate" type="text/html" title="Git - Git Convention" />
       <published>2022-03-10T21:25:00+09:00</published>
@@ -43,6 +118,7 @@
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;

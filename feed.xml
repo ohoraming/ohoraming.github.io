@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-16T14:37:11+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Python(3) - PostgreSQL 연결</title><link href="https://ohoraming.github.io/Python-postgresql" rel="alternate" type="text/html" title="Python(3) - PostgreSQL 연결" /><published>2022-03-16T13:35:00+09:00</published><updated>2022-03-16T13:35:00+09:00</updated><id>https://ohoraming.github.io/Python-postgresql</id><content type="html" xml:base="https://ohoraming.github.io/Python-postgresql">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-03-30T23:28:39+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Test Code</title><link href="https://ohoraming.github.io/Test-Code" rel="alternate" type="text/html" title="Test Code" /><published>2022-03-30T22:26:00+09:00</published><updated>2022-03-30T22:26:00+09:00</updated><id>https://ohoraming.github.io/Test%20Code</id><content type="html" xml:base="https://ohoraming.github.io/Test-Code">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-test-code를-작성하는-이유&quot;&gt;1. Test Code를 작성하는 이유&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;bug 발생 시점이 이를 수록 수정 비용이 적게 듦&lt;br /&gt;
+수정 비용: 요구 분석/기획 &amp;lt; 설계 &amp;lt; 구현 &amp;lt; 테스트(QA) &amp;lt; 유지 보수/배포&lt;/li&gt;
+  &lt;li&gt;기획 단계에서 요구 조건을 보다 명확하게 이해할 수 있음&lt;/li&gt;
+  &lt;li&gt;예외 케이스의 처리 방식을 다각도로 생각해 볼 수 있음&lt;/li&gt;
+  &lt;li&gt;기능을 구현할 때마다 이미 쌓여있는 Test Code를 모두 테스트하면, 현재의 코드로 인해 다른 코드들이 받을 수 있는 side effect를 즉시 감지할 수 있음(회귀 테스트(Regression Test))&lt;/li&gt;
+  &lt;li&gt;test coverage만큼 코드에 대해 확실할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-test-code를-작성하는-방법&quot;&gt;2. Test Code를 작성하는 방법&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;케이스 단위로 테스트를 정리(기능별 분리)&lt;/li&gt;
+  &lt;li&gt;케이스 별로 실제 행위 유발&lt;/li&gt;
+  &lt;li&gt;행위의 결과 확인(pass/fail return)&lt;/li&gt;
+  &lt;li&gt;케이스의 자동화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-주의-사항&quot;&gt;3. 주의 사항&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;많은 Test Code를 작성하고 유지하는 데 시간이 걸림&lt;/li&gt;
+  &lt;li&gt;이후, 제품을 완전히 변경한다고 하면 시간 낭비일 수 있음&lt;/li&gt;
+  &lt;li&gt;Test Code와 실제 code를 작성하는 개발자가 같다면 사각지대가 발생할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;4-unit-test-tip&quot;&gt;4. Unit Test Tip&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 테스트에 동일한 데이터를 재사용하지 않아야 함&lt;br /&gt;
+→ global instance의 재사용 금지&lt;/li&gt;
+  &lt;li&gt;python의 built-in function은 test하지 않아도 됨&lt;br /&gt;
+→ 표준 라이브러리는 test의 목표가 되어선 안 됨&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Other" /><summary type="html"></summary></entry><entry><title type="html">Python(3) - PostgreSQL 연결</title><link href="https://ohoraming.github.io/Python-postgresql" rel="alternate" type="text/html" title="Python(3) - PostgreSQL 연결" /><published>2022-03-16T13:35:00+09:00</published><updated>2022-03-16T13:35:00+09:00</updated><id>https://ohoraming.github.io/Python-postgresql</id><content type="html" xml:base="https://ohoraming.github.io/Python-postgresql">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -10,7 +51,8 @@
 
 &lt;h2 id=&quot;1-선행-작업&quot;&gt;1. 선행 작업&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;django 설치&lt;/li&gt;
+  &lt;li&gt;django 설치
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python -m pip install Django&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;현재 directory에 project 만들기&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;project파일 위치로 이동해 app 만들기&lt;br /&gt;
@@ -91,7 +133,7 @@
 &lt;ul&gt;
   &lt;li&gt;psycopg2 설치: Django와 PostgreSQL을 연결&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install psycopg2&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;migrations 폴더 생성&lt;br /&gt;
+  &lt;li&gt;migrations 폴더 생성: model이 신규로 생성 또는 변경될 시 실행&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py makemigrations&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;model class로부터 table 생성 및 수정 실행, 실제 migration을 DB에 적용&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py migrate&lt;/code&gt;&lt;/li&gt;
@@ -106,7 +148,7 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-pymysql-설치&quot;&gt;1. pymysql 설치&lt;/h2&gt;
-&lt;p&gt;터미널에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install pymysql&lt;/code&gt; 입력&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install pymysql&lt;/code&gt; 입력&lt;/p&gt;
 
 &lt;h2 id=&quot;2-db-연결&quot;&gt;2. DB 연결&lt;/h2&gt;
 &lt;ul&gt;
@@ -216,6 +258,7 @@ t3 = (1, 2, 3)&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -1354,68 +1397,4 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
   &lt;li&gt;4개의 필요조건을 모두 만족하더라도 반드시 일어나는 것 아님&lt;/li&gt;
   &lt;li&gt;개인 PC의 경우 deadlock발생시 재부팅하면 해결됨&lt;/li&gt;
   &lt;li&gt;그래서 다른 방법을 시도하는 것 보다는 재부팅이 효율적일 수 있음&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">OS(6) - Classical Synchronization Problems</title><link href="https://ohoraming.github.io/OS-classical-sync-problems" rel="alternate" type="text/html" title="OS(6) - Classical Synchronization Problems" /><published>2022-02-02T21:58:00+09:00</published><updated>2022-02-02T21:58:00+09:00</updated><id>https://ohoraming.github.io/OS-classical-sync-problems</id><content type="html" xml:base="https://ohoraming.github.io/OS-classical-sync-problems">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;producer(생산자)가 data를 생산하면 consumer(소비자)가 소비&lt;/li&gt;
-  &lt;li&gt;e.g.) compiler(= producer)와 assembler(= consumer)의 경우,&lt;br /&gt;
-  compiler가 high level language를 low level language(assembly어)로 번역하면,  assembler가 번역된 assembly어를 기계어로 번역&lt;/li&gt;
-  &lt;li&gt;e.g.) 파일 서버(= producer)와 클라이언트(= consumer)의 경우,&lt;br /&gt;
-  web browser가 요청을 보내면, server가 file안의 data를 처리해 응답하고, web brower가 web page형태로 보여줌&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bounded Buffer(유한 버퍼)&lt;/strong&gt;&lt;br /&gt;
-  → 생산한 데이터는 버퍼에 우선 저장함&lt;br /&gt;
-  → buffer의 사이즈는 유한함&lt;br /&gt;
-  → producer는 buffer가 가득 차면 더이상 데이터를 넣을 수 없으며,&lt;br /&gt;
-  → consumer는 buffer가 비면 더이상 데이터를 뺄 수 없음&lt;/li&gt;
-  &lt;li&gt;같은 수의 생산(insert)과 소비(remove)가 이루어졌다면, 결괏값은 0이 나와야 함&lt;/li&gt;
-  &lt;li&gt;common variable인 count와 buf[]를 업데이트하는 C.S.(critical-section)에 동시 진입이 이루어져 최종 결괏값으로 0이 나오지 않음&lt;/li&gt;
-  &lt;li&gt;solution&lt;br /&gt;
-  → &lt;strong&gt;mutual exclusion&lt;/strong&gt;&lt;br /&gt;
-  → semaphore를 이용해 동시접근 방지&lt;br /&gt;
-  → number of permit = 1&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Busy-wait&lt;/strong&gt;&lt;br /&gt;
-  → producer: buffer가 가득차면 기다려야하며,&lt;br /&gt;
-  → consumer: buffer가 비면 기다려야 함&lt;br /&gt;
-  → OS의 ‘효율성 증가’의 목적에 위배됨&lt;br /&gt;
-  → semaphore를 사용해 busy-wait회피&lt;br /&gt;
-  → 무한 loop(while문)를 돌며 기다리지않고 semaphore에 가둠&lt;br /&gt;
-  → CPU 서비스를 받지 않고 block됨&lt;br /&gt;
-  → 빈공간이 생기면 producer를 깨우고, 데이터가 들어오면 consumer를 깨움&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;readers-writers-problem&quot;&gt;Readers-Writers Problem&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reader: C.S.을 편집하지 않고 읽기만 함&lt;/li&gt;
-  &lt;li&gt;Writer: C.S.를 읽고 편집함&lt;/li&gt;
-  &lt;li&gt;Reader에 mutual exclusion을 적용하면 비효율적임&lt;/li&gt;
-  &lt;li&gt;Reader가 들어왔는데 다른 Writer가 들어오려하면 block&lt;/li&gt;
-  &lt;li&gt;Writer가 들어와 있으면 Reader는 block&lt;/li&gt;
-  &lt;li&gt;Reader가 들어와 있는데 다른 Reader가 들어온다면 허용(효율성 제고)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;dining-philosopher-problem&quot;&gt;Dining Philosopher Problem&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;5명의 철학자와 5개의 젓가락이 서로 엇갈려 한 테이블에 존재&lt;/li&gt;
-  &lt;li&gt;‘생각 → 식사’의 반복&lt;/li&gt;
-  &lt;li&gt;왼쪽 젓가락을 든 뒤, 오른쪽 젓가락을 듬&lt;/li&gt;
-  &lt;li&gt;number of permit = 1 : 두 철학자 중 한 명만 젓가락 드는 것이 허용됨&lt;/li&gt;
-  &lt;li&gt;결과: starvation: 모든 철학자들이 굶어 죽는 상황 발생&lt;/li&gt;
-  &lt;li&gt;모두가 동시에 젓가락을 드는 상황이 있으면 deadlock에 빠짐&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry></feed>

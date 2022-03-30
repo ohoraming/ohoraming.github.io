@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-16T14:37:11+09:00</updated>
+  <updated>2022-03-30T23:28:39+09:00</updated>
   <id>https://ohoraming.github.io/tag/python/feed.xml</id>
 
   
@@ -49,7 +49,8 @@
 
 &lt;h2 id=&quot;1-선행-작업&quot;&gt;1. 선행 작업&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;django 설치&lt;/li&gt;
+  &lt;li&gt;django 설치
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python -m pip install Django&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;현재 directory에 project 만들기&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;project파일 위치로 이동해 app 만들기&lt;br /&gt;
@@ -130,7 +131,7 @@
 &lt;ul&gt;
   &lt;li&gt;psycopg2 설치: Django와 PostgreSQL을 연결&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install psycopg2&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;migrations 폴더 생성&lt;br /&gt;
+  &lt;li&gt;migrations 폴더 생성: model이 신규로 생성 또는 변경될 시 실행&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py makemigrations&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;model class로부터 table 생성 및 수정 실행, 실제 migration을 DB에 적용&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py migrate&lt;/code&gt;&lt;/li&gt;
@@ -179,7 +180,7 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-pymysql-설치&quot;&gt;1. pymysql 설치&lt;/h2&gt;
-&lt;p&gt;터미널에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install pymysql&lt;/code&gt; 입력&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install pymysql&lt;/code&gt; 입력&lt;/p&gt;
 
 &lt;h2 id=&quot;2-db-연결&quot;&gt;2. DB 연결&lt;/h2&gt;
 &lt;ul&gt;

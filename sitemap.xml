@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/Test-Code.html</loc>
+        
+        <lastmod>2022-03-30T22:26:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/Python-postgresql.html</loc>
         
         <lastmod>2022-03-16T13:35:00+09:00</lastmod>
