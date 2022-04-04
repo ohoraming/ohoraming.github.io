@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/Python-making-queries.html</loc>
+        
+        <lastmod>2022-04-04T22:14:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/Test-Code.html</loc>
         
         <lastmod>2022-03-30T22:26:00+09:00</lastmod>
