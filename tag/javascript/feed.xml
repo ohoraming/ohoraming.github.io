@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-04T22:58:06+09:00</updated>
+  <updated>2022-04-05T23:10:26+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -32,6 +32,308 @@
 
   
     <entry>
+      <title type="html">JavaScript(11) - Regular expressions</title>
+      <link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" />
+      <published>2022-04-05T19:26:00+09:00</published>
+      <updated>2022-04-05T19:26:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-regular-expressions</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;regular-expression-regex&quot;&gt;Regular expression (regex)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1950, 수학자 Stephen Cole Kleene에 의해 개발됨&lt;/li&gt;
+  &lt;li&gt;slash(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-groups-or-ranges&quot;&gt;1. Groups or ranges&lt;/h2&gt;
+&lt;h3 id=&quot;1--or&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; (or)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Hi|Hello/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ Hi &lt;strong&gt;또는&lt;/strong&gt; Hello 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;2--group&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;()&lt;/code&gt; (group)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(Hi|Hello)|(And)/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;group #1&lt;/strong&gt;: Hi 또는 Hello 매칭&lt;br /&gt;
+→ &lt;strong&gt;group #2&lt;/strong&gt;: And 매칭&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(e|a)y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ gr로 시작, e 또는 a, y로 끝나는 단어 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;3--group-미지정&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?:)&lt;/code&gt; (group 미지정)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(?:e|a)y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ group을 지정하고 싶지 않다면 &lt;strong&gt;( )&lt;/strong&gt; 시작에 &lt;strong&gt;?:&lt;/strong&gt;를 추가&lt;/p&gt;
+
+&lt;h3 id=&quot;4--안의-문자-찾기&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자 찾기)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr[ead]y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ [] 안의 문자 중 하나라도 만족하는 단어 매칭&lt;br /&gt;
+    gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;e&lt;/strong&gt;y, gr&lt;strong&gt;d&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-f]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ a부터 f까지의 문자를 매칭&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;5--안의-문자를-제외한-나머지-찾기&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[^]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자를 제외한 나머지 찾기)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^a-zA-Z]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 &lt;strong&gt;제외&lt;/strong&gt;한 나머지를 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;2-quantifiers&quot;&gt;2. Quantifiers&lt;/h2&gt;
+&lt;h3 id=&quot;1--앞의-문자가-하나있거나-없거나&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt;앞의 문자가 하나있거나 없거나)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra?y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나있거나 없는 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gry&lt;/p&gt;
+
+&lt;h3 id=&quot;2--앞의-문자가-하나-이상-있거나-없거나&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;앞의 문자가 하나 이상 있거나 없거나)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra*y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없거나 많은 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gry, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;3--앞의-문자가-하나-이상&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;앞의 문자가 하나 이상)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra+y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나 이상 있는 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;4-n-n앞의-문자-n번-반복&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt;앞의 문자 n번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 두 번 반복되는 문자 매칭
+gr&lt;strong&gt;aa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;5-min-min앞의-문자-최소-n번-반복&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt;앞의 문자 최소 n번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 최소 두 번 반복되는 문자 매칭
+gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;6-minmax-minmax앞의-문자가-최소-min번-최대-max번-반복&quot;&gt;(6) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt;앞의 문자가 최소 min번, 최대 max번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,3}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 &lt;strong&gt;최소 두 번, 최대 세 번 반복&lt;/strong&gt;되는 문자 매칭&lt;br /&gt;
+gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h2 id=&quot;3-boundary-type&quot;&gt;3. Boundary-type&lt;/h2&gt;
+&lt;h3 id=&quot;--단어의-경계를-지정해-검색&quot;&gt;- 단어의 경계를 지정해 검색&lt;/h3&gt;
+&lt;h3 id=&quot;1-b-단어의-앞-경계-또는-뒷-경계에서-검색&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt; (단어의 앞 경계 또는 뒷 경계에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\bYa/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 앞에 있는 Ya를 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\b/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;, YaYa&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-b-b의-경우를-제외한-검색&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\B&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;의 경우를 제외한 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\B/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭(/Ya&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;/gm)하는 경우를 제외한 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--문장의-경계를-지정해-검색&quot;&gt;- 문장의 경계를 지정해 검색&lt;/h3&gt;
+
+&lt;h3 id=&quot;3--문장의-시작에서-검색&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^&lt;/code&gt; (문장의 시작에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;4--문장의-끝에서-검색&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; (문장의 끝에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;--전체-문장의-경계를-지정해-검색&quot;&gt;- 전체 문장의 경계를 지정해 검색&lt;/h3&gt;
+&lt;p&gt;※ flag에서 m(&lt;strong&gt;m&lt;/strong&gt;ultiline)을 선택하지 않으면,
+전체 문장으로 경계를 지정해 검색함&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 전체 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 전체 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;4-character-classes&quot;&gt;4. Character classes&lt;/h2&gt;
+&lt;h3 id=&quot;1-특수문자&quot;&gt;(1) \특수문자&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\[/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ \ 뒤의 &lt;strong&gt;특수 문자&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; 를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;2-&quot;&gt;(2) .&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/./gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 줄바꿈 문자를 제외한 &lt;strong&gt;모든 문자&lt;/strong&gt;를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;3-d&quot;&gt;(3) \d&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;숫자&lt;/strong&gt;(&lt;strong&gt;d&lt;/strong&gt;igit)를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;4-d&quot;&gt;(4) \D&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\D/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;숫자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;5-w-소문자-w&quot;&gt;(5) \w (소문자 w)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\w/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;문자&lt;/strong&gt;(&lt;strong&gt;w&lt;/strong&gt;ord)를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;6-w-대문자-w&quot;&gt;(6) \W (대문자 w)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\W/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;문자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;7-s-소문자-s&quot;&gt;(7) \s (소문자 s)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\s/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;띄어쓰기&lt;/strong&gt;(&lt;strong&gt;s&lt;/strong&gt;pace) 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;8-s-대문자-s&quot;&gt;(8) \S (대문자 S)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\S/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;띄어쓰기를 제외&lt;/strong&gt; 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;5-exercises&quot;&gt;5. Exercises&lt;/h2&gt;
+&lt;h3 id=&quot;1-전화번호-형태-찾기&quot;&gt;1. 전화번호 형태 찾기&lt;/h3&gt;
+&lt;p&gt;010-898-0893&lt;br /&gt;
+010 898 0893&lt;br /&gt;
+010.898.0893&lt;br /&gt;
+010-405-3412&lt;br /&gt;
+02-878-8888&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d{2,3}[- .]\d{3}[- .]\d{4}/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {2,3} 최소 두 번, 최대 세 번 반복
+→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {3} 세 번 반복
+→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {4} 네 번 반복
+→ 숫자 사이에는 [- .] - 또는 공백 또는 . 으로 연결&lt;/p&gt;
+
+&lt;h3 id=&quot;2-이메일-형태-찾기&quot;&gt;2. 이메일 형태 찾기&lt;/h3&gt;
+&lt;p&gt;dream.coder.ellie@gmail.com&lt;br /&gt;
+hello@daum.net&lt;br /&gt;
+hello@daum.co.kr&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9._+-]+&lt;/code&gt; 문자(소/대문자, 숫자, ., _, +, -)가 하나 이상&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&lt;/code&gt; 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9-]+&lt;/code&gt; 문자(소/대문자, 숫자, -)가 하나 이상&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9.]+&lt;/code&gt; 문자(소/대문자, 숫자, .)가 하나 이상&lt;/p&gt;
+
+&lt;h3 id=&quot;3-특정-문자열-찾기&quot;&gt;3. 특정 문자열 찾기&lt;/h3&gt;
+&lt;p&gt;http://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
+https://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
+https://youtu.be/-ZClicWm0zM&lt;br /&gt;
+youtu.be/-ZClicWm0zM&lt;br /&gt;
+에서 youtube id인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ZClicWm0zM&lt;/code&gt; 만 가져오기&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(https?:\/\/)?(www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(https?:\/\/)?&lt;/code&gt;&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?s&lt;/code&gt; s가 있어도 되고 없어도 됨 &lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:\/\/&lt;/code&gt; ://(특수 문자) 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(www.)?&lt;/code&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;youtu.be\/&lt;/code&gt;&lt;br /&gt;
+→ youtu.be/ 연결&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;([a-zA-Z0-9-]{11})&lt;/code&gt;&lt;br /&gt;
+→ 소/대문자,숫자,-로 이루어진 11자리의 문자 group&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;결과적으로 group #1(http://), group #2(www.), group #3(youtube id)이 생성됨
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(?:https?:\/\/)?(?:www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;→ group #1과 group #2는 grouping하지 않으려면 group의 시작에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?: )&lt;/code&gt;을 입력하면 됨&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;6-javascript-활용&quot;&gt;6. JavaScript 활용&lt;/h2&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/\/)?(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;www.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;youtu.be&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z0-9-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]{11})&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://www.youtu.be/-ZClicWm0zM&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;배열을 반환함&lt;br /&gt;
+[0]: 매칭되는 전체 문자열,&lt;br /&gt;
+[1]: 매칭되는 group의 data&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
+  &lt;p&gt;0: “http://www.youtu.be/-ZClicWm0zM”&lt;br /&gt;
+1: “-ZClicWm0zM”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;추가 code를 작성하면,&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;h6 id=&quot;console-1&quot;&gt;Console&lt;/h6&gt;
+  &lt;p&gt;‘-ZClicWm0zM’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;7-유용한-site&quot;&gt;7. 유용한 site&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://regexone.com/&quot;&gt;https://regexone.com/&lt;/a&gt; → 학습&lt;br /&gt;
+&lt;a href=&quot;https://regexr.com/&quot;&gt;https://regexr.com/&lt;/a&gt; → 정규표현식 입력시 확인&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“정규표현식 , 더이상 미루지 말자,” 유튜브 비디오, 22:01, 게시자 “드림코딩 by 엘리,” &lt;a href=&quot;https://youtu.be/t3M6toIflyQ&quot;&gt;https://youtu.be/t3M6toIflyQ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">JavaScript(9) - callback</title>
       <link href="https://ohoraming.github.io/JavaScript-callback" rel="alternate" type="text/html" title="JavaScript(9) - callback" />
       <published>2021-08-12T17:16:00+09:00</published>
@@ -52,6 +354,7 @@
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;synchronous-vs-asynchronous&quot;&gt;Synchronous vs. Asynchronous&lt;/h1&gt;
@@ -286,6 +589,7 @@
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;promise&quot;&gt;promise&lt;/h1&gt;
@@ -640,6 +944,7 @@
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;json&quot;&gt;JSON&lt;/h1&gt;
@@ -853,206 +1158,6 @@ JSON을 다시 object로 만들 때 역시 &lt;strong&gt;함수가 포함되지 
     </entry>
   
     <entry>
-      <title type="html">JavaScript(6) - object</title>
-      <link href="https://ohoraming.github.io/JavaScript-object" rel="alternate" type="text/html" title="JavaScript(6) - object" />
-      <published>2021-07-30T02:00:00+09:00</published>
-      <updated>2021-07-30T02:00:00+09:00</updated>
-      <id>https://ohoraming.github.io/JavaScript-object</id>
-      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-object">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;※ 참고: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&quot;&gt;Object - JavaScript | MDN&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;literals-and-properties&quot;&gt;Literals and properties&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;object = { key : value }&lt;/code&gt;&lt;br /&gt;
-  → key와 value의 집합체
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 'object literal' syntax&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 'object consrtuctor' syntax&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;object literal syntax :  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ }&lt;/code&gt; curly braces를 사용해서 생성&lt;/li&gt;
-  &lt;li&gt;object constructor syntax : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt; keyword를 사용해서 생성&lt;/li&gt;
-  &lt;li&gt;{ } 안에 내용을 입력해서 생성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;computed-properties&quot;&gt;Computed properties&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;perperty에 접근할 때(일반적으로 coding을 할 때)는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 을 사용함&lt;/li&gt;
-  &lt;li&gt;실시간으로(동적으로)  원하는 key의 값을 받아오고 싶을 때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; 을 사용함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;※ &lt;strong&gt;key&lt;/strong&gt;는 반드시 &lt;strong&gt;string type&lt;/strong&gt;으로 설정해야 함!&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-  &lt;h6 id=&quot;minji&quot;&gt;minji&lt;/h6&gt;
-  &lt;h6 id=&quot;minji-1&quot;&gt;minji&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;printValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;property-value-shorthand&quot;&gt;Property value shorthand&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;반복되는 object를 생성할 때는 &lt;strong&gt;constructor function&lt;/strong&gt;을 사용함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Bob&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Steve&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dave&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Constructor function&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// this = {};&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// return this;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-  &lt;h6 id=&quot;person-name-minji-age-5&quot;&gt;person {name: “minji”, age: 5}&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;in-operator&quot;&gt;in operator&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt; keyword를 이용해 해당 object 내에 key가 존재하는 지 확인함
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// undefined&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-      &lt;h6 id=&quot;true&quot;&gt;true&lt;/h6&gt;
-      &lt;h6 id=&quot;true-1&quot;&gt;true&lt;/h6&gt;
-      &lt;h6 id=&quot;false&quot;&gt;false&lt;/h6&gt;
-      &lt;h6 id=&quot;undefined&quot;&gt;undefined&lt;/h6&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;forin-vs-forof&quot;&gt;for…in vs. for…of&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;특정 object 안의 &lt;strong&gt;key&lt;/strong&gt;들을 모두 받아오려고 할 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt; 을 사용함
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-      &lt;h6 id=&quot;name&quot;&gt;name&lt;/h6&gt;
-      &lt;h6 id=&quot;age&quot;&gt;age&lt;/h6&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;array나 list&lt;/strong&gt;와 같은 data를 &lt;strong&gt;순차적으로&lt;/strong&gt; 계산하거나 출력하려고 할 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;of&lt;/code&gt; 를 사용함
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-      &lt;h6 id=&quot;1&quot;&gt;1&lt;/h6&gt;
-      &lt;h6 id=&quot;2&quot;&gt;2&lt;/h6&gt;
-      &lt;h6 id=&quot;4&quot;&gt;4&lt;/h6&gt;
-      &lt;h6 id=&quot;5&quot;&gt;5&lt;/h6&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;※ &lt;strong&gt;새로운 함수나 API를 쓰기 전에는 항상 parameter와 return값을 숙지할 것!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Object.assign();&lt;/code&gt;&lt;br /&gt;
-참고: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign&quot;&gt;Object.assign() - Java Script | MDN&lt;/a&gt;&lt;br /&gt;
-→ 복사하고자 하는 target과 원문인 source를 parameter로 전달하면, 이 둘을 합쳐 return함&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 비어있는 target 생성&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 또는&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-  &lt;h6 id=&quot;name-minji-age-20&quot;&gt;{name: “minji”, age: “20”}&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;yellow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;small&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mixed1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// yellow&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// green&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// small&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
-  &lt;h6 id=&quot;yellow&quot;&gt;yellow&lt;/h6&gt;
-  &lt;h6 id=&quot;green&quot;&gt;green&lt;/h6&gt;
-  &lt;h6 id=&quot;small&quot;&gt;small&lt;/h6&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;※ &lt;strong&gt;주의!&lt;/strong&gt; ※&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assign&amp;lt;T, U, V&amp;gt;(target: T, source1: U, source2: V): T &amp;amp; U &amp;amp; V;&lt;/code&gt; 를 적용할 때,&lt;br /&gt;
-나중에 나오는 source2는 먼저 있던 source1의 내용을 &lt;strong&gt;덮어 쓰게 됨&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;출처: “자바스크립트 7. 오브젝트 넌 뭐니? | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 23:03, 게시자 “드림코딩 by 엘리,” 2020년 5월 6일, &lt;a href=&quot;https://youtu.be/1Lbr29tzAA8&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">JavaScript(7) - array</title>
       <link href="https://ohoraming.github.io/JavaScript-array" rel="alternate" type="text/html" title="JavaScript(7) - array" />
       <published>2021-07-30T02:00:00+09:00</published>
@@ -1073,6 +1178,7 @@ JSON을 다시 object로 만들 때 역시 &lt;strong&gt;함수가 포함되지 
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;declaration&quot;&gt;Declaration&lt;/h1&gt;
@@ -1660,6 +1766,207 @@ orange&lt;/p&gt;
     </entry>
   
     <entry>
+      <title type="html">JavaScript(6) - object</title>
+      <link href="https://ohoraming.github.io/JavaScript-object" rel="alternate" type="text/html" title="JavaScript(6) - object" />
+      <published>2021-07-30T02:00:00+09:00</published>
+      <updated>2021-07-30T02:00:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-object</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-object">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※ 참고: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&quot;&gt;Object - JavaScript | MDN&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;literals-and-properties&quot;&gt;Literals and properties&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;object = { key : value }&lt;/code&gt;&lt;br /&gt;
+  → key와 value의 집합체
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 'object literal' syntax&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 'object consrtuctor' syntax&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;object literal syntax :  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ }&lt;/code&gt; curly braces를 사용해서 생성&lt;/li&gt;
+  &lt;li&gt;object constructor syntax : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new&lt;/code&gt; keyword를 사용해서 생성&lt;/li&gt;
+  &lt;li&gt;{ } 안에 내용을 입력해서 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;computed-properties&quot;&gt;Computed properties&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;perperty에 접근할 때(일반적으로 coding을 할 때)는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 을 사용함&lt;/li&gt;
+  &lt;li&gt;실시간으로(동적으로)  원하는 key의 값을 받아오고 싶을 때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; 을 사용함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※ &lt;strong&gt;key&lt;/strong&gt;는 반드시 &lt;strong&gt;string type&lt;/strong&gt;으로 설정해야 함!&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+  &lt;h6 id=&quot;minji&quot;&gt;minji&lt;/h6&gt;
+  &lt;h6 id=&quot;minji-1&quot;&gt;minji&lt;/h6&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;printValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;property-value-shorthand&quot;&gt;Property value shorthand&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;반복되는 object를 생성할 때는 &lt;strong&gt;constructor function&lt;/strong&gt;을 사용함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Bob&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Steve&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dave&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Constructor function&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// this = {};&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// return this;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+  &lt;h6 id=&quot;person-name-minji-age-5&quot;&gt;person {name: “minji”, age: 5}&lt;/h6&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;in-operator&quot;&gt;in operator&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt; keyword를 이용해 해당 object 내에 key가 존재하는 지 확인함
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// undefined&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+      &lt;h6 id=&quot;true&quot;&gt;true&lt;/h6&gt;
+      &lt;h6 id=&quot;true-1&quot;&gt;true&lt;/h6&gt;
+      &lt;h6 id=&quot;false&quot;&gt;false&lt;/h6&gt;
+      &lt;h6 id=&quot;undefined&quot;&gt;undefined&lt;/h6&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;forin-vs-forof&quot;&gt;for…in vs. for…of&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;특정 object 안의 &lt;strong&gt;key&lt;/strong&gt;들을 모두 받아오려고 할 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt; 을 사용함
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minji&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+      &lt;h6 id=&quot;name&quot;&gt;name&lt;/h6&gt;
+      &lt;h6 id=&quot;age&quot;&gt;age&lt;/h6&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;array나 list&lt;/strong&gt;와 같은 data를 &lt;strong&gt;순차적으로&lt;/strong&gt; 계산하거나 출력하려고 할 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;of&lt;/code&gt; 를 사용함
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+      &lt;h6 id=&quot;1&quot;&gt;1&lt;/h6&gt;
+      &lt;h6 id=&quot;2&quot;&gt;2&lt;/h6&gt;
+      &lt;h6 id=&quot;4&quot;&gt;4&lt;/h6&gt;
+      &lt;h6 id=&quot;5&quot;&gt;5&lt;/h6&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※ &lt;strong&gt;새로운 함수나 API를 쓰기 전에는 항상 parameter와 return값을 숙지할 것!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Object.assign();&lt;/code&gt;&lt;br /&gt;
+참고: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign&quot;&gt;Object.assign() - Java Script | MDN&lt;/a&gt;&lt;br /&gt;
+→ 복사하고자 하는 target과 원문인 source를 parameter로 전달하면, 이 둘을 합쳐 return함&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 비어있는 target 생성&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 또는&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+  &lt;h6 id=&quot;name-minji-age-20&quot;&gt;{name: “minji”, age: “20”}&lt;/h6&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;yellow&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;small&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mixed1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fruit3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// yellow&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// green&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mixed2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// small&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Console&lt;/strong&gt;&lt;/p&gt;
+  &lt;h6 id=&quot;yellow&quot;&gt;yellow&lt;/h6&gt;
+  &lt;h6 id=&quot;green&quot;&gt;green&lt;/h6&gt;
+  &lt;h6 id=&quot;small&quot;&gt;small&lt;/h6&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;※ &lt;strong&gt;주의!&lt;/strong&gt; ※&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assign&amp;lt;T, U, V&amp;gt;(target: T, source1: U, source2: V): T &amp;amp; U &amp;amp; V;&lt;/code&gt; 를 적용할 때,&lt;br /&gt;
+나중에 나오는 source2는 먼저 있던 source1의 내용을 &lt;strong&gt;덮어 쓰게 됨&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;출처: “자바스크립트 7. 오브젝트 넌 뭐니? | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 23:03, 게시자 “드림코딩 by 엘리,” 2020년 5월 6일, &lt;a href=&quot;https://youtu.be/1Lbr29tzAA8&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">JavaScript(5) - class vs. object</title>
       <link href="https://ohoraming.github.io/JavaScript-classObject" rel="alternate" type="text/html" title="JavaScript(5) - class vs. object" />
       <published>2021-07-28T15:03:00+09:00</published>
@@ -1680,6 +1987,7 @@ orange&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;class&quot;&gt;Class&lt;/h1&gt;
@@ -1965,6 +2273,7 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;function&quot;&gt;Function&lt;/h1&gt;
@@ -2347,6 +2656,7 @@ age라는 setter를 정의하는 순간, &lt;code class=&quot;language-plaintext
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;1-string-concatenation&quot;&gt;1. String concatenation&lt;/h1&gt;
@@ -2563,6 +2873,7 @@ console.log(`string literals:
     &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;1-strict-mode&quot;&gt;1. Strict Mode&lt;/h1&gt;
@@ -2830,112 +3141,6 @@ console.log(`string literals:
 
 &lt;blockquote&gt;
   &lt;p&gt;출처: “자바스크립트 3. 데이터타입, data types, let vs var, hoisting 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 27:58, 게시자 “드림코딩 by 엘리,” 2020년 4월 11일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">JavaScript(1) - async vs. defer</title>
-      <link href="https://ohoraming.github.io/JavaScript-asyncDefer" rel="alternate" type="text/html" title="JavaScript(1) - async vs. defer" />
-      <published>2021-07-23T22:43:00+09:00</published>
-      <updated>2021-07-23T22:43:00+09:00</updated>
-      <id>https://ohoraming.github.io/JavaScript-asyncDefer</id>
-      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-asyncDefer">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-headtag내에서-script-srcmainjsscript-선언할-때&quot;&gt;1. &amp;lt;head&amp;gt;tag내에서 &amp;lt;script src=”main.js”&amp;gt;&amp;lt;/script&amp;gt; 선언할 때&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;parsing HTML : HTML 문서를 한 줄 씩 읽어 내려가다가&lt;/li&gt;
-  &lt;li&gt;&amp;lt;script&amp;gt; tag를 만나면 parsing을 멈추고, fetching js, executing js : js파일을 다운 받아서 실행함.&lt;/li&gt;
-  &lt;li&gt;2번이 끝나면, 다시 parsing HTML을 이어서 마무리 함&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts_images/2021-07-23/head.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;⇒ 단점: 사용자가 웹사이트를 보기까지 시간이 많이 걸림&lt;/p&gt;
-
-&lt;h2 id=&quot;2-bodytag-가장-아랫-부분에-scripttag를-넣는-경우&quot;&gt;2. &amp;lt;body&amp;gt;tag 가장 아랫 부분에 &amp;lt;script&amp;gt;tag를 넣는 경우&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/posts_images/2021-07-23/body.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;⇒ 장점: 사용자가 HTML 컨텐츠를 빠르게 볼 수 있음&lt;/p&gt;
-
-&lt;p&gt;⇒ 단점: js의 영향력이 큰 페이지라면 사용자가 온전한 페이지를 접하기까지 오래 걸림&lt;/p&gt;
-
-&lt;h2 id=&quot;3-headtag-내에-script-async-srcmainjs를-선언하는-경우&quot;&gt;3. &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;async&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;HTML parsing을 하다가 async를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
-  &lt;li&gt;js의 다운로드가 끝나면, parsing을 멈추고 다운로드 된 js를 실행시킴&lt;/li&gt;
-  &lt;li&gt;실행이 끝나면 나머지 HTML을 parsing함&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts_images/2021-07-23/head-async.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;⇒ 장점: js의 다운로드 시간을 절약할 수 있음&lt;br /&gt;
-⇒ 단점: js가 적용되는 HTML문서의 parsing에 따른 시간 차이로 인해 오류가 생길 수 있으며, 여전히 온전한 페이지 로딩에 시간이 많이 걸림&lt;/p&gt;
-
-&lt;h2 id=&quot;4-headtag내에-script-defer-srcmainjs를-선언하는-경우&quot;&gt;4. &amp;lt;head&amp;gt;tag내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;를 선언하는 경우★★★★★&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;HTML parsing 하다가 defer를 만나면 js문서의 다운로드를 병렬로 진행하다가&lt;/li&gt;
-  &lt;li&gt;HTML parsing이 끝나면 사용자에게 페이지를 보여줌&lt;/li&gt;
-  &lt;li&gt;다운로드 된 js를 실행시킴
-&lt;img src=&quot;/assets/posts_images/2021-07-23/head-defer.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;5-async-vs-defer&quot;&gt;5. async vs. defer&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/posts_images/2021-07-23/async.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;
-async의 경우,&lt;br /&gt;
-여러 개의 js문서가 적용 순서와 상관없이 fetching이 완료된 순서로 실행이 됨&lt;br /&gt;
-→ 실행 순서가 중요하다면 오류가 생길 수 있음&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/posts_images/2021-07-23/defer.png&quot; alt=&quot;title&quot; width=&quot;100%&amp;quot;, height=&amp;quot;100%&quot; /&gt;
-defer의 경우,&lt;br /&gt;
-parsing하는 동안 js가 모두 다운로드 되므로 순서대로 실행이 됨&lt;/p&gt;
-
-&lt;h4 id=&quot;-그러므로-headtag-내에-script-defer-srcmainjsscript로-선언하는-것이-가장-효율적이며-안전함&quot;&gt;※ 그러므로, &amp;lt;head&amp;gt;tag 내에 &amp;lt;script &lt;strong&gt;defer&lt;/strong&gt; src=”main.js”&amp;gt;&amp;lt;/script&amp;gt;로 선언하는 것이 가장 효율적이며, 안전함!&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;출처: “자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 | 프론트엔드 개발자 입문편 (JavaScript ES5+),” 유튜브 비디오, 17:43, 게시자 “드림코딩 by 엘리,” 2020년 4월 7일, &lt;a href=&quot;https://youtu.be/tJieVCgGzhs&quot;&gt;https://youtu.be/tJieVCgGzhs&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       

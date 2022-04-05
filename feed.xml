@@ -1,4 +1,272 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-04T22:58:06+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Python(4) - Query 만들기[object 검색]</title><link href="https://ohoraming.github.io/Python-making-queries" rel="alternate" type="text/html" title="Python(4) - Query 만들기[object 검색]" /><published>2022-04-04T22:14:00+09:00</published><updated>2022-04-04T22:14:00+09:00</updated><id>https://ohoraming.github.io/Python-making-queries</id><content type="html" xml:base="https://ohoraming.github.io/Python-making-queries">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-05T23:10:26+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">JavaScript(11) - Regular expressions</title><link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" /><published>2022-04-05T19:26:00+09:00</published><updated>2022-04-05T19:26:00+09:00</updated><id>https://ohoraming.github.io/JavaScript-regular-expressions</id><content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;regular-expression-regex&quot;&gt;Regular expression (regex)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1950, 수학자 Stephen Cole Kleene에 의해 개발됨&lt;/li&gt;
+  &lt;li&gt;slash(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-groups-or-ranges&quot;&gt;1. Groups or ranges&lt;/h2&gt;
+&lt;h3 id=&quot;1--or&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; (or)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Hi|Hello/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ Hi &lt;strong&gt;또는&lt;/strong&gt; Hello 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;2--group&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;()&lt;/code&gt; (group)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(Hi|Hello)|(And)/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;group #1&lt;/strong&gt;: Hi 또는 Hello 매칭&lt;br /&gt;
+→ &lt;strong&gt;group #2&lt;/strong&gt;: And 매칭&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(e|a)y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ gr로 시작, e 또는 a, y로 끝나는 단어 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;3--group-미지정&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?:)&lt;/code&gt; (group 미지정)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(?:e|a)y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ group을 지정하고 싶지 않다면 &lt;strong&gt;( )&lt;/strong&gt; 시작에 &lt;strong&gt;?:&lt;/strong&gt;를 추가&lt;/p&gt;
+
+&lt;h3 id=&quot;4--안의-문자-찾기&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자 찾기)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr[ead]y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ [] 안의 문자 중 하나라도 만족하는 단어 매칭&lt;br /&gt;
+    gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;e&lt;/strong&gt;y, gr&lt;strong&gt;d&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-f]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ a부터 f까지의 문자를 매칭&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;5--안의-문자를-제외한-나머지-찾기&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[^]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자를 제외한 나머지 찾기)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^a-zA-Z]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 &lt;strong&gt;제외&lt;/strong&gt;한 나머지를 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;2-quantifiers&quot;&gt;2. Quantifiers&lt;/h2&gt;
+&lt;h3 id=&quot;1--앞의-문자가-하나있거나-없거나&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt;앞의 문자가 하나있거나 없거나)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra?y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나있거나 없는 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gry&lt;/p&gt;
+
+&lt;h3 id=&quot;2--앞의-문자가-하나-이상-있거나-없거나&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;앞의 문자가 하나 이상 있거나 없거나)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra*y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없거나 많은 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gry, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;3--앞의-문자가-하나-이상&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;앞의 문자가 하나 이상)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra+y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나 이상 있는 문자 매칭
+gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;4-n-n앞의-문자-n번-반복&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt;앞의 문자 n번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 두 번 반복되는 문자 매칭
+gr&lt;strong&gt;aa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;5-min-min앞의-문자-최소-n번-반복&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt;앞의 문자 최소 n번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 최소 두 번 반복되는 문자 매칭
+gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h3 id=&quot;6-minmax-minmax앞의-문자가-최소-min번-최대-max번-반복&quot;&gt;(6) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt;앞의 문자가 최소 min번, 최대 max번 반복)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,3}y/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 &lt;strong&gt;최소 두 번, 최대 세 번 반복&lt;/strong&gt;되는 문자 매칭&lt;br /&gt;
+gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
+
+&lt;h2 id=&quot;3-boundary-type&quot;&gt;3. Boundary-type&lt;/h2&gt;
+&lt;h3 id=&quot;--단어의-경계를-지정해-검색&quot;&gt;- 단어의 경계를 지정해 검색&lt;/h3&gt;
+&lt;h3 id=&quot;1-b-단어의-앞-경계-또는-뒷-경계에서-검색&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt; (단어의 앞 경계 또는 뒷 경계에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\bYa/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 앞에 있는 Ya를 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\b/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;, YaYa&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-b-b의-경우를-제외한-검색&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\B&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;의 경우를 제외한 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\B/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭(/Ya&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;/gm)하는 경우를 제외한 매칭&lt;br /&gt;
+&lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--문장의-경계를-지정해-검색&quot;&gt;- 문장의 경계를 지정해 검색&lt;/h3&gt;
+
+&lt;h3 id=&quot;3--문장의-시작에서-검색&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^&lt;/code&gt; (문장의 시작에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;4--문장의-끝에서-검색&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; (문장의 끝에서 검색)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;--전체-문장의-경계를-지정해-검색&quot;&gt;- 전체 문장의 경계를 지정해 검색&lt;/h3&gt;
+&lt;p&gt;※ flag에서 m(&lt;strong&gt;m&lt;/strong&gt;ultiline)을 선택하지 않으면,
+전체 문장으로 경계를 지정해 검색함&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 전체 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 전체 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;4-character-classes&quot;&gt;4. Character classes&lt;/h2&gt;
+&lt;h3 id=&quot;1-특수문자&quot;&gt;(1) \특수문자&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\[/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ \ 뒤의 &lt;strong&gt;특수 문자&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; 를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;2-&quot;&gt;(2) .&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/./gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 줄바꿈 문자를 제외한 &lt;strong&gt;모든 문자&lt;/strong&gt;를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;3-d&quot;&gt;(3) \d&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;숫자&lt;/strong&gt;(&lt;strong&gt;d&lt;/strong&gt;igit)를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;4-d&quot;&gt;(4) \D&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\D/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;숫자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;5-w-소문자-w&quot;&gt;(5) \w (소문자 w)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\w/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;문자&lt;/strong&gt;(&lt;strong&gt;w&lt;/strong&gt;ord)를 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;6-w-대문자-w&quot;&gt;(6) \W (대문자 w)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\W/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;문자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;7-s-소문자-s&quot;&gt;(7) \s (소문자 s)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\s/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;띄어쓰기&lt;/strong&gt;(&lt;strong&gt;s&lt;/strong&gt;pace) 매칭&lt;/p&gt;
+
+&lt;h3 id=&quot;8-s-대문자-s&quot;&gt;(8) \S (대문자 S)&lt;/h3&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\S/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;strong&gt;띄어쓰기를 제외&lt;/strong&gt; 매칭&lt;/p&gt;
+
+&lt;h2 id=&quot;5-exercises&quot;&gt;5. Exercises&lt;/h2&gt;
+&lt;h3 id=&quot;1-전화번호-형태-찾기&quot;&gt;1. 전화번호 형태 찾기&lt;/h3&gt;
+&lt;p&gt;010-898-0893&lt;br /&gt;
+010 898 0893&lt;br /&gt;
+010.898.0893&lt;br /&gt;
+010-405-3412&lt;br /&gt;
+02-878-8888&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d{2,3}[- .]\d{3}[- .]\d{4}/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {2,3} 최소 두 번, 최대 세 번 반복
+→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {3} 세 번 반복
+→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {4} 네 번 반복
+→ 숫자 사이에는 [- .] - 또는 공백 또는 . 으로 연결&lt;/p&gt;
+
+&lt;h3 id=&quot;2-이메일-형태-찾기&quot;&gt;2. 이메일 형태 찾기&lt;/h3&gt;
+&lt;p&gt;dream.coder.ellie@gmail.com&lt;br /&gt;
+hello@daum.net&lt;br /&gt;
+hello@daum.co.kr&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9._+-]+&lt;/code&gt; 문자(소/대문자, 숫자, ., _, +, -)가 하나 이상&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&lt;/code&gt; 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9-]+&lt;/code&gt; 문자(소/대문자, 숫자, -)가 하나 이상&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9.]+&lt;/code&gt; 문자(소/대문자, 숫자, .)가 하나 이상&lt;/p&gt;
+
+&lt;h3 id=&quot;3-특정-문자열-찾기&quot;&gt;3. 특정 문자열 찾기&lt;/h3&gt;
+&lt;p&gt;http://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
+https://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
+https://youtu.be/-ZClicWm0zM&lt;br /&gt;
+youtu.be/-ZClicWm0zM&lt;br /&gt;
+에서 youtube id인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ZClicWm0zM&lt;/code&gt; 만 가져오기&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(https?:\/\/)?(www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(https?:\/\/)?&lt;/code&gt;&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?s&lt;/code&gt; s가 있어도 되고 없어도 됨 &lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:\/\/&lt;/code&gt; ://(특수 문자) 연결&lt;br /&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(www.)?&lt;/code&gt;
+→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;youtu.be\/&lt;/code&gt;&lt;br /&gt;
+→ youtu.be/ 연결&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;([a-zA-Z0-9-]{11})&lt;/code&gt;&lt;br /&gt;
+→ 소/대문자,숫자,-로 이루어진 11자리의 문자 group&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;결과적으로 group #1(http://), group #2(www.), group #3(youtube id)이 생성됨
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(?:https?:\/\/)?(?:www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;→ group #1과 group #2는 grouping하지 않으려면 group의 시작에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?: )&lt;/code&gt;을 입력하면 됨&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;6-javascript-활용&quot;&gt;6. JavaScript 활용&lt;/h2&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/\/)?(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;www.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;youtu.be&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z0-9-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]{11})&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://www.youtu.be/-ZClicWm0zM&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;배열을 반환함&lt;br /&gt;
+[0]: 매칭되는 전체 문자열,&lt;br /&gt;
+[1]: 매칭되는 group의 data&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
+  &lt;p&gt;0: “http://www.youtu.be/-ZClicWm0zM”&lt;br /&gt;
+1: “-ZClicWm0zM”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;추가 code를 작성하면,&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;h6 id=&quot;console-1&quot;&gt;Console&lt;/h6&gt;
+  &lt;p&gt;‘-ZClicWm0zM’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;7-유용한-site&quot;&gt;7. 유용한 site&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://regexone.com/&quot;&gt;https://regexone.com/&lt;/a&gt; → 학습&lt;br /&gt;
+&lt;a href=&quot;https://regexr.com/&quot;&gt;https://regexr.com/&lt;/a&gt; → 정규표현식 입력시 확인&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“정규표현식 , 더이상 미루지 말자,” 유튜브 비디오, 22:01, 게시자 “드림코딩 by 엘리,” &lt;a href=&quot;https://youtu.be/t3M6toIflyQ&quot;&gt;https://youtu.be/t3M6toIflyQ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>ohoraming</name></author><category term="JavaScript" /><summary type="html"></summary></entry><entry><title type="html">Python(4) - Query 만들기 [object 검색]</title><link href="https://ohoraming.github.io/Python-making-queries" rel="alternate" type="text/html" title="Python(4) - Query 만들기 [object 검색]" /><published>2022-04-04T22:14:00+09:00</published><updated>2022-04-04T22:14:00+09:00</updated><id>https://ohoraming.github.io/Python-making-queries</id><content type="html" xml:base="https://ohoraming.github.io/Python-making-queries">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -1366,88 +1634,4 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;b) ready 와 waiting 상태는 어떻게 다른지 구분하여 설명하라.&lt;/strong&gt;&lt;br /&gt;
 → ready: CPU 서비스를 받기 위해 기다리는 것&lt;br /&gt;
-→ waiting: I/O 서비스를 받기 위해 기다리는 것&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry><entry><title type="html">OS(8) - Monitor</title><link href="https://ohoraming.github.io/OS-monitor" rel="alternate" type="text/html" title="OS(8) - Monitor" /><published>2022-02-07T22:58:00+09:00</published><updated>2022-02-07T22:58:00+09:00</updated><id>https://ohoraming.github.io/OS-monitor</id><content type="html" xml:base="https://ohoraming.github.io/OS-monitor">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;OS 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-intro&quot;&gt;OS(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-interrupt-based-system&quot;&gt;OS(2) - Interrupt-Based System&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-process-mgmt&quot;&gt;OS(3) - Process Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-cpu-scheduling&quot;&gt;OS(4) - CPU Scheduling&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-thread&quot;&gt;OS(5) - Thread&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-classical-sync-problems&quot;&gt;OS(6) - Classical Synchronization Problems&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-deadlock&quot;&gt;OS(7) - Deadlock&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-monitor&quot;&gt;OS(8) - Monitor&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;semaphore 이후 process synchronization tool&lt;/li&gt;
-  &lt;li&gt;semaphore(assembly 수준) 보다 고수준(high level language 수준) 개념&lt;/li&gt;
-  &lt;li&gt;구조&lt;br /&gt;
-  → &lt;strong&gt;공유자원&lt;/strong&gt;(common variable) + &lt;strong&gt;공유자원 접근함수&lt;/strong&gt;&lt;br /&gt;
-  → 2개의 queues: &lt;strong&gt;배타동기&lt;/strong&gt; + &lt;strong&gt;조건동기&lt;/strong&gt;&lt;br /&gt;
-  → 공유자원 접근함수에는 최대 1개의 thread만 진입(배타동기) &lt;br /&gt;
-      : mutual exclusion&lt;br /&gt;
-  → common variable에 접근한 method를 실행하고 있다면 다른 thread는 queue에 대기&lt;br /&gt;
-  → 진입 thread가 조건동기(wait())로 block되면 새 thread 진입가능&lt;br /&gt;
-      : conditional synchronization&lt;br /&gt;
-      : wait()을 부르면 실행중인 thread가 queue에 갇힘(= 새 thread 진입가능)&lt;br /&gt;
-  → 새 thread는 조건동기(notify())로 block된 thread를 깨울 수 있음&lt;br /&gt;
-  → 깨운 thread는 현재의 thread가 나가면 진입할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;java-monitor&quot;&gt;Java Monitor&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Java의 모든 객체는 monitor가 될 수 있음&lt;br /&gt;
-  → 배타동기: &lt;strong&gt;synchronized&lt;/strong&gt; 키워드 사용&lt;br /&gt;
-  → 조건동기: &lt;strong&gt;wait(), notify(), notifyAll()&lt;/strong&gt; method사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;일반적-사용1-mutual-exclusion&quot;&gt;일반적 사용(1): Mutual exclusion&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;synchronized {&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Critical-Section&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;→ &lt;strong&gt;synchronized&lt;/strong&gt; 키워드만 사용하면 됨: 간단&lt;br /&gt;
-→ monitor는 초깃값 설정 없음&lt;br /&gt;
-→ semaphore는 semaphore import, 초깃값(= 1) 설정,&lt;br /&gt;
-    C.S. 앞뒤로 acquire(), release() 선언: 복잡&lt;/p&gt;
-
-&lt;h3 id=&quot;일반적-사용2-ordering&quot;&gt;일반적 사용(2): Ordering&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;p1&lt;/td&gt;
-      &lt;td&gt;p2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;wait();&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;S1;&lt;/td&gt;
-      &lt;td&gt;S2;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;notify();&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry></feed>
+→ waiting: I/O 서비스를 받기 위해 기다리는 것&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="OS" /><summary type="html"></summary></entry></feed>
