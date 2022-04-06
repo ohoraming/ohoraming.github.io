@@ -156,7 +156,7 @@ into the {body} of the default.hbs template -->
     <!-- About: blog에 대한 기본적인 소개-->
     <!-- C:\myblog\about\index.md에서 세부설정 -->
     <!-- href: C:\myblog\_data\authors\tags.yml에서 설정한 tag명 tag/다음에 넣음 -->
-    <li class="nav-about" role="menuitem"><a href="/about/">Portfolio</a></li>
+    <li class="nav-about" role="menuitem"><a href="/portfolio/">Portfolio</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/java/">JAVA</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/javascript/">JavaScript</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/python/">Python</a></li>
@@ -252,7 +252,7 @@ into the {body} of the default.hbs template -->
 <h3 id="3--group-미지정">(3) <code class="language-plaintext highlighter-rouge">(?:)</code> (group 미지정)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/gr(?:e|a)y/gm
 </code></pre></div></div>
-<p>→ group을 지정하고 싶지 않다면 <strong>( )</strong> 시작에 <strong>?:</strong>를 추가</p>
+<p>→ group을 지정하고 싶지 않다면 <strong>( )</strong> 시작에 <strong>?:</strong> 추가</p>
 
 <h3 id="4--안의-문자-찾기">(4) <code class="language-plaintext highlighter-rouge">[]</code> (<code class="language-plaintext highlighter-rouge">[]</code>안의 문자 찾기)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/gr[ead]y/gm
@@ -264,12 +264,12 @@ into the {body} of the default.hbs template -->
 </code></pre></div></div>
 <p>→ a부터 f까지의 문자를 매칭</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[a-zA-Z]/gm
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[a-zA-Z0-9]/gm
 </code></pre></div></div>
 <p>→ 소문자 <strong>a부터 z</strong>까지, 대문자 <strong>A부터 Z</strong>까지, 숫자 <strong>0부터 9</strong>까지의 문자를 매칭</p>
 
 <h3 id="5--안의-문자를-제외한-나머지-찾기">(5) <code class="language-plaintext highlighter-rouge">[^]</code> (<code class="language-plaintext highlighter-rouge">[]</code>안의 문자를 제외한 나머지 찾기)</h3>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[^a-zA-Z]/gm
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[^a-zA-Z0-9]/gm
 </code></pre></div></div>
 <p>→ 소문자 <strong>a부터 z</strong>까지, 대문자 <strong>A부터 Z</strong>까지, 숫자 <strong>0부터 9</strong>까지의 문자를 <strong>제외</strong>한 나머지를 매칭</p>
 
@@ -516,13 +516,13 @@ youtu.be/-ZClicWm0zM<br />
                 
                 <section class="author-card">
                     
-                    <img class="author-profile-image" src="/assets/built/images/author-logo.png"
-                        alt="ohoraming" />
+                        <img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
+                    
                     
                     <section class="author-card-content">
                         <h4 class="author-card-name"><a href="/author/ohoraming">ohoraming</a></h4>
                         
-                        <p>The professional publishing platform</p>
+                        <p>배움을 기록합니다</p>
                         
                     </section>
                 </section>
@@ -537,23 +537,13 @@ youtu.be/-ZClicWm0zM<br />
             <!-- If you use Disqus comments, just uncomment this block.
             The only thing you need to change is "test-apkdzgmqhj" - which
             should be replaced with your own Disqus site-id. -->
-            
-            <section class="post-full-comments">
-                <div id="disqus_thread"></div>
-                <script>
-                    var disqus_config = function () {
-                        var this_page_url = 'https://ohoraming.github.io/JavaScript-regular-expressions';
-                        var this_page_identifier = '/JavaScript-regular-expressions';
-                        var this_page_title = 'JavaScript(11) - Regular expressions';
-                    };
-                    (function () {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://xxxxxxxx.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-            </section>
+            <script src="https://utteranc.es/client.js"
+                repo="ohoraming/blog-comment"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
             
 
         </article>
@@ -756,7 +746,8 @@ youtu.be/-ZClicWm0zM<br />
                 
                     
                         
-                        <img class="author-profile-image" src="/assets/built/images/author-logo.png" alt="ohoraming" />
+<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
+
                         
                         <span class="post-card-author">
                             <a href="/author/ohoraming/">ohoraming</a>

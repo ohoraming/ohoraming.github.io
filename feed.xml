@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-06T00:32:54+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">JavaScript(11) - Regular expressions</title><link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" /><published>2022-04-05T19:26:00+09:00</published><updated>2022-04-05T19:26:00+09:00</updated><id>https://ohoraming.github.io/JavaScript-regular-expressions</id><content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-06T14:53:55+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">JavaScript(11) - Regular expressions</title><link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" /><published>2022-04-05T19:26:00+09:00</published><updated>2022-04-05T19:26:00+09:00</updated><id>https://ohoraming.github.io/JavaScript-regular-expressions</id><content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;h3 id=&quot;3--group-미지정&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?:)&lt;/code&gt; (group 미지정)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(?:e|a)y/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ group을 지정하고 싶지 않다면 &lt;strong&gt;( )&lt;/strong&gt; 시작에 &lt;strong&gt;?:&lt;/strong&gt;를 추가&lt;/p&gt;
+&lt;p&gt;→ group을 지정하고 싶지 않다면 &lt;strong&gt;( )&lt;/strong&gt; 시작에 &lt;strong&gt;?:&lt;/strong&gt; 추가&lt;/p&gt;
 
 &lt;h3 id=&quot;4--안의-문자-찾기&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자 찾기)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr[ead]y/gm
@@ -52,12 +52,12 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ a부터 f까지의 문자를 매칭&lt;/p&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z]/gm
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9]/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 매칭&lt;/p&gt;
 
 &lt;h3 id=&quot;5--안의-문자를-제외한-나머지-찾기&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[^]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자를 제외한 나머지 찾기)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^a-zA-Z]/gm
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^a-zA-Z0-9]/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 &lt;strong&gt;제외&lt;/strong&gt;한 나머지를 매칭&lt;/p&gt;
 
