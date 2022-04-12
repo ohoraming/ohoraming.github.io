@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(6) - object" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions ※ 참고: Object - JavaScript | MDN Literals and" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions &lt; 추천 &gt; Object 관련 글 읽어보기 Object -" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-object" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(6) - object" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions ※ 참고: Object - JavaScript | MDN Literals and" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions &lt; 추천 &gt; Object 관련 글 읽어보기 Object -" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-object"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions ※ 참고: Object - JavaScript | MDN Literals and"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions &lt; 추천 &gt; Object 관련 글 읽어보기 Object -"
 }
     </script>
 
@@ -226,154 +226,328 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-callback">JavaScript(9) - callback</a></li>
     <li><a href="./JavaScript-promise">JavaScript(10) - promise</a></li>
     <li><a href="./JavaScript-regular-expressions">JavaScript(11) - Regular expressions</a></li>
+    <br />
+    <br />
 </ul>
 
-<p>※ 참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object - JavaScript | MDN</a></p>
-
-<h1 id="literals-and-properties">Literals and properties</h1>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">object = { key : value }</code><br />
-  → key와 value의 집합체
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 'object literal' syntax</span>
-<span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span> <span class="c1">// 'object consrtuctor' syntax</span>
-<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">};</span>
-</code></pre></div>    </div>
-  </li>
-  <li>object literal syntax :  <code class="language-plaintext highlighter-rouge">{ }</code> curly braces를 사용해서 생성</li>
-  <li>object constructor syntax : <code class="language-plaintext highlighter-rouge">new</code> keyword를 사용해서 생성</li>
-  <li>{ } 안에 내용을 입력해서 생성</li>
-</ul>
-
-<h1 id="computed-properties">Computed properties</h1>
-<ul>
-  <li>perperty에 접근할 때(일반적으로 coding을 할 때)는 <code class="language-plaintext highlighter-rouge">.</code> 을 사용함</li>
-  <li>실시간으로(동적으로)  원하는 key의 값을 받아오고 싶을 때는 <code class="language-plaintext highlighter-rouge">[]</code> 을 사용함</li>
-</ul>
-
-<p>※ <strong>key</strong>는 반드시 <strong>string type</strong>으로 설정해야 함!</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">[</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]);</span>
-</code></pre></div></div>
 <blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="minji">minji</h6>
-  <h6 id="minji-1">minji</h6>
+  <p>&lt; 추천 &gt;<br />
+Object 관련 글 읽어보기<br />
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object - JavaScript | MDN</a></p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+<h1 id="object의-등장-배경">Object의 등장 배경</h1>
+<ul>
+  <li>primitive type은 변수 하나당 값을 하나만 할당할 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji">minji</h6>
+      <h6 id="5">5</h6>
+    </blockquote>
+  </li>
+  <li>인자가 많아질 수록 추가해야하는 코드가 늘어나 관리가 힘들어지며, grouping해서 논리적으로 생각하기도 어려움</li>
+</ul>
+
+<h1 id="object-생성">Object 생성</h1>
+<h2 id="--literals-and-properties">- Literals and properties</h2>
+<ul>
+  <li><strong>object literal syntax</strong><br />
+  → <code class="language-plaintext highlighter-rouge">{ }</code> curly braces를 사용해 생성<br />
+  → { } 안에 내용을 입력해서 생성
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 'object literal' syntax</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>object constructor syntax</strong><br />
+  → <code class="language-plaintext highlighter-rouge">new</code> keyword를 사용해 생성<br />
+  → Object에서 정의된 constructor가 호출되기 때문
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span> <span class="c1">// 'object consrtuctor' syntax</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>object = { key : value }</strong><br />
+  → object는 <strong>key</strong>와 <strong>value</strong>의 집합체
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// object 생성</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">minji</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji-1">minji</h6>
+      <h6 id="5-1">5</h6>
+    </blockquote>
+  </li>
+</ul>
+
+<h1 id="object의-property에-접근하기">object의 property에 접근하기</h1>
+<h2 id="1-일반적인-경우-사용">1. 일반적인 경우(<code class="language-plaintext highlighter-rouge">.</code> 사용)</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">object.key</code> 형태
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// minji</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji-2">minji</h6>
+    </blockquote>
+  </li>
+  <li>coding하는 해당 시점에 key가 존재해야 값을 불러올 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">key</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">printValue</span><span class="p">(</span><span class="nx">minji</span><span class="p">,</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// undefined</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="undefined">undefined</h6>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="2-computed-properties">2. Computed properties</h2>
+<ul>
+  <li>실시간으로(동적으로) 원하는 key의 값을 받아오고 싶을 때는 <code class="language-plaintext highlighter-rouge">[]</code> 을 사용함<br />
+(→ computed properties)</li>
+  <li>
+    <p><strong>key</strong>는 반드시 <strong>string type</strong>(<code class="language-plaintext highlighter-rouge">['string']</code>)으로 설정해야 함!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">[</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// minji</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span> <span class="c1">// undefined</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji-3">minji</h6>
+      <h6 id="undefined-1">undefined</h6>
+    </blockquote>
+  </li>
+  <li>coding하는 해당 시점에 key가 존재하지 않아도 값을 불러올 수 있음<br />
+  → 동적으로 key에 관련된 value를 받아와야 할 때 사용하면 유용함<br />
+  → 다른 언어에서는 지원하지 않는 유형임
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span> <span class="c1">// computed properties</span>
+  <span class="p">}</span>
+  <span class="nx">printValue</span><span class="p">(</span><span class="nx">minji</span><span class="p">,</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// minji</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji-4">minji</h6>
+    </blockquote>
+  </li>
+</ul>
 
 <h1 id="property-value-shorthand">Property value shorthand</h1>
 <ul>
-  <li>반복되는 object를 생성할 때는 <strong>constructor function</strong>을 사용함</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">2</span><span class="p">};</span>
+  <li>동일한 key와 value를 반복해서 object를 생성하는 경우,
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">2</span><span class="p">};</span>
 <span class="kd">const</span> <span class="nx">person2</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Steve</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
 <span class="kd">const</span> <span class="nx">person3</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dave</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>function을 사용해 간단하게 나타낼 수 있음<br />
+  → 이 방법은 JavaScript에 class가 없었을 때 많이 사용했음<br />
+  → key와 value의 이름이 동일하다면, <code class="language-plaintext highlighter-rouge">name: name,</code>을 <code class="language-plaintext highlighter-rouge">name,</code>으로 축약할 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">makePerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+          <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
+          <span class="na">age</span><span class="p">:</span> <span class="nx">age</span><span class="p">,</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">person4</span> <span class="o">=</span> <span class="nx">makePerson</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person4</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="name-minji-age-5">{name: ‘minji’, age: 5}</h6>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>constructor function</strong>을 사용<br />
+  → class의 constructor와 비슷하다고 생각하면 됨<br />
+  → 순수하게 object를 생성하며, <strong>함수 이름의 첫 글자는 대문자</strong>로 시작  <br />
+  → return 대신 <strong>this를 사용</strong><br />
+  → <code class="language-plaintext highlighter-rouge">this = {};</code>와 <code class="language-plaintext highlighter-rouge">return this;</code>가 생략된 것으로, JavaScript engine이 알아서 object를 생성해 줌 <br />
+  → <strong>new를 사용해 호출</strong></p>
 
-<span class="c1">// Constructor function</span>
-<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// this = {};</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="c1">// return this;</span>
-<span class="p">}</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Constructor function</span>
+  <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// this = {}; </span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+      <span class="c1">// return this; </span>
+  <span class="p">}</span>
 
-<span class="kd">const</span> <span class="nx">person4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person4</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="person-name-minji-age-5">person {name: “minji”, age: 5}</h6>
-</blockquote>
+  <span class="kd">const</span> <span class="nx">person5</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">baby</span><span class="dl">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person5</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="personname-baby-age-3">Person {name: ‘baby’, age: 3}</h6>
+    </blockquote>
+  </li>
+</ul>
 
 <h1 id="in-operator">in operator</h1>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">in</code> keyword를 이용해 해당 object 내에 key가 존재하는 지 확인함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">age</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">random</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// false</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">random</span><span class="p">);</span> <span class="c1">// undefined</span>
+  <li><code class="language-plaintext highlighter-rouge">in</code> keyword를 이용해 해당 object 내에 <strong>key가 존재하는 지 확인(boolean 반환)</strong>함
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">age</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">random</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// false</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">random</span><span class="p">);</span> <span class="c1">// undefined</span>
 </code></pre></div>    </div>
     <blockquote>
       <p><strong>Console</strong></p>
       <h6 id="true">true</h6>
       <h6 id="true-1">true</h6>
       <h6 id="false">false</h6>
-      <h6 id="undefined">undefined</h6>
+      <h6 id="undefined-2">undefined</h6>
     </blockquote>
   </li>
 </ul>
 
 <h1 id="forin-vs-forof">for…in vs. for…of</h1>
 <ul>
-  <li>특정 object 안의 <strong>key</strong>들을 모두 받아오려고 할 때, <code class="language-plaintext highlighter-rouge">in</code> 을 사용함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
-<span class="p">}</span>
+  <li>
+    <p>특정 object 안의 <strong>key</strong>를 모두 받을 때는 <code class="language-plaintext highlighter-rouge">in</code>을 사용함</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+  <span class="p">}</span>
 </code></pre></div>    </div>
+
     <blockquote>
       <p><strong>Console</strong></p>
       <h6 id="name">name</h6>
       <h6 id="age">age</h6>
     </blockquote>
   </li>
-  <li><strong>array나 list</strong>와 같은 data를 <strong>순차적으로</strong> 계산하거나 출력하려고 할 때, <code class="language-plaintext highlighter-rouge">of</code> 를 사용함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">value</span> <span class="k">of</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-<span class="p">}</span> 
+  <li>
+    <p><strong>array나 list</strong>와 같은 data를 <strong>순차적으로</strong> 계산하거나 출력할 때,<br />
+  → 기존 방법</p>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
 </code></pre></div>    </div>
     <blockquote>
       <p><strong>Console</strong></p>
       <h6 id="1">1</h6>
       <h6 id="2">2</h6>
       <h6 id="4">4</h6>
-      <h6 id="5">5</h6>
+      <h6 id="5-2">5</h6>
+    </blockquote>
+
+    <p>→ <code class="language-plaintext highlighter-rouge">of</code>를 사용하면 보다 간편하게 작성 가능</p>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nx">value</span> <span class="k">of</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">}</span> 
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="1-1">1</h6>
+      <h6 id="2-1">2</h6>
+      <h6 id="4-1">4</h6>
+      <h6 id="5-3">5</h6>
     </blockquote>
   </li>
 </ul>
 
-<p>※ <strong>새로운 함수나 API를 쓰기 전에는 항상 parameter와 return값을 숙지할 것!</strong></p>
+<h1 id="cloning-object-복제하기">Cloning (object 복제하기)</h1>
+<ul>
+  <li>예전 방법<br />
+  → 빈 object를 만들고, <strong>for…in</strong>으로 복제할 원본의 값을 하나하나 넣어줌
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">user2</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">user2</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">user</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user2</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="name-minji-age-10">{name: ‘minji’, age: ‘10’}</h6>
+    </blockquote>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Object.assign()</code> 사용<br />
+  → 복사하고자 하는 <strong>target</strong>과 원문인 <strong>source</strong>를 parameter로 전달하면, 이 둘을 합쳐 return함<br />
+  ※ <strong>새로운 함수나 API를 쓰기 전에는 항상 parameter와 return값을 숙지할 것!</strong><br />
+  | 참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() - Java Script | MDN</a>
+    <ul>
+      <li><strong>Syntax</strong>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="p">...</span><span class="nx">sources</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p><strong>Parameters</strong><br />
+  <code class="language-plaintext highlighter-rouge">target</code><br />
+  The target object — what to apply the sources’ properties to, which is returned after it is modified.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Object.assign();</code><br />
-참고: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() - Java Script | MDN</a><br />
-→ 복사하고자 하는 target과 원문인 source를 parameter로 전달하면, 이 둘을 합쳐 return함</p>
+        <p><code class="language-plaintext highlighter-rouge">sources</code><br />
+  The source object(s) — objects containing the properties you want to apply.</p>
+      </li>
+      <li>
+        <p><strong>Return value</strong><br />
+  The target object.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">user4</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 비어있는 target 생성</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">user4</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
-<span class="c1">// 또는</span>
-<span class="kd">const</span> <span class="nx">user4</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">user</span><span class="p">);</span>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 빈 target 생성</span>
+  <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">source</span><span class="p">);</span>
+        
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>        </div>
+        <blockquote>
+          <p><strong>Console</strong></p>
+          <h6 id="name-elephant-age-6">{name: ‘elephant’, age: ‘6’}</h6>
+        </blockquote>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user4</span><span class="p">);</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="name-minji-age-20">{name: “minji”, age: “20”}</h6>
-</blockquote>
+        <p>아래처럼 축약해서 적어도 됨</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruit1</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">fruit2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">small</span><span class="dl">'</span> <span class="p">};</span>
-<span class="kd">const</span> <span class="nx">fruit3</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">};</span>
-<span class="kd">const</span> <span class="nx">mixed1</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">mixed2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">,</span> <span class="nx">fruit3</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed1</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// yellow</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// green</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// small</span>
-</code></pre></div></div>
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="yellow">yellow</h6>
-  <h6 id="green">green</h6>
-  <h6 id="small">small</h6>
-</blockquote>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">source</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>        </div>
+      </li>
+      <li>다른 예시
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">fruit1</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">fruit2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">small</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">fruit3</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">mixed1</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">mixed2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">fruit1</span><span class="p">,</span> <span class="nx">fruit2</span><span class="p">,</span> <span class="nx">fruit3</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed1</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// yellow</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// green</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mixed2</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// small</span>
+</code></pre></div>        </div>
+        <blockquote>
+          <p><strong>Console</strong></p>
+          <h6 id="yellow">yellow</h6>
+          <h6 id="green">green</h6>
+          <h6 id="small">small</h6>
+        </blockquote>
+      </li>
+    </ul>
 
-<p>※ <strong>주의!</strong> ※<br />
-<code class="language-plaintext highlighter-rouge">assign&lt;T, U, V&gt;(target: T, source1: U, source2: V): T &amp; U &amp; V;</code> 를 적용할 때,<br />
-나중에 나오는 source2는 먼저 있던 source1의 내용을 <strong>덮어 쓰게 됨</strong></p>
+    <p>※ <strong>주의!</strong> ※<br />
+  <code class="language-plaintext highlighter-rouge">assign&lt;T, U, V&gt;(target: T, source1: U, source2: V): T &amp; U &amp; V;</code> 를 적용할 때,<br />
+  나중에 나오는 source2는 먼저 있던 source1의 내용을 <strong>덮어 쓰게 됨</strong></p>
+  </li>
+</ul>
 
 <blockquote>
   <p>출처: “자바스크립트 7. 오브젝트 넌 뭐니? | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 23:03, 게시자 “드림코딩 by 엘리,” 2020년 5월 6일, <a href="https://youtu.be/1Lbr29tzAA8">https://youtu.be/tJieVCgGzhs</a></p>

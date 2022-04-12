@@ -226,10 +226,11 @@ into the {body} of the default.hbs template -->
     <li><a href="./JavaScript-callback">JavaScript(9) - callback</a></li>
     <li><a href="./JavaScript-promise">JavaScript(10) - promise</a></li>
     <li><a href="./JavaScript-regular-expressions">JavaScript(11) - Regular expressions</a></li>
+    <br />
+    <br />
 </ul>
 
 <h1 id="class">Class</h1>
-
 <ul>
   <li>ES6부터 도입됨</li>
   <li>template (일종의 <strong><em>‘틀’</em></strong>)</li>
@@ -244,6 +245,7 @@ into the {body} of the default.hbs template -->
     <span class="c1">// constructor</span>
     <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// fields</span>
+        <span class="c1">// 두 fields에 전달받은 name과 age를 할당</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
     <span class="p">}</span>
@@ -254,10 +256,10 @@ into the {body} of the default.hbs template -->
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// 새 object를 생성</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
-<span class="nx">minji</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span>
+<span class="nx">minji</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span> <span class="c1">// speak 함수 호출</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -270,58 +272,66 @@ into the {body} of the default.hbs template -->
 <h1 id="object">Object</h1>
 <ul>
   <li>class를 이용해 <strong><em>새로운 instance를 생성한 것</em></strong></li>
-  <li>data를 넣어서 <strong><em>메모리에 올라감</em></strong></li>
+  <li>data를 넣었기때문에 <strong><em>메모리에 올라감</em></strong></li>
   <li><strong><em>여러 맛의 붕어빵들</em></strong>로 비유함</li>
 </ul>
 
 <h1 id="getter-and-setters">Getter and setters</h1>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">User</span> <span class="p">{</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstName</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastName</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// getter</span>
-    <span class="kd">get</span> <span class="nx">age</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// setter</span>
-    <span class="kd">set</span> <span class="nx">age</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// if(value &lt; 0) {</span>
-        <span class="c1">//     throw Error('age can not be negative');</span>
-        <span class="c1">// }</span>
-        <span class="c1">// this._age = value;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_age</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span> <span class="nx">user1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">'</span><span class="s1">Steve</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Jobs</span><span class="dl">'</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
-</code></pre></div></div>
-
 <ul>
-  <li>age라는 getter를 정의하는 순간, <code class="language-plaintext highlighter-rouge">this.age</code>는 <strong>getter를 호출</strong>하게 됨.<br />
-age라는 setter를 정의하는 순간, <code class="language-plaintext highlighter-rouge">=age;</code> 가 할당되며 <strong>setter를 호출</strong>하게 됨. <br />
-전달된 value는 setter안의 <code class="language-plaintext highlighter-rouge">this._age</code>에 할당되며, <strong>메모리 값을 업데이트</strong> 함.</li>
+  <li>class를 사용하는 사용자가 잘못된 값을 입력시 이에 대응할 수 있도록 <strong>getter/setter</strong>를 사용함
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nx">User</span> <span class="p">{</span>
+      <span class="kd">constructor</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstName</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastName</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// getter</span>
+      <span class="kd">get</span> <span class="nx">age</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// setter</span>
+      <span class="kd">set</span> <span class="nx">age</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// 다소 공격적인 대응</span>
+          <span class="c1">// if(value &lt; 0) {</span>
+          <span class="c1">//     throw Error('age can not be negative');</span>
+          <span class="c1">// }</span>
+          <span class="c1">// this._age = value;</span>
+
+          <span class="c1">// 수정한 대응</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">_age</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nx">value</span><span class="p">;</span>
+          <span class="c1">// 나이는 음수 안 됨</span>
+          <span class="c1">// 음수 입력시 0 반환</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">user1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="dl">'</span><span class="s1">Steve</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Jobs</span><span class="dl">'</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user1</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="0">0</h6>
+    </blockquote>
+  </li>
+  <li>age라는 <strong>getter</strong>를 정의하는 순간, <code class="language-plaintext highlighter-rouge">this.age</code>는 <strong>getter를 호출</strong>하게 됨.</li>
+  <li>age라는 <strong>setter</strong>를 정의하는 순간, <code class="language-plaintext highlighter-rouge">=age;</code> 가 할당되며 <strong>setter를 호출</strong>하게 됨.</li>
+  <li>전달된 value는 setter안의 <code class="language-plaintext highlighter-rouge">this._age</code>에 할당되며, <strong>메모리 값을 업데이트</strong> 함.</li>
   <li>getter/setter에 쓰이는 변수의 이름(여기서는 <code class="language-plaintext highlighter-rouge">_age</code>)을 달리 사용해 call stack이 다 차는 것을 막을 수 있음</li>
 </ul>
 
 <h1 id="public-private">public, private</h1>
-
 <ul>
   <li>too soon!</li>
   <li><strong>public</strong>: constructor(생성자)를 사용하지 않고 field를 정의하면  외부에서 접근이 가능함</li>
-  <li><strong>private</strong>: <code class="language-plaintext highlighter-rouge">#</code> 기호를 붙이고 field를 정의하면 클래스 내부에서만 접근, 변경이 가능함</li>
+  <li><strong>private</strong>: <code class="language-plaintext highlighter-rouge">#</code> 기호와 함께 field를 정의하면(# names: <em>hash names</em>로 발음) 클래스 내부에서만 접근, 변경이 가능함</li>
 </ul>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Experiment</span> <span class="p">{</span>
-    <span class="nx">publicField</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="err">#</span><span class="nx">privateField</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">publicField</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// public</span>
+    <span class="err">#</span><span class="nx">privateField</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// private</span>
 <span class="p">}</span>
 <span class="kd">const</span> <span class="nx">experiment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Experiment</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">publicField</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">privateField</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">publicField</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">privateField</span><span class="p">);</span> <span class="c1">// undefined</span>
 </code></pre></div></div>
 
 <blockquote>
@@ -331,101 +341,104 @@ age라는 setter를 정의하는 순간, <code class="language-plaintext highlig
 </blockquote>
 
 <h1 id="static">static</h1>
-
 <ul>
   <li>too soon!</li>
-  <li>class가 가진 고유의 값과 반복 사용하는 method들을 object와 상관없이 class이름을 이용해 호출함</li>
+  <li>
+    <p>class가 가진 고유의 값과 반복 사용하는 method들을 object와 상관없이 class이름을 이용해 호출함</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nx">Article</span> <span class="p">{</span>
+      <span class="kd">static</span> <span class="nx">publisher</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">I am MINJI</span><span class="dl">'</span><span class="p">;</span>
+      <span class="kd">constructor</span><span class="p">(</span><span class="nx">articleNumber</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">articleNumber</span> <span class="o">=</span> <span class="nx">articleNumber</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kd">static</span> <span class="nx">printPublisher</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Article</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">article1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Article</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 새 object 생성</span>
+  <span class="kd">const</span> <span class="nx">article2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Article</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 새 object 생성</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">article1</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span> <span class="c1">// undefined</span>
+  <span class="c1">// class(Article)로 호출해야 함</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Article</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span>
+  <span class="nx">Article</span><span class="p">.</span><span class="nx">printPublisher</span><span class="p">();</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="undefined-1">undefined</h6>
+      <h6 id="i-am-minji">I am MINJI</h6>
+      <h6 id="i-am-minji-1">I am MINJI</h6>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Article</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="nx">publisher</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">I am MINJI</span><span class="dl">'</span><span class="p">;</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">articleNumber</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">articleNumber</span> <span class="o">=</span> <span class="nx">articleNumber</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">static</span> <span class="nx">printPublisher</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Article</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span> <span class="nx">article1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Article</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">article2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Article</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">article1</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span> <span class="c1">// undefined -&gt; class로 호출해야 함</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Article</span><span class="p">.</span><span class="nx">publisher</span><span class="p">);</span>
-<span class="nx">Article</span><span class="p">.</span><span class="nx">printPublisher</span><span class="p">();</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="undefined-1">undefined</h6>
-  <h6 id="i-am-minji">I am MINJI</h6>
-  <h6 id="i-am-minji-1">I am MINJI</h6>
-</blockquote>
-
-<h1 id="inheritance">Inheritance</h1>
-
+<h1 id="inheritance-상속">Inheritance (상속)</h1>
 <ul>
-  <li>extends 키워드를 사용하면 해당 클래스의 fields와 methods를 포함할 수 있음</li>
-  <li><strong>overriding</strong>: 필요한 함수만 재정의 해서 사용함</li>
-  <li>overriding을 할 경우 부모의 함수는 더 이상 쓸 수 없게 됨. <code class="language-plaintext highlighter-rouge">super.</code> 를 사용해서 부모 함수를 호출해야 함.</li>
+  <li><strong>extends</strong> 키워드를 사용하면 해당 클래스의 fields와 methods를 포함할 수 있음</li>
+  <li><strong>overriding</strong>: 필요한 함수만 <strong>재정의</strong>해 사용함</li>
+  <li>overriding을 할 경우 <strong>부모의 함수는 더 이상 쓸 수 없게 됨</strong></li>
+  <li>
+    <p>overriding했지만, <strong>부모의 함수를 쓰고 싶다면, <code class="language-plaintext highlighter-rouge">super.</code> 를 사용</strong>해 부모 함수를 호출</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+      <span class="kd">constructor</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`drawing </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2"> color!`</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">class</span> <span class="nx">Rectangle</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{}</span>
+  <span class="kd">class</span> <span class="nx">Triangle</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{</span>
+      <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// overriding</span>
+          <span class="k">super</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span> <span class="c1">// 부모 함수의 draw() 호출</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">🔺</span><span class="dl">'</span><span class="p">);</span> 
+      <span class="p">}</span>
+      <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// overriding</span>
+          <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// object의 함수를 overriding</span>
+          <span class="k">return</span> <span class="s2">`Triangle: color: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2">`</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">rectangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">());</span>
+  <span class="kd">const</span> <span class="nx">triangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Triangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">triangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">());</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="drawing-blue-color">drawing blue color!</h6>
+      <h6 id="400">400</h6>
+      <h6 id="drawing-red-color">drawing red color!</h6>
+      <h6>🔺</h6>
+      <h6 id="200">200</h6>
+    </blockquote>
+  </li>
 </ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Shape</span> <span class="p">{</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`drawing </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2"> color!`</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nx">Rectangle</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{}</span>
-<span class="kd">class</span> <span class="nx">Triangle</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{</span>
-    <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">🔺</span><span class="dl">'</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="p">}</span>
-		<span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s2">`Triangle: color: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2">`</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">rectangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">());</span>
-<span class="kd">const</span> <span class="nx">triangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Triangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">triangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">());</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="drawing-blue-color">drawing blue color!</h6>
-  <h6 id="400">400</h6>
-  <h6 id="drawing-red-color">drawing red color!</h6>
-  <h6>🔺</h6>
-  <h6 id="200">200</h6>
-</blockquote>
 
 <p>※ 참고: 
 <a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Inheritance">Inheritance in JavaScript - Web 개발 학습하기 | MDN</a></p>
 
 <h1 id="instanceof">instanceOf</h1>
-
 <ul>
   <li><code class="language-plaintext highlighter-rouge">object instanceof class</code></li>
   <li>왼쪽의 object가 오른쪽의 class의 instance인지 확인함</li>
-  <li>boolean 리턴</li>
+  <li>boolean 반환</li>
 </ul>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span> <span class="k">instanceof</span> <span class="nx">Rectangle</span><span class="p">);</span> <span class="c1">// true</span>
@@ -446,14 +459,11 @@ age라는 setter를 정의하는 순간, <code class="language-plaintext highlig
   <h6 id="triangle-color-red">Triangle: color: red</h6>
 </blockquote>
 
-<p>※ JS에서 만든 모든 object class들은 JS의 Object를 상속함</p>
-
-<p>⇒ 어떤 object든 공통적으로 존재하는 함수들을 사용할 수 있다는 말!<br />
+<p>※ JS에서 만든 모든 object class들은 JS의 Object를 상속함 
+⇒ 즉, 어떤 object든 공통적으로 존재하는 함수들을 사용할 수 있다는 말!<br />
 예시 코드의 Triangle class의 toString처럼 overriding해서 사용하면 됨</p>
 
-<h1 id="standard-built-in-objects">Standard built-in objects</h1>
-
-<p>⇒ 표준 내장 객체</p>
+<h1 id="standard-built-in-objects표준-내장-객체">Standard built-in objects(표준 내장 객체)</h1>
 
 <p>※ 참고: 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Standard built-in objects - JavaScript | MDN</a></p>
@@ -738,7 +748,7 @@ age라는 setter를 정의하는 순간, <code class="language-plaintext highlig
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      4 min read
                     
                 </span>
             </footer>
