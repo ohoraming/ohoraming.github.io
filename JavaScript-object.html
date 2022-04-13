@@ -237,22 +237,23 @@ Object 관련 글 읽어보기<br />
 </blockquote>
 
 <h1 id="object의-등장-배경">Object의 등장 배경</h1>
-<ul>
-  <li>primitive type은 변수 하나당 값을 하나만 할당할 수 있음
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
 <span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>    </div>
-    <blockquote>
-      <p><strong>Console</strong></p>
-      <h6 id="minji">minji</h6>
-      <h6 id="5">5</h6>
-    </blockquote>
-  </li>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Console</strong></p>
+  <h6 id="minji">minji</h6>
+  <h6 id="5">5</h6>
+</blockquote>
+
+<ul>
+  <li>primitive type은 변수 하나당 값을 하나만 할당할 수 있음</li>
+  <li>함수의 parameter로 사용할 변수를 일일이 써주어야 함</li>
   <li>인자가 많아질 수록 추가해야하는 코드가 늘어나 관리가 힘들어지며, grouping해서 논리적으로 생각하기도 어려움</li>
 </ul>
 
@@ -261,7 +262,7 @@ Object 관련 글 읽어보기<br />
 <ul>
   <li><strong>object literal syntax</strong><br />
   → <code class="language-plaintext highlighter-rouge">{ }</code> curly braces를 사용해 생성<br />
-  → { } 안에 내용을 입력해서 생성
+  → <code class="language-plaintext highlighter-rouge">{ }</code> 안에 내용을 입력
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 'object literal' syntax</span>
 </code></pre></div>    </div>
   </li>
@@ -273,12 +274,12 @@ Object 관련 글 읽어보기<br />
   </li>
   <li><strong>object = { key : value }</strong><br />
   → object는 <strong>key</strong>와 <strong>value</strong>의 집합체
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// object 생성</span>
-<span class="nx">print</span><span class="p">(</span><span class="nx">minji</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// object 생성</span>
+  <span class="nx">print</span><span class="p">(</span><span class="nx">minji</span><span class="p">);</span>
 </code></pre></div>    </div>
     <blockquote>
       <p><strong>Console</strong></p>
@@ -294,30 +295,21 @@ Object 관련 글 읽어보기<br />
   <li><code class="language-plaintext highlighter-rouge">object.key</code> 형태
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// minji</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span> <span class="c1">// undefined</span>
 </code></pre></div>    </div>
     <blockquote>
       <p><strong>Console</strong></p>
       <h6 id="minji-2">minji</h6>
-    </blockquote>
-  </li>
-  <li>coding하는 해당 시점에 key가 존재해야 값을 불러올 수 있음
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
-  <span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">key</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nx">printValue</span><span class="p">(</span><span class="nx">minji</span><span class="p">,</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// undefined</span>
-</code></pre></div>    </div>
-    <blockquote>
-      <p><strong>Console</strong></p>
       <h6 id="undefined">undefined</h6>
     </blockquote>
   </li>
+  <li>존재하지 않는 property(여기서는 <em>address</em>)를 호출하면 <strong><em>undefined</em></strong> 반환</li>
 </ul>
 
 <h2 id="2-computed-properties">2. Computed properties</h2>
 <ul>
-  <li>실시간으로(동적으로) 원하는 key의 값을 받아오고 싶을 때는 <code class="language-plaintext highlighter-rouge">[]</code> 을 사용함<br />
-(→ computed properties)</li>
+  <li>동적으로 원하는 key 값을 받아오고 싶을 때는 <code class="language-plaintext highlighter-rouge">[]</code> 을 사용함<br />
+  (→ computed properties)</li>
   <li>
     <p><strong>key</strong>는 반드시 <strong>string type</strong>(<code class="language-plaintext highlighter-rouge">['string']</code>)으로 설정해야 함!</p>
 
@@ -332,9 +324,7 @@ Object 관련 글 읽어보기<br />
       <h6 id="undefined-1">undefined</h6>
     </blockquote>
   </li>
-  <li>coding하는 해당 시점에 key가 존재하지 않아도 값을 불러올 수 있음<br />
-  → 동적으로 key에 관련된 value를 받아와야 할 때 사용하면 유용함<br />
-  → 다른 언어에서는 지원하지 않는 유형임
+  <li>동적으로 key에 관련된 value를 받아와야 할 때 유용함
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
   <span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span> <span class="c1">// computed properties</span>
@@ -356,13 +346,13 @@ Object 관련 글 읽어보기<br />
 <span class="kd">const</span> <span class="nx">person3</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dave</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">4</span><span class="p">};</span>
 </code></pre></div>    </div>
   </li>
-  <li>function을 사용해 간단하게 나타낼 수 있음<br />
-  → 이 방법은 JavaScript에 class가 없었을 때 많이 사용했음<br />
-  → key와 value의 이름이 동일하다면, <code class="language-plaintext highlighter-rouge">name: name,</code>을 <code class="language-plaintext highlighter-rouge">name,</code>으로 축약할 수 있음
+  <li><strong>function</strong>을 사용해 간단하게 나타낼 수 있음<br />
+  → 이 방법은 <strong>과거</strong>, JavaScript에 <strong>class가 없었을 때</strong> 많이 사용했음<br />
+  → 아래 예시처럼 key와 value의 이름이 동일하다면, <code class="language-plaintext highlighter-rouge">name: name,</code>을 <code class="language-plaintext highlighter-rouge">name,</code>으로 축약할 수 있음
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">makePerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{</span>
-          <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
-          <span class="na">age</span><span class="p">:</span> <span class="nx">age</span><span class="p">,</span>
+          <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span> <span class="c1">// name, 으로 축약 가능</span>
+          <span class="na">age</span><span class="p">:</span> <span class="nx">age</span><span class="p">,</span> <span class="c1">// age, 로 축약 가능</span>
       <span class="p">}</span>
   <span class="p">}</span>
   <span class="kd">const</span> <span class="nx">person4</span> <span class="o">=</span> <span class="nx">makePerson</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
@@ -374,9 +364,9 @@ Object 관련 글 읽어보기<br />
     </blockquote>
   </li>
   <li>
-    <p><strong>constructor function</strong>을 사용<br />
+    <p><strong>★ Constructor function</strong> 사용<br />
   → class의 constructor와 비슷하다고 생각하면 됨<br />
-  → 순수하게 object를 생성하며, <strong>함수 이름의 첫 글자는 대문자</strong>로 시작  <br />
+  → 순수하게 <strong>object를 생성</strong>하며, <strong>함수 이름의 첫 글자는 대문자</strong>로 시작  <br />
   → return 대신 <strong>this를 사용</strong><br />
   → <code class="language-plaintext highlighter-rouge">this = {};</code>와 <code class="language-plaintext highlighter-rouge">return this;</code>가 생략된 것으로, JavaScript engine이 알아서 object를 생성해 줌 <br />
   → <strong>new를 사용해 호출</strong></p>
@@ -401,7 +391,7 @@ Object 관련 글 읽어보기<br />
 
 <h1 id="in-operator">in operator</h1>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">in</code> keyword를 이용해 해당 object 내에 <strong>key가 존재하는 지 확인(boolean 반환)</strong>함
+  <li><code class="language-plaintext highlighter-rouge">in</code> keyword로 해당 object 내에 <strong>key가 존재하는 지 확인(boolean 반환)</strong>
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
 
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="k">in</span> <span class="nx">minji</span><span class="p">);</span> <span class="c1">// true</span>
@@ -438,7 +428,7 @@ Object 관련 글 읽어보기<br />
     </blockquote>
   </li>
   <li>
-    <p><strong>array나 list</strong>와 같은 data를 <strong>순차적으로</strong> 계산하거나 출력할 때,<br />
+    <p><strong>Array나 List</strong>같은 data를 <strong>순차적으로</strong> 계산하거나 출력할 때,<br />
   → 기존 방법</p>
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -506,7 +496,7 @@ Object 관련 글 읽어보기<br />
         <p><strong>Return value</strong><br />
   The target object.</p>
 
-        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">};</span>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">};</span> <span class="c1">// 복제할 원문</span>
   <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 빈 target 생성</span>
   <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">source</span><span class="p">);</span>
         
@@ -520,7 +510,7 @@ Object 관련 글 읽어보기<br />
         <p>아래처럼 축약해서 적어도 됨</p>
 
         <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">};</span>
-  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">source</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">source</span><span class="p">);</span> <span class="c1">// 축약된 형태</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
 </code></pre></div>        </div>
       </li>

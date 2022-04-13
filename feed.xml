@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-12T22:44:14+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">JavaScript(11) - Regular expressions</title><link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" /><published>2022-04-05T19:26:00+09:00</published><updated>2022-04-05T19:26:00+09:00</updated><id>https://ohoraming.github.io/JavaScript-regular-expressions</id><content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-13T23:28:02+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">JavaScript(11) - Regular expressions</title><link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" /><published>2022-04-05T19:26:00+09:00</published><updated>2022-04-05T19:26:00+09:00</updated><id>https://ohoraming.github.io/JavaScript-regular-expressions</id><content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -429,6 +429,8 @@ youtu.be/-ZClicWm0zM&lt;br /&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-test-code를-작성하는-이유&quot;&gt;1. Test Code를 작성하는 이유&lt;/h2&gt;
@@ -685,6 +687,8 @@ t3 = (1, 2, 3)&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -835,6 +839,8 @@ issue의 tracking Id는 8712이고,&lt;br /&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;contiguous-memory-allocation-연속-메모리-할당&quot;&gt;Contiguous Memory Allocation (연속 메모리 할당)&lt;/h2&gt;
@@ -1249,6 +1255,8 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;메모리-역사&quot;&gt;메모리 역사&lt;/h2&gt;
@@ -1367,6 +1375,8 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;

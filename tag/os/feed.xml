@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/os/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-12T22:44:14+09:00</updated>
+  <updated>2022-04-13T23:28:02+09:00</updated>
   <id>https://ohoraming.github.io/tag/os/feed.xml</id>
 
   
@@ -53,6 +53,8 @@
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;contiguous-memory-allocation-연속-메모리-할당&quot;&gt;Contiguous Memory Allocation (연속 메모리 할당)&lt;/h2&gt;
@@ -324,6 +326,8 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;메모리-역사&quot;&gt;메모리 역사&lt;/h2&gt;
@@ -476,6 +480,8 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1&quot;&gt;1.&lt;/h2&gt;
@@ -795,6 +801,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;monitor&quot;&gt;Monitor&lt;/h2&gt;
@@ -913,6 +921,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;deadlock&quot;&gt;Deadlock&lt;/h2&gt;
@@ -1051,6 +1061,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;producer-consumer-problem&quot;&gt;Producer-Consumer Problem&lt;/h2&gt;
@@ -1149,6 +1161,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thread&quot;&gt;Thread&lt;/h2&gt;
@@ -1364,6 +1378,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;cpu-scheduling&quot;&gt;CPU Scheduling&lt;/h2&gt;
@@ -1523,6 +1539,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
@@ -1633,6 +1651,8 @@ value는 모든 프로세스가 공통 사용하는 공통변수&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-midterm&quot;&gt;OS(9) - Midterm&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-main-memory-mgmt&quot;&gt;OS(10) - Main Memory Management&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./OS-contiguous-memory-allocation&quot;&gt;OS(11) - Contiguous Memory Allocation&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;interrupt&quot;&gt;Interrupt&lt;/h2&gt;

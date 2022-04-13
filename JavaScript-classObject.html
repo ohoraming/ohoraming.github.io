@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="JavaScript(5) - class vs. object" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 template (일종의 ‘틀’) 관련 있는 변수와" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 다양한 object를 만들기 위한 청사진, template" />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-classObject" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript(5) - class vs. object" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 template (일종의 ‘틀’) 관련 있는 변수와" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 다양한 object를 만들기 위한 청사진, template" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-classObject"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 template (일종의 ‘틀’) 관련 있는 변수와"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions Class ES6부터 도입됨 다양한 object를 만들기 위한 청사진, template"
 }
     </script>
 
@@ -233,41 +233,43 @@ into the {body} of the default.hbs template -->
 <h1 id="class">Class</h1>
 <ul>
   <li>ES6부터 도입됨</li>
-  <li>template (일종의 <strong><em>‘틀’</em></strong>)</li>
+  <li>다양한 object를 만들기 위한 청사진, template (일종의 <strong><em>‘틀’</em></strong>)</li>
   <li>관련 있는 <strong><em>변수와 함수</em></strong>를 묶어 놓은 것</li>
   <li><strong><em>속성(field)과 method</em></strong>로 구성됨</li>
   <li><strong><em>한 번만 선언</em></strong>함</li>
   <li>data가 들어있지 않아 <strong><em>메모리에 올라가지 않음</em></strong></li>
-  <li><strong><em>붕어빵 틀</em></strong>로 비유함</li>
+  <li>
+    <p><strong><em>붕어빵 틀</em></strong>로 비유함</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+      <span class="c1">// constructor</span>
+      <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// fields</span>
+          <span class="c1">// 두 fields에 전달받은 name과 age를 할당</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// methods</span>
+      <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">: hello!`</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// 새 object를 생성</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+  <span class="nx">minji</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span> <span class="c1">// speak 함수 호출</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="minji">minji</h6>
+      <h6 id="20">20</h6>
+      <h6 id="minji-hello">minji: hello!</h6>
+    </blockquote>
+  </li>
 </ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
-    <span class="c1">// constructor</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// fields</span>
-        <span class="c1">// 두 fields에 전달받은 name과 age를 할당</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// methods</span>
-    <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">: hello!`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span> <span class="nx">minji</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">minji</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// 새 object를 생성</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minji</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
-<span class="nx">minji</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span> <span class="c1">// speak 함수 호출</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="minji">minji</h6>
-  <h6 id="20">20</h6>
-  <h6 id="minji-hello">minji: hello!</h6>
-</blockquote>
 
 <h1 id="object">Object</h1>
 <ul>
@@ -322,23 +324,25 @@ into the {body} of the default.hbs template -->
 <ul>
   <li>too soon!</li>
   <li><strong>public</strong>: constructor(생성자)를 사용하지 않고 field를 정의하면  외부에서 접근이 가능함</li>
-  <li><strong>private</strong>: <code class="language-plaintext highlighter-rouge">#</code> 기호와 함께 field를 정의하면(# names: <em>hash names</em>로 발음) 클래스 내부에서만 접근, 변경이 가능함</li>
+  <li>
+    <p><strong>private</strong>: <code class="language-plaintext highlighter-rouge">#</code> 기호와 함께 field를 정의하면(# names: <em>hash names</em>로 발음) 클래스 내부에서만 접근, 변경이 가능함</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nx">Experiment</span> <span class="p">{</span>
+      <span class="nx">publicField</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// public</span>
+      <span class="err">#</span><span class="nx">privateField</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// private</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">experiment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Experiment</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">publicField</span><span class="p">);</span> <span class="c1">// 2</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">privateField</span><span class="p">);</span> <span class="c1">// undefined</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="2">2</h6>
+      <h6 id="undefined">undefined</h6>
+    </blockquote>
+  </li>
 </ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Experiment</span> <span class="p">{</span>
-    <span class="nx">publicField</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// public</span>
-    <span class="err">#</span><span class="nx">privateField</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// private</span>
-<span class="p">}</span>
-<span class="kd">const</span> <span class="nx">experiment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Experiment</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">publicField</span><span class="p">);</span> <span class="c1">// 2</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">experiment</span><span class="p">.</span><span class="nx">privateField</span><span class="p">);</span> <span class="c1">// undefined</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="2">2</h6>
-  <h6 id="undefined">undefined</h6>
-</blockquote>
 
 <h1 id="static">static</h1>
 <ul>
@@ -438,28 +442,30 @@ into the {body} of the default.hbs template -->
 <ul>
   <li><code class="language-plaintext highlighter-rouge">object instanceof class</code></li>
   <li>왼쪽의 object가 오른쪽의 class의 instance인지 확인함</li>
-  <li>boolean 반환</li>
+  <li>
+    <p>boolean 반환</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span> <span class="k">instanceof</span> <span class="nx">Rectangle</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Rectangle</span><span class="p">);</span> <span class="c1">// false</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Triangle</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Shape</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Console</strong></p>
+      <h6 id="true">true</h6>
+      <h6 id="false">false</h6>
+      <h6 id="true-1">true</h6>
+      <h6 id="true-2">true</h6>
+      <h6 id="true-3">true</h6>
+      <h6 id="triangle-color-red">Triangle: color: red</h6>
+    </blockquote>
+  </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span> <span class="k">instanceof</span> <span class="nx">Rectangle</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Rectangle</span><span class="p">);</span> <span class="c1">// false</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Triangle</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nx">Shape</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangle</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Console</strong></p>
-  <h6 id="true">true</h6>
-  <h6 id="false">false</h6>
-  <h6 id="true-1">true</h6>
-  <h6 id="true-2">true</h6>
-  <h6 id="true-3">true</h6>
-  <h6 id="triangle-color-red">Triangle: color: red</h6>
-</blockquote>
-
-<p>※ JS에서 만든 모든 object class들은 JS의 Object를 상속함 
+<p>※ JS에서 만든 모든 object class들은 JS의 Object를 상속함<br />
 ⇒ 즉, 어떤 object든 공통적으로 존재하는 함수들을 사용할 수 있다는 말!<br />
 예시 코드의 Triangle class의 toString처럼 overriding해서 사용하면 됨</p>
 
@@ -468,7 +474,9 @@ into the {body} of the default.hbs template -->
 <p>※ 참고: 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Standard built-in objects - JavaScript | MDN</a></p>
 
-<p>⇒ Value properties, Error objects, Indexed Collections, keyed collections, Promise, JSON 참고!</p>
+<ul>
+  <li>Value properties, Error objects, Indexed Collections, keyed collections, Promise, JSON 참고!</li>
+</ul>
 
 <blockquote>
   <p>“자바스크립트 6. 클래스와 오브젝트의 차이점(class vs object), 객체지향 언어 클래스 정리 | 프론트엔드 개발자 입문편 (JavaScript ES6),” 유튜브 비디오, 25:36, 게시자 “드림코딩 by 엘리,” 2020년 4월 27일, <a href="https://youtu.be/_DLhUBWsRtw">https://youtu.be/tJieVCgGzhs</a></p>

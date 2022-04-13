@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-12T22:44:14+09:00</updated>
+  <updated>2022-04-13T23:28:02+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -44,6 +44,8 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-test-code를-작성하는-이유&quot;&gt;1. Test Code를 작성하는 이유&lt;/h2&gt;
@@ -119,6 +121,8 @@
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
