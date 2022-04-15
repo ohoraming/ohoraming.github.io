@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>JavaScript(12) - Prototype과 Class 피하기</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Fri, 15 Apr 2022 22:19:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/JavaScript-avoid-both-prototypes-and-classes</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JavaScript-avoid-both-prototypes-and-classes</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>JavaScript(11) - Regular expressions</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
@@ -16,8 +31,8 @@
         
         <pubDate>Tue, 05 Apr 2022 19:26:00 +0900</pubDate>
         <link>
-        https://ohoraming.github.io/JavaScript-regular-expressions</link>
-        <guid isPermaLink="true">https://ohoraming.github.io/JavaScript-regular-expressions</guid>
+        https://ohoraming.github.io/JavaScript-regular-expressions-copy</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/JavaScript-regular-expressions-copy</guid>
       </item>
       
     
