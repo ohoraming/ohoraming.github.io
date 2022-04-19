@@ -12,7 +12,7 @@
 
 
 
-    <title>JavaScript(11) - Regular expressions</title>
+    <title>JavaScript(11) - Regular expressions(regex)</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -70,8 +70,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JavaScript(11) - Regular expressions" />
-    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950," />
+    <meta property="og:title" content="JavaScript(11) - Regular expressions(regex)" />
+    <meta property="og:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950년," />
     <meta property="og:url" content="https://ohoraming.github.io/JavaScript-regular-expressions-copy" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -80,8 +80,8 @@
     <meta property="article:modified_time" content="2022-04-05T19:26:00+09:00" />
     <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JavaScript(11) - Regular expressions" />
-    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950," />
+    <meta name="twitter:title" content="JavaScript(11) - Regular expressions(regex)" />
+    <meta name="twitter:description" content="JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950년," />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/javascript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/JavaScript-regular-expressions-copy"
     },
-    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950,"
+    "description": "JavaScript 관련 포스팅 JavaScript(1) - async vs. defer JavaScript(2) - variable JavaScript(3) - operator JavaScript(4) - function JavaScript(5) - class vs. object JavaScript(6) - object JavaScript(7) - array JavaScript(8) - JSON JavaScript(9) - callback JavaScript(10) - promise JavaScript(11) - Regular expressions JavaScript(12) - Prototype과 Class 피하기 Regular expression (regex) 1950년,"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="JavaScript(11) - Regular expressions" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="JavaScript(11) - Regular expressions(regex)" href="/feed.xml" />
 
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
@@ -200,7 +200,7 @@ into the {body} of the default.hbs template -->
                     
                     
                 </section>
-                <h1 class="post-full-title">JavaScript(11) - Regular expressions</h1>
+                <h1 class="post-full-title">JavaScript(11) - Regular expressions(regex)</h1>
             </header>
 
             <!-- 
@@ -233,8 +233,9 @@ into the {body} of the default.hbs template -->
 
 <h2 id="regular-expression-regex">Regular expression (regex)</h2>
 <ul>
-  <li>1950, 수학자 Stephen Cole Kleene에 의해 개발됨</li>
-  <li>slash(<code class="language-plaintext highlighter-rouge">/</code>) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함</li>
+  <li>1950년, 수학자 Stephen Cole Kleene에 의해 개발됨</li>
+  <li>slash(<code class="language-plaintext highlighter-rouge">/</code>) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함<br />
+  → <code class="language-plaintext highlighter-rouge">/pattern/flag</code></li>
 </ul>
 
 <h2 id="1-groups-or-ranges">1. Groups or ranges</h2>
@@ -276,20 +277,25 @@ into the {body} of the default.hbs template -->
 </code></pre></div></div>
 <p>→ 소문자 <strong>a부터 z</strong>까지, 대문자 <strong>A부터 Z</strong>까지, 숫자 <strong>0부터 9</strong>까지의 문자를 <strong>제외</strong>한 나머지를 매칭</p>
 
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/[가-힣]/gm
+</code></pre></div></div>
+<p>→ 한글 단어 매칭<br />
+※ 단, 이 방식으로는 <code class="language-plaintext highlighter-rouge">ㄱㄴㄷ</code>이나 <code class="language-plaintext highlighter-rouge">ㅏㅑㅓㅕ</code>같은 낱글자는 찾을 수 없음</p>
+
 <h2 id="2-quantifiers">2. Quantifiers</h2>
-<h3 id="1--앞의-문자가-하나있거나-없거나">(1) <code class="language-plaintext highlighter-rouge">?</code> (<code class="language-plaintext highlighter-rouge">?</code>앞의 문자가 하나있거나 없거나)</h3>
+<h3 id="1--있거나-없거나">(1) <code class="language-plaintext highlighter-rouge">?</code> (있거나 없거나)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/gra?y/gm
 </code></pre></div></div>
-<p>→ <strong>a</strong>가 하나있거나 없는 문자 매칭
+<p>→ <strong>a</strong>가 있거나 없는 문자 매칭
 gr<strong>a</strong>y, gry</p>
 
-<h3 id="2--앞의-문자가-하나-이상-있거나-없거나">(2) <code class="language-plaintext highlighter-rouge">*</code> (<code class="language-plaintext highlighter-rouge">*</code>앞의 문자가 하나 이상 있거나 없거나)</h3>
+<h3 id="2--0개-이상">(2) <code class="language-plaintext highlighter-rouge">*</code> (0개 이상)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/gra*y/gm
 </code></pre></div></div>
 <p>→ <strong>a</strong>가 있거나 없거나 많은 문자 매칭
 gr<strong>a</strong>y, gry, gr<strong>aa</strong>y, gr<strong>aaa</strong>y</p>
 
-<h3 id="3--앞의-문자가-하나-이상">(3) <code class="language-plaintext highlighter-rouge">+</code> (<code class="language-plaintext highlighter-rouge">+</code>앞의 문자가 하나 이상)</h3>
+<h3 id="3--하나-혹은-그-이상-연결된">(3) <code class="language-plaintext highlighter-rouge">+</code> (하나 혹은 그 이상 연결된)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/gra+y/gm
 </code></pre></div></div>
 <p>→ <strong>a</strong>가 하나 이상 있는 문자 매칭
@@ -379,6 +385,10 @@ gr<strong>aa</strong>y, gr<strong>aaa</strong>y</p>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/\w/gm
 </code></pre></div></div>
 <p>→ <strong>문자</strong>(<strong>w</strong>ord)를 매칭</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">a, b, c, 가, 나, 다, 1, 2</code>와 같은 <strong>문자와 숫자</strong>를 포함함</li>
+  <li>특수문자는 포함하지 않지만, <code class="language-plaintext highlighter-rouge">_</code>(언더스코어)는 포함함</li>
+</ul>
 
 <h3 id="6-w-대문자-w">(6) \W (대문자 w)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/\W/gm
@@ -388,12 +398,12 @@ gr<strong>aa</strong>y, gr<strong>aaa</strong>y</p>
 <h3 id="7-s-소문자-s">(7) \s (소문자 s)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/\s/gm
 </code></pre></div></div>
-<p>→ <strong>띄어쓰기</strong>(<strong>s</strong>pace) 매칭</p>
+<p>→ <strong>공백 문자인 띄어쓰기(space), tap, newline</strong> 매칭</p>
 
 <h3 id="8-s-대문자-s">(8) \S (대문자 S)</h3>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/\S/gm
 </code></pre></div></div>
-<p>→ <strong>띄어쓰기를 제외</strong> 매칭</p>
+<p>→ <strong>공백 문자를 제외</strong>한 매칭</p>
 
 <h2 id="5-exercises">5. Exercises</h2>
 <h3 id="1-전화번호-형태-찾기">1. 전화번호 형태 찾기</h3>
@@ -433,13 +443,13 @@ youtu.be/-ZClicWm0zM<br />
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/(https?:\/\/)?(www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
 </code></pre></div></div>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">(https?:\/\/)?</code><br />
+  <li>(https?:\/\/)?<br />
 → <code class="language-plaintext highlighter-rouge">?s</code> s가 있어도 되고 없어도 됨 <br />
 → <code class="language-plaintext highlighter-rouge">:\/\/</code> ://(특수 문자) 연결<br />
 → <code class="language-plaintext highlighter-rouge">(  )?</code> 있어도 되고 없어도 되는 group</li>
   <li><code class="language-plaintext highlighter-rouge">(www.)?</code>
 → <code class="language-plaintext highlighter-rouge">(  )?</code> 있어도 되고 없어도 되는 group</li>
-  <li><code class="language-plaintext highlighter-rouge">youtu.be\/</code><br />
+  <li>youtu.be\/<br />
 → youtu.be/ 연결</li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">([a-zA-Z0-9-]{11})</code><br />
@@ -453,18 +463,22 @@ youtu.be/-ZClicWm0zM<br />
 </ul>
 
 <h2 id="6-javascript-활용">6. JavaScript 활용</h2>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">regex</span><span class="o">=</span> <span class="sr">/</span><span class="se">(?:</span><span class="sr">https</span><span class="se">?</span><span class="sr">:</span><span class="se">\/\/)?(?:</span><span class="sr">www.</span><span class="se">)?</span><span class="sr">youtu.be</span><span class="se">\/([</span><span class="sr">a-zA-Z0-9-</span><span class="se">]{11})</span><span class="sr">/</span><span class="p">;</span>
+<ul>
+  <li>String class의 <code class="language-plaintext highlighter-rouge">match</code>함수를 이용할 수 있음
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">regex</span><span class="o">=</span> <span class="sr">/</span><span class="se">(?:</span><span class="sr">https</span><span class="se">?</span><span class="sr">:</span><span class="se">\/\/)?(?:</span><span class="sr">www.</span><span class="se">)?</span><span class="sr">youtu.be</span><span class="se">\/([</span><span class="sr">a-zA-Z0-9-</span><span class="se">]{11})</span><span class="sr">/</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://www.youtu.be/-ZClicWm0zM</span><span class="dl">'</span><span class="p">;</span>
 <span class="nx">url</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">);</span>
-</code></pre></div></div>
-<p>배열을 반환함<br />
+</code></pre></div>    </div>
+    <p>배열을 반환함<br />
 [0]: 매칭되는 전체 문자열,<br />
 [1]: 매칭되는 group의 data</p>
-<blockquote>
-  <h6 id="console">Console</h6>
-  <p>0: “http://www.youtu.be/-ZClicWm0zM”<br />
+    <blockquote>
+      <h6 id="console">Console</h6>
+      <p>0: “http://www.youtu.be/-ZClicWm0zM”<br />
 1: “-ZClicWm0zM”</p>
-</blockquote>
+    </blockquote>
+  </li>
+</ul>
 
 <p>추가 code를 작성하면,</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">);</span>
@@ -475,12 +489,52 @@ youtu.be/-ZClicWm0zM<br />
   <p>‘-ZClicWm0zM’</p>
 </blockquote>
 
-<h2 id="7-유용한-site">7. 유용한 site</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">searchTarget</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Luke Skywarker 02-123-4567 luke@daum.net</span><span class="se">\</span><span class="s2">
+다스베이더 070-9999-9999 darth_vader@gmail.com</span><span class="se">\</span><span class="s2">
+princess leia 010 2454 3457 leia@gmail.com</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\d{2,3}[</span><span class="sr">- </span><span class="se">]?\d{3,4}[</span><span class="sr">- </span><span class="se">]?\d{4}</span><span class="sr">/g</span><span class="p">;</span>  
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">searchTarget</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">));</span>
+</code></pre></div></div>
+<blockquote>
+  <h6 id="console-2">Console</h6>
+  <p>[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]</p>
+</blockquote>
+
+<h2 id="7-python-활용">7. Python 활용</h2>
+<ul>
+  <li>Python은 raw string을 지원해 대표 문자를 표현할 때 역슬래시(\)를 한 번만 쓸 수 있음
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span>
+
+  <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s">'\d{2,3}[- ]?\d{3,4}[- ]?\d{4}'</span>
+
+  <span class="n">search_target</span> <span class="o">=</span> <span class="s">'''이상한 전화번호 0030589-5-95826
+  Luke Skywarker 02-123-4567 luke@daum.net
+  다스베이더 070-9999-9999 darth_vader@gmail.com
+  princess leia 010 2454 3457 leia@gmail.com'''</span>
+
+  <span class="c1"># 정규표현식과 일치하는 부분을 모두 찾아주는 파이썬 코드
+</span>  <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">search_target</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <h6 id="console-3">Console</h6>
+      <p>[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="8-유용한-site">8. 유용한 site</h2>
 <p><a href="https://regexone.com/">https://regexone.com/</a> → 학습<br />
 <a href="https://regexr.com/">https://regexr.com/</a> → 정규표현식 입력시 확인</p>
 
+<p>&lt; 출처 &gt;</p>
 <blockquote>
   <p>“정규표현식 , 더이상 미루지 말자,” 유튜브 비디오, 22:01, 게시자 “드림코딩 by 엘리,” <a href="https://youtu.be/t3M6toIflyQ">https://youtu.be/t3M6toIflyQ</a></p>
+</blockquote>
+
+<blockquote>
+  <p><a href="https://programmers.co.kr/learn/courses/11">프로그래머스 정규표현식 온라인 강의</a></p>
 </blockquote>
 
                 </div>
@@ -841,13 +895,13 @@ youtu.be/-ZClicWm0zM<br />
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">JavaScript(11) - Regular expressions</div>
+    <div class="floating-header-title">JavaScript(11) - Regular expressions(regex)</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%2811%29+-+Regular+expressions&amp;url=https://ohoraming.github.io/JavaScript-regular-expressions-copy"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%2811%29+-+Regular+expressions%28regex%29&amp;url=https://ohoraming.github.io/JavaScript-regular-expressions-copy"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

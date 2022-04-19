@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-15T23:49:27+09:00</updated>
+  <updated>2022-04-19T21:59:25+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -139,8 +139,8 @@
     </entry>
   
     <entry>
-      <title type="html">JavaScript(11) - Regular expressions</title>
-      <link href="https://ohoraming.github.io/JavaScript-regular-expressions-copy" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions" />
+      <title type="html">JavaScript(11) - Regular expressions(regex)</title>
+      <link href="https://ohoraming.github.io/JavaScript-regular-expressions-copy" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions(regex)" />
       <published>2022-04-05T19:26:00+09:00</published>
       <updated>2022-04-05T19:26:00+09:00</updated>
       <id>https://ohoraming.github.io/JavaScript-regular-expressions%20copy</id>
@@ -167,8 +167,9 @@
 
 &lt;h2 id=&quot;regular-expression-regex&quot;&gt;Regular expression (regex)&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;1950, 수학자 Stephen Cole Kleene에 의해 개발됨&lt;/li&gt;
-  &lt;li&gt;slash(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함&lt;/li&gt;
+  &lt;li&gt;1950년, 수학자 Stephen Cole Kleene에 의해 개발됨&lt;/li&gt;
+  &lt;li&gt;slash(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함&lt;br /&gt;
+  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/pattern/flag&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-groups-or-ranges&quot;&gt;1. Groups or ranges&lt;/h2&gt;
@@ -210,20 +211,25 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 &lt;strong&gt;제외&lt;/strong&gt;한 나머지를 매칭&lt;/p&gt;
 
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[가-힣]/gm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;→ 한글 단어 매칭&lt;br /&gt;
+※ 단, 이 방식으로는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ㄱㄴㄷ&lt;/code&gt;이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ㅏㅑㅓㅕ&lt;/code&gt;같은 낱글자는 찾을 수 없음&lt;/p&gt;
+
 &lt;h2 id=&quot;2-quantifiers&quot;&gt;2. Quantifiers&lt;/h2&gt;
-&lt;h3 id=&quot;1--앞의-문자가-하나있거나-없거나&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt;앞의 문자가 하나있거나 없거나)&lt;/h3&gt;
+&lt;h3 id=&quot;1--있거나-없거나&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; (있거나 없거나)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra?y/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나있거나 없는 문자 매칭
+&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없는 문자 매칭
 gr&lt;strong&gt;a&lt;/strong&gt;y, gry&lt;/p&gt;
 
-&lt;h3 id=&quot;2--앞의-문자가-하나-이상-있거나-없거나&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;앞의 문자가 하나 이상 있거나 없거나)&lt;/h3&gt;
+&lt;h3 id=&quot;2--0개-이상&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; (0개 이상)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra*y/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없거나 많은 문자 매칭
 gr&lt;strong&gt;a&lt;/strong&gt;y, gry, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
 
-&lt;h3 id=&quot;3--앞의-문자가-하나-이상&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;앞의 문자가 하나 이상)&lt;/h3&gt;
+&lt;h3 id=&quot;3--하나-혹은-그-이상-연결된&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; (하나 혹은 그 이상 연결된)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra+y/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나 이상 있는 문자 매칭
@@ -313,6 +319,10 @@ gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\w/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;→ &lt;strong&gt;문자&lt;/strong&gt;(&lt;strong&gt;w&lt;/strong&gt;ord)를 매칭&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a, b, c, 가, 나, 다, 1, 2&lt;/code&gt;와 같은 &lt;strong&gt;문자와 숫자&lt;/strong&gt;를 포함함&lt;/li&gt;
+  &lt;li&gt;특수문자는 포함하지 않지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;(언더스코어)는 포함함&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;6-w-대문자-w&quot;&gt;(6) \W (대문자 w)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\W/gm
@@ -322,12 +332,12 @@ gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt
 &lt;h3 id=&quot;7-s-소문자-s&quot;&gt;(7) \s (소문자 s)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\s/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;띄어쓰기&lt;/strong&gt;(&lt;strong&gt;s&lt;/strong&gt;pace) 매칭&lt;/p&gt;
+&lt;p&gt;→ &lt;strong&gt;공백 문자인 띄어쓰기(space), tap, newline&lt;/strong&gt; 매칭&lt;/p&gt;
 
 &lt;h3 id=&quot;8-s-대문자-s&quot;&gt;(8) \S (대문자 S)&lt;/h3&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\S/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;띄어쓰기를 제외&lt;/strong&gt; 매칭&lt;/p&gt;
+&lt;p&gt;→ &lt;strong&gt;공백 문자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
 
 &lt;h2 id=&quot;5-exercises&quot;&gt;5. Exercises&lt;/h2&gt;
 &lt;h3 id=&quot;1-전화번호-형태-찾기&quot;&gt;1. 전화번호 형태 찾기&lt;/h3&gt;
@@ -367,13 +377,13 @@ youtu.be/-ZClicWm0zM&lt;br /&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(https?:\/\/)?(www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(https?:\/\/)?&lt;/code&gt;&lt;br /&gt;
+  &lt;li&gt;(https?:\/\/)?&lt;br /&gt;
 → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?s&lt;/code&gt; s가 있어도 되고 없어도 됨 &lt;br /&gt;
 → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:\/\/&lt;/code&gt; ://(특수 문자) 연결&lt;br /&gt;
 → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(www.)?&lt;/code&gt;
 → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;youtu.be\/&lt;/code&gt;&lt;br /&gt;
+  &lt;li&gt;youtu.be\/&lt;br /&gt;
 → youtu.be/ 연결&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;([a-zA-Z0-9-]{11})&lt;/code&gt;&lt;br /&gt;
@@ -387,18 +397,22 @@ youtu.be/-ZClicWm0zM&lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;6-javascript-활용&quot;&gt;6. JavaScript 활용&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/\/)?(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;www.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;youtu.be&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z0-9-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]{11})&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;String class의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;match&lt;/code&gt;함수를 이용할 수 있음
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/\/)?(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;www.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;youtu.be&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z0-9-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]{11})&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://www.youtu.be/-ZClicWm0zM&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;배열을 반환함&lt;br /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;배열을 반환함&lt;br /&gt;
 [0]: 매칭되는 전체 문자열,&lt;br /&gt;
 [1]: 매칭되는 group의 data&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
-  &lt;p&gt;0: “http://www.youtu.be/-ZClicWm0zM”&lt;br /&gt;
+    &lt;blockquote&gt;
+      &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
+      &lt;p&gt;0: “http://www.youtu.be/-ZClicWm0zM”&lt;br /&gt;
 1: “-ZClicWm0zM”&lt;/p&gt;
-&lt;/blockquote&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;추가 code를 작성하면,&lt;/p&gt;
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -409,12 +423,52 @@ youtu.be/-ZClicWm0zM&lt;br /&gt;
   &lt;p&gt;‘-ZClicWm0zM’&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;7-유용한-site&quot;&gt;7. 유용한 site&lt;/h2&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;searchTarget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Luke Skywarker 02-123-4567 luke@daum.net&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+다스베이더 070-9999-9999 darth_vader@gmail.com&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\d{2,3}[&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;- &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]?\d{3,4}[&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;- &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]?\d{4}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;searchTarget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;h6 id=&quot;console-2&quot;&gt;Console&lt;/h6&gt;
+  &lt;p&gt;[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;7-python-활용&quot;&gt;7. Python 활용&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python은 raw string을 지원해 대표 문자를 표현할 때 역슬래시(\)를 한 번만 쓸 수 있음
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'\d{2,3}[- ]?\d{3,4}[- ]?\d{4}'&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;search_target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'''이상한 전화번호 0030589-5-95826
+  Luke Skywarker 02-123-4567 luke@daum.net
+  다스베이더 070-9999-9999 darth_vader@gmail.com
+  princess leia 010 2454 3457 leia@gmail.com'''&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# 정규표현식과 일치하는 부분을 모두 찾아주는 파이썬 코드
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;search_target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;h6 id=&quot;console-3&quot;&gt;Console&lt;/h6&gt;
+      &lt;p&gt;[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;8-유용한-site&quot;&gt;8. 유용한 site&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://regexone.com/&quot;&gt;https://regexone.com/&lt;/a&gt; → 학습&lt;br /&gt;
 &lt;a href=&quot;https://regexr.com/&quot;&gt;https://regexr.com/&lt;/a&gt; → 정규표현식 입력시 확인&lt;/p&gt;
 
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;“정규표현식 , 더이상 미루지 말자,” 유튜브 비디오, 22:01, 게시자 “드림코딩 by 엘리,” &lt;a href=&quot;https://youtu.be/t3M6toIflyQ&quot;&gt;https://youtu.be/t3M6toIflyQ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/11&quot;&gt;프로그래머스 정규표현식 온라인 강의&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       
