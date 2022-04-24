@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-19T22:18:11+09:00</updated>
+  <updated>2022-04-24T23:58:23+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,98 @@
 
   
     <entry>
+      <title type="html">Git and github</title>
+      <link href="https://ohoraming.github.io/git-and-github" rel="alternate" type="text/html" title="Git and github" />
+      <published>2022-04-24T22:28:00+09:00</published>
+      <updated>2022-04-24T22:28:00+09:00</updated>
+      <id>https://ohoraming.github.io/git-and-github</id>
+      <content type="html" xml:base="https://ohoraming.github.io/git-and-github">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;vcsversion-control-system&quot;&gt;VCS(Version Control System)&lt;/h1&gt;
+&lt;h2 id=&quot;cvscentralized-version-control&quot;&gt;CVS(Centralized Version Control)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버에서 히스토리를 관리&lt;/li&gt;
+  &lt;li&gt;즉각적인 동기화&lt;/li&gt;
+  &lt;li&gt;서버에 문제가 생길시 업무가 중단됨&lt;/li&gt;
+  &lt;li&gt;오프라인에서 인터넷이 없으면 사용 불가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dvcdistributed-version-control&quot;&gt;DVC(Distributed Version Control)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버 뿐만 아니라 모든 개발자들이 동일한 히스토리 정보를 가짐&lt;/li&gt;
+  &lt;li&gt;서버에 문제가 생겨도 서로의 정보를 이용해 서버를 복원한 뒤 업무를 이어나갈 수 있음&lt;/li&gt;
+  &lt;li&gt;오프라인에서도 업무 진행 가능&lt;/li&gt;
+  &lt;li&gt;private 또는 cloud 이용 가능&lt;/li&gt;
+  &lt;li&gt;github이 가장 대중적&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;변경 사항만 저장하는 delta-based version control과는 다르게 project의 전체적인 내용을 snapshot해서 가지고 있음&lt;/li&gt;
+  &lt;li&gt;변경되지 않은 내용은 서로 link를 형성하고 있어서 snap shot은 매우 가벼움&lt;/li&gt;
+  &lt;li&gt;버전별, branch별 이동이 자유로움&lt;/li&gt;
+  &lt;li&gt;무료, 오픈소스임&lt;/li&gt;
+  &lt;li&gt;가볍고, 가장 대중적임&lt;/li&gt;
+  &lt;li&gt;오프라인에서도 사용가능함&lt;/li&gt;
+  &lt;li&gt;실수를 수정하기 쉬우며 branch를 이용한 협업에서 효율적으로 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;git-명령어&quot;&gt;Git 명령어&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;version 확인&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git --version&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;설정 확인&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --list&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;설정 확인(파일로)&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --global -e&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“깃, 깃허브 이건 알고 사용하자,” 유튜브 비디오, 06:49, 게시자 “드림코딩 by 엘리,” 2020년 11월 10일, &lt;a href=&quot;https://youtu.be/lPrxhA4PLoA&quot;&gt;https://youtu.be/lPrxhA4PLoA&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“깃, 깃허브 제대로 배우기 (기본 마스터편, 실무에서 꿀리지 말자),” 유튜브 비디오, 47:13, 게시자 “드림코딩 by 엘리,” 2020년 11월 17일,&lt;a href=&quot;https://youtu.be/Z9dvM7qgN9s&quot;&gt;https://youtu.be/Z9dvM7qgN9s&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Test Code</title>
       <link href="https://ohoraming.github.io/Test-Code" rel="alternate" type="text/html" title="Test Code" />
       <published>2022-03-30T22:26:00+09:00</published>
@@ -42,8 +134,9 @@
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -109,8 +202,8 @@
     </entry>
   
     <entry>
-      <title type="html">Git - Git Convention</title>
-      <link href="https://ohoraming.github.io/git-convention" rel="alternate" type="text/html" title="Git - Git Convention" />
+      <title type="html">Git Convention</title>
+      <link href="https://ohoraming.github.io/git-convention" rel="alternate" type="text/html" title="Git Convention" />
       <published>2022-03-10T21:25:00+09:00</published>
       <updated>2022-03-10T21:25:00+09:00</updated>
       <id>https://ohoraming.github.io/git-convention</id>
@@ -119,8 +212,9 @@
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./Other-git-convention&quot;&gt;Git - Git Convention&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Other-test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
