@@ -12,7 +12,7 @@
 
 
 
-    <title>Git and github</title>
+    <title>Git and github[update 中]</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -70,7 +70,7 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Git and github" />
+    <meta property="og:title" content="Git and github[update 中]" />
     <meta property="og:description" content="여러 가지 포스팅 Git Convention Test Code Git and github VCS(Version Control System) CVS(Centralized Version Control) 서버에서 히스토리를 관리 즉각적인 동기화 서버에 문제가 생길시 업무가 중단됨 오프라인에서 인터넷이 없으면 사용 불가 DVC(Distributed Version Control) 서버 뿐만 아니라 모든 개발자들이 동일한 히스토리 정보를 가짐 서버에 문제가 생겨도 서로의 정보를 이용해 서버를" />
     <meta property="og:url" content="https://ohoraming.github.io/git-and-github" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/git-logo.png" />
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2022-04-24T22:28:00+09:00" />
     <meta property="article:tag" content="Other" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Git and github" />
+    <meta name="twitter:title" content="Git and github[update 中]" />
     <meta name="twitter:description" content="여러 가지 포스팅 Git Convention Test Code Git and github VCS(Version Control System) CVS(Centralized Version Control) 서버에서 히스토리를 관리 즉각적인 동기화 서버에 문제가 생길시 업무가 중단됨 오프라인에서 인터넷이 없으면 사용 불가 DVC(Distributed Version Control) 서버 뿐만 아니라 모든 개발자들이 동일한 히스토리 정보를 가짐 서버에 문제가 생겨도 서로의 정보를 이용해 서버를" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/git-logo.png" />
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Git and github" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Git and github[update 中]" href="/feed.xml" />
 
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
@@ -197,7 +197,7 @@ into the {body} of the default.hbs template -->
                     
                     
                 </section>
-                <h1 class="post-full-title">Git and github</h1>
+                <h1 class="post-full-title">Git and github[update 中]</h1>
             </header>
 
             <!-- 
@@ -250,13 +250,63 @@ into the {body} of the default.hbs template -->
 
 <h2 id="git-명령어">Git 명령어</h2>
 <ul>
+  <li><a href="https://git-scm.com/docs">git 공식 사이트</a>에서 모든 명령어 확인 가능</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git 명령어 -option</code> 형식</p>
+  </li>
   <li>version 확인<br />
 <code class="language-plaintext highlighter-rouge">git --version</code></li>
   <li>설정 확인<br />
 <code class="language-plaintext highlighter-rouge">git config --list</code></li>
-  <li>설정 확인(파일로)<br />
+  <li>파일로 설정 확인<br />
 <code class="language-plaintext highlighter-rouge">git config --global -e</code></li>
-  <li></li>
+  <li>
+    <p>carrage-return과 line feed 설정(windows에서는 <code class="language-plaintext highlighter-rouge">true</code>, mac에서는 <code class="language-plaintext highlighter-rouge">input</code>)<br />
+<code class="language-plaintext highlighter-rouge">git config --global core.autocrlf true</code>
+<img width="560" alt="image" src="https://user-images.githubusercontent.com/77590526/164983411-0cc494f3-8d54-4549-8b20-0259d7b1731a.png" /></p>
+  </li>
+  <li>git 초기화(기본적으로 master branch 형성)<br />
+<code class="language-plaintext highlighter-rouge">git init</code></li>
+  <li>git 상태 보기<br />
+<code class="language-plaintext highlighter-rouge">git status</code></li>
+  <li>git 명령어 관련 속성값 확인하기<br />
+<code class="language-plaintext highlighter-rouge">git 명령어 --h</code></li>
+</ul>
+
+<h2 id="git-workflow-이해">Git workflow 이해</h2>
+
+<h3 id="1-working-directory">1. working directory</h3>
+<ul>
+  <li>project 파일을 작업하는 곳</li>
+  <li>git의 추적 여부에 따라 <strong>untracked와 tracked</strong>로 나뉨</li>
+  <li><strong>untracked</strong>: 새로 만들어진 파일이거나 git을 초기화했을 경우</li>
+  <li><strong>tracked</strong>: 이전 버전과 비교해 수정 안 된 <strong>unmodified와</strong> 수정된 <strong>modified</strong>로 나뉨</li>
+  <li>modified 버전만 staging area로 이동 가능
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">git add 파일이름</code><br />
+  →해당 파일을 working directory에서 staging area로 옮김</li>
+      <li><code class="language-plaintext highlighter-rouge">git add *.특정 확장자</code><br />
+  → 특정한 확장자의 모든 파일을 staging area로 옮김</li>
+      <li><code class="language-plaintext highlighter-rouge">git rm --cached 파일이름</code><br />
+  → staging area에서 working directory로 옮김</li>
+      <li>git tracking하고 싶지 않은 파일들을 <code class="language-plaintext highlighter-rouge">.gitignore</code>파일을 생성해 명시하면 됨</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-staging-area">2. staging area</h3>
+<ul>
+  <li>version history에 저장할 준비가 된 파일을 옮겨놓은 곳</li>
+  <li><code class="language-plaintext highlighter-rouge">commit</code> 명령어로 staging area의 파일들을 git repository에 저장</li>
+  <li>각 commit에는 snapshot된 정보를 기반으로 고유한 hashcode가 부여되며 이를 통해 version 정보를 참조함</li>
+</ul>
+
+<h3 id="3-git-directorygit-repositor">3. .git directory(.git repositor)</h3>
+<ul>
+  <li>git version history를 가지는 곳</li>
+  <li><code class="language-plaintext highlighter-rouge">checkout</code> 명령어로 언제든 원하는 version으로 돌아갈 수 있음</li>
+  <li><code class="language-plaintext highlighter-rouge">push</code> 명령어로 local의 git directory를 server에 upload</li>
+  <li><code class="language-plaintext highlighter-rouge">pull</code> 명령어로 server의 git directory를 local로 download</li>
 </ul>
 
 <blockquote>
@@ -519,13 +569,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Git and github</div>
+    <div class="floating-header-title">Git and github[update 中]</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Git+and+github&amp;url=https://ohoraming.github.io/git-and-github"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Git+and+github%5Bupdate+%E4%B8%AD%5D&amp;url=https://ohoraming.github.io/git-and-github"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 

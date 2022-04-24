@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-24T23:58:23+09:00</updated>
+  <updated>2022-04-25T01:45:05+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,8 +32,8 @@
 
   
     <entry>
-      <title type="html">Git and github</title>
-      <link href="https://ohoraming.github.io/git-and-github" rel="alternate" type="text/html" title="Git and github" />
+      <title type="html">Git and github[update 中]</title>
+      <link href="https://ohoraming.github.io/git-and-github" rel="alternate" type="text/html" title="Git and github[update 中]" />
       <published>2022-04-24T22:28:00+09:00</published>
       <updated>2022-04-24T22:28:00+09:00</updated>
       <id>https://ohoraming.github.io/git-and-github</id>
@@ -80,13 +80,63 @@
 
 &lt;h2 id=&quot;git-명령어&quot;&gt;Git 명령어&lt;/h2&gt;
 &lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs&quot;&gt;git 공식 사이트&lt;/a&gt;에서 모든 명령어 확인 가능&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git 명령어 -option&lt;/code&gt; 형식&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;version 확인&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git --version&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;설정 확인&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --list&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;설정 확인(파일로)&lt;br /&gt;
+  &lt;li&gt;파일로 설정 확인&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --global -e&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;carrage-return과 line feed 설정(windows에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, mac에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;input&lt;/code&gt;)&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --global core.autocrlf true&lt;/code&gt;
+&lt;img width=&quot;560&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/164983411-0cc494f3-8d54-4549-8b20-0259d7b1731a.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;git 초기화(기본적으로 master branch 형성)&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git init&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;git 상태 보기&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;git 명령어 관련 속성값 확인하기&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git 명령어 --h&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;git-workflow-이해&quot;&gt;Git workflow 이해&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-working-directory&quot;&gt;1. working directory&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;project 파일을 작업하는 곳&lt;/li&gt;
+  &lt;li&gt;git의 추적 여부에 따라 &lt;strong&gt;untracked와 tracked&lt;/strong&gt;로 나뉨&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;untracked&lt;/strong&gt;: 새로 만들어진 파일이거나 git을 초기화했을 경우&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;tracked&lt;/strong&gt;: 이전 버전과 비교해 수정 안 된 &lt;strong&gt;unmodified와&lt;/strong&gt; 수정된 &lt;strong&gt;modified&lt;/strong&gt;로 나뉨&lt;/li&gt;
+  &lt;li&gt;modified 버전만 staging area로 이동 가능
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add 파일이름&lt;/code&gt;&lt;br /&gt;
+  →해당 파일을 working directory에서 staging area로 옮김&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add *.특정 확장자&lt;/code&gt;&lt;br /&gt;
+  → 특정한 확장자의 모든 파일을 staging area로 옮김&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm --cached 파일이름&lt;/code&gt;&lt;br /&gt;
+  → staging area에서 working directory로 옮김&lt;/li&gt;
+      &lt;li&gt;git tracking하고 싶지 않은 파일들을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;파일을 생성해 명시하면 됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-staging-area&quot;&gt;2. staging area&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;version history에 저장할 준비가 된 파일을 옮겨놓은 곳&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;commit&lt;/code&gt; 명령어로 staging area의 파일들을 git repository에 저장&lt;/li&gt;
+  &lt;li&gt;각 commit에는 snapshot된 정보를 기반으로 고유한 hashcode가 부여되며 이를 통해 version 정보를 참조함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-git-directorygit-repositor&quot;&gt;3. .git directory(.git repositor)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;git version history를 가지는 곳&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checkout&lt;/code&gt; 명령어로 언제든 원하는 version으로 돌아갈 수 있음&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;push&lt;/code&gt; 명령어로 local의 git directory를 server에 upload&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pull&lt;/code&gt; 명령어로 server의 git directory를 local로 download&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
