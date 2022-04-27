@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-26T16:00:10+09:00</updated>
+  <updated>2022-04-27T23:37:50+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,6 +32,84 @@
 
   
     <entry>
+      <title type="html">Code Review</title>
+      <link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="Code Review" />
+      <published>2022-04-27T22:45:00+09:00</published>
+      <updated>2022-04-27T22:45:00+09:00</updated>
+      <id>https://ohoraming.github.io/code-review</id>
+      <content type="html" xml:base="https://ohoraming.github.io/code-review">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 4월 우아한테크세미나 영상을 발표 자료와 함께 정리한 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165534864-60172b85-b6e3-4404-bd59-0a82d9c40f41.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;여러 오프라인 업체들을 온라인 업체가 대체해 나가고 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165535721-fcee5bf3-ebbf-4cf0-9660-1df8b7d6785e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4차 산업 혁명의 중요한 키워드 중 하나, ‘VUCA’&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변동성(V)으로 인해 점점 기존의 방식으로는 문제를 해결할 수 없게 됨&lt;/li&gt;
+  &lt;li&gt;혼자가 아니라 여러 명이 &lt;strong&gt;협력&lt;/strong&gt;해 문제를 해결하는 것의 가치가 높아지고 있으며,&lt;br /&gt;
+&lt;strong&gt;코드 리뷰&lt;/strong&gt;는 변동성을 해결하는 데 도움을 주는 방법이 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165537956-2c59b063-2c04-4b50-a88f-650eb74ea9cf.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;전체 산업 영역에서 IT의 비율이 10년만에 2배로 성장했지만, 여전히 90%는 Digital Transformation(DT) 중임
+Tech 이외의 영역에서 개발자에 대한 수요가 훨씬 가파르게 증가하고 있으며, 미국은 보다 원활한 서비스를 공급하기 위해서는 3배(2020년 당시) 더 많은 개발자가 필요하다고 함
+우리 나라의 경우, 미국의 1/4 수준의 개발자를 보유하고 있으므로 현 시점보다 12배 많은 개발자가 필요함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165539160-f3fe7c6a-d6cc-40d3-8efa-dcd827b63f64.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;시장은 VUCA하고, 비즈니스는 빠른 혁신이 필요하므로,
+개발에 있어서 SW를 더 자주 안정적으로 출시(DRFR)해야 함&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“[LIVE] 지속가능한 SW 개발을 위한 코드리뷰 :: 4월 우아한테크세미나,” 유튜브 비디오, 2:06:22, 게시자 “우아한Tech,” 2022년 4월 27일, &lt;a href=&quot;https://youtu.be/ssDMIcPBqUE&quot;&gt;https://youtu.be/ssDMIcPBqUE&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Git and github</title>
       <link href="https://ohoraming.github.io/git-and-github" rel="alternate" type="text/html" title="Git and github" />
       <published>2022-04-24T22:28:00+09:00</published>
@@ -45,6 +123,7 @@
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -894,11 +973,11 @@ princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&q
   
     <entry>
       <title type="html">Test Code</title>
-      <link href="https://ohoraming.github.io/Test-Code" rel="alternate" type="text/html" title="Test Code" />
+      <link href="https://ohoraming.github.io/test-code" rel="alternate" type="text/html" title="Test Code" />
       <published>2022-03-30T22:26:00+09:00</published>
       <updated>2022-03-30T22:26:00+09:00</updated>
-      <id>https://ohoraming.github.io/Test%20Code</id>
-      <content type="html" xml:base="https://ohoraming.github.io/Test-Code">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/test-code</id>
+      <content type="html" xml:base="https://ohoraming.github.io/test-code">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -906,6 +985,7 @@ princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&q
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1267,6 +1347,7 @@ t3 = (1, 2, 3)&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1694,217 +1775,6 @@ e.g.) process: 15byte, page size: 4byte 일 때,&lt;br /&gt;
 
       
         <category term="OS" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Python(1) - Django 설치</title>
-      <link href="https://ohoraming.github.io/Python-django" rel="alternate" type="text/html" title="Python(1) - Django 설치" />
-      <published>2022-02-28T22:40:00+09:00</published>
-      <updated>2022-02-28T22:40:00+09:00</updated>
-      <id>https://ohoraming.github.io/Python-django</id>
-      <content type="html" xml:base="https://ohoraming.github.io/Python-django">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-django-설치&quot;&gt;1. Django 설치&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python -m pip install Django&lt;/code&gt;입력&lt;br /&gt;
-설치 끝나면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin&lt;/code&gt; 명령을 쓸 수 있음&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin&lt;/code&gt; 입력시 사용 가능한 서브 명령이 출력됨&lt;/p&gt;
-
-&lt;h2 id=&quot;2-project-시작&quot;&gt;2. Project 시작&lt;/h2&gt;
-&lt;h3 id=&quot;2-1-project-생성&quot;&gt;2-1. project 생성&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름]&lt;/code&gt;&lt;br /&gt;
-→ 현재 디렉터리에 &lt;strong&gt;project파일이 생성되고&lt;/strong&gt; 그 안에 같은 이름의 project파일이 생김&lt;br /&gt;
-&lt;strong&gt;또는,&lt;/strong&gt;&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ django-admin startproject [project 이름] .&lt;/code&gt;&lt;br /&gt;
-→ 현재 디렉터리에 project파일이 생성됨&lt;/p&gt;
-
-&lt;h3 id=&quot;2-2-project-파일-구성&quot;&gt;2-2. project 파일 구성&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject&lt;/code&gt; 폴더
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myproject/
-      manage.py
-      myproject/
-          __init__.py
-          asgi.py
-          settings.py
-          urls.py
-          wsgi.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt;파일&lt;br /&gt;
-  → 사용자가 접속하는 path에 따라 그 요청 처리를 지정(routing)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-django-실행&quot;&gt;3. Django 실행&lt;/h2&gt;
-&lt;h3 id=&quot;3-1-managepy를-이용&quot;&gt;3-1. manage.py를 이용&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py&lt;/code&gt;입력시 사용 가능한 서브 명령이 출력됨&lt;br /&gt;
-(※ 반드시 현재의 디렉터리가 project폴더인지 확인하기!)&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver&lt;/code&gt; 입력&lt;br /&gt;
-→ 8000번 포트에서 서버가 성공적으로 열림&lt;br /&gt;
-(※ python 개발 서버는 기본적으로 8000번 포트에서 리스닝)&lt;/p&gt;
-
-&lt;h3 id=&quot;3-2-서버를-끄고-싶다면&quot;&gt;3-2. 서버를 끄고 싶다면,&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + c&lt;/code&gt; 입력&lt;/p&gt;
-&lt;h3 id=&quot;3-3-포트-번호를-바꾸고-싶다면&quot;&gt;3-3. 포트 번호를 바꾸고 싶다면,&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ python manage.py runserver [바꿀 포트 번호]&lt;/code&gt; 를 입력&lt;/p&gt;
-
-&lt;h2 id=&quot;4-application-설치&quot;&gt;4. Application 설치&lt;/h2&gt;
-&lt;h3 id=&quot;4-1-django-admin-startapp-app-이름&quot;&gt;4-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django-admin startapp [app 이름]&lt;/code&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;4-2-app-파일-구성&quot;&gt;4-2. app 파일 구성&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp&lt;/code&gt; 폴더
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myapp/
-      migrations/
-          __init__.py
-      __init__.py
-      admin.py
-      apps.py
-      models.py
-      tests.py
-      views.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;5-routing&quot;&gt;5. Routing&lt;/h2&gt;
-&lt;h3 id=&quot;5-1-projecturlspy-설정&quot;&gt;5-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 설정&lt;/h3&gt;
-&lt;p&gt;→ 큰 틀의 라우팅은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]/urls.py&lt;/code&gt; 에서 지정&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject/urls.py&lt;/code&gt;
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlpatterns&lt;/code&gt; 정의(routing 관련 정보를 기록)&lt;br /&gt;
-  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path()&lt;/code&gt; 를 이용해 url을 넣어줌&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('접속 경로/', include('연결할 app.urls'))&lt;/code&gt;&lt;br /&gt;
-  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include()&lt;/code&gt;: import 필요&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;→ user 접속시 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp.urls&lt;/code&gt; 로 연결&lt;/p&gt;
-
-&lt;h3 id=&quot;5-2-appurlspy-생성-및-설정&quot;&gt;5-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 생성 및 설정&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;→ user가 각 경로로 접속했을 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;로 전달&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;: client로 정보를 전달할 &lt;strong&gt;함수 작성&lt;/strong&gt;(index, create, read)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;
-  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;# Create your views here.
-&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Welcome!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Create!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;5-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/urls.py&lt;/code&gt; 수정&lt;br /&gt;
-→ 사용자가 기본 포트로 접속 시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;의 index 함수를 실행하도록 수정&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.index&lt;/code&gt; import&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-  &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;myapp&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/1/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;cf.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('read/1/', view.read)&lt;/code&gt; 에서 1이 바뀔 수 있는 숫자라면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt;를 이용해 작성&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;
-        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/&amp;lt;id&amp;gt;/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-        &lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;views.py&lt;/code&gt;의 read()가 해당 인자(id)를 받아서 처리&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;
-        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;routing-정리&quot;&gt;&amp;lt;routing 정리&amp;gt;&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;user가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read/1&lt;/code&gt; 경로로 접속시&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myproject/urls.py&lt;/code&gt;로 감
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-     &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/urls.py&lt;/code&gt;로 위임
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'read/&amp;lt;id&amp;gt;/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;위 코드에 걸림&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;myapp/views.py&lt;/code&gt;로 위임
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Read!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read() 함수&lt;/code&gt;실행&lt;/li&gt;
-  &lt;li&gt;client에 반환 값 전송&lt;/li&gt;
-&lt;/ol&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Python" />
       
 
       
