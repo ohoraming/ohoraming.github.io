@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-27T23:37:50+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Code Review</title><link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="Code Review" /><published>2022-04-27T22:45:00+09:00</published><updated>2022-04-27T22:45:00+09:00</updated><id>https://ohoraming.github.io/code-review</id><content type="html" xml:base="https://ohoraming.github.io/code-review">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-04-28T22:04:28+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">Code Review [update 中]</title><link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="Code Review [update 中]" /><published>2022-04-27T22:45:00+09:00</published><updated>2022-04-27T22:45:00+09:00</updated><id>https://ohoraming.github.io/code-review</id><content type="html" xml:base="https://ohoraming.github.io/code-review">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -31,14 +31,92 @@
 
 &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165537956-2c59b063-2c04-4b50-a88f-650eb74ea9cf.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;전체 산업 영역에서 IT의 비율이 10년만에 2배로 성장했지만, 여전히 90%는 Digital Transformation(DT) 중임
-Tech 이외의 영역에서 개발자에 대한 수요가 훨씬 가파르게 증가하고 있으며, 미국은 보다 원활한 서비스를 공급하기 위해서는 3배(2020년 당시) 더 많은 개발자가 필요하다고 함
+&lt;p&gt;전체 산업에서 IT의 비율이 10년만에 2배로 성장했고, 90%는 Digital Transformation (DT) 중임&lt;br /&gt;
+Tech 이외의 영역에서 개발자 수요가 가파르게 증가하고 있음&lt;br /&gt;
+미국은 보다 원활한 서비스를 공급하기 위해서는 3배(2020년 당시) 더 많은 개발자가 필요하다고 함&lt;br /&gt;
 우리 나라의 경우, 미국의 1/4 수준의 개발자를 보유하고 있으므로 현 시점보다 12배 많은 개발자가 필요함&lt;/p&gt;
 
 &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165539160-f3fe7c6a-d6cc-40d3-8efa-dcd827b63f64.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;시장은 VUCA하고, 비즈니스는 빠른 혁신이 필요하므로,
-개발에 있어서 SW를 더 자주 안정적으로 출시(DRFR)해야 함&lt;/p&gt;
+&lt;strong&gt;개발에 있어서 SW를 더 자주 안정적으로 출시(DRFR)해야 함&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165748046-31301e62-a206-4de3-a7a5-311f454160cb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(Clean Architecture 1장) 출시 때마다 &lt;strong&gt;개발자&lt;/strong&gt;는 기하급수적으로 &lt;strong&gt;증가&lt;/strong&gt;함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165748766-4e1367c1-c1f2-4907-aad8-1f1016814022.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만, 출시 때마다 &lt;strong&gt;생산성&lt;/strong&gt;은 일정 수치에 &lt;strong&gt;수렴&lt;/strong&gt;함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165748972-001c98dc-da0d-45aa-b56c-8a3dc3a7388b.png&quot; /&gt;&lt;img width=&quot;400&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165749152-1e21c2ef-8d8c-48c9-bc33-7695e3e3eda3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;처음에는 만든 모든 것이 산출물이라 기술부채가 없음&lt;br /&gt;
+출시가 거듭될 수록 개발자는 기존 코드를 파악 및 수정하는데 대부분의 시간을 쓰고, 새로운 기능을 추가하는 생산적인 일을 하는데 시간을 쓰지 못하게 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;550&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165750848-e71529dc-e923-4633-a102-cffeaf2162e4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Martin Fowler’s Design Stamina Hypothesis(&lt;a href=&quot;https://martinfowler.com/bliki/DesignStaminaHypothesis.html&quot;&gt;블로그 참조&lt;/a&gt;)&lt;br /&gt;
+좋은 설계와 나쁜 설계의 누적 생산성&lt;br /&gt;
+설계 수익선을 지나 생기는 개발의 생산성 저하를 막아야 함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165751839-410140cc-d654-4519-a979-ee1c73f01c90.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일반적인 공학의 경우, 설계와 빌드 중 빌드의 비용이 압도적임&lt;br /&gt;
+건축물이 완공된 다음에는 변경할 수 있는 것이 거의 없으므로 유지보수 비용은 상대적으로 낮음&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165752485-bf01af46-4006-43ac-8ecd-61e65a95f024.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;재생산이 가능하다는 것은 누가 빌드를 하든지 동일한 결과물이 나오는 것&lt;br /&gt;
+SW빌드는 인건비가 발생하지 않아 거의 무료임&lt;br /&gt;
+그래서 설계는 굉장히 중요하며, SW 엔지니어는 &lt;strong&gt;설계를 잘 하는 사람, 좋은 코드를 작성하는 사람&lt;/strong&gt;임&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165753561-e353cd27-6944-4916-bbcc-65a3519fcf46.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로운 코드를 작성하는 것은 20%&lt;br /&gt;
+남의 코드를 읽고 변경하는 일이 80%
+코드 이해에 10배 이상의 에너지가 소요됨&lt;br /&gt;
+내 코드도 2주 뒤에는 남이 작성한 코드처럼 보임&lt;br /&gt;
+코드가 좋은 가독성과 좋은 설계를 가져야 하는 이유임&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165754626-d3679f47-23ea-45c8-b231-a4b7b638dcd6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일정에 쫓겨 빠르고 지저분하게 개발을 하는 것이 나중에 보면 결코 빠른 개발이 아님&lt;br /&gt;
+SW의 경우, 비싸다고(비용이 많이 든다고) 품질이 좋은 것 아님(비정상적, 비직관적)&lt;br /&gt;
+처음에는 비용이 많이 들어도, 수정할 때는 훨씬 비용을 절감할 수 있게 됨&lt;/p&gt;
+
+&lt;p&gt;테스트 커버리지를 높일 일정을 제공받고 싶다면, 개발자들이 원하는 것만 이야기해서는 소통이 힘듦&lt;br /&gt;
+테스트 커버리지를 높였을 때 결함율이 감소하고, 변경 요청시 빠르게 처리가 가능해 출시 기간이 짧아질 수 있다고 말해야 비즈니스 측에서 원하는 대답이 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165755446-ab4b4398-b7cb-49ad-9295-2bb61e04eb1b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VUCA시대에 좋은 SW를 개발하는 가장 좋은 방법은 &lt;strong&gt;애자일&lt;/strong&gt;임&lt;br /&gt;
+하지만,&lt;br /&gt;
+단순히 절차만 변경하고, TDD, refactoring, test 자동화, 단순한 설계 등 개발 역량에 대해서 다루지 않으면 애자일에 실패함&lt;br /&gt;
+관련 지식과 경험은 학교가 아닌, &lt;strong&gt;전문성을 갖춘 개발자가 공유&lt;/strong&gt;를 해주는 방법이 유일함(이것이 SW의 장인정신, 애자일의 확장된 개념)&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;400&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756013-ad8ec81b-b6d7-47e9-b456-1a36e040b17b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SW 장인정신은 공유 활동이 아주 중요함&lt;br /&gt;
+공유 활동 중 &lt;strong&gt;코드 리뷰&lt;/strong&gt;는 누구나 쉽게 접근할 수 있음&lt;br /&gt;
+온라인에서 code로 댓글 놀이를 하면 코드 리뷰 하는 느낌을 받을 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756554-626289ad-1a43-4f20-a432-2dd011068298.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(ref.Wikipedia)&lt;br /&gt;
+&lt;strong&gt;코드 리뷰란?&lt;/strong&gt;&lt;br /&gt;
+한 명 또는 여러 사람이 주로 소스 코드 일부를 보고 읽는 방식으로, 프로그램을 확인하는 SW품질 보증 활동으로써 구현 혹은 구현을 잠시 중단하면서 시행함&lt;br /&gt;
+피어 리뷰, 풀 리퀘스트, 머지 리퀘스트라고도 불림&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756889-afcd8544-bf17-4d95-b715-546508b7586b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드 리뷰를 하며 &lt;strong&gt;양방향의 배움&lt;/strong&gt;이 일어남&lt;br /&gt;
+피어 간 또는 주니어 간의 코드 리뷰는 기술에만 한정된 &lt;strong&gt;하드 스킬&lt;/strong&gt;을 배우게 됨&lt;br /&gt;
+시니어는 주니어를 가르칠 때, 어떻게 소통을 해야 상대가 더 잘 받아들일 수 있는지에 대해 &lt;strong&gt;소프트 스킬&lt;/strong&gt;을 배우게 됨
+친절함, 공감능력, 가르치는 방법 등 &lt;strong&gt;리더십&lt;/strong&gt;의 다양한 기법들을 배우게 됨&lt;br /&gt;
+또한, 잘 하는 사람이 하는 것을 보며 &lt;strong&gt;동기 부여&lt;/strong&gt;가 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;350&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165758125-a0203a1c-5b3e-4ce9-99f7-ab7b37e88be2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“[LIVE] 지속가능한 SW 개발을 위한 코드리뷰 :: 4월 우아한테크세미나,” 유튜브 비디오, 2:06:22, 게시자 “우아한Tech,” 2022년 4월 27일, &lt;a href=&quot;https://youtu.be/ssDMIcPBqUE&quot;&gt;https://youtu.be/ssDMIcPBqUE&lt;/a&gt;&lt;/p&gt;
