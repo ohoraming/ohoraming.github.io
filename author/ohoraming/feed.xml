@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-04-30T23:55:58+09:00</updated>
+  <updated>2022-05-01T22:13:29+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -51,11 +51,16 @@
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;이 글은 4월 우아한테크세미나 영상을 발표 자료와 함께 정리한 것입니다.&lt;/p&gt;
+  &lt;p&gt;※ 이 글은 4월 우아한테크세미나 영상을 첨부된 발표 자료와 함께 정리한 것입니다.
+실제 발표와 다른 부분이 있을 수도 있으니 원본 영상을 참고하시기 바랍니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;왜-코드-리뷰를-해야-하나&quot;&gt;왜 코드 리뷰를 해야 하나?&lt;/h2&gt;
-&lt;h3 id=&quot;1-우리가-살고-있는-시대&quot;&gt;1. 우리가 살고 있는 시대&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;발표자: 11번가 백명석 님&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-왜-코드-리뷰를-해야-하나&quot;&gt;1. 왜 코드 리뷰를 해야 하나?&lt;/h2&gt;
+&lt;h3 id=&quot;1-1-우리가-살고-있는-시대&quot;&gt;1-1. 우리가 살고 있는 시대&lt;/h3&gt;
 
 &lt;p&gt;&lt;img width=&quot;724&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166109281-7f2a56bc-c6db-4c1f-9bbc-dd2ae92089c4.png&quot; /&gt;&lt;/p&gt;
 
@@ -96,14 +101,13 @@
 &lt;p&gt;처음에는 만든 모든 것이 산출물이라 기술부채가 없음&lt;br /&gt;
 출시가 거듭될 수록 개발자는 기존 코드를 파악 및 수정하는데 대부분의 시간을 쓰고, 새로운 기능을 추가하는 생산적인 일을 하는데 시간을 쓰지 못하게 됨&lt;/p&gt;
 
-&lt;h3 id=&quot;2-개발-생산성&quot;&gt;2. 개발 생산성&lt;/h3&gt;
+&lt;h3 id=&quot;1-2-개발-생산성&quot;&gt;1-2. 개발 생산성&lt;/h3&gt;
 &lt;p&gt;&lt;img width=&quot;535&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166110256-c16de429-58a0-4d23-b743-b2dd4b49c594.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;lt; Martin Fowler’s Design Stamina Hypothesis(&lt;a href=&quot;https://martinfowler.com/bliki/DesignStaminaHypothesis.html&quot;&gt;블로그 참조&lt;/a&gt;) &amp;gt;&lt;br /&gt;
 좋은 설계와 나쁜 설계의 누적 생산성을 보여줌&lt;br /&gt;
 → 설계 수익선을 지나 생기는 개발의 생산성 저하를 막아야 함&lt;/p&gt;
-
-&lt;h3 id=&quot;3-sw-공학의-특성&quot;&gt;3. SW 공학의 특성&lt;/h3&gt;
+&lt;h3 id=&quot;1-3-sw-공학의-특성&quot;&gt;1-3. SW 공학의 특성&lt;/h3&gt;
 &lt;p&gt;&lt;img width=&quot;669&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166110322-2a56ad21-80af-4265-bbb4-59bfafdf9be1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;일반적인 공학의 경우,&lt;br /&gt;
@@ -129,37 +133,332 @@ SW빌드는 인건비가 발생하지 않아 거의 무료임&lt;br /&gt;
 SW의 경우, 비싸다고(비용이 많이 든다고) 품질이 좋은 것 아님(비정상적, 비직관적)&lt;br /&gt;
 처음에는 비용이 많이 들어도, 수정할 때는 훨씬 비용을 절감할 수 있게 됨&lt;/p&gt;
 
-&lt;p&gt;테스트 커버리지를 높일 일정을 제공받고 싶다면,&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;개발자로서 테스트 커버리지를 높일 일정을 제공받고 싶다면,&lt;/strong&gt;&lt;br /&gt;
 테스트 커버리지를 높였을 때 결함율이 감소하고, 변경 요청시 빠르게 처리가 가능해 출시 기간이 짧아질 수 있다고 말해야 비즈니스 측에서 원하는 대답이 됨&lt;/p&gt;
 
-&lt;h3 id=&quot;4-sw-장인정신&quot;&gt;4. SW 장인정신&lt;/h3&gt;
-&lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165755446-ab4b4398-b7cb-49ad-9295-2bb61e04eb1b.png&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-4-장인정신&quot;&gt;1-4. 장인정신&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;618&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166141772-11fd4de5-252a-445e-8678-95742eaf4bb0.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;VUCA시대에 좋은 SW를 개발하는 가장 좋은 방법은 &lt;strong&gt;애자일&lt;/strong&gt;임&lt;br /&gt;
+&lt;p&gt;VUCA시대에 좋은 SW를 개발하는 가장 좋은 방법은 &lt;strong&gt;애자일&lt;/strong&gt;&lt;br /&gt;
 하지만,&lt;br /&gt;
-단순히 절차만 변경하고, TDD, refactoring, test 자동화, 단순한 설계 등 애자일의 개발 역량에 대해서 다루지 않으면 애자일에 실패함&lt;br /&gt;
-관련 지식과 경험은 학교가 아닌, &lt;strong&gt;전문성을 갖춘 개발자가 공유&lt;/strong&gt;를 해주는 방법이 유일함(이것이 SW의 장인정신, 애자일의 확장된 개념)&lt;/p&gt;
+단순히 절차만 변경하고, 애자일의 개발 역량(TDD, refactoring, test 자동화, 단순한 설계 등)에 대해서 다루지 않으면 실패함&lt;br /&gt;
+관련 지식과 경험은 학교가 아닌, &lt;strong&gt;전문성을 갖춘 개발자가 공유&lt;/strong&gt;를 해주는 방법이 &lt;strong&gt;유일&lt;/strong&gt;함(이것이 SW의 장인정신, 애자일의 확장된 개념)&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;400&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756013-ad8ec81b-b6d7-47e9-b456-1a36e040b17b.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width=&quot;469&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166141839-664fa7bf-e609-4541-8db1-d75c952c15ed.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;SW 장인정신은 공유 활동이 아주 중요함&lt;br /&gt;
+&lt;p&gt;SW 장인정신은 &lt;strong&gt;공유 활동이 아주 중요&lt;/strong&gt;함&lt;br /&gt;
 공유 활동 중 &lt;strong&gt;코드 리뷰&lt;/strong&gt;는 누구나 쉽게 접근할 수 있음&lt;br /&gt;
-온라인에서 code로 댓글 놀이를 하면 코드 리뷰 하는 느낌을 받을 수 있음&lt;/p&gt;
+온라인에서 &lt;strong&gt;code로 댓글 놀이&lt;/strong&gt;를 하면 코드 리뷰 하는 느낌을 받을 수 있음&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756554-626289ad-1a43-4f20-a432-2dd011068298.png&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-5-코드-리뷰의-정의&quot;&gt;1-5. 코드 리뷰의 정의&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;653&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166141877-4193f70b-d153-4cf8-9c8d-9059d9fb96ba.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;(ref.Wikipedia)&lt;br /&gt;
-&lt;strong&gt;코드 리뷰란?&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;(Wikipedia)&lt;br /&gt;
 한 명 또는 여러 사람이 주로 소스 코드 일부를 보고 읽는 방식으로, 프로그램을 확인하는 SW품질 보증 활동으로써 구현 혹은 구현을 잠시 중단하면서 시행함&lt;br /&gt;
 피어 리뷰, 풀 리퀘스트, 머지 리퀘스트라고도 불림&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/165756889-afcd8544-bf17-4d95-b715-546508b7586b.png&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-6-코드-리뷰의-목적&quot;&gt;1-6. 코드 리뷰의 목적&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;589&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166141988-8faff3a0-ab2c-45a6-acd7-414b0aeade33.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;코드 리뷰의 주목적 달성은 물론, &lt;strong&gt;양방향의 배움&lt;/strong&gt;이 일어남&lt;br /&gt;
-피어 간 또는 주니어 간의 코드 리뷰는 기술에만 한정된 &lt;strong&gt;하드 스킬&lt;/strong&gt;을 배우게 됨&lt;br /&gt;
-시니어는 주니어를 가르칠 때, 어떻게 소통을 해야 상대가 더 잘 받아들일 수 있는지에 대해 &lt;strong&gt;소프트 스킬&lt;/strong&gt;을 배우게 됨
-친절함, 공감능력, 가르치는 방법 등 &lt;strong&gt;리더십&lt;/strong&gt;의 다양한 기법들을 배우게 됨&lt;br /&gt;
+&lt;p&gt;코드 리뷰시 주목적 달성은 물론, &lt;strong&gt;양방향의 배움&lt;/strong&gt;이 일어남&lt;br /&gt;
+피어 또는 주니어 간의 코드 리뷰에서는 기술(&lt;strong&gt;하드 스킬&lt;/strong&gt;)을 배우게 됨&lt;br /&gt;
+시니어가 주니어를 가르칠 때는 어떻게 소통해야 상대가 더 잘 받아들이는지, 친절함, 공감능력, 가르치는 방법 등의 &lt;strong&gt;소프트 스킬&lt;/strong&gt;과 &lt;strong&gt;리더십&lt;/strong&gt;을 배우게 됨&lt;br /&gt;
 또한, 잘 하는 사람이 하는 것을 보며 &lt;strong&gt;동기 부여&lt;/strong&gt;가 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;410&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142221-7f530c56-a6e6-4674-a935-201340135838.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;팀원의 코드를 리뷰하면서 책임감이 생김
+팀원의 일에 관심을 가지게 되고, 내가 팀원에게 줄 수 있는 것은 무엇일까 생각하게 됨
+결과적으로 팀웍이 생김&lt;/p&gt;
+
+&lt;p&gt;코드 리뷰로 좋은 사례가 공유되고, 부족한 부분에 대해선 좋은 의견을 물어볼 수 있음
+이런 공유활동이 지속되면 개발 문화가 개선됨&lt;/p&gt;
+
+&lt;h2 id=&quot;2-코드-리뷰의-절차&quot;&gt;2. 코드 리뷰의 절차&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;670&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142388-fdbec6b7-be19-4866-bec7-e5eb0921aabb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;저자(코드를 작성한 사람)가 변경된 내용에 대해 PR를 만들어서 리뷰어에게 줌&lt;/li&gt;
+  &lt;li&gt;리뷰어는 글로 피드백을 줌&lt;/li&gt;
+  &lt;li&gt;위 과정을 반복하다 리뷰어가 배포해도 되겠다는 판단을 한 뒤, 배포함&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img width=&quot;671&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142494-be344e0d-22aa-4247-bc44-b9a8cd970883.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;모든 산출물은 소비자를 위한 것&lt;br /&gt;
+&lt;strong&gt;PR&lt;/strong&gt; 또한 산출물이므로 작성한 사람이 아니라 &lt;strong&gt;리뷰어를 위한 것&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;리뷰어의 시간을 아껴주는 방향으로 작성&lt;/strong&gt;해야함&lt;/p&gt;
+
+&lt;h2 id=&quot;3-왜-코드-리뷰가-어려운가&quot;&gt;3. 왜 코드 리뷰가 어려운가&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;657&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142582-c5613fc8-7336-40ae-a74b-ef5b037efd9c.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“자신의 기술을 과대평가한 항공사들은 모두 망했음”&lt;br /&gt;
+저자와 리뷰어 모두 &lt;strong&gt;자신이 틀릴 수 있다는 자세&lt;/strong&gt;로 접근해야 함&lt;br /&gt;
+처음에는 나의 코드에 대한 비판이 마치 나에 대한 비판같아서 힘들겠지만,&lt;br /&gt;
+&lt;strong&gt;나와 나의 코드는 분리해서 생각해야 함&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;649&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142681-1fab0b2f-4a42-4b4c-980e-8e3203e9c281.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드 리뷰를 개인적 공격으로 받아들이면 코드 리뷰의 의미가 없어짐&lt;br /&gt;
+처음부터 리뷰를 잘 하기는 힘듦&lt;br /&gt;
+사소한 것부터 언급하면서 &lt;strong&gt;차츰 잘 해나가는 방향&lt;/strong&gt;으로 가야 함&lt;br /&gt;
+&lt;strong&gt;나의 글에 충격받는 사람이 있을 수 있다는 것을 잊지 말아야 함&lt;/strong&gt;&lt;br /&gt;
+“파일 핸들 닫는 것을 잊어버리셨어요”를 “이 바보 같으니라구! 어떻게 파일 핸들 닫는 것을 잊어버릴 수 있지?”라고 받아들일 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;363&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142820-5adc35e2-3cf6-41f8-aa88-392c91dfa08b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Git&lt;/strong&gt;의 등장으로 &lt;strong&gt;소단위 리뷰&lt;/strong&gt;가 가능하면서 팀원간의 갈등이 많이 사라짐&lt;br /&gt;
+(연사의 과거 경험)&lt;/p&gt;
+
+&lt;h2 id=&quot;4-기법들&quot;&gt;4. 기법들&lt;/h2&gt;
+&lt;h3 id=&quot;4-1-효율적인-pr-방법&quot;&gt;4-1. 효율적인 PR 방법&lt;/h3&gt;
+&lt;h3 id=&quot;4-1-1-지루한-작업은-컴퓨터로-처리&quot;&gt;4-1-1. 지루한 작업은 컴퓨터로 처리&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;517&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166142968-f793991a-9aaf-4ab0-a165-ce284e051408.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;빌드, 테스트, 머지, 머지 컨플릭트 찾기 등은 기계가 더 잘 함&lt;br /&gt;
+사람은 로직만 잘 짤 수 있도록 하기&lt;br /&gt;
+익숙하지 않은 코드 포맷팅이나 약속되지 않은 포맷팅은 리뷰어를 힘들게 함(포맷팅을 전담하는 사람을 두는 곳도 있음)&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;660&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143048-1567e9d3-3579-491e-8c94-a0a04b769ed0.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;툴만 잘 다루는 것은 의미가 없으나, &lt;strong&gt;툴도 잘 다루는 것은 중요&lt;/strong&gt;함&lt;br /&gt;
+툴을 잘 다루면 본질적인 문제를 생각하는데 노력을 많이 쓸 수 있지만, 툴에 익숙하지 않으면 툴에 집중하게 되어 본질을 놓치게 됨&lt;/p&gt;
+
+&lt;h3 id=&quot;4-1-2-스타일-가이드를-통해-스타일-논쟁을-해소&quot;&gt;4-1-2. 스타일 가이드를 통해 스타일 논쟁을 해소&lt;/h3&gt;
+
+&lt;p&gt;&lt;img width=&quot;414&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143084-22920a12-5219-45f6-a452-8da503093624.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;스타일 정하는 데 많은 시간을 쓰지 않아야 함&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;좋은 스타일이 있다면 가져다 쓰거나,&lt;/li&gt;
+  &lt;li&gt;자신만의 스타일 가이드를 점진적으로 만들어 가거나,&lt;/li&gt;
+  &lt;li&gt;위 두 가지를 조합하거나&lt;br /&gt;
+팀 내의 합의를 거쳐 하나를 선정하고 이를 지킬 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-1-3-pr을-올릴-때-주석-달기&quot;&gt;4-1-3. PR을 올릴 때 주석 달기&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;651&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143217-ee015304-4923-4703-ad70-a193fd2d5786.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;description만으로는 설명이 부족할 수 으므로 PR을 한 저자가 구체적인 커멘트를 남기면 리뷰어들의 시간이 절약됨&lt;/p&gt;
+
+&lt;h3 id=&quot;4-1-4-리뷰어에-모두를-포함하라&quot;&gt;4-1-4. 리뷰어에 모두를 포함하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;670&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143349-8c01f94c-4b1d-4978-b504-f2b4c3de706a.png&quot; /&gt;
+항상 여러 명에게 PR하는 것이 좋음&lt;/p&gt;
+
+&lt;h3 id=&quot;4-1-5-의미있는-커밋으로-분리&quot;&gt;4-1-5. 의미있는 커밋으로 분리&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;393&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143400-b2586aef-e01a-413c-a88b-5186a884e4f7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;혼자만의 프로젝트라도 &lt;strong&gt;커밋을 세세하게 나누어서 PR&lt;/strong&gt;을 하면 보기 편함&lt;br /&gt;
+코드 리뷰를 하지 않더라도 이 방식은 중요함&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-효율적인-리뷰-방법&quot;&gt;4-2. 효율적인 리뷰 방법&lt;/h3&gt;
+&lt;h3 id=&quot;4-2-1-리뷰는-즉시-시작&quot;&gt;4-2-1. 리뷰는 즉시 시작&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;550&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143522-73d98047-e6f2-4e02-ab96-7d2ccd8deb80.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;리뷰를 기다리는 것과 다른 것을 구현 하는 것이 동시에 일어나게 되면, context switching이 일어나 굉장히 비생산적이게 됨&lt;br /&gt;
+&lt;strong&gt;빠르게 리뷰를 종료&lt;/strong&gt;해주는 것이 좋음&lt;br /&gt;
+이 과정이 선순환된다면, 사람들은 언제 리뷰를 처리하는 것이 효율적인지 알게 됨&lt;br /&gt;
+리뷰가 올라오고 나서는 &lt;strong&gt;하루를 넘기지 않아야 함&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;595&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143565-4b266e94-335c-47c6-b345-497c7700ec40.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드 리뷰가 어려우면 더 자주해서 익숙해져라!&lt;br /&gt;
+팀원들이 반나절 정도 작업한 양을 30분 내에 모두 리뷰할 수 있도록 PR 속 변경을 최소화 해야 함&lt;br /&gt;
+리뷰어의 노고를 팀 내에서 조직적으로 평가하고 보상해 인정해 주어야 함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;343&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143601-fff62a94-8283-4ce8-aa9a-1e7db04a8a08.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Latency를 수용할 수 있는지, throughput을 수용할 수 있는지&lt;br /&gt;
+PR의 경우, Latency가 있지만, PairProgramming의 경우 바로 옆에서 피드백을 하므로 Latency가 없음&lt;br /&gt;
+반대로 PR은 한 명의 코드를 여러 명이 리뷰하거나 그 반대도 가능하지만, pair programming의 경우 대부분 1대 1로 진행되기에 throughput 측면에서는 PR이 더 좋음&lt;br /&gt;
+팀원들의 성향에 따라서 PR 또는 Pair Programming을 정하는 것도 좋음&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-2-고수준으로-시작-저수준으로-내려가라&quot;&gt;4-2-2. 고수준으로 시작, 저수준으로 내려가라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;491&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143641-793d0dc5-f619-4830-9116-167659127947.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;처음부터 &lt;strong&gt;너무 많은 리뷰를 남기는 것은 위험&lt;/strong&gt;함&lt;br /&gt;
+&lt;strong&gt;무조건 해결해야하는 것들(고수준)을 먼저 리뷰&lt;/strong&gt;한 뒤,&lt;br /&gt;
+보다 우선 순위가 낮은 것들(저수준)에 대해 리뷰하는 것이 좋음&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-3-예제-코드-제공에-관대하라&quot;&gt;4-2-3. 예제 코드 제공에 관대하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;527&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143679-bf3c803b-cf9a-42a1-9d8c-e5f5d8dd3713.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;자신이 코드를 잘 작성할 수 없다고 생각해서 리뷰어가 많은 예제를 제시한다고 생각할 수 있음&lt;br /&gt;
+&lt;strong&gt;적당한 수의 코드 예제를 제공해야 함&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-4-리뷰의-범위를-존중하라&quot;&gt;4-2-4. 리뷰의 범위를 존중하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;668&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143713-096ba388-cf85-4e2e-a355-7200e7ba6ba4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-5-태그를-활용&quot;&gt;4-2-5. 태그를 활용&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;633&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143735-b4d26fdd-f2c9-4e0f-ab58-afd6c5d4163f.png&quot; /&gt;
+[Nit]는 nit picking(트집 잡기)에서 온 것&lt;br /&gt;
+팀에서 합의한 태그를 이용해 고친다면 더 좋을법한 내용에대해 언급할 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;4-2-6-한-두-등급만-코드-레벨을-올리는-것을-목표로&quot;&gt;4-2-6. 한 두 등급만 코드 레벨을 올리는 것을 목표로&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;449&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166143802-c572e4bb-be14-48d0-bcc1-80d430fed209.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;저자가 D등급(간신히 돌아는 가지만 엉망인)의 코드를 쓴 뒤,&lt;br /&gt;
+A+등급의 코드를 쓸 수 있는 리뷰어가 리뷰를 할 경우,&lt;br /&gt;
+A+가 아닌 C나 B의 등급을 받게 &lt;strong&gt;도와야 함&lt;/strong&gt;(강제하는 것이 아니라)&lt;br /&gt;
+사람은 &lt;strong&gt;누구나 짧은 시간에 너무 많은 것을 습득할 수 없음&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-피드백-방법&quot;&gt;4-3. 피드백 방법&lt;/h3&gt;
+&lt;h3 id=&quot;4-3-1-절대-너라고-하지-마라너는-왜-맨날-&quot;&gt;4-3-1. 절대 “너”라고 하지 마라(너는 왜 맨날 …)&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144111-b80f8d97-7baa-45e7-8249-798c0f291316.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;누가 잘못을 했는지는 중요하지 않음&lt;/strong&gt;&lt;br /&gt;
+어떻게 해야 좋아질 것인가가 중요함&lt;br /&gt;
+‘너는’이 아니라‘이 코드는’이라고 말해야 함(&lt;strong&gt;사람 지칭하지 말 것&lt;/strong&gt;)&lt;br /&gt;
+&lt;strong&gt;나 전달법&lt;/strong&gt;을 사용해 소통할 것&lt;br /&gt;
+제안하는 방법으로 대화하기&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-2-건설적인-피드백을-하라&quot;&gt;4-3-2. 건설적인 피드백을 하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;658&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144180-040f61bc-8190-41ab-b88a-cb4cc1eb1496.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;실수를 하지 않으면 배울 수 없음&lt;/strong&gt;&lt;br /&gt;
+자신이 알고 있는 방법만 사용하면 손가락은 빨라지고 실수는 없으나 절대로 실력이 늘지는 않음&lt;br /&gt;
+&lt;strong&gt;실수를 통해 내가 이런 것을 배웠구나&lt;/strong&gt;라는 용기를 얻는 것이 중요함&lt;br /&gt;
+&lt;strong&gt;건설적인 피드백이 아니면 상처&lt;/strong&gt;만 남기게 되므로 하고 싶은 말을 도저히 긍정적인 방법으로 할 수 없겠다는 판단이 들면 아무 말도 하지 말 것&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-3-진정한-칭찬을-해라&quot;&gt;4-3-3. 진정한 칭찬을 해라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;668&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144389-77836f67-3f84-48cb-a1af-611aa421db54.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;칭찬이 존재하면, 팀원들이 나를 후원해주고 있다는 느낌을 받을 수 있음&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-4-피드백은-명령이-아니라-요청으로-표현해라&quot;&gt;4-3-4. 피드백은 명령이 아니라 요청으로 표현해라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;661&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144411-20bfffc3-de90-4db2-be26-4567c7c724bc.png&quot; /&gt;
+&lt;img width=&quot;702&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144519-7939ae57-189c-4f6e-a483-44a7411d6f45.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일상에서는 동료에게 명령하지 않으면서, 리뷰에서는 명령이 발견됨 &lt;br /&gt;
+리뷰에 &lt;strong&gt;리뷰어의 걱정만 표현을 해도 저자는 스스로 문제점을 발견&lt;/strong&gt;할 수 있고 보다 책임감을 가지고 업무에 임할 수 있게 됨&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-5-의견이-아니라-원칙에-기반하여-피드백하라&quot;&gt;4-3-5. 의견이 아니라 원칙에 기반하여 피드백하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;573&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144679-3d73d66b-36fc-42b4-bf6d-8b9a7f467d25.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;제안과 이유를 함께 제시&lt;/strong&gt;해야 하며,&lt;br /&gt;
+뚜렷한 이유는 모르겠지만 제시하고 싶다면 &lt;strong&gt;나 전달법&lt;/strong&gt;을 사용해 소통할 것&lt;/p&gt;
+
+&lt;h3 id=&quot;4-3-6-반복적인-패턴에-대해서-피드백을-제한하라&quot;&gt;4-3-6. 반복적인 패턴에 대해서 피드백을 제한하라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;559&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166144705-24bd5bc2-9f7f-4f43-9131-5b0d24cfe29e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;동일한 패턴의 실수를 했다면, 2-3개만 언급을 해도 저자는 스스로 살펴보고 동일한 패턴을 찾아내어 고칠 수 있음&lt;br /&gt;
+최악의 경우, 정말 2-3개만 고치더라도 시간이 지나면 더 많이 고치겠지라고 생각하기&lt;/p&gt;
+
+&lt;h3 id=&quot;4-4-교착상태-시&quot;&gt;4-4. 교착상태 시&lt;/h3&gt;
+&lt;h3 id=&quot;교착상태를-적극적으로-처리해라&quot;&gt;교착상태를 적극적으로 처리해라&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;404&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145013-804875cf-bae1-4839-b3f0-65b14ac7027f.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;교착상태: 저자와 리뷰어 사이의 커멘트 승인과 반영 충돌 상태&lt;br /&gt;
+반드시 만나서 해결해야 함&lt;br /&gt;
+텍스트 뒤에 상대가 있음을 잊으면 안 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;462&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145200-a499b0ad-2e9c-4ce8-bbc9-2bc446d92c01.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;당장 SW가 최고는 아니지만 적당한 상태라면, 타협하는 자세도 필요함&lt;br /&gt;
+동료가 퇴사하도록 만들면 영원히 최고의 SW는 기대할 수 없게 됨&lt;br /&gt;
+갈등을 회피하지 않고 논리적으로 푸는 자세가 중요&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;443&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145230-063eb0df-092d-4960-892c-0f05cc21cdc4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VUCA 시대에는 뛰어난 한 사람보다 약간은 부족한 여러 사람들의 협업이 보다 좋은 결과를 만들어냄&lt;br /&gt;
+팀원과의 협업 능력을 얻는 것이 훨씬 의미 있는 일임&lt;/p&gt;
+
+&lt;h3 id=&quot;4-5-추가적인-사례&quot;&gt;4-5. 추가적인 사례&lt;/h3&gt;
+&lt;h3 id=&quot;코드-리뷰를-하는-아주-재밌는-방법&quot;&gt;코드 리뷰를 하는 아주 재밌는 방법&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;580&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145350-cef5b299-c1f1-42ed-be8a-5629c4821194.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;20분 정도 짝을 이루어 멋지게 코드를 작성하는 것을 보여준 뒤, Revert 해 스스로 고칠 수 있게 하는 방법&lt;br /&gt;
+20동안 가르쳐 준 내용을 혼자서는 2시간 동안 고치고 있을 수 있지만, 다음부터는 스스로 할 수 있게 됨 &lt;br /&gt;
+풀이를 보고 수학 문제를 푸는 것과 같은 논리임 &lt;br /&gt;
+풀이를 안 보고도 풀어내보면 다음번에는 맞출 수 있게 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;488&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145528-26451ccc-586f-4ba2-89fd-8d499e5d94a3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;완벽하게 하기 위해 죽자고 싸워서 팀원을 내보내는 것은 팀을 망가뜨리는 행위임&lt;/p&gt;
+
+&lt;h3 id=&quot;코드-리뷰-문화-정착의-어려움--극복방법&quot;&gt;코드 리뷰 문화 정착의 어려움 / 극복방법&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;229&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145672-4dfa9d93-58da-4e18-851a-4d0e0ce49a3a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드 리뷰의 시간을 확보하는 것은 저자의 노력(description 잘 달기, 커밋 잘 나누기, PR 사이즈 작게 유지하기, 자신이 만든 PR은 자신이 먼저 읽고 커멘트 달기)에 달려있음&lt;br /&gt;
+내가 바보같이 짠 코드에 내 동료가 좋은 의견을 주었다고 받아들여야 함&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;333&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145918-3d60fbe6-66dd-4dec-90bf-5bc08959c928.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;뭐든 멋있어보이면 따라하려는 마음이 들게 됨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;659&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166145998-75fed210-b06e-4a87-8640-c50fa22cf8ec.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;어떻게 하면 장인정신, TDD, pair programming과 같이 한 번에 실행하기 어려운 것들을 받아들일 수 있게 영감을 줄 수 있는가에 대한 대답&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;465&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146166-7490112b-9510-4b9b-bc17-b168c277d9a9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로운 것을 도입하면 익숙하지 않기 때문에 고통의 계곡(valley of pain)에 빠지게 되어 성과가 떨어지게 됨&lt;br /&gt;
+긍정적인 마인드로 꾸준히 하다 보면, 고통의 계곡에서 빠져 나가게 되며, 기하급수적으로 성과가 상승하게 됨&lt;br /&gt;
+사람은 계단식으로 성장하며 계단의 앞에는 고통의 계곡이 있음&lt;br /&gt;
+코드 리뷰도 마찬가지임&lt;br /&gt;
+적응하는데 시간이 걸릴 뿐 그 이후에는 결실을 얻게 됨&lt;/p&gt;
+
+&lt;h3 id=&quot;코드-리뷰의-효과&quot;&gt;코드 리뷰의 효과&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;616&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146204-80dd1116-5ddd-463e-b409-b98850cb8700.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;코드리뷰를-잘-하기-위해-필요한-기술들&quot;&gt;코드리뷰를 잘 하기 위해 필요한 기술들&lt;/h3&gt;
+&lt;h3 id=&quot;리팩터링&quot;&gt;리팩터링&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;671&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146314-84210cf7-7521-43e8-a00d-b899eaf30f2a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 두 권의 책을 읽지 않고 refactoring을 한다고 말할 수 없음&lt;br /&gt;
+Java로 쓴 책과 JavaScript로 쓴 책 모두 볼 것&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;520&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146446-0ff4cf49-6c31-4e32-969a-cb475d55b6e6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;legacy-code-다루기&quot;&gt;Legacy Code 다루기&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;639&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146523-6c26b58d-7b2d-4cd0-a6fa-009ba086cb2d.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;오래된 책이지만 인상적인 부분들이 많음&lt;/p&gt;
+
+&lt;h3 id=&quot;clean-code--tdd&quot;&gt;Clean Code &amp;amp; TDD&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;659&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146597-9936dc55-3e8d-4236-955b-b0ffb3907ab6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Unit Testing: 전통파(상태기반), 런던파(interaction기반)&lt;br /&gt;
+Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
+
+&lt;h2 id=&quot;faq&quot;&gt;FAQ&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;649&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146719-e521d507-02a6-4868-a76f-6ed786986acb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드리뷰 자체에 얽매이지 말고 공유와 논의에 초점 맞추기&lt;br /&gt;
+시간이 없어서 코드 리뷰를 못 하겠다면 개발 생산성와 개발 품질의 중요성에 대해 생각해 보아야 함&lt;br /&gt;
+분명 생산성이 증대되는 일임&lt;/p&gt;
+
+&lt;h2 id=&quot;q--a&quot;&gt;Q &amp;amp; A&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;603&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146872-b6dd9bea-9471-4d15-8c4f-e20c575924f8.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;항아리에 돌을 넣을 때는 큰 돌부터 넣어야 함&lt;br /&gt;
+무엇을 중요하게 생각하는 지 따져보고 먼저 수행해야 함&lt;br /&gt;
+우리에게 중요한 것이 품질이며, 설계라고 한다면, 코드 리뷰는 뺄 수 있는 문제가 아님&lt;br /&gt;
+코드 리뷰에 시간을 따로 책정하면 안 됨&lt;br /&gt;
+처음부터 포함이 되어있어야 함&lt;/p&gt;
+
+&lt;h2 id=&quot;faq-1&quot;&gt;FAQ&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;652&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166146992-fdea6b29-e722-4253-a644-3b7d16fd3784.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SW는 수학이 아니라 과학임&lt;br /&gt;
+수학은 맞는 것을 증명할 수 있지만, 과학은 틀린 경우가 없다는 것을 증명해 나가는 것이지 맞는 것을 증명할 수 없음&lt;br /&gt;
+버그에 대해 100% 안전해진다고 말할 수 없음&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;543&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166147071-08b590e7-f2ef-4bf0-8006-bc15bf79a454.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;측정 항목들이 반기 혹은 1년의 기간 안에 얼만큼씩 좋아지고 있는데 이는 코드 리뷰의 결과라는 것을 증명해내어 상사를 설득해야 함&lt;br /&gt;
+의사결정권자들이 원하는 것은 TDD, 좋은 아키텍쳐, 코드 리뷰 이런 것들이 아니라, 요구사항들이 얼마나 결함없이 빨리 배포 되느냐이기 때문임&lt;br /&gt;
+자동화 테스트 작성, 리팩터링, 코드리뷰, 짝프로그래밍 등은 결과물을 잘 만들어내기 위한 수단이며, 우리가 어떤 도구를 사용할지는 우리 스스로 정하는 것임&lt;br /&gt;
+왜 무엇을 언제까지는 상사가 정할 수 있음&lt;br /&gt;
+어떻게는 상사가 정해주는 것 아님&lt;br /&gt;
+상사의 허락을 받으려고 하는 것이 아님&lt;/p&gt;
+
+&lt;h2 id=&quot;q--a-1&quot;&gt;Q &amp;amp; A&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;565&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166147326-813f9255-1043-452e-87c5-a0116ec2dc3c.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;관련 영상 및 홍보 안내&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“[LIVE] 지속가능한 SW 개발을 위한 코드리뷰 :: 4월 우아한테크세미나,” 유튜브 비디오, 2:06:22, 게시자 “우아한Tech,” 2022년 4월 27일, &lt;a href=&quot;https://youtu.be/ssDMIcPBqUE&quot;&gt;https://youtu.be/ssDMIcPBqUE&lt;/a&gt;&lt;/p&gt;
