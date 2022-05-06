@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-05-05T23:57:48+09:00</updated>
+  <updated>2022-05-06T21:08:03+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -64,24 +64,123 @@
   &lt;li&gt;현재 기기의 브라우저에 내에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;쌍을 저장할 수 있게 함&lt;/li&gt;
   &lt;li&gt;도메인별로 따로 저장(최대 5Mb까지 저장가능)되며, 삭제하기 전에는 없어지지 않음&lt;/li&gt;
   &lt;li&gt;이전 페이지에서 사용자가 검색했던 내용을 계속 parameter에 넣어서 들고 다니지 않을 수 있음&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;문자열만 저장&lt;/strong&gt;할 수 있기 때문에 object나 array는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.stringify()&lt;/code&gt;를 사용해 문자열로 변환한 뒤 저장하고, 가지고 올 때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.parse()&lt;/code&gt;를 사용해 json형태로 변환해서 사용&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;문자열만 저장&lt;/strong&gt;할 수 있기 때문에 &lt;strong&gt;object나 array&lt;/strong&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.stringify()&lt;/code&gt;를 사용해 문자열로 변환한 뒤 저장하고, 가지고 올 때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.parse()&lt;/code&gt;를 사용해 &lt;strong&gt;JSON&lt;/strong&gt;형태로 변환해서 사용&lt;/li&gt;
   &lt;li&gt;서버가 HTTP 헤더를 통해 storage 객체를 조작할 수 없으며, 웹 스토리지 객체 조작은 모두 javascript 내에서 수행됨&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;sessionstorage&quot;&gt;sessionStorage&lt;/h2&gt;
+&lt;h2 id=&quot;cf-sessionstorage&quot;&gt;cf.) sessionStorage&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;브라우저 창을 닫는 순간 사라짐&lt;/li&gt;
   &lt;li&gt;같은 브라우저 탭 안에서만 유지됨&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;localstorage-사용&quot;&gt;localStorage 사용&lt;/h2&gt;
+&lt;h3 id=&quot;1-localstorage-객체에-접근해-key-value-쌍을-추가함&quot;&gt;1. localStorage 객체에 접근해 key, value 쌍을 추가함&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;localStorage 객체에 접근해 key, value 쌍을 추가함
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;supermarket&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage.setItem('key', 'value');&lt;/code&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;supermarket&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;carrot, 1000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;drugstore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aspirin, 3000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;img width=&quot;556&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/166951476-d298d5fd-e7cb-4bfd-9206-b7bd5b1ea332.png&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content>
+  &lt;li&gt;개발자 도구(F12) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application&lt;/code&gt; 탭의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local Storage&lt;/code&gt; 항목에서 data를 확인할 수 있음
+&lt;img width=&quot;614&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167115728-090b6f9c-5ea5-49c7-89eb-2014a3232bbb.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-localstorage에-저장된-value를-key값을-이용해-불러옴&quot;&gt;2. localStorage에 저장된 value를 key값을 이용해 불러옴&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage.getItem('key');&lt;/code&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;supermarket&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;drugstore&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167116241-cab4d87a-7e6f-44fd-bf96-28059d3c3db8.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-localstorage에-저장된-data를-key값을-이용해-개별-삭제함&quot;&gt;3. localStorage에 저장된 data를 key값을 이용해 개별 삭제함&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage.removeItem('key');&lt;/code&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;supermarket&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;555&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167116728-f73dffd3-fdb8-467e-9a1d-f141c78efa79.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-localstorage에-저장된-모든-data를-전체-삭제함&quot;&gt;4. localStorage에 저장된 모든 data를 전체 삭제함&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localStorage.clear();&lt;/code&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;553&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167116949-59b2e999-f75c-47c3-92b6-a7f644237d38.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-json-이용하기&quot;&gt;5. JSON 이용하기&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;localStorage의 key가 늘어나면 관리가 어렵기 때문에 일반적으로 하나의 key에 여러 data를 넣음&lt;/li&gt;
+  &lt;li&gt;JSON을 이용하면 간편하게 data를 관리할 수 있음&lt;/li&gt;
+  &lt;li&gt;JSON(&lt;strong&gt;J&lt;/strong&gt;ava&lt;strong&gt;S&lt;/strong&gt;cript &lt;strong&gt;O&lt;/strong&gt;bject &lt;strong&gt;N&lt;/strong&gt;otation)&lt;br /&gt;
+  → JavaScript에서 객체를 표현하는 형식으로 데이터를 저장&lt;br /&gt;
+  → &lt;strong&gt;문자열&lt;/strong&gt;을 사용해 다른 프로그램들과 통신을 하는 상황에서 사용&lt;/li&gt;
+  &lt;li&gt;JSON 객체
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.stringify()&lt;/code&gt;: &lt;strong&gt;javascript객체&lt;/strong&gt;를 &lt;strong&gt;JSON문자열&lt;/strong&gt;로 변환&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.parse()&lt;/code&gt;: &lt;strong&gt;JSON문자열&lt;/strong&gt;을 &lt;strong&gt;javascript객체&lt;/strong&gt;로 변환&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;JSON 규정
+    &lt;ol&gt;
+      &lt;li&gt;&lt;strong&gt;key&lt;/strong&gt;는 &lt;strong&gt;문자열&lt;/strong&gt;만 가능&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;문자열&lt;/strong&gt;은 반드시 &lt;strong&gt;큰따옴표&lt;/strong&gt;로 감싸야 함&lt;/li&gt;
+      &lt;li&gt;데이터는 숫자, 문자열, boolean 만 저장가능&lt;/li&gt;
+      &lt;li&gt;컨테이너 데이터는 &lt;strong&gt;object, array&lt;/strong&gt;만 사용 가능( function은 불가)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-json-data를-localstorage에-저장하기&quot;&gt;6. JSON data를 localStorage에 저장하기&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.stringify()&lt;/code&gt;로 javascript객체를 JSON으로 변환
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;3000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167121483-31876245-f115-4cef-a9c6-66d03c5b6128.png&quot; /&gt;
+→ 모든 항목이 큰 따옴표로 감싸져 있음(JSON 문자열로 변환됨)
+&lt;img width=&quot;610&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167120935-243bd30e-1b17-4d14-8e80-49dd1024b7f6.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;7-localstorage에-저장된-json-data를-javascript-객체로-변환하기&quot;&gt;7. localStorage에 저장된 JSON data를 javascript 객체로 변환하기&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.parse()&lt;/code&gt;로 JSON 문자열을 JavaScript객체로 변환&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JavaScript에서 사용가능한 객체로 변환됨&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;3000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// stringify&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// localStorage에 저장&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// parse&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JSON 문자열&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JavaScript 객체&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167126740-ebd4b90d-a7ae-4409-aa86-7c99012af676.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, &lt;a href=&quot;https://youtu.be/N7oln9Z3WYg&quot;&gt;https://youtu.be/N7oln9Z3WYg&lt;/a&gt;
+“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, &lt;a href=&quot;https://youtu.be/Id7o7DwhiFY&quot;&gt;https://youtu.be/Id7o7DwhiFY&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
 
       
       

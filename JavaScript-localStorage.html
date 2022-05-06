@@ -234,25 +234,123 @@ into the {body} of the default.hbs template -->
   <li>현재 기기의 브라우저에 내에 <code class="language-plaintext highlighter-rouge">key-value</code>쌍을 저장할 수 있게 함</li>
   <li>도메인별로 따로 저장(최대 5Mb까지 저장가능)되며, 삭제하기 전에는 없어지지 않음</li>
   <li>이전 페이지에서 사용자가 검색했던 내용을 계속 parameter에 넣어서 들고 다니지 않을 수 있음</li>
-  <li><strong>문자열만 저장</strong>할 수 있기 때문에 object나 array는 <code class="language-plaintext highlighter-rouge">JSON.stringify()</code>를 사용해 문자열로 변환한 뒤 저장하고, 가지고 올 때는 <code class="language-plaintext highlighter-rouge">JSON.parse()</code>를 사용해 json형태로 변환해서 사용</li>
+  <li><strong>문자열만 저장</strong>할 수 있기 때문에 <strong>object나 array</strong>는 <code class="language-plaintext highlighter-rouge">JSON.stringify()</code>를 사용해 문자열로 변환한 뒤 저장하고, 가지고 올 때는 <code class="language-plaintext highlighter-rouge">JSON.parse()</code>를 사용해 <strong>JSON</strong>형태로 변환해서 사용</li>
   <li>서버가 HTTP 헤더를 통해 storage 객체를 조작할 수 없으며, 웹 스토리지 객체 조작은 모두 javascript 내에서 수행됨</li>
 </ul>
 
-<h2 id="sessionstorage">sessionStorage</h2>
+<h2 id="cf-sessionstorage">cf.) sessionStorage</h2>
 <ul>
   <li>브라우저 창을 닫는 순간 사라짐</li>
   <li>같은 브라우저 탭 안에서만 유지됨</li>
 </ul>
 
 <h2 id="localstorage-사용">localStorage 사용</h2>
+<h3 id="1-localstorage-객체에-접근해-key-value-쌍을-추가함">1. localStorage 객체에 접근해 key, value 쌍을 추가함</h3>
 <ul>
-  <li>localStorage 객체에 접근해 key, value 쌍을 추가함
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">supermarket</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">carrot</span><span class="dl">'</span><span class="p">);</span>
+  <li><code class="language-plaintext highlighter-rouge">localStorage.setItem('key', 'value');</code>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">supermarket</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">carrot, 1000원</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">drugstore</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">aspirin, 3000원</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p><img width="556" alt="image" src="https://user-images.githubusercontent.com/77590526/166951476-d298d5fd-e7cb-4bfd-9206-b7bd5b1ea332.png" /></p>
+  </li>
+  <li>개발자 도구(F12) <code class="language-plaintext highlighter-rouge">application</code> 탭의 <code class="language-plaintext highlighter-rouge">Local Storage</code> 항목에서 data를 확인할 수 있음
+<img width="614" alt="image" src="https://user-images.githubusercontent.com/77590526/167115728-090b6f9c-5ea5-49c7-89eb-2014a3232bbb.png" /></li>
+</ul>
+
+<h3 id="2-localstorage에-저장된-value를-key값을-이용해-불러옴">2. localStorage에 저장된 value를 key값을 이용해 불러옴</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">localStorage.getItem('key');</code>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">supermarket</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">drugstore</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <p><img width="450" alt="image" src="https://user-images.githubusercontent.com/77590526/167116241-cab4d87a-7e6f-44fd-bf96-28059d3c3db8.png" /></p>
   </li>
 </ul>
 
+<h3 id="3-localstorage에-저장된-data를-key값을-이용해-개별-삭제함">3. localStorage에 저장된 data를 key값을 이용해 개별 삭제함</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">localStorage.removeItem('key');</code>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">supermarket</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <p><img width="555" alt="image" src="https://user-images.githubusercontent.com/77590526/167116728-f73dffd3-fdb8-467e-9a1d-f141c78efa79.png" /></p>
+  </li>
+</ul>
+
+<h3 id="4-localstorage에-저장된-모든-data를-전체-삭제함">4. localStorage에 저장된 모든 data를 전체 삭제함</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">localStorage.clear();</code>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</code></pre></div>    </div>
+    <p><img width="553" alt="image" src="https://user-images.githubusercontent.com/77590526/167116949-59b2e999-f75c-47c3-92b6-a7f644237d38.png" /></p>
+  </li>
+</ul>
+
+<h3 id="5-json-이용하기">5. JSON 이용하기</h3>
+<ul>
+  <li>localStorage의 key가 늘어나면 관리가 어렵기 때문에 일반적으로 하나의 key에 여러 data를 넣음</li>
+  <li>JSON을 이용하면 간편하게 data를 관리할 수 있음</li>
+  <li>JSON(<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation)<br />
+  → JavaScript에서 객체를 표현하는 형식으로 데이터를 저장<br />
+  → <strong>문자열</strong>을 사용해 다른 프로그램들과 통신을 하는 상황에서 사용</li>
+  <li>JSON 객체
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">JSON.stringify()</code>: <strong>javascript객체</strong>를 <strong>JSON문자열</strong>로 변환</li>
+      <li><code class="language-plaintext highlighter-rouge">JSON.parse()</code>: <strong>JSON문자열</strong>을 <strong>javascript객체</strong>로 변환</li>
+    </ul>
+  </li>
+  <li>JSON 규정
+    <ol>
+      <li><strong>key</strong>는 <strong>문자열</strong>만 가능</li>
+      <li><strong>문자열</strong>은 반드시 <strong>큰따옴표</strong>로 감싸야 함</li>
+      <li>데이터는 숫자, 문자열, boolean 만 저장가능</li>
+      <li>컨테이너 데이터는 <strong>object, array</strong>만 사용 가능( function은 불가)</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="6-json-data를-localstorage에-저장하기">6. JSON data를 localStorage에 저장하기</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JSON.stringify()</code>로 javascript객체를 JSON으로 변환
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">carrot</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000원</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">aspirin</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3000원</span><span class="dl">"</span>
+<span class="p">}</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">item</span><span class="dl">'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>    </div>
+    <p><img width="450" alt="image" src="https://user-images.githubusercontent.com/77590526/167121483-31876245-f115-4cef-a9c6-66d03c5b6128.png" />
+→ 모든 항목이 큰 따옴표로 감싸져 있음(JSON 문자열로 변환됨)
+<img width="610" alt="image" src="https://user-images.githubusercontent.com/77590526/167120935-243bd30e-1b17-4d14-8e80-49dd1024b7f6.png" /></p>
+  </li>
+</ul>
+
+<h3 id="7-localstorage에-저장된-json-data를-javascript-객체로-변환하기">7. localStorage에 저장된 JSON data를 javascript 객체로 변환하기</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JSON.parse()</code>로 JSON 문자열을 JavaScript객체로 변환</li>
+  <li>
+    <p>JavaScript에서 사용가능한 객체로 변환됨</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">carrot</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000원</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">aspirin</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3000원</span><span class="dl">"</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">stringifiedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// stringify</span>
+  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">item</span><span class="dl">'</span><span class="p">,</span> <span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// localStorage에 저장</span>
+  <span class="kd">const</span> <span class="nx">parsedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// parse</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// JSON 문자열</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">);</span> <span class="c1">// JavaScript 객체</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">carrot</span><span class="p">);</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">aspirin</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <p><img width="450" alt="image" src="https://user-images.githubusercontent.com/77590526/167126740-ebd4b90d-a7ae-4409-aa86-7c99012af676.png" /></p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, <a href="https://youtu.be/N7oln9Z3WYg">https://youtu.be/N7oln9Z3WYg</a>
+“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, <a href="https://youtu.be/Id7o7DwhiFY">https://youtu.be/Id7o7DwhiFY</a></p>
+</blockquote>
 
                 </div>
             </section>
