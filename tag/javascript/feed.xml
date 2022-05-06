@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/javascript/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-05-06T21:08:03+09:00</updated>
+  <updated>2022-05-06T21:10:40+09:00</updated>
   <id>https://ohoraming.github.io/tag/javascript/feed.xml</id>
 
   
@@ -32,8 +32,8 @@
 
   
     <entry>
-      <title type="html">JavaScript(13) - localStorage [update 中]</title>
-      <link href="https://ohoraming.github.io/JavaScript-localStorage" rel="alternate" type="text/html" title="JavaScript(13) - localStorage [update 中]" />
+      <title type="html">JavaScript(13) - localStorage</title>
+      <link href="https://ohoraming.github.io/JavaScript-localStorage" rel="alternate" type="text/html" title="JavaScript(13) - localStorage" />
       <published>2022-05-05T23:18:00+09:00</published>
       <updated>2022-05-05T23:18:00+09:00</updated>
       <id>https://ohoraming.github.io/JavaScript-localStorage</id>
