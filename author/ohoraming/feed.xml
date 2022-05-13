@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-05-06T21:10:40+09:00</updated>
+  <updated>2022-05-13T15:24:33+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -30,6 +30,189 @@
   
   
 
+  
+    <entry>
+      <title type="html">JavaScript(14) - basic</title>
+      <link href="https://ohoraming.github.io/JavaScript-basic" rel="alternate" type="text/html" title="JavaScript(14) - basic" />
+      <published>2022-05-13T14:23:00+09:00</published>
+      <updated>2022-05-13T14:23:00+09:00</updated>
+      <id>https://ohoraming.github.io/JavaScript-basic</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-basic">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-avoid-both-prototypes-and-classes&quot;&gt;JavaScript(12) - Prototype과 Class 피하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./JavaScript-localStorage&quot;&gt;JavaScript(13) - localStorage&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;※ 이 글은 윤인성님의 Youtube 강의 내용을 정리한 것입니다.
+출처는 문서 하단을 확인하시기 바랍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-요소-값-추출-및-입력&quot;&gt;1. 요소 값 추출 및 입력&lt;/h2&gt;
+&lt;h3 id=&quot;1-1-요소-값-추출&quot;&gt;1-1. 요소 값 추출&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;textContent&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;innerHTML&lt;/code&gt;
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;first&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;h1 태그에 입력된 기존 문자열입니다.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#first&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;// 태그 확인&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   
+        
+      &lt;span class=&quot;c1&quot;&gt;// 값 추출 &lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;480&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/168220394-0f716d11-d8af-4f21-9bf0-1df4204ed06c.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-2-요소에-원하는-값-입력&quot;&gt;1-2. 요소에 원하는 값 입력&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;textContent&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;tag를 일반 문자열로 인식&lt;/li&gt;
+      &lt;li&gt;많이 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;innerHTML&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;tag를 인식&lt;/li&gt;
+      &lt;li&gt;보안상 문제가 될 수 있어서 많이 사용하지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;first&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;h1 태그에 입력된 기존 문자열입니다.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;second&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;h2 태그에 입력된 기존 문자열입니다.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#first&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#second&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 값 입력&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;apple pie&amp;lt;br&amp;gt;🥧&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;header2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;apple pie&amp;lt;br&amp;gt;🥧&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// 값 추출&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img width=&quot;481&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/168221063-50a5433e-6e90-4672-88b6-a14fce82a932.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-속성-조작하기&quot;&gt;2. 속성 조작하기&lt;/h2&gt;
+&lt;h3 id=&quot;2-1-표준에-있는-속성-조작하기&quot;&gt;2-1. 표준에 있는 속성 조작하기&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;해당 속성을 직접 지정
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+  &lt;span class=&quot;c1&quot;&gt;// 값 입력&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://placekitten.com/200/200&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 값 추출&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;479&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/168222314-324d9faf-25e7-4f22-9161-f3b74c32905d.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-2-표준에-없는-속성사용자-정의-속성-조작하기&quot;&gt;2-2. 표준에 없는 속성(사용자 정의 속성) 조작하기&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAttribute('속성 이름', '값')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getAttribute('속성 이름')&lt;/code&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        
+      &lt;span class=&quot;c1&quot;&gt;// 값 입력&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://placekitten.com/152/152&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;// 값 추출&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;479&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/168223151-75bcf8ba-f1ac-4331-8057-536ebe3b47e3.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“혼공 자바스크립트 40강 - document.querySelector()/querySelectorAll() 메서드,” 유튜브 비디오, 8:49, 게시자 “윤인성,” 2021년 05월 24일, &lt;a href=&quot;https://youtu.be/L9QkNhMDcOg&quot;&gt;https://youtu.be/L9QkNhMDcOg&lt;/a&gt;
+“혼공 자바스크립트 41강 - 문서 객체 조작하기,” 유튜브 비디오, 10:59, 게시자 “윤인성,” 2021년 05월 26일, &lt;a href=&quot;https://youtu.be/a43xV0ajVgM&quot;&gt;https://youtu.be/a43xV0ajVgM&lt;/a&gt;
+“혼공 자바스크립트 42강 - 문서 객체 생성, 제거, 이동,” 유튜브 비디오, 10:45, 게시자 “윤인성,” 2021년 06월 07일, &lt;a href=&quot;https://youtu.be/k9ZXWAh2Hj0&quot;&gt;https://youtu.be/k9ZXWAh2Hj0&lt;/a&gt;
+“혼공 자바스크립트 43강 - 문서 객체 이벤트 기본,” 유튜브 비디오, 13:19, 게시자 “윤인성,” 2021년 06월 09일, &lt;a href=&quot;https://youtu.be/ByKGf9h9Qy0&quot;&gt;https://youtu.be/ByKGf9h9Qy0&lt;/a&gt;
+“혼공 자바스크립트 44강 - 이벤트 객체, 이벤트 발생 객체, 기본 이벤트,” 유튜브 비디오, 10:19, 게시자 “윤인성,” 2021년 06월 15일, &lt;a href=&quot;https://youtu.be/HQIM5PES29Q&quot;&gt;https://youtu.be/HQIM5PES29Q&lt;/a&gt;
+“혼공 자바스크립트 45강 - 입력 양식: 버튼,” 유튜브 비디오, 09:58, 게시자 “윤인성,” 2021년 06월 18일, &lt;a href=&quot;https://youtu.be/n2EBSjdIAzo&quot;&gt;https://youtu.be/n2EBSjdIAzo&lt;/a&gt;
+“혼공 자바스크립트 46강 - 입력 양식: 글자 입력,” 유튜브 비디오, 09:10, 게시자 “윤인성,” 2021년 06월 24일, &lt;a href=&quot;https://youtu.be/xXeDA06E0EA&quot;&gt;https://youtu.be/xXeDA06E0EA&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="JavaScript" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">JavaScript(13) - localStorage</title>
@@ -163,23 +346,27 @@
       &lt;span class=&quot;na&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;3000원&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// stringify&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// stringify()&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// localStorage에 저장&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// parse&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// parse()&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringifiedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JSON 문자열&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// JavaScript 객체&lt;/span&gt;
 
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;carrot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1000원&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parsedItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;aspirin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 3000원&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;&lt;img width=&quot;450&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/167126740-ebd4b90d-a7ae-4409-aa86-7c99012af676.png&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, &lt;a href=&quot;https://youtu.be/N7oln9Z3WYg&quot;&gt;https://youtu.be/N7oln9Z3WYg&lt;/a&gt;
-“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, &lt;a href=&quot;https://youtu.be/Id7o7DwhiFY&quot;&gt;https://youtu.be/Id7o7DwhiFY&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, &lt;a href=&quot;https://youtu.be/N7oln9Z3WYg&quot;&gt;https://youtu.be/N7oln9Z3WYg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, &lt;a href=&quot;https://youtu.be/Id7o7DwhiFY&quot;&gt;https://youtu.be/Id7o7DwhiFY&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       
@@ -953,6 +1140,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
   &lt;h6 id=&quot;undefined&quot;&gt;undefined&lt;/h6&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Justen Robertson, “As a JS Developer, This Is What Keeps Me Up at Night”, Toptal, 2019, &lt;a href=&quot;https://www.toptal.com/javascript/es6-class-chaos-keeps-js-developer-up&quot;&gt;https://www.toptal.com/javascript/es6-class-chaos-keeps-js-developer-up&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;</content>
@@ -985,11 +1173,11 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
   
     <entry>
       <title type="html">JavaScript(11) - Regular expressions(regex)</title>
-      <link href="https://ohoraming.github.io/JavaScript-regular-expressions-copy" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions(regex)" />
+      <link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions(regex)" />
       <published>2022-04-05T19:26:00+09:00</published>
       <updated>2022-04-05T19:26:00+09:00</updated>
-      <id>https://ohoraming.github.io/JavaScript-regular-expressions%20copy</id>
-      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions-copy">&lt;!-- 글 작성하기 --&gt;
+      <id>https://ohoraming.github.io/JavaScript-regular-expressions</id>
+      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -1654,10 +1842,10 @@ princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&q
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
           &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'testdb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'postgres'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1234'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 127.0.0.1 도 가능
+          &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'testdb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# db 이름 설정
+&lt;/span&gt;          &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'postgres'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1234'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 비밀번호 설정
+&lt;/span&gt;          &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 127.0.0.1 도 가능
 &lt;/span&gt;          &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'5432'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -1883,185 +2071,6 @@ t3 = (1, 2, 3)&lt;/p&gt;
 
       
         <category term="Python" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Git Convention</title>
-      <link href="https://ohoraming.github.io/git-convention" rel="alternate" type="text/html" title="Git Convention" />
-      <published>2022-03-10T21:25:00+09:00</published>
-      <updated>2022-03-10T21:25:00+09:00</updated>
-      <id>https://ohoraming.github.io/git-convention</id>
-      <content type="html" xml:base="https://ohoraming.github.io/git-convention">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://codingsight.com/git-branching-naming-convention-best-practices/&quot;&gt;https://codingsight.com/git-branching-naming-convention-best-practices/&lt;/a&gt;의 내용을 번역한 것입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;git-branching-naming-convention-best-practices&quot;&gt;Git Branching Naming Convention: Best Practices&lt;/h2&gt;
-&lt;p&gt;Git branch는 Regular와 Temporary branch로 나눔&lt;/p&gt;
-
-&lt;h2 id=&quot;regular-git-branches&quot;&gt;Regular Git Branches&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;영구적인 repository에 씀&lt;/li&gt;
-  &lt;li&gt;간단하고 쉬운 naming convention&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;dev(development)&lt;/strong&gt;는 main 개발 branch임&lt;br /&gt;
-dev branch의 아이디어는 해당 branch에서만 변경를 일으키고, master branch의 직접적인 변경은 제한함&lt;br /&gt;
-dev branch의 변경은 review(검토)를 받고, 테스트 후 master branch와 merge됨&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;master&lt;/strong&gt;는 Git repository의 기본 branch임&lt;br /&gt;
-항상 안정적이며, 어떠한 직접적인 check-in도 허용하지 않음&lt;br /&gt;
-code review이후에만 merge가 가능함&lt;br /&gt;
-팀 구성원 모두가 master를 안정적이며, 최신의 상태로 유지하는 것에 책임이 있음&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;QA 또는 test branch&lt;/strong&gt;는 QA testing과 자동 testing을 위한 모든 코드를 포함하고 있음&lt;br /&gt;
-어떠한 변경이 production 환경으로 가기 전, 안정적인 codebase를 위해 반드시 QA testing을 거쳐야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;temporary-git-branches&quot;&gt;Temporary Git Branches&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;이름에서 알 수 있는 것처럼, 필요할 때마다 만들고 없앨 수 있음&lt;/li&gt;
-  &lt;li&gt;Bug Fix, Hot Fix, Feature Branches, Experimental Branches, WIP branches 용도로 사용할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;git-branching-naming-convention&quot;&gt;Git Branching Naming Convention&lt;/h2&gt;
-&lt;p&gt;수많은 naming convention이 존재함&lt;br /&gt;
-이 중 가장 좋은 일곱 개의 naming convention에 대해 알아보자&lt;/p&gt;
-
-&lt;h2 id=&quot;1-start-branch-name-with-a-group-word&quot;&gt;1. Start branch name with a Group word&lt;/h2&gt;
-&lt;p&gt;group word로 branch 이름을 시작하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;최고의 방법 중 하나&lt;/li&gt;
-  &lt;li&gt;group word는 자신의 작업 흐름과 일치하는 어느것이든 상관 없음&lt;br /&gt;
-e.g.)&lt;br /&gt;
-&lt;strong&gt;Bug&lt;/strong&gt; - 곧 해결되어야하는 버그,&lt;br /&gt;
-&lt;strong&gt;WIP&lt;/strong&gt; - 작업이 진행 중에 있으며, 조만간 끝나지 않을 것이라 예상되지 않을 때&lt;br /&gt;
-(WIP: work in process/progress)&lt;/li&gt;
-  &lt;li&gt;branch 이름을 봤을 때, 해당 Git branch가 무엇에 대한 것이며, 어떤 목적을 가지고 있는지 알 수 있어야 함&lt;br /&gt;
-e.g.) &lt;strong&gt;bug-logo-alignment-issue&lt;/strong&gt;: logo alignment issue를 고치는 중임&lt;br /&gt;
-&lt;strong&gt;wip-ioc-container-added&lt;/strong&gt;: IoC container를 추가하는 작업을 진행 중임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-use-unique-id-in-branch-names&quot;&gt;2. Use Unique ID in branch names&lt;/h2&gt;
-&lt;p&gt;branch이름에 고유한 ID를 사용하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;branch 이름에 issue tracker ID를 사용할 수 있음&lt;/li&gt;
-  &lt;li&gt;버그를 고칠 때, 선호하는 방법임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;e.g.)&lt;br /&gt;
-&lt;strong&gt;wip-8712-add-testing-module&lt;/strong&gt;라는 이름은&lt;br /&gt;
-해당 branch가 testing module을 추가하는 업무에 적용되며,&lt;br /&gt;
-issue의 tracking Id는 8712이고,&lt;br /&gt;
-해당 업무가 진행 중에 있다는 것을 보여줌&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;branch 이름에 외부 tracking ID를 사용하는 것의 장점은 외부 시스템에서 진행 상황을 추적할 수 있다는 것임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-use-hyphen-or-slash-as-separators&quot;&gt;3. Use Hyphen or Slash as Separators&lt;/h2&gt;
-&lt;p&gt;구분자로 하이픈이나 슬래시를 사용하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;많은 개발자들은 구분자로 슬래시와 하이픈을 사용함&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;어떤 것을 사용할 지는 자신 또는 자신의 팀의 선호에 달려있음&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;개인적으로, 하이픈은 이름을 읽기 편하게 만들어 주어서 branch 이름의 구분자로 적절하다고 생각함&lt;/li&gt;
-  &lt;li&gt;슬래시, 하이픈, 언더스코어 모두 사용할 수 있음&lt;/li&gt;
-  &lt;li&gt;중요한 것은 일관되어야 한다는 것임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;branch 이름에 구분자를 넣으면 두 가지 장점이 있음&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;가독성을 높일 수 있으며, 혼동을 줄여줄 수 있음&lt;/li&gt;
-  &lt;li&gt;특히, 많은 branch를 다루고 있다면 관리하기 좋음&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;구분자가 없는 &lt;strong&gt;featureupgradejqueryversionloginmodule&lt;/strong&gt;보다는&lt;br /&gt;
-구분자가 있는 &lt;strong&gt;feature_upgrade_jquery_version_login_module&lt;/strong&gt;이 읽기 쉬움&lt;/p&gt;
-
-&lt;h2 id=&quot;4-git-branch-with-author-name&quot;&gt;4. Git Branch with Author Name&lt;/h2&gt;
-&lt;p&gt;작성자 이름을 포함하는 Git branch&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;많은 회사들은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;author&amp;gt;_&amp;lt;branch-type&amp;gt;_&amp;lt;branch-name&amp;gt;&lt;/code&gt; 형식에 따라 작성자의 이름이 branch이름에 있는 것을 선호함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;e.g.)  &lt;strong&gt;rajeev.bera_feature_new-experimental-changes&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;이 방법은 다른 개발자들의 작업과 추가적인 시스템의 진행 상황을 추적하기 좋음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;5-avoid-using-numbers-only&quot;&gt;5. Avoid using numbers only&lt;/h2&gt;
-&lt;p&gt;숫자만 사용하는 것을 피하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;몇몇 개발자들은 branch 이름에 issue Id만 기입하는데, 이는 일의 진행에 도움이 되지 않음&lt;/li&gt;
-  &lt;li&gt;예를 들어, &lt;strong&gt;9912&lt;/strong&gt;라는 branch 이름은 무엇을 설명하는지 알 수가 없음&lt;/li&gt;
-  &lt;li&gt;특히 이 방식은 다른 git branch와 merge하는 중에 혼란과 실수의 가능성만 증가시킴&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;6-avoid-using-all-naming-convention-simultaneously&quot;&gt;6. Avoid using all naming convention simultaneously&lt;/h2&gt;
-&lt;p&gt;모든 naming convention을 동시에 사용하는 것을 피하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;모든 naming convention을 혼용해 사용하는 것은 좋은 방식이 아님&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;혼란만 가중시키고, 전반적인 처리 과정을 더 복잡하게 만듦&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;팀은 업무 중에 사용할 naming convention을 한번 정한 후, 팀원들이 받아들이도록 해야 함&lt;/li&gt;
-  &lt;li&gt;일관성이 가장 중요함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;7-avoid-long-descriptive-names-for-long-lived-branches&quot;&gt;7. Avoid long descriptive names for long-lived branches&lt;/h2&gt;
-&lt;p&gt;오래가는 branch에 길게 설명하는 이름은 피하라.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;branch 이름의 필수적인 특징은 정확해야 하며, 유용한 정보를 주어야 한다는 것임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;e.g.)&lt;br /&gt;
-&lt;strong&gt;wip_login_module_which_will_used_in_the_public_website&lt;/strong&gt;,  &lt;strong&gt;wip_login_module_which_will_used_in_the_internal_website&lt;/strong&gt;&lt;br /&gt;
-와 같은 branch 이름의 경우, 길고 상세함
-필수적이지 않음
-대신에,&lt;br /&gt;
-&lt;strong&gt;wip_feature_login_module&lt;/strong&gt;과 같은 branch 이름은 짧지만 branch의 목적을 잘 설명함&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Git의 Branching 모델은 강력하지만, branch를 적절하고 효과적으로 다뤄야만 함&lt;/li&gt;
-  &lt;li&gt;필수적인 요건 중 하나는 모든 팀원이 같은 convention을 따라야 하는 것임&lt;/li&gt;
-  &lt;li&gt;pre-commit hook과 같은 Git hook을 사용하는 것도 쉬운 방법 중 하나임&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Other" />
       
 
       

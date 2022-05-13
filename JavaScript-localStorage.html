@@ -127,7 +127,6 @@
 
     <meta name="generator" content="Jekyll 3.6.2" />
     <link rel="alternate" type="application/rss+xml" title="JavaScript(13) - localStorage" href="/feed.xml" />
-
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -333,23 +332,27 @@ into the {body} of the default.hbs template -->
       <span class="na">aspirin</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3000원</span><span class="dl">"</span>
   <span class="p">}</span>
 
-  <span class="kd">const</span> <span class="nx">stringifiedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// stringify</span>
+  <span class="kd">const</span> <span class="nx">stringifiedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// stringify()</span>
   <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">item</span><span class="dl">'</span><span class="p">,</span> <span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// localStorage에 저장</span>
-  <span class="kd">const</span> <span class="nx">parsedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// parse</span>
+  <span class="kd">const</span> <span class="nx">parsedItem</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// parse()</span>
 
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringifiedItem</span><span class="p">);</span> <span class="c1">// JSON 문자열</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">);</span> <span class="c1">// JavaScript 객체</span>
 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">carrot</span><span class="p">);</span> 
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">aspirin</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">carrot</span><span class="p">);</span> <span class="c1">// 1000원</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedItem</span><span class="p">.</span><span class="nx">aspirin</span><span class="p">);</span> <span class="c1">// 3000원</span>
 </code></pre></div>    </div>
     <p><img width="450" alt="image" src="https://user-images.githubusercontent.com/77590526/167126740-ebd4b90d-a7ae-4409-aa86-7c99012af676.png" /></p>
   </li>
 </ul>
 
+<p>&lt; 출처 &gt;</p>
 <blockquote>
-  <p>“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, <a href="https://youtu.be/N7oln9Z3WYg">https://youtu.be/N7oln9Z3WYg</a>
-“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, <a href="https://youtu.be/Id7o7DwhiFY">https://youtu.be/Id7o7DwhiFY</a></p>
+  <p>“입문자를 위한 자바스크립트 기초 #26 로컬스토리지 (localStorage),” 유튜브 비디오, 10:00, 게시자 “유노코딩,” 2021년 10월 08일, <a href="https://youtu.be/N7oln9Z3WYg">https://youtu.be/N7oln9Z3WYg</a></p>
+</blockquote>
+
+<blockquote>
+  <p>“혼공 자바스크립트 52강 - localStorage 객체(3) : JSON 객체와 결합해서 사용하기,” 유튜브 비디오, 8:02, 게시자 “윤인성,” 2021년 07월 25일, <a href="https://youtu.be/Id7o7DwhiFY">https://youtu.be/Id7o7DwhiFY</a></p>
 </blockquote>
 
                 </div>
@@ -448,6 +451,14 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                         <li><a href="/JavaScript-basic">JavaScript(14) - basic</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
                             
                             
                         
@@ -465,7 +476,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/JavaScript-regular-expressions-copy">JavaScript(11) - Regular expressions(regex)</a></li>
+                         <li><a href="/JavaScript-regular-expressions">JavaScript(11) - Regular expressions(regex)</a></li>
                             
                             
                             
@@ -507,8 +518,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/JavaScript-promise">JavaScript(10) - promise</a></li>
-                            
+                        
                             
                             
                             
@@ -580,7 +590,7 @@ into the {body} of the default.hbs template -->
                 <footer class="read-next-card-footer">
                     <a href="/tag/javascript/">
                         
-                        See all 12 posts →
+                        See all 13 posts →
                         
                     </a>
                 </footer>
@@ -589,6 +599,58 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/JavaScript-basic">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/JavaScript-basic">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">JavaScript(14) - basic</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
+
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

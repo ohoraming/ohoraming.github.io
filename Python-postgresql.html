@@ -127,7 +127,6 @@
 
     <meta name="generator" content="Jekyll 3.6.2" />
     <link rel="alternate" type="application/rss+xml" title="Python(3) - PostgreSQL 연결" href="/feed.xml" />
-
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -245,10 +244,10 @@ into the {body} of the default.hbs template -->
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
       <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
           <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.postgresql'</span><span class="p">,</span>
-          <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'testdb'</span><span class="p">,</span>
-          <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
-          <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span>
-          <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span> <span class="c1"># 127.0.0.1 도 가능
+          <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'testdb'</span><span class="p">,</span> <span class="c1"># db 이름 설정
+</span>          <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
+          <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span> <span class="c1"># 비밀번호 설정
+</span>          <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span> <span class="c1"># 127.0.0.1 도 가능
 </span>          <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'5432'</span><span class="p">,</span>
       <span class="p">}</span>
   <span class="p">}</span>
@@ -402,6 +401,8 @@ into the {body} of the default.hbs template -->
                     <ul>
                         
                         
+                        
+                            
                         
                             
                         
