@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-05-13T15:35:15+09:00</updated>
+  <updated>2022-05-30T23:16:12+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,132 @@
 
   
     <entry>
+      <title type="html">Web API</title>
+      <link href="https://ohoraming.github.io/web-api" rel="alternate" type="text/html" title="Web API" />
+      <published>2022-05-30T20:52:00+09:00</published>
+      <updated>2022-05-30T20:52:00+09:00</updated>
+      <id>https://ohoraming.github.io/web-api</id>
+      <content type="html" xml:base="https://ohoraming.github.io/web-api">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;api의-역사&quot;&gt;API의 역사&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1948년, Herman Goldstine과 John von Neumann은 프로그램이 &lt;strong&gt;공통 연산&lt;/strong&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;common operations&lt;/code&gt;)을 사용하게 되면, &lt;strong&gt;서브루틴 라이브러리&lt;/strong&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subroutine library&lt;/code&gt;)가 새 코드와 에러의 양을 줄여줄 것이라고 함&lt;br /&gt;
+→ 서브루틴 라이브러리에 대한 관점(idea)을 언급만 함&lt;br /&gt;
+[아래 사진의 서랍 속에 들어있는 것이 서브루틴 라이브러리 테이프]
+&lt;img width=&quot;416&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/170993437-b0f12efd-2798-4eb1-9f75-f5d3fdd8816c.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(※ &lt;a href=&quot;https://www.bbc.co.uk/bitesize/guides/zvc48mn/revision/2&quot;&gt;Subroutine에 대한 간단한 설명&lt;/a&gt;)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1952년, Wilkes와 Wheeler가 &lt;strong&gt;서브루틴 라이브러리&lt;/strong&gt;에 관한 논문 발표(2pages 분량)&lt;br /&gt;
+  &lt;a href=&quot;http://www.laputan.org/pub/papers/Wheeler.pdf&quot;&gt;(참고)논문 전문&lt;/a&gt;&lt;br /&gt;
+→ 당시에 API를 Library와 구분하지 않은 이유는?
+    &lt;ul&gt;
+      &lt;li&gt;두 개념이 크게 보았을 때 같은 의미였으며,&lt;/li&gt;
+      &lt;li&gt;컴퓨터는 하나밖에 없었기에 기계 이동성의 개념이 존재하지 않았음&lt;/li&gt;
+      &lt;li&gt;레거시 프로그램이 없었음&lt;/li&gt;
+      &lt;li&gt;그래서 API를 별개로 논의할 이유가 없었으나, 명확하게 API 디자인 개념에 대해 이해하고 있었음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1968년, AFIPS Fall Joint Computer Conference에서 처음 &lt;strong&gt;API&lt;/strong&gt;라는 용어를 사용함
+    &lt;blockquote&gt;
+      &lt;p&gt;마침내, 중앙 컴퓨터에서 하드웨어의 독립은 컴퓨터가 교체될 때 일관된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application program interface&lt;/code&gt;가 유지된다는 것을 의미한다.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;apiapplication-programming-interface란&quot;&gt;API(Application Programming Interface)란?&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;입출력을 통해 정의된 operation 세트를 제공하는가?&lt;/li&gt;
+  &lt;li&gt;사용자를 손상시키지 않으면서 재실행을 허락하는가?
+이 두 조건을 모두 충족하면 API라고 할 수 있다&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;즉, Library나 Framework에서 이용할 수 있는 &lt;strong&gt;Class&lt;/strong&gt;나 &lt;strong&gt;Function&lt;/strong&gt;도 API라고 부름&lt;/p&gt;
+
+&lt;p&gt;프로젝트 내부에서 쓰여지고 있는 &lt;strong&gt;클래스&lt;/strong&gt;나 &lt;strong&gt;모듈&lt;/strong&gt;이 있다면, 이를 &lt;strong&gt;함수/인터페이스/API&lt;/strong&gt;로 지칭할 수 있음&lt;/p&gt;
+
+&lt;h2 id=&quot;web-api란&quot;&gt;Web API란?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1990년대부터 인터넷이 대중화되면서 컴퓨터와 다양한 기기들이 인터넷을 통해 의사소통하는 시대가 됨&lt;/li&gt;
+  &lt;li&gt;다양한 기기에서 서버의 데이터를 읽고 쓰기 위해 Web API를 이용함&lt;/li&gt;
+  &lt;li&gt;네트워크에서 기기들간의 의사소통 규격 사항을 &lt;strong&gt;HTTP(S)&lt;/strong&gt;라고 부르며, &lt;strong&gt;REST&lt;/strong&gt;는 Web API를 어떻게 만들지 정의한 것임
+  (과거에는 SOAP을 이용해 XML 포멧으로 정보를 주고 받았음)&lt;/li&gt;
+  &lt;li&gt;REST의 &lt;strong&gt;POST/GET/PUT/DELETE&lt;/strong&gt;를 이용해 새로운 데이터를 만들고(create)/읽고(read)/수정하고(update)/삭제(delete)할 수 있음&lt;/li&gt;
+  &lt;li&gt;GET을 이용해 정보를 요청(&lt;strong&gt;request&lt;/strong&gt;)하면, 서버로부터 해당 데이터를 &lt;strong&gt;JSON 포맷&lt;/strong&gt;으로 응답(&lt;strong&gt;response&lt;/strong&gt;)받을 수 있음
+&lt;img width=&quot;401&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/170986229-51e33dba-efbf-4eeb-a1db-6f04d2a57fcc.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- &lt;읽을거리&gt;
+
+[History of APIs](https://blog.postman.com/intro-to-apis-history-of-apis)
+
+[Intro to APIs: What Is an API?](https://blog.postman.com/intro-to-apis-what-is-an-api/)
+
+[The Evolution of APIs: Past, Present and the Future](https://blog.api.rakuten.net/evolution-of-apis/)
+
+[What is an API: Everything You Need to Know About APIs?](https://blog.api.rakuten.net/what-is-an-api/)
+
+[Your Guide To Messaging APIs Web 3.0 Internet Communication](https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/) --&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘A Brief, Opinionated History of the API,’ 유튜브 비디오, 47:04, 게시자 ‘InfoQ,’ 2018년 11월 22일, &lt;a href=&quot;https://youtu.be/LzMp6uQbmns&quot;&gt;https://youtu.be/LzMp6uQbmns&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“API란? 개념 정리와 포트폴리오에 유용한 대박 사이트 공유 🙌,” 유튜브 비디오, 08:07, 게시자 “드림코딩 by 엘리,” 2021년 3월 16일, &lt;a href=&quot;https://youtu.be/ogT267HvNuQ&quot;&gt;https://youtu.be/ogT267HvNuQ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Kristopher Sandoval. “Who Invented the API?.” NORDIC APIS. September 20, 2018 &lt;a href=&quot;https://nordicapis.com/who-invented-the-api/&quot;&gt;https://nordicapis.com/who-invented-the-api/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Code Review</title>
       <link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="Code Review" />
       <published>2022-04-27T22:45:00+09:00</published>
@@ -46,6 +172,7 @@
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -505,6 +632,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -713,6 +841,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -792,6 +921,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
