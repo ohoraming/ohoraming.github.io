@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-06-14T23:45:53+09:00</updated>
+  <updated>2022-06-15T02:41:10+09:00</updated>
   <id>https://ohoraming.github.io/tag/python/feed.xml</id>
 
   
@@ -46,6 +46,7 @@
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -220,6 +221,50 @@
     </entry>
   
     <entry>
+      <title type="html">Python(5) - Django 가상 환경과 settings.py</title>
+      <link href="https://ohoraming.github.io/Python-django-venv-settings" rel="alternate" type="text/html" title="Python(5) - Django 가상 환경과 settings.py" />
+      <published>2022-04-04T22:14:00+09:00</published>
+      <updated>2022-04-04T22:14:00+09:00</updated>
+      <id>https://ohoraming.github.io/Python-django-venv-settings</id>
+      <content type="html" xml:base="https://ohoraming.github.io/Python-django-venv-settings">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Python" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Python(3) - PostgreSQL 연결</title>
       <link href="https://ohoraming.github.io/Python-postgresql" rel="alternate" type="text/html" title="Python(3) - PostgreSQL 연결" />
       <published>2022-03-16T13:35:00+09:00</published>
@@ -234,6 +279,7 @@
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-선행-작업&quot;&gt;1. 선행 작업&lt;/h2&gt;
@@ -367,6 +413,7 @@
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-pymysql-설치&quot;&gt;1. pymysql 설치&lt;/h2&gt;
@@ -517,6 +564,7 @@ t3 = (1, 2, 3)&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-django-설치&quot;&gt;1. Django 설치&lt;/h2&gt;

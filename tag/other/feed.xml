@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-06-14T23:45:53+09:00</updated>
+  <updated>2022-06-15T02:41:10+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -45,7 +45,7 @@
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
@@ -54,6 +54,9 @@
 &lt;blockquote&gt;
   &lt;p&gt;이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web API&lt;/code&gt;를 공부하던 중 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API library&lt;/code&gt;도 &lt;strong&gt;API&lt;/strong&gt;로 혼용해 쓰는 것에 의문이 들었습니다. 
+API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하게 되었는지 그 역사를 기술한 자료를 읽어보고, 이와 관련해 흥미로운 스피치가 있어 소개합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;api의-역사&quot;&gt;API의 역사&lt;/h2&gt;
 &lt;ul&gt;
@@ -87,7 +90,7 @@
 &lt;ol&gt;
   &lt;li&gt;입출력을 통해 정의된 operation 세트를 제공하는가?&lt;/li&gt;
   &lt;li&gt;사용자를 손상시키지 않으면서 재실행을 허락하는가?
-이 두 조건을 모두 충족하면 API라고 할 수 있다&lt;/li&gt;
+이 &lt;strong&gt;두 조건&lt;/strong&gt;을 모두 충족하면 API라고 할 수 있다&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;즉, Library나 Framework에서 이용할 수 있는 &lt;strong&gt;Class&lt;/strong&gt;나 &lt;strong&gt;Function&lt;/strong&gt;도 API라고 부름&lt;/p&gt;
@@ -105,17 +108,14 @@
 &lt;img width=&quot;401&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/170986229-51e33dba-efbf-4eeb-a1db-6f04d2a57fcc.png&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!-- &lt;읽을거리&gt;
-
-[History of APIs](https://blog.postman.com/intro-to-apis-history-of-apis)
-
-[Intro to APIs: What Is an API?](https://blog.postman.com/intro-to-apis-what-is-an-api/)
-
-[The Evolution of APIs: Past, Present and the Future](https://blog.api.rakuten.net/evolution-of-apis/)
-
-[What is an API: Everything You Need to Know About APIs?](https://blog.api.rakuten.net/what-is-an-api/)
-
-[Your Guide To Messaging APIs Web 3.0 Internet Communication](https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/) --&gt;
+&lt;p&gt;더 읽을 거리 &amp;amp; 참고한 자료&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.postman.com/intro-to-apis-history-of-apis/&quot;&gt;History of APIs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.postman.com/intro-to-apis-what-is-an-api/&quot;&gt;Intro to APIs: What Is an API?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.api.rakuten.net/evolution-of-apis/&quot;&gt;The Evolution of APIs: Past, Present and the Future&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.api.rakuten.net/what-is-an-api/&quot;&gt;What is an API: Everything You Need to Know About APIs?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/&quot;&gt;Your Guide To Messaging APIs Web 3.0 Internet Communication&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 
@@ -158,8 +158,8 @@
     </entry>
   
     <entry>
-      <title type="html">Code Review</title>
-      <link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="Code Review" />
+      <title type="html">왜 Code Review를 해야 하는가</title>
+      <link href="https://ohoraming.github.io/code-review" rel="alternate" type="text/html" title="왜 Code Review를 해야 하는가" />
       <published>2022-04-27T22:45:00+09:00</published>
       <updated>2022-04-27T22:45:00+09:00</updated>
       <id>https://ohoraming.github.io/code-review</id>
@@ -171,7 +171,7 @@
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
@@ -631,7 +631,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
@@ -840,7 +840,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
@@ -877,7 +877,6 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
 → global instance의 재사용 금지&lt;/li&gt;
   &lt;li&gt;python의 built-in function은 test하지 않아도 됨&lt;br /&gt;
 → 표준 라이브러리는 test의 목표가 되어선 안 됨&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
 
       
@@ -920,7 +919,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;Code Review&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;

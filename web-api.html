@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Web API" />
-    <meta property="og:description" content="여러 가지 포스팅 Git Convention Test Code Git and github Code Review Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. API의 역사 1948년, Herman Goldstine과 John von Neumann은 프로그램이 공통 연산(common operations)을 사용하게" />
+    <meta property="og:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. web API를 공부하던 중 API library도 API로 혼용해 쓰는 것에" />
     <meta property="og:url" content="https://ohoraming.github.io/web-api" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/api.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Other" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Web API" />
-    <meta name="twitter:description" content="여러 가지 포스팅 Git Convention Test Code Git and github Code Review Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. API의 역사 1948년, Herman Goldstine과 John von Neumann은 프로그램이 공통 연산(common operations)을 사용하게" />
+    <meta name="twitter:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. web API를 공부하던 중 API library도 API로 혼용해 쓰는 것에" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/api.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/web-api"
     },
-    "description": "여러 가지 포스팅 Git Convention Test Code Git and github Code Review Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. API의 역사 1948년, Herman Goldstine과 John von Neumann은 프로그램이 공통 연산(common operations)을 사용하게"
+    "description": "여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API 이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다. web API를 공부하던 중 API library도 API로 혼용해 쓰는 것에"
 }
     </script>
 
@@ -214,7 +214,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./git-convention">Git Convention</a></li>
     <li><a href="./test-code">Test Code</a></li>
     <li><a href="./git-and-github">Git and github</a></li>
-    <li><a href="./code-review">Code Review</a></li>
+    <li><a href="./code-review">왜 Code Review를 해야 하는가</a></li>
     <li><a href="./web-api">Web API</a></li>
     <br />
     <br />
@@ -223,6 +223,9 @@ into the {body} of the default.hbs template -->
 <blockquote>
   <p>이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다.</p>
 </blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">web API</code>를 공부하던 중 <code class="language-plaintext highlighter-rouge">API library</code>도 <strong>API</strong>로 혼용해 쓰는 것에 의문이 들었습니다. 
+API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하게 되었는지 그 역사를 기술한 자료를 읽어보고, 이와 관련해 흥미로운 스피치가 있어 소개합니다.</p>
 
 <h2 id="api의-역사">API의 역사</h2>
 <ul>
@@ -256,7 +259,7 @@ into the {body} of the default.hbs template -->
 <ol>
   <li>입출력을 통해 정의된 operation 세트를 제공하는가?</li>
   <li>사용자를 손상시키지 않으면서 재실행을 허락하는가?
-이 두 조건을 모두 충족하면 API라고 할 수 있다</li>
+이 <strong>두 조건</strong>을 모두 충족하면 API라고 할 수 있다</li>
 </ol>
 
 <p>즉, Library나 Framework에서 이용할 수 있는 <strong>Class</strong>나 <strong>Function</strong>도 API라고 부름</p>
@@ -274,17 +277,14 @@ into the {body} of the default.hbs template -->
 <img width="401" alt="image" src="https://user-images.githubusercontent.com/77590526/170986229-51e33dba-efbf-4eeb-a1db-6f04d2a57fcc.png" /></li>
 </ul>
 
-<!-- <읽을거리>
-
-[History of APIs](https://blog.postman.com/intro-to-apis-history-of-apis)
-
-[Intro to APIs: What Is an API?](https://blog.postman.com/intro-to-apis-what-is-an-api/)
-
-[The Evolution of APIs: Past, Present and the Future](https://blog.api.rakuten.net/evolution-of-apis/)
-
-[What is an API: Everything You Need to Know About APIs?](https://blog.api.rakuten.net/what-is-an-api/)
-
-[Your Guide To Messaging APIs Web 3.0 Internet Communication](https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/) -->
+<p>더 읽을 거리 &amp; 참고한 자료</p>
+<ul>
+  <li><a href="https://blog.postman.com/intro-to-apis-history-of-apis/">History of APIs</a></li>
+  <li><a href="https://blog.postman.com/intro-to-apis-what-is-an-api/">Intro to APIs: What Is an API?</a></li>
+  <li><a href="https://blog.api.rakuten.net/evolution-of-apis/">The Evolution of APIs: Past, Present and the Future</a></li>
+  <li><a href="https://blog.api.rakuten.net/what-is-an-api/">What is an API: Everything You Need to Know About APIs?</a></li>
+  <li><a href="https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/">Your Guide To Messaging APIs Web 3.0 Internet Communication</a></li>
+</ul>
 
 <p>&lt; 출처 &gt;</p>
 
@@ -405,7 +405,7 @@ into the {body} of the default.hbs template -->
                         
                         
                         
-                         <li><a href="/code-review">Code Review</a></li>
+                         <li><a href="/code-review">왜 Code Review를 해야 하는가</a></li>
                             
                             
                             
@@ -417,6 +417,8 @@ into the {body} of the default.hbs template -->
                             
                             
                             
+                            
+                        
                             
                         
                             
@@ -549,7 +551,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      7 min read
+                      10 min read
                     
                 </span>
             </footer>

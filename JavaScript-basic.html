@@ -229,8 +229,9 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <blockquote>
-  <p>※ 이 글은 윤인성님의 Youtube 강의 내용을 정리한 것입니다.
-출처는 문서 하단을 확인하시기 바랍니다.</p>
+  <p>※ 이 글은 윤인성님의 Youtube 강의 내용을 참고 작성한 글입니다.<br />
+예시는 변경해 적용한 부분이 많으니 참고하시기 바랍니다.<br />
+원본 출처는 문서 하단을 확인하시기 바랍니다.</p>
 </blockquote>
 
 <h2 id="1-요소-값-추출-및-입력">1. 요소 값 추출 및 입력</h2>
@@ -717,13 +718,16 @@ into the {body} of the default.hbs template -->
   <span class="p">});</span>
 </code></pre></div>    </div>
     <ul>
-      <li>일반적으로 이 parameter의 이름은 <code class="language-plaintext highlighter-rouge">event</code> 또는 <code class="language-plaintext highlighter-rouge">e</code> 로 설정함</li>
-      <li><code class="language-plaintext highlighter-rouge">e.code</code>: 입력한 키</li>
-      <li><code class="language-plaintext highlighter-rouge">e.keyCode</code>: 입력한 키를 나타내는 숫자</li>
-      <li><code class="language-plaintext highlighter-rouge">e.altKey</code>: <code class="language-plaintext highlighter-rouge">Alt</code> 키를 눌렀는지</li>
-      <li><code class="language-plaintext highlighter-rouge">e.ctrlKey</code>: <code class="language-plaintext highlighter-rouge">Ctrl</code> 키 를 눌렀는지</li>
-      <li><code class="language-plaintext highlighter-rouge">e.shiftKey</code>: <code class="language-plaintext highlighter-rouge">Shift</code> 키를 눌렀는지</li>
-      <li><code class="language-plaintext highlighter-rouge">e.currentTarget</code>: event를 발생시킨 객체</li>
+      <li>일반적으로 이 parameter의 이름은 <code class="language-plaintext highlighter-rouge">event</code> 또는 <code class="language-plaintext highlighter-rouge">e</code> 로 설정함
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">e.code</code>: 입력한 키</li>
+          <li><code class="language-plaintext highlighter-rouge">e.keyCode</code>: 입력한 키를 나타내는 숫자</li>
+          <li><code class="language-plaintext highlighter-rouge">e.altKey</code>: <code class="language-plaintext highlighter-rouge">Alt</code> 키를 눌렀는지</li>
+          <li><code class="language-plaintext highlighter-rouge">e.ctrlKey</code>: <code class="language-plaintext highlighter-rouge">Ctrl</code> 키 를 눌렀는지</li>
+          <li><code class="language-plaintext highlighter-rouge">e.shiftKey</code>: <code class="language-plaintext highlighter-rouge">Shift</code> 키를 눌렀는지</li>
+          <li><code class="language-plaintext highlighter-rouge">e.currentTarget</code>: event를 발생시킨 객체</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>
@@ -752,43 +756,47 @@ into the {body} of the default.hbs template -->
 
       <span class="c1">// 첫 번째 방법</span>
       <span class="nx">textarea</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="nx">textarea</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+          <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="nx">textarea</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
       <span class="p">});</span>
 
       <span class="c1">// 두 번째 방법</span>
       <span class="c1">// currentTarget 사용</span>
       <span class="nx">textarea</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+          <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
       <span class="p">});</span>
 
       <span class="c1">// 세 번째 방법</span>
       <span class="c1">// function을 만들어 this를 사용</span>
       <span class="nx">textarea</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+          <span class="nx">h1</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`글자 수: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
       <span class="p">});</span>
   <span class="p">});</span>
 </code></pre></div>    </div>
-    <p><img width="285" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171564189-b94065ba-9218-4dd3-abb1-8c15f918d80a.png" /></p>
-
     <ul>
       <li>
-        <p><code class="language-plaintext highlighter-rouge">console.log(e.currentTarget)</code>를 보면,
+        <p>글을 입력하면 글자 수를 알려줌
+  <img width="285" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171564189-b94065ba-9218-4dd3-abb1-8c15f918d80a.png" /></p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">console.log(e.currentTarget)</code>를 보면, 이벤트를 발생시킨 객체가 나옴
   <img width="477" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171563709-6f7690fe-bf30-4e68-9adb-e816428c8814.png" /></p>
       </li>
-      <li>이벤트를 발생시킨 객체가 나옴</li>
-      <li><code class="language-plaintext highlighter-rouge">keyup</code>
+      <li>첫 번째 방법
         <ul>
-          <li>keydown인 상태에서는 글자 수를 알 수 없음</li>
+          <li><code class="language-plaintext highlighter-rouge">keyup</code></li>
+          <li><code class="language-plaintext highlighter-rouge">keydown</code>인 상태에서는 입력한 글자 수를 알 수 없음</li>
         </ul>
       </li>
-      <li><code class="language-plaintext highlighter-rouge">keypress</code>
+      <li>두 번째 방법
         <ul>
-          <li>아시아 문자에서는 제대로 작동하지 않는 경우도 있음</li>
+          <li><code class="language-plaintext highlighter-rouge">keypress</code></li>
+          <li>아시아 문자에서는 제대로 작동하지 않는 경우가 있음</li>
         </ul>
       </li>
-      <li><code class="language-plaintext highlighter-rouge">this</code> 를 사용한 세번째 코드
+      <li>세 번째 방법
         <ul>
-          <li>eventhandler내부에서 this가 이벤트 발생 객체를 의미함</li>
+          <li><code class="language-plaintext highlighter-rouge">this</code> 사용</li>
+          <li><code class="language-plaintext highlighter-rouge">eventHandler</code>내부에서 <code class="language-plaintext highlighter-rouge">this</code>가 이벤트 발생 객체를 의미함</li>
         </ul>
       </li>
     </ul>
@@ -802,7 +810,7 @@ into the {body} of the default.hbs template -->
       <li>기본 이벤트를 막음</li>
     </ul>
   </li>
-  <li>a태그
+  <li>a 태그
     <ul>
       <li>기본 이벤트: 클릭하면 지정된 주소로 이동</li>
       <li><code class="language-plaintext highlighter-rouge">click</code> 이벤트에 <code class="language-plaintext highlighter-rouge">preventDefault()</code> 를 설정하면 지정 주소로 이동하지 않음</li>
@@ -841,8 +849,12 @@ into the {body} of the default.hbs template -->
       <span class="p">});</span>
   <span class="p">});</span>
 </code></pre></div>    </div>
-    <p><img width="134" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171565538-6b5fd1de-2883-4c9a-b147-a571e15f9e1a.png" />
-  <img width="217" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171565721-efe009f2-215b-4af8-9668-3e2f91a2ab9b.png" /></p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">preventDefault()</code> 적용 전
+  <img width="217" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171565721-efe009f2-215b-4af8-9668-3e2f91a2ab9b.png" /></li>
+      <li><code class="language-plaintext highlighter-rouge">preventDefault()</code> 적용 후
+  <img width="134" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171565538-6b5fd1de-2883-4c9a-b147-a571e15f9e1a.png" /></li>
+    </ul>
   </li>
 </ul>
 
@@ -867,7 +879,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h3 id="11-1-click-이벤트-사용하기">11-(1) click 이벤트 사용하기</h3>
+<h2 id="11-1-click-이벤트-사용하기">11-(1) click 이벤트 사용하기</h2>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">event.currentTarget</code>: 이벤트를 발생시킨 객체
     <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">&lt;!-- index.html --&gt;</span>
@@ -890,19 +902,257 @@ into the {body} of the default.hbs template -->
       <span class="p">});</span>
   <span class="p">});</span>
 </code></pre></div>    </div>
+    <ul>
+      <li>button을 클릭할 때마다 버튼의 내용이 바뀜
+  <img width="300" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171864250-f51cdc02-a7ea-4d34-9840-74abcf1d067d.png" />
+  <img width="300" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171864318-5b704bfe-b57f-4e04-acf3-a181ca10b338.png" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="11-2-click-이벤트-사용하기">11-(2) click 이벤트 사용하기</h2>
+<ul>
+  <li>form 태그의 button을 클릭하면,</li>
+  <li>태그 안의 데이터를 서버로 넘김<br />
+  ⇒ 주소가 바뀜</li>
+  <li>submit 이벤트는 form 태그를 선택해(<code class="language-plaintext highlighter-rouge">document.querySelector('form')</code>) 이벤트를 연결해야 함!</li>
+  <li>form 태그 내부에 있는 button은 submit 태그와 동일하게 동작하므로 주의!</li>
+  <li>
+    <p>form 태그 내부에 <code class="language-plaintext highlighter-rouge">input[type=button]</code> button을 만들어야 submit 이벤트가 일어나지 않음</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">&lt;!-- index.html --&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span><span class="nt">&gt;</span>
+          이메일 형식으로 입력하세요!<span class="nt">&lt;br&gt;</span>
+          <span class="c">&lt;!-- name 값을 반드시 입력해야 함 --&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"test"</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"글자"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span> 
+</code></pre></div>    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// main.js</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// element 선택(form)</span>
+      <span class="kd">const</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">form</span><span class="dl">'</span><span class="p">);</span>
+    
+      <span class="c1">// (주의!) form 태그를 선택해 submit 이벤트를 관리함</span>
+      <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">submit</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[type=text]</span><span class="dl">'</span><span class="p">);</span>
+			  
+          <span class="c1">// indexOf()로 '@'가 있는지 확인</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">@</span><span class="dl">'</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">정상 제출합니다!</span><span class="dl">'</span><span class="p">);</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+              <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">이메일 형식으로 입력해주세요!</span><span class="dl">'</span><span class="p">);</span>
+        
+              <span class="c1">// 이메일 형식이 아닐경우 기본 submit 이벤트를 막음</span>
+              <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+          <span class="p">}</span>
+      <span class="p">});</span>
+  <span class="p">});</span>
+</code></pre></div>    </div>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">@</code> 가 포함되어있지 않으면 주소 변경이 일어나지 않음
+  <img width="656" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171868179-87502afa-c624-41be-a9c0-46d7eb4ac980.png" /></li>
+      <li>정상제출을 하면, 주소가 바뀜
+  <img width="652" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171868291-2f7b693b-a78e-483a-ba12-8feaf3e17d53.png" />
+  <img width="354" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171868813-33b7cf53-2e6c-43c1-89d7-68f54f235ea1.png" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="12-입력-양식2---글자-입력">12. 입력 양식(2) - 글자 입력</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;input type="text"&gt;</code>
+    <ul>
+      <li>한 줄의 글자 입력</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;textarea&gt;&lt;/textarea&gt;</code>
+    <ul>
+      <li>여러 줄의 글자 입력</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">contenteditable="true"</code>
+    <ul>
+      <li>
+        <p>해당 태그의 내용을 직접 수정가능하게 만들어줌</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;p</span> <span class="na">contenteditable=</span><span class="s">"true"</span><span class="nt">&gt;</span>contenteditable!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>        </div>
+        <p><img width="373" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/171872742-a4f29fbb-e016-408d-b9f9-95c5071a32b0.png" /></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="참고-keydown-keypress-keyup-change-이벤트">(참고) keydown, keypress, keyup, change 이벤트</h3>
+<ul>
+  <li>키 이벤트와 입력 순서
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">keydown</code> → <code class="language-plaintext highlighter-rouge">keypress</code> → ★<strong>입력양식에 값이 들어감</strong>★→ <code class="language-plaintext highlighter-rouge">keyup</code></li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">keydown</code> 이나, <code class="language-plaintext highlighter-rouge">keypress</code> 이벤트를 주면,<br />
+  입력 양식에 값이 들어가는 것이 시간상 더 이후이므로 코드 실행시 변환이 일어나지 않은 결과를 보여줌</p>
+
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.54</span><span class="p">}</span><span class="s2">cm`</span><span class="p">;</span>
+  <span class="p">});</span>
+</code></pre></div>        </div>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">keydown</code>시점에 이벤트가 실행되므로 입력 양식에 값이 들어가기 전이라 p태그에 값이 없음
+  <img width="245" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173228944-757cd04b-8bc2-4b36-8c90-0565b0b353f3.png" /></li>
+        </ul>
+      </li>
+      <li>참고로 <code class="language-plaintext highlighter-rouge">change</code> 이벤트의 경우, 값 입력을 마쳤다는 선언(<code class="language-plaintext highlighter-rouge">enter</code> 키 입력)이 있어야 함</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="-입력받은-cm-단위를-inch로-변환하기"><예제> 입력받은 cm 단위를 inch로 변환하기</예제></h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"inch"</span> <span class="na">id=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"숫자"</span><span class="nt">&gt;</span> inch <span class="nt">&lt;br&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"result"</span><span class="nt">&gt;</span>숫자를 입력해주세요<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// main.js</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// element 선택</span>
+    <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[name=inch]</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#result</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="c1">// 입력한 값을 숫자로 변경해 inch 단위로 변경</span>
+    <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">p</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.54</span><span class="p">}</span><span class="s2">cm`</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p><img width="251" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173228456-460b19e9-2b1d-4366-9355-50aee7c3be08.png" />
+<img width="250" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173228464-36235972-2431-470c-bd46-5dbd5f356d32.png" /></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;textarea&gt;&lt;/textarea&gt;</code> 를 사용했을 때도 마찬가지로 value 속성으로 text를 추출하면 됨</li>
+</ul>
+
+<h2 id="13-입력-양식3---체크박스라디오버튼">13. 입력 양식(3) - 체크박스/라디오버튼</h2>
+<ul>
+  <li>체크 박스
+    <ul>
+      <li>true 또는 false 가 선택됨</li>
+    </ul>
+  </li>
+  <li>라디오 버튼
+    <ul>
+      <li>name 속성 지정 필수</li>
+      <li>같은 name 속성을 갖는 그룹으로 묶임</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="-checkbox-radio-button-선택시-해당-내용-출력하기"><예제> checkbox, radio button 선택시 해당 내용 출력하기</예제></h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">forEach()</code>
+    <ul>
+      <li>라디오 버튼이 여러 개 이므로 각각 돌면서 <code class="language-plaintext highlighter-rouge">addEventListener()</code>를 실행</li>
+    </ul>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">&lt;!-- index.html --&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="c">&lt;!-- true 또는 false를 선택 --&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"checkValue"</span><span class="nt">&gt;&lt;/p&gt;</span>
+
+      <span class="c">&lt;!-- 여러 대상 중 하나만 선택 --&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"food"</span> <span class="na">value=</span><span class="s">"아이스크림"</span><span class="nt">&gt;</span>🍦
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"food"</span> <span class="na">value=</span><span class="s">"치킨"</span><span class="nt">&gt;</span>🍗
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"food"</span> <span class="na">value=</span><span class="s">"도넛"</span><span class="nt">&gt;</span>🍩
+      <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"radioValue"</span><span class="nt">&gt;&lt;/p&gt;</span>    
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// main.js</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// element 선택</span>
+      <span class="kd">const</span> <span class="nx">checkBox</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">input[type=checkbox]</span><span class="dl">"</span><span class="p">);</span>
+      <span class="c1">// 라디오 버튼 모두 선택</span>
+      <span class="kd">const</span> <span class="nx">radios</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">input[type=radio][name=food]</span><span class="dl">"</span><span class="p">);</span> 
+      <span class="kd">const</span> <span class="nx">checkValue</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">p#checkValue</span><span class="dl">"</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">radioValue</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">p#radioValue</span><span class="dl">"</span><span class="p">);</span>
+	
+      <span class="c1">// 체크박스가 체크되면 이벤트 실행</span>
+      <span class="nx">checkBox</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">checkBox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">checkValue</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">체크!</span><span class="dl">"</span><span class="p">;</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+              <span class="nx">checkValue</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">안 체크!</span><span class="dl">"</span><span class="p">;</span>
+          <span class="p">}</span>
+      <span class="p">});</span>
+	
+      <span class="c1">// 라디오버튼이 선택되면 이벤트 실행</span>
+      <span class="c1">// forEach문으로 각 radio버튼 돎</span>
+      <span class="nx">radios</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">radio</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">radio</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+              <span class="nx">radioValue</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+          <span class="p">})</span>
+      <span class="p">})</span>
+  <span class="p">});</span>
+</code></pre></div>    </div>
+    <p><img width="182" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173230941-41bfab8b-d18e-4cab-ac80-5de24e407e77.png" />
+<img width="170" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173230956-d9711444-d48e-4687-9176-6bc3111c2674.png" /></p>
+  </li>
+</ul>
+
+<h3 id="-checkbox-선택시-배경색-바뀌면서-타이머-작동시키기"><예제> checkbox 선택시 배경색 바뀌면서, 타이머 작동시키기</예제></h3>
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">구조 분해 할당</code>(destructuring assignment)</strong>
+    <ul>
+      <li>객체나 배열을 변수로 <strong>분해</strong>할 수 있게 해주는 특별한 문법</li>
+      <li><a href="https://ko.javascript.info/destructuring-assignment">참고 예시</a></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">setInterval()</code>과 <code class="language-plaintext highlighter-rouge">clearInterval()</code>
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">&lt;!-- index.html --&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span> 타이머 ON
+      <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"timer"</span><span class="nt">&gt;</span>0초<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// main.js</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// element 선택</span>
+      <span class="kd">const</span> <span class="nx">checkBox</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">input[type=checkbox]</span><span class="dl">"</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">timer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">p#timer</span><span class="dl">"</span><span class="p">);</span>
+
+      <span class="kd">let</span> <span class="p">[</span><span class="nx">seconds</span><span class="p">,</span> <span class="nx">timerId</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span> <span class="c1">// 구조분해 할당</span>
+
+      <span class="c1">// 체크박스가 체크되면 이벤트 실행</span>
+      <span class="nx">checkBox</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">checkBox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">pink</span><span class="dl">'</span><span class="p">;</span>
+              <span class="nx">timerId</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                  <span class="nx">seconds</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+                  <span class="nx">timer</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">seconds</span><span class="p">}</span><span class="s2">초`</span><span class="p">;</span>
+              <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+              <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">;</span>
+              <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timerId</span><span class="p">);</span>
+          <span class="p">}</span>
+      <span class="p">});</span>
+  <span class="p">});</span>
+</code></pre></div>    </div>
+    <p><img width="169" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173232337-e6e73c5b-8c56-4170-8be4-4dcce9252d8e.png" />
+<img width="154" alt="image" style="box-shadow: 2px 2px 2px 2px lightblue;" src="https://user-images.githubusercontent.com/77590526/173232367-bc12222c-9636-4b10-aa7f-45bc77f39154.png" /></p>
   </li>
 </ul>
 
 <p>&lt; 출처 &gt;</p>
 <blockquote>
-  <p>“혼공 자바스크립트 40강 - document.querySelector()/querySelectorAll() 메서드,” 유튜브 비디오, 8:49, 게시자 “윤인성,” 2021년 05월 24일, <a href="https://youtu.be/L9QkNhMDcOg">https://youtu.be/L9QkNhMDcOg</a>
-“혼공 자바스크립트 41강 - 문서 객체 조작하기,” 유튜브 비디오, 10:59, 게시자 “윤인성,” 2021년 05월 26일, <a href="https://youtu.be/a43xV0ajVgM">https://youtu.be/a43xV0ajVgM</a>
-“혼공 자바스크립트 42강 - 문서 객체 생성, 제거, 이동,” 유튜브 비디오, 10:45, 게시자 “윤인성,” 2021년 06월 07일, <a href="https://youtu.be/k9ZXWAh2Hj0">https://youtu.be/k9ZXWAh2Hj0</a>
-“혼공 자바스크립트 43강 - 문서 객체 이벤트 기본,” 유튜브 비디오, 13:19, 게시자 “윤인성,” 2021년 06월 09일, <a href="https://youtu.be/ByKGf9h9Qy0">https://youtu.be/ByKGf9h9Qy0</a>
-“혼공 자바스크립트 44강 - 이벤트 객체, 이벤트 발생 객체, 기본 이벤트,” 유튜브 비디오, 10:19, 게시자 “윤인성,” 2021년 06월 15일, <a href="https://youtu.be/HQIM5PES29Q">https://youtu.be/HQIM5PES29Q</a>
-“혼공 자바스크립트 45강 - 입력 양식: 버튼,” 유튜브 비디오, 09:58, 게시자 “윤인성,” 2021년 06월 18일, <a href="https://youtu.be/n2EBSjdIAzo">https://youtu.be/n2EBSjdIAzo</a>
-“혼공 자바스크립트 46강 - 입력 양식: 글자 입력,” 유튜브 비디오, 09:10, 게시자 “윤인성,” 2021년 06월 24일, <a href="https://youtu.be/xXeDA06E0EA">https://youtu.be/xXeDA06E0EA</a></p>
+  <p>“혼공 자바스크립트 40~46강,” 게시자 “윤인성,” <a href="https://www.youtube.com/playlist?list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl">https://www.youtube.com/playlist?list=PLBXuLgInP-5kxpAKy2DNXoebCse2grHjl</a></p>
 </blockquote>
+
 
                 </div>
             </section>
@@ -1067,6 +1317,8 @@ into the {body} of the default.hbs template -->
                         
                             
                         
+                            
+                        
                         
                         
                         
@@ -1195,7 +1447,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
