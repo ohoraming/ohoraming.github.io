@@ -71,41 +71,17 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Python(5) - Django 가상 환경과 settings.py" />
-    <meta property="og:description" content="
-
-
-Python 관련 포스팅
-
-    Python(1) - Django 설치
-    Python(2) - MySQL 연결
-    Python(3) - PostgreSQL 연결
-    Python(4) - Query 만들기
-    Python(5) - Django 가상 환경과 settings.py
-
-
-" />
+    <meta property="og:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
     <meta property="og:url" content="https://ohoraming.github.io/Python-django-venv-settings" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-04-04T22:14:00+09:00" />
-    <meta property="article:modified_time" content="2022-04-04T22:14:00+09:00" />
+    <meta property="article:published_time" content="2022-06-15T02:46:00+09:00" />
+    <meta property="article:modified_time" content="2022-06-15T02:46:00+09:00" />
     <meta property="article:tag" content="Python" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Python(5) - Django 가상 환경과 settings.py" />
-    <meta name="twitter:description" content="
-
-
-Python 관련 포스팅
-
-    Python(1) - Django 설치
-    Python(2) - MySQL 연결
-    Python(3) - PostgreSQL 연결
-    Python(4) - Query 만들기
-    Python(5) - Django 가상 환경과 settings.py
-
-
-" />
+    <meta name="twitter:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -137,19 +113,7 @@ Python 관련 포스팅
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/Python-django-venv-settings"
     },
-    "description": "
-
-
-Python 관련 포스팅
-
-    Python(1) - Django 설치
-    Python(2) - MySQL 연결
-    Python(3) - PostgreSQL 연결
-    Python(4) - Query 만들기
-    Python(5) - Django 가상 환경과 settings.py
-
-
-"
+    "description": "Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를"
 }
     </script>
 
@@ -222,7 +186,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 4 April 2022"> 4 April 2022</time>
+                    <time class="post-full-meta-date" datetime="15 June 2022">15 June 2022</time>
                     
                     <span class="date-divider">/</span>
                     
@@ -252,7 +216,183 @@ into the {body} of the default.hbs template -->
     <li><a href="./Python-postgresql">Python(3) - PostgreSQL 연결</a></li>
     <li><a href="./Python-making-queries">Python(4) - Query 만들기</a></li>
     <li><a href="./Python-django-venv-settings">Python(5) - Django 가상 환경과 settings.py</a></li>
+    <br />
+    <br />
 </ul>
+
+<blockquote>
+  <p>Django를 써보면서 개인적으로 깨닫게 된 내용들입니다.<br />
+틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :)</p>
+</blockquote>
+
+<h1 id="가상환경-설정">가상환경 설정</h1>
+<h2 id="1-가상환경-생성">1. 가상환경 생성</h2>
+<ul>
+  <li>프로젝트 별로 다른 버전의 python과 django를 사용하기 위함</li>
+  <li><strong>가상환경을 관리할 폴더</strong>와 <strong>프로젝트를 관리할 폴더</strong>를 각각 만드는 것이 관리하기 편함</li>
+  <li>만들 프로젝트의 이름으로 가상환경을 생성</li>
+  <li>이 방법이 가상환경을 관리하기 편하다고 생각
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="o">[</span>가상환경을 관리할 폴더 이름]      <span class="c"># 디렉터리 생성</span>
+<span class="nb">cd</span> <span class="o">[</span>가상환경 폴더 저장할 디렉터리]       <span class="c"># 디렉터리로 이동</span>
+python <span class="nt">-m</span> venv <span class="o">[</span>가상환경 이름]          <span class="c"># 가상환경 생성 </span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="2-가상환경-진입활성화">2. 가상환경 진입(활성화)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">source</span> <span class="o">[</span>가상환경 이름]/scripts/activate   <span class="c"># 가상환경 활성화</span>
+</code></pre></div></div>
+
+<ul>
+  <li>가상 환경에 진입하면, 터미널의 디렉터리명 앞에 <code class="language-plaintext highlighter-rouge">(가상환경 이름)</code> 이 덧붙여져 나타남</li>
+  <li>가상환경에서 나가려면 경로와 상관없이 <code class="language-plaintext highlighter-rouge">deactivate</code> 입력
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deactivate                         <span class="c"># 가상환경 비활성화</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="3-django-djangorestframework-psycopg2-설치">3. <code class="language-plaintext highlighter-rouge">django</code>, <code class="language-plaintext highlighter-rouge">djangorestframework</code>, <code class="language-plaintext highlighter-rouge">psycopg2</code> 설치</h2>
+<ul>
+  <li>가상환경에 진입한 상태에서 설치를 진행함
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  pip <span class="nb">install </span>django
+  pip <span class="nb">install </span>djangorestframework
+  pip <span class="nb">install </span>psycopg2              <span class="c"># PostgreSQL 사용시 설치</span>
+</code></pre></div>    </div>
+  </li>
+  <li>pip upgrade 경고 문구가 뜬다면,<br />
+pip upgrade: (windows) <code class="language-plaintext highlighter-rouge">python -m pip install --upgrade pip</code></li>
+  <li>참고
+    <ul>
+      <li>django upgrade(특정 버전): <code class="language-plaintext highlighter-rouge">pip install --upgrade django==4.0.5</code></li>
+      <li>pip version 확인: <code class="language-plaintext highlighter-rouge">pip --version</code></li>
+      <li>업데이트 해야 할 패키지 목록 확인: <code class="language-plaintext highlighter-rouge">pip list -o</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-project만들기">4. project만들기</h2>
+<ul>
+  <li>프로젝트를 설치할 폴더로 이동해 프로젝트 이름으로 디렉터리 만들기
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="o">[</span>프로젝트를 설치할 폴더]
+<span class="nb">mkdir</span> <span class="o">[</span>프로젝트 이름]
+<span class="nb">cd</span> <span class="o">[</span>프로젝트 이름]
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">config .</code> 으로 현재 디렉터리에 config 파일로 프로젝트를 만듦
+    <ul>
+      <li>이렇게 만들면 프로젝트 관리가 수월함
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
+django-admin startproject <span class="o">[</span>project 이름]    <span class="c"># 프로젝트 생성</span>
+python manage.py runserver                  <span class="c"># 서버 실행</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="settingspy-설정">settings.py 설정</h1>
+<h2 id="1-secret_key-설정">1. <code class="language-plaintext highlighter-rouge">SECRET_KEY</code> 설정</h2>
+<ol>
+  <li>project root 경로에 <code class="language-plaintext highlighter-rouge">secret_file.py</code> 생성</li>
+  <li><code class="language-plaintext highlighter-rouge">settings.py</code>의 <code class="language-plaintext highlighter-rouge">SECRET_KEY = '...(내용)...'</code> 복사해 붙여넣기</li>
+  <li><code class="language-plaintext highlighter-rouge">settings.py</code> 수정
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">secret_file</span>
+ <span class="p">...</span>
+ <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">secret_file</span><span class="p">.</span><span class="n">SECRET_KEY</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="2--installed_apps-설정">2.  <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> 설정</h2>
+<ol>
+  <li>app 설치
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">startapp</span> <span class="p">[</span><span class="n">app</span> <span class="n">이름</span><span class="p">]</span>    <span class="c1"># app 생성
+</span></code></pre></div>    </div>
+  </li>
+  <li>생성한 <code class="language-plaintext highlighter-rouge">app</code>과 <code class="language-plaintext highlighter-rouge">rest_framework</code>추가
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+         <span class="p">...</span>
+     <span class="s">'rest_framework'</span><span class="p">,</span>                 <span class="c1"># 추가
+</span>     <span class="s">'생성한 app 이름'</span><span class="p">,</span>                 <span class="c1"># app 추가
+</span>     <span class="s">'생성한 app 이름'</span><span class="p">,</span>                 <span class="c1"># app 추가
+</span> <span class="p">]</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="3-templates-의-dirs-설정">3. <code class="language-plaintext highlighter-rouge">TEMPLATES</code> 의 <code class="language-plaintext highlighter-rouge">'DIRS'</code> 설정</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span>
+                <span class="p">...</span>
+          <span class="s">'DIRS'</span><span class="p">:</span> <span class="p">[</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s">'templates'</span><span class="p">],</span> <span class="c1"># 수정
+</span>                <span class="p">...</span>
+      <span class="p">},</span>
+  <span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>여기서 BASE_DIR은 project 폴더</li>
+  <li>root에 <code class="language-plaintext highlighter-rouge">templates</code> 디렉터리 생성
+    <ul>
+      <li>모든 앱이 공통으로 사용할 템플릿 디렉터리 - <code class="language-plaintext highlighter-rouge">[root]/templates</code></li>
+      <li>특정 앱이 사용할 템플릿 디렉터리 - <code class="language-plaintext highlighter-rouge">[root]/templates/[특정 app]</code></li>
+    </ul>
+  </li>
+  <li>이렇게 <strong>templates</strong> 폴더를 관리해주어야 Django가 제대로 인식 할 수 있음</li>
+</ul>
+
+<h2 id="4-db-설정postgresql">4. DB 설정(<code class="language-plaintext highlighter-rouge">postgreSQL</code>)</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.postgresql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'DB이름'</span><span class="p">,</span>       <span class="c1"># DB 이름
+</span>        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span>     <span class="c1"># 비밀번호
+</span>        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>  
+        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'5432'</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">secret_file.py</code> 에 위 내용 붙여넣기</li>
+  <li><strong>settings.py</strong>는 아래 코드로 바꾸기
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">DATABASES</span> <span class="o">=</span> <span class="n">secret_file</span><span class="p">.</span><span class="n">DATABASES</span> 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="5-language_code-time_zone-설정">5. <code class="language-plaintext highlighter-rouge">LANGUAGE_CODE</code>, <code class="language-plaintext highlighter-rouge">TIME_ZONE</code> 설정</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s">'ko-kr'</span>
+  <span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s">'Asia/Seoul'</span>
+</code></pre></div></div>
+
+<h2 id="6-staticfiles_dirs-추가하기">6. <code class="language-plaintext highlighter-rouge">STATICFILES_DIRS</code> 추가하기</h2>
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">STATIC_URL = 'static/'</code> 아래에 추가하기</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s">'static/'</span>
+  <span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s">'static'</span><span class="p">,</span>
+  <span class="p">]</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">[project]</code>아래에  <code class="language-plaintext highlighter-rouge">static</code> 폴더 만들기</li>
+  <li><code class="language-plaintext highlighter-rouge">BASE_DIR / 'static'</code>은 <code class="language-plaintext highlighter-rouge">[root]/static</code> 디렉터리를 의미함</li>
+</ul>
+
+<h2 id="7-configurlspy-작성">7. <code class="language-plaintext highlighter-rouge">config/urls.py</code> 작성</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+  <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+  
+  <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
+      <span class="n">path</span><span class="p">(</span><span class="s">'account/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'account.urls'</span><span class="p">)),</span>
+      <span class="n">path</span><span class="p">(</span><span class="s">'routine/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'routine.urls'</span><span class="p">)),</span>
+  <span class="p">]</span>
+</code></pre></div></div>
 
 
                 </div>
@@ -350,6 +490,8 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                            
                             
                         
                             
@@ -364,8 +506,6 @@ into the {body} of the default.hbs template -->
                         
                             
                         
-                        
-                            
                             
                         
                         
@@ -459,58 +599,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/JavaScript-regular-expressions">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/JavaScript-regular-expressions">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Javascript</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">JavaScript(11) - Regular expressions(regex)</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      4 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -518,22 +606,22 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/Python-making-queries">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/django-logo.png)"></div>
+            <a class="post-card-image-link" href="/web-api">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/api.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/Python-making-queries">
+            <a class="post-card-content-link" href="/web-api">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Python</span>
+                                <span class="post-card-tags">Other</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Python(4) - Query 만들기 [object 검색]</h2>
+                    <h2 class="post-card-title">Web API</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -558,7 +646,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      3 min read
+                      1 min read
                     
                 </span>
             </footer>
