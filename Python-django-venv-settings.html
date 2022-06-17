@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Python(5) - Django 가상 환경과 settings.py" />
-    <meta property="og:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
+    <meta property="og:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 알게 된 내용을 정리했습니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
     <meta property="og:url" content="https://ohoraming.github.io/Python-django-venv-settings" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Python" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Python(5) - Django 가상 환경과 settings.py" />
-    <meta name="twitter:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
+    <meta name="twitter:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 알게 된 내용을 정리했습니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/Python-django-venv-settings"
     },
-    "description": "Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 개인적으로 깨닫게 된 내용들입니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를"
+    "description": "Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py Django를 써보면서 알게 된 내용을 정리했습니다. 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :) 가상환경 설정 1. 가상환경 생성 프로젝트 별로 다른 버전의 python과 django를"
 }
     </script>
 
@@ -221,7 +221,7 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <blockquote>
-  <p>Django를 써보면서 개인적으로 깨닫게 된 내용들입니다.<br />
+  <p>Django를 써보면서 알게 된 내용을 정리했습니다.<br />
 틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :)</p>
 </blockquote>
 
@@ -279,15 +279,14 @@ pip upgrade: (windows) <code class="language-plaintext highlighter-rouge">python
 <span class="nb">cd</span> <span class="o">[</span>프로젝트 이름]
 </code></pre></div>    </div>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">config .</code> 으로 현재 디렉터리에 config 파일로 프로젝트를 만듦
-    <ul>
-      <li>이렇게 만들면 프로젝트 관리가 수월함
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
-django-admin startproject <span class="o">[</span>project 이름]    <span class="c"># 프로젝트 생성</span>
-python manage.py runserver                  <span class="c"># 서버 실행</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">[project 이름]</code>을 <code class="language-plaintext highlighter-rouge">config .</code> 으로 만들면 프로젝트 관리가 수월함<br />
+ (출처: <a href="https://wikidocs.net/72377#_1">참고한 사이트</a>)</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd</span> ..
+  django-admin startproject <span class="o">[</span>project 이름]    <span class="c"># 프로젝트 생성</span>
+  python manage.py runserver                  <span class="c"># 서버 실행</span>
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -307,8 +306,8 @@ python manage.py runserver                  <span class="c"># 서버 실행</spa
 <h2 id="2--installed_apps-설정">2.  <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> 설정</h2>
 <ol>
   <li>app 설치
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">startapp</span> <span class="p">[</span><span class="n">app</span> <span class="n">이름</span><span class="p">]</span>    <span class="c1"># app 생성
-</span></code></pre></div>    </div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> django-admin startapp <span class="o">[</span>app 이름]    <span class="c"># app 생성</span>
+</code></pre></div>    </div>
   </li>
   <li>생성한 <code class="language-plaintext highlighter-rouge">app</code>과 <code class="language-plaintext highlighter-rouge">rest_framework</code>추가
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
@@ -343,18 +342,20 @@ python manage.py runserver                  <span class="c"># 서버 실행</spa
 </ul>
 
 <h2 id="4-db-설정postgresql">4. DB 설정(<code class="language-plaintext highlighter-rouge">postgreSQL</code>)</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.postgresql'</span><span class="p">,</span>
-        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'DB이름'</span><span class="p">,</span>       <span class="c1"># DB 이름
-</span>        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
-        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span>     <span class="c1"># 비밀번호
-</span>        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>  
-        <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'5432'</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
 <ul>
+  <li>참고로, 이 과정은 반드시 <code class="language-plaintext highlighter-rouge">python manage.py makemigration</code>을 하기 전에 시행되어야 함
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.postgresql'</span><span class="p">,</span>
+      <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'DB이름'</span><span class="p">,</span>       <span class="c1"># DB 이름
+</span>      <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
+      <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span>     <span class="c1"># 비밀번호
+</span>      <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>  
+      <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'5432'</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
   <li><code class="language-plaintext highlighter-rouge">secret_file.py</code> 에 위 내용 붙여넣기</li>
   <li><strong>settings.py</strong>는 아래 코드로 바꾸기
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">DATABASES</span> <span class="o">=</span> <span class="n">secret_file</span><span class="p">.</span><span class="n">DATABASES</span> 
@@ -382,17 +383,48 @@ python manage.py runserver                  <span class="c"># 서버 실행</spa
   <li><code class="language-plaintext highlighter-rouge">BASE_DIR / 'static'</code>은 <code class="language-plaintext highlighter-rouge">[root]/static</code> 디렉터리를 의미함</li>
 </ul>
 
-<h2 id="7-configurlspy-작성">7. <code class="language-plaintext highlighter-rouge">config/urls.py</code> 작성</h2>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-  <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<h2 id="7-urlspy-작성">7. <code class="language-plaintext highlighter-rouge">urls.py</code> 작성</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[project 이름]/urls.py</code>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
   
-  <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
-      <span class="n">path</span><span class="p">(</span><span class="s">'account/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'account.urls'</span><span class="p">)),</span>
-      <span class="n">path</span><span class="p">(</span><span class="s">'routine/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'routine.urls'</span><span class="p">)),</span>
-  <span class="p">]</span>
-</code></pre></div></div>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'account/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'account.urls'</span><span class="p">)),</span>  <span class="c1"># 예시
+</span><span class="p">]</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="8-admin-페이지-사용하기">8. admin 페이지 사용하기</h2>
+<ul>
+  <li>Django에서 제공하는 admin 페이지입니다
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">superuser</code> 생성하기
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  python manage.py createsuperuser           <span class="c"># superuser 생성</span>
+</code></pre></div>        </div>
+      </li>
+      <li>사용자 이름, 이메일, password를 입력</li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">[app]/admin.py</code> 작성</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+ <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">모델명</span>
+      
+ <span class="c1"># Register your models here.
+</span>      
+ <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">모델명</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>서버 실행 후 <code class="language-plaintext highlighter-rouge">admin</code>에 접속
+    <code class="language-plaintext highlighter-rouge">bash
+    python manage.py runserver                 
+   </code>
+  <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8000/admin</code>에 접속</li>
+</ul>
 
 
                 </div>
