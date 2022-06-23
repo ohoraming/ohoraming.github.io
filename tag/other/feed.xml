@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-06-17T20:42:49+09:00</updated>
+  <updated>2022-06-23T23:41:58+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,116 @@
 
   
     <entry>
+      <title type="html">postgreSQL 기본 사용법 [update 中]</title>
+      <link href="https://ohoraming.github.io/postgreSQL" rel="alternate" type="text/html" title="postgreSQL 기본 사용법 [update 中]" />
+      <published>2022-06-23T23:15:00+09:00</published>
+      <updated>2022-06-23T23:15:00+09:00</updated>
+      <id>https://ohoraming.github.io/postgreSQL</id>
+      <content type="html" xml:base="https://ohoraming.github.io/postgreSQL">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 postgreSQL의 기본적인 사용법에 대해 다루고 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;0-sql-shell-사용하기&quot;&gt;0. SQL Shell 사용하기&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt;에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql&lt;/code&gt; 명령으로 postgreSQL 접속하기&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql --version&lt;/code&gt; 명령이 실행되지 않는다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;환경 변수 설정&lt;/code&gt;이 선행되어야 함
+    &lt;ul&gt;
+      &lt;li&gt;[환경 변수] - [시스템 변수: Path]선택 - 확인 - 새로 만들기 - 찾아보기 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\Program Files\PostgreSQL\14\bin&lt;/code&gt; 선택 - 확인- 확인 - cmd 종료 후 재실행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql&lt;/code&gt; 실행&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql -U postgres&lt;/code&gt; 실행으로 user 암호 입력하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-create-database&quot;&gt;1. CREATE DATABASE&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database 목록 확인&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL syntax&lt;/code&gt;는 대문자로 입력하며 명령의 끝은 세미콜론(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;&lt;/code&gt;)으로 끝맺어야 실행됨
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database가 생성되었는지 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;                             데이터베이스 목록
+  이름     |  소유주  | 인코딩 |    Collate     |     Ctype      |   액세스 권한
+&lt;span class=&quot;nt&quot;&gt;-------------&lt;/span&gt;+----------+-------+----------------+----------------+-----------------
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;         | postgres | UTF8  |Korean_Korea.949|Korean_Korea.949|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\c&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db 이름&lt;/code&gt;으로 생성된 database에 연결하기(connect)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;접속정보: 데이터베이스&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;, 사용자&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postgres&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;연결 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;2-create-table&quot;&gt;2. CREATE TABLE&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;datatype에 익숙해지기
+&lt;a href=&quot;https://www.postgresql.org/docs/current/datatype.html#DATATYPE-TABLE&quot;&gt;datatype 목록&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BIGSERIAL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Learn PostgreSQL Tutorial - Full Course for Beginners,’ 유튜브 비디오, 04:19:34, 게시자 ‘freeCodeCamp.org,’ 2019년04월04일, &lt;a href=&quot;https://youtu.be/qw--VYLpxG4&quot;&gt;https://youtu.be/qw–VYLpxG4&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Web API</title>
       <link href="https://ohoraming.github.io/web-api" rel="alternate" type="text/html" title="Web API" />
       <published>2022-05-30T20:52:00+09:00</published>
@@ -47,6 +157,7 @@
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -173,6 +284,7 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -633,6 +745,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -842,6 +955,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -921,6 +1035,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;

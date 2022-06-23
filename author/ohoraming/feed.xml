@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-06-17T20:42:49+09:00</updated>
+  <updated>2022-06-23T23:41:58+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -30,6 +30,177 @@
   
   
 
+  
+    <entry>
+      <title type="html">postgreSQL 기본 사용법 [update 中]</title>
+      <link href="https://ohoraming.github.io/postgreSQL" rel="alternate" type="text/html" title="postgreSQL 기본 사용법 [update 中]" />
+      <published>2022-06-23T23:15:00+09:00</published>
+      <updated>2022-06-23T23:15:00+09:00</updated>
+      <id>https://ohoraming.github.io/postgreSQL</id>
+      <content type="html" xml:base="https://ohoraming.github.io/postgreSQL">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 postgreSQL의 기본적인 사용법에 대해 다루고 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;0-sql-shell-사용하기&quot;&gt;0. SQL Shell 사용하기&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt;에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql&lt;/code&gt; 명령으로 postgreSQL 접속하기&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql --version&lt;/code&gt; 명령이 실행되지 않는다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;환경 변수 설정&lt;/code&gt;이 선행되어야 함
+    &lt;ul&gt;
+      &lt;li&gt;[환경 변수] - [시스템 변수: Path]선택 - 확인 - 새로 만들기 - 찾아보기 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\Program Files\PostgreSQL\14\bin&lt;/code&gt; 선택 - 확인- 확인 - cmd 종료 후 재실행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql&lt;/code&gt; 실행&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psql -U postgres&lt;/code&gt; 실행으로 user 암호 입력하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-create-database&quot;&gt;1. CREATE DATABASE&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database 목록 확인&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL syntax&lt;/code&gt;는 대문자로 입력하며 명령의 끝은 세미콜론(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;&lt;/code&gt;)으로 끝맺어야 실행됨
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database가 생성되었는지 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;                             데이터베이스 목록
+  이름     |  소유주  | 인코딩 |    Collate     |     Ctype      |   액세스 권한
+&lt;span class=&quot;nt&quot;&gt;-------------&lt;/span&gt;+----------+-------+----------------+----------------+-----------------
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;         | postgres | UTF8  |Korean_Korea.949|Korean_Korea.949|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\c&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db 이름&lt;/code&gt;으로 생성된 database에 연결하기(connect)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;접속정보: 데이터베이스&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;, 사용자&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postgres&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;연결 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;2-create-table&quot;&gt;2. CREATE TABLE&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;datatype에 익숙해지기
+&lt;a href=&quot;https://www.postgresql.org/docs/current/datatype.html#DATATYPE-TABLE&quot;&gt;datatype 목록&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BIGSERIAL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Learn PostgreSQL Tutorial - Full Course for Beginners,’ 유튜브 비디오, 04:19:34, 게시자 ‘freeCodeCamp.org,’ 2019년04월04일, &lt;a href=&quot;https://youtu.be/qw--VYLpxG4&quot;&gt;https://youtu.be/qw–VYLpxG4&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Python(6) - ORM(Object-Relational Mapping)</title>
+      <link href="https://ohoraming.github.io/Python-django-orm" rel="alternate" type="text/html" title="Python(6) - ORM(Object-Relational Mapping)" />
+      <published>2022-06-21T22:39:00+09:00</published>
+      <updated>2022-06-21T22:39:00+09:00</updated>
+      <id>https://ohoraming.github.io/Python-django-orm</id>
+      <content type="html" xml:base="https://ohoraming.github.io/Python-django-orm">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Django ORM을 사용하면서 드는 의문점을 해결하기 위해 쓰는 글입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-orm이란&quot;&gt;1. ORM이란?&lt;/h2&gt;
+&lt;p&gt;객체-지향&lt;/p&gt;
+
+&lt;p&gt;Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. When talking about ORM, most people are referring to a library that implements the Object-Relational Mapping technique, hence the phrase “an ORM”.&lt;/p&gt;
+
+&lt;p&gt;An ORM library is a completely ordinary library written in your language of choice that encapsulates the code needed to manipulate the data, so you don’t use SQL anymore; you interact directly with an object in the same language you’re using.&lt;/p&gt;
+
+&lt;p&gt;For example, here is a completely imaginary case with a pseudo language:&lt;/p&gt;
+
+&lt;p&gt;You have a book class, you want to retrieve all the books of which the author is “Linus”. Manually, you would do something like that:&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Python" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Python(5) - Django 가상 환경과 settings.py</title>
@@ -299,6 +470,7 @@ pip upgrade: (windows) &lt;code class=&quot;language-plaintext highlighter-rouge
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1585,6 +1757,7 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -2045,6 +2218,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -2697,276 +2871,6 @@ princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&q
 
       
         <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Python(4) - Query 만들기 [object 검색]</title>
-      <link href="https://ohoraming.github.io/Python-making-queries" rel="alternate" type="text/html" title="Python(4) - Query 만들기 [object 검색]" />
-      <published>2022-04-04T22:14:00+09:00</published>
-      <updated>2022-04-04T22:14:00+09:00</updated>
-      <id>https://ohoraming.github.io/Python-making-queries</id>
-      <content type="html" xml:base="https://ohoraming.github.io/Python-making-queries">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;https://docs.djangoproject.com/en/4.0/topics/db/queries/ 해석&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;retrieving-objects-object-검색&quot;&gt;Retrieving objects [object 검색]&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;DB에서 object를 검색하기 위해서는 model class에서 Manager를 통해 query set을 만들어야 함&lt;/li&gt;
-  &lt;li&gt;query set은 db의 object 집합을 의미함&lt;/li&gt;
-  &lt;li&gt;0개 이상의 filter를 가지는데, filter는 주어진 parameter에 기반해 query 결과를 좁혀줌&lt;/li&gt;
-  &lt;li&gt;SQL에서는 query set은 select문과 동일하며, filter는 where나 limit절과 같음&lt;/li&gt;
-  &lt;li&gt;model의 manager를 사용해 query set을 설정함&lt;/li&gt;
-  &lt;li&gt;각 medel은 하나 이상의 manager를 가지며, 이는 기본적으로 objects라고 부름&lt;br /&gt;
-  (manager는 ‘table-level’연산자와 ‘record-level’연산자를 분리시키기 위해 model instance보다는 model class를 통해 접근함 )&lt;/li&gt;
-  &lt;li&gt;model을 통해 직접적으로 접근하려면, 아래와 같이 입력하면 됨
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# &amp;lt;django.db.models.manager.Manager object at ...&amp;gt;
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tagline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Bar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;manager는 model의 queryset의 main source임&lt;br /&gt;
-예를들어, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Blog.objects.all()&lt;/code&gt;은 DB에 있는 모든 Blog object를 포함하는 queryset을 반환함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-retrieving-all-objects-모든-object-검색&quot;&gt;1. Retrieving all objects (모든 object 검색)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;table의 모든 object를 검색하기 위한 가장 간단한 방법&lt;/li&gt;
-  &lt;li&gt;manager에 대해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all()&lt;/code&gt; 메서드를 사용하면 됨&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all_entries = Entry.objects.all()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-retrieving-specific-objects-with-filters-filter를-이용한-특정-object-검색&quot;&gt;2. Retrieving specific objects with filters (filter를 이용한 특정 object 검색)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all()&lt;/code&gt;에 의해 반환된 queryset은 db table의 모든 object를 서술함&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;하지만, 대게, 완전한 object의 특정 부분만 선택적으로 원할 것임&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이러한 특정 부분을 생성하기 위해서는, filter 조건을 추가해 최초의 queryset을 정제해야 함&lt;/li&gt;
-  &lt;li&gt;queryset을 정제하기 위한 가장 흔한 두 가지 방법,
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;filter(**kwargs)&lt;/strong&gt;&lt;br /&gt;
-  주어진 검색 parameter와 일치하는 object가 포함된 새로운 queryset을 반환 함&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;exclude(**kwargs)&lt;/strong&gt;&lt;br /&gt;
-  주어진 검색 parameter와 일치하지 않는 object가 포함된 새로운 queryset을 반환 함&lt;/li&gt;
-      &lt;li&gt;검색 parameters(위의 함수 정의에 있는 **kwargs)는 아래의 Field lookups에 서술된 형태로 있어야 함&lt;br /&gt;
-  예를 들어, 2006년부터의 blog entry들의 queryset을 얻으려면 filter()를 사용함&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.filter(pub_date__year=2006)&lt;/code&gt;
-  기본적인 manager class에서도 동일함&lt;br /&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.all().filter(pub_date__year=2006)&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;chaining-filters연쇄-필터&quot;&gt;Chaining filters(연쇄 필터)&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;headline__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'What'&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pub_date__gte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pub_date__gte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;db의 모든 entry의 초기 queryset을 가져와, filter를 추가한 뒤, 또 다른 filter인 예외를 추가한 것임&lt;/li&gt;
-  &lt;li&gt;최종 결과는 “What”으로 시작하는 헤드라인을 가지며, 2005년 1월 30일부터 현재사이에 발행된 모든 entry를 포함한 queryset임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;filtered-querysets-are-unique-걸러진-queryset은-고유함&quot;&gt;Filtered QuerySets are unique (걸러진 queryset은 고유함)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;queryset을 정제할 때마다, 이전의 queryset과 bound되지 않은 새로운 queryset을 받게 됨&lt;/li&gt;
-  &lt;li&gt;각각의 정제는 독립된 별개의 queryset을 만들며, 저장, 사용, 재사용될 수 있음
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;q1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headline__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;What&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;q2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub_date__gte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;q3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub_date__gte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;세 queryset은 독립되어있음
-    &lt;ul&gt;
-      &lt;li&gt;첫 번째는 “What”으로 시작하는 헤드라인을 포함하는 모든 entry를 가지는 기본 queryset&lt;/li&gt;
-      &lt;li&gt;두 번째는 pub_date가 오늘의 record를 제외하는 추가적인 기준을 가진 첫 번째의 부분 집합&lt;/li&gt;
-      &lt;li&gt;세 번째는 pub_date가 오늘인 record만 선택하는 추가적인 기준을 가진 첫 번째의 부분 집합&lt;/li&gt;
-      &lt;li&gt;초기 queryset(q1)은 정제 과정에 영향 받지 않음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;querysets-are-lazy-queryset은-게으름&quot;&gt;QuerySets are lazy (queryset은 게으름)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;queryset을 생성하는 것은 어떠한 db 활동과도 연관되지 않음&lt;/li&gt;
-  &lt;li&gt;온종일 filter를 쌓을 수 있고 django는 queryset이 평가될 때까지 실제로 query를 실행하지 않을 것임
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headline__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;What&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub_date__lte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body_text__icontains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;food&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;세 번의 db 접근으로 보이지만, 실제로는 마지막 줄의 print(q) 단 한 번만 db에 접근함&lt;/li&gt;
-  &lt;li&gt;일반적으로 queryset의 결과는 “요청”할 때까지 db로부터 가져오지 않음&lt;/li&gt;
-  &lt;li&gt;요청할 때, queryset은 db에 접근해 평가됨 (자세한 내용은 &lt;a href=&quot;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#when-querysets-are-evaluated&quot;&gt;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#when-querysets-are-evaluated&lt;/a&gt; 참조)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;retrieving-a-single-object-with-get-get으로-단일-object-검색&quot;&gt;Retrieving a single object with get() (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;으로 단일 object 검색)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filter()&lt;/code&gt;는 단 하나의 object가 query와 일치할지라도 하나의 요소가 포함된 queryset을 줌&lt;/li&gt;
-  &lt;li&gt;query와 일치하는 단 하나의 object가 있다고 할 때, 직적적으로 object를 반환하는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt; 메서드를 manager에 사용할 수 있음&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;one_entry = Entry.objects.get(pk=1)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filter()&lt;/code&gt;처럼 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;으로 어떤 query문이든 사용할 수 있음(&lt;a href=&quot;https://docs.djangoproject.com/en/4.0/topics/db/queries/#field-lookups&quot;&gt;https://docs.djangoproject.com/en/4.0/topics/db/queries/#field-lookups&lt;/a&gt; 참조)&lt;/li&gt;
-  &lt;li&gt;[0]의 부분에 대해, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;을 사용하는 것과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filter()&lt;/code&gt;를 사용하는 것 사이에는 차이가 있음을 명심할 것&lt;/li&gt;
-  &lt;li&gt;query와 일치하는 결과가 없다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;은 &lt;strong&gt;DoesNotExist 예외&lt;/strong&gt;를 발생시킴&lt;/li&gt;
-  &lt;li&gt;이 예외는 query가 수행되는 model class 속성임&lt;/li&gt;
-  &lt;li&gt;pk=1인 entry object가 없다면 django는 Entry.DoesNotExist 예외를 발생시킬 것 임&lt;/li&gt;
-  &lt;li&gt;비슷하게, 하나 이상의 item과 get() query가 일치한다면, django는 항의할 것임&lt;/li&gt;
-  &lt;li&gt;이 경우, model class 속성인 &lt;strong&gt;MultipleObjectsReturned&lt;/strong&gt;를 발생키길 것임&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;other-queryset-methods다른-queryset-메서드&quot;&gt;Other QuerySet methods[다른 queryset 메서드]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;db의 object를 찾아보아야 할 때, 대부분 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filter()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exclude()&lt;/code&gt;를 사용할 것임&lt;/li&gt;
-  &lt;li&gt;모든 다양한 queryset 메서드의 완전한 리스트를 위해서는 &lt;a href=&quot;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#queryset-api&quot;&gt;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#queryset-api&lt;/a&gt;를 참조할 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;limiting-querysets한정-queryset&quot;&gt;Limiting QuerySets[한정 queryset]&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;특정한 수 만큼의 결과로 queryset을 한정하기 위해 python의 array-slicing 문법의 부분 집합을 사용하라&lt;/li&gt;
-  &lt;li&gt;이는 SQL의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;limit&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;offset&lt;/code&gt; 절과 동일함&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.all()[:5]&lt;/code&gt; → 첫 5개의 object를 반환(LIMIT 5)&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.all()[5:10]&lt;/code&gt; → 여섯~열 번째 object를 반환(OFFSET 5 LIMIT 5)&lt;/li&gt;
-  &lt;li&gt;음수 indexing은 지원되지 않음(예를 들면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.all()[-1]&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;일반적으로 queryset을 자르는 것은 새로운 queryset을 반환하며, 이는 query를 평가하지 않음&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;python의 slice 문법의 ‘step’ parameter를 사용하는 것은 예외임
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.all()[:10:2]&lt;/code&gt;&lt;br /&gt;
-→ 첫 10개의 두 번째마다의 object를 list로 반환하는 query 실행&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;잘려진 queryset를 추가적으로 filtering하거나 ordering하는 것은 금지됨&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;단일 object를 정제하기 위해 index를 slice하는 대신에 list를 사용함(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT foo FROM bar LIMIT 1&lt;/code&gt;)&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.order_by('headline')[0]&lt;/code&gt;&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Entry.objects.order_by('headline')[0:1].get()&lt;/code&gt;&lt;br /&gt;
-→ 헤드라인을 알파벳 순서에 따라 정렬한 뒤, db의 첫 Entry를 반환&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;주어진 기준과 일치하는 object가 없을 시, 첫 번째는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IndexError&lt;/code&gt;를, 두 번째는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DoesNotExist&lt;/code&gt;를 발생시킴
-(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;에 대한 자세한 사항은 &lt;a href=&quot;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet.get&quot;&gt;https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet.get&lt;/a&gt; 참조)&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Python" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Test Code</title>
-      <link href="https://ohoraming.github.io/test-code" rel="alternate" type="text/html" title="Test Code" />
-      <published>2022-03-30T22:26:00+09:00</published>
-      <updated>2022-03-30T22:26:00+09:00</updated>
-      <id>https://ohoraming.github.io/test-code</id>
-      <content type="html" xml:base="https://ohoraming.github.io/test-code">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-test-code를-작성하는-이유&quot;&gt;1. Test Code를 작성하는 이유&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;bug 발생 시점이 이를 수록 수정 비용이 적게 듦&lt;br /&gt;
-수정 비용: 요구 분석/기획 &amp;lt; 설계 &amp;lt; 구현 &amp;lt; 테스트(QA) &amp;lt; 유지 보수/배포&lt;/li&gt;
-  &lt;li&gt;기획 단계에서 요구 조건을 보다 명확하게 이해할 수 있음&lt;/li&gt;
-  &lt;li&gt;예외 케이스의 처리 방식을 다각도로 생각해 볼 수 있음&lt;/li&gt;
-  &lt;li&gt;기능을 구현할 때마다 이미 쌓여있는 Test Code를 모두 테스트하면, 현재의 코드로 인해 다른 코드들이 받을 수 있는 side effect를 즉시 감지할 수 있음(회귀 테스트(Regression Test))&lt;/li&gt;
-  &lt;li&gt;test coverage만큼 코드에 대해 확실할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-test-code를-작성하는-방법&quot;&gt;2. Test Code를 작성하는 방법&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;케이스 단위로 테스트를 정리(기능별 분리)&lt;/li&gt;
-  &lt;li&gt;케이스 별로 실제 행위 유발&lt;/li&gt;
-  &lt;li&gt;행위의 결과 확인(pass/fail return)&lt;/li&gt;
-  &lt;li&gt;케이스의 자동화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-주의-사항&quot;&gt;3. 주의 사항&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;많은 Test Code를 작성하고 유지하는 데 시간이 걸림&lt;/li&gt;
-  &lt;li&gt;이후, 제품을 완전히 변경한다고 하면 시간 낭비일 수 있음&lt;/li&gt;
-  &lt;li&gt;Test Code와 실제 code를 작성하는 개발자가 같다면 사각지대가 발생할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;4-unit-test-tip&quot;&gt;4. Unit Test Tip&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;여러 테스트에 동일한 데이터를 재사용하지 않아야 함&lt;br /&gt;
-→ global instance의 재사용 금지&lt;/li&gt;
-  &lt;li&gt;python의 built-in function은 test하지 않아도 됨&lt;br /&gt;
-→ 표준 라이브러리는 test의 목표가 되어선 안 됨&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Other" />
       
 
       

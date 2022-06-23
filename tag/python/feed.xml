@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-06-17T20:42:49+09:00</updated>
+  <updated>2022-06-23T23:41:58+09:00</updated>
   <id>https://ohoraming.github.io/tag/python/feed.xml</id>
 
   
@@ -30,6 +30,67 @@
   
   
 
+  
+    <entry>
+      <title type="html">Python(6) - ORM(Object-Relational Mapping)</title>
+      <link href="https://ohoraming.github.io/Python-django-orm" rel="alternate" type="text/html" title="Python(6) - ORM(Object-Relational Mapping)" />
+      <published>2022-06-21T22:39:00+09:00</published>
+      <updated>2022-06-21T22:39:00+09:00</updated>
+      <id>https://ohoraming.github.io/Python-django-orm</id>
+      <content type="html" xml:base="https://ohoraming.github.io/Python-django-orm">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Django ORM을 사용하면서 드는 의문점을 해결하기 위해 쓰는 글입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-orm이란&quot;&gt;1. ORM이란?&lt;/h2&gt;
+&lt;p&gt;객체-지향&lt;/p&gt;
+
+&lt;p&gt;Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. When talking about ORM, most people are referring to a library that implements the Object-Relational Mapping technique, hence the phrase “an ORM”.&lt;/p&gt;
+
+&lt;p&gt;An ORM library is a completely ordinary library written in your language of choice that encapsulates the code needed to manipulate the data, so you don’t use SQL anymore; you interact directly with an object in the same language you’re using.&lt;/p&gt;
+
+&lt;p&gt;For example, here is a completely imaginary case with a pseudo language:&lt;/p&gt;
+
+&lt;p&gt;You have a book class, you want to retrieve all the books of which the author is “Linus”. Manually, you would do something like that:&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Python" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Python(5) - Django 가상 환경과 settings.py</title>

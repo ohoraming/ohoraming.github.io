@@ -8,6 +8,36 @@
     
       
       <item>
+        <title>postgreSQL 기본 사용법 [update 中]</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Thu, 23 Jun 2022 23:15:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/postgreSQL</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/postgreSQL</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Python(6) - ORM(Object-Relational Mapping)</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Jun 2022 22:39:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/Python-django-orm</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/Python-django-orm</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Python(5) - Django 가상 환경과 settings.py</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
