@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-06-23T23:41:58+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">postgreSQL 기본 사용법 [update 中]</title><link href="https://ohoraming.github.io/postgreSQL" rel="alternate" type="text/html" title="postgreSQL 기본 사용법 [update 中]" /><published>2022-06-23T23:15:00+09:00</published><updated>2022-06-23T23:15:00+09:00</updated><id>https://ohoraming.github.io/postgreSQL</id><content type="html" xml:base="https://ohoraming.github.io/postgreSQL">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2022-07-12T23:52:56+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">예비 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">postgreSQL 기본 사용법 [update 中]</title><link href="https://ohoraming.github.io/postgreSQL" rel="alternate" type="text/html" title="postgreSQL 기본 사용법 [update 中]" /><published>2022-06-23T23:15:00+09:00</published><updated>2022-06-23T23:15:00+09:00</updated><id>https://ohoraming.github.io/postgreSQL</id><content type="html" xml:base="https://ohoraming.github.io/postgreSQL">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -31,12 +31,12 @@
 
 &lt;h2 id=&quot;1-create-database&quot;&gt;1. CREATE DATABASE&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database 목록 확인&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL syntax&lt;/code&gt;는 대문자로 입력하며 명령의 끝은 세미콜론(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;&lt;/code&gt;)으로 끝맺어야 실행됨
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;명령으로 database 목록 확인&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL syntax&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;대문자로 입력&lt;/code&gt;하며 명령의 끝은 세미콜론(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;&lt;/code&gt;)으로 끝맺어야 실행됨
     &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;로 database가 생성되었는지 확인
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\l&lt;/code&gt;명령으로 database가 생성되었는지 확인
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;                             데이터베이스 목록
   이름     |  소유주  | 인코딩 |    Collate     |     Ctype      |   액세스 권한
 &lt;span class=&quot;nt&quot;&gt;-------------&lt;/span&gt;+----------+-------+----------------+----------------+-----------------
@@ -44,31 +44,499 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\c&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db 이름&lt;/code&gt;으로 생성된 database에 연결하기(connect)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;se&quot;&gt;\c&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;접속정보: 데이터베이스&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;, 사용자&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postgres&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;ul&gt;
-      &lt;li&gt;연결 확인&lt;/li&gt;
-    &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;2-create-table&quot;&gt;2. CREATE TABLE&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;datatype에 익숙해지기
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datatype&lt;/code&gt;에 익숙해지기
 &lt;a href=&quot;https://www.postgresql.org/docs/current/datatype.html#DATATYPE-TABLE&quot;&gt;datatype 목록&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
+  &lt;li&gt;입력
     &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BIGSERIAL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BIGSERIAL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;VARCHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt; 명령으로 테이블 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      릴레이션&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;relation&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 목록
+ 스키마 |     이름      |  종류  |  소유주
+&lt;span class=&quot;nt&quot;&gt;--------&lt;/span&gt;+---------------+--------+----------
+ public | person        | 테이블 | postgres
+ public | person_id_seq | 시퀀스 | postgres
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;※ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIGSERIAL&lt;/code&gt; (autoincrementing eight-byte integer) 때문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;person_id_seq&lt;/code&gt; 테이블이 생성됨&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\dt&lt;/code&gt; 명령으로 실제 테이블 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;릴레이션&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;relation&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 목록
+ 스키마 |  이름  |  종류  |  소유주
+&lt;span class=&quot;nt&quot;&gt;--------&lt;/span&gt;+--------+--------+----------
+ public | person | 테이블 | postgres
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;table 이름&lt;/code&gt;으로 해당 테이블 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;public.person&quot;&lt;/span&gt; 테이블
+ 필드명     |          종류          | Collation | NULL허용 |               초기값
+&lt;span class=&quot;nt&quot;&gt;---------------&lt;/span&gt;+------------------------+-----------+----------+------------------------------------
+ &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;            | bigint                 |           | not null | nextval&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'person_id_seq'&lt;/span&gt;::regclass&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ first_name    | character varying&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;50&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  |           | not null |
+ last_name     | character varying&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;50&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  |           | not null |
+ gender        | character varying&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   |           | not null |
+ date_of_birth | &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;                   |           | not null |
+ email         | character varying&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;150&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; |           |          |
+인덱스들:
+ &lt;span class=&quot;s2&quot;&gt;&quot;person_pkey&quot;&lt;/span&gt; PRIMARY KEY, btree &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2 id=&quot;3-insert-into&quot;&gt;3. INSERT INTO&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;data 입력하기
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Anne'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Smith'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'FEMALE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1988-01-09'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;sql 파일로 data 입력하기
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;se&quot;&gt;\i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;download한 file의 경로]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;※ 해당 파일이 있는 곳에서 bash를 열어 pwd 명령을 이용하면 경로를 확인할 수 있음&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;se&quot;&gt;\i&lt;/span&gt; Downloads/person.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;4-select&quot;&gt;4. SELECT&lt;/h2&gt;
+&lt;h3 id=&quot;4-1-ascdesc&quot;&gt;4-1. ASC/DESC&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;person 테이블의 id, first_name, country_of_birth를 country_of_birth의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;오름차순(ASC)&lt;/code&gt;으로 정렬
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ASC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  |   first_name   |         country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+----------------+----------------------------------
+  316 | Gasper         | Afghanistan
+  613 | Mohandis       | Afghanistan
+  753 | Vevay          | Afghanistan
+   23 | Jodee          | Afghanistan
+  259 | Killian        | Afghanistan
+  641 | Jereme         | Afghanistan
+  529 | Finley         | Albania
+  346 | Leanna         | Albania
+  426 | Robinetta      | Albania
+  806 | Haskel         | Angola
+  666 | Devondra       | Argentina
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;person 테이블의 country_of_birth를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;중복 없이(DISTINCT)&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;내림차순(DESC)&lt;/code&gt;으로 정렬
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DISTINCT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----------------&lt;/span&gt;
+  Afghanistan
+  Albania
+  ...
+  Yemen
+  Zambia
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-2-where-조건절&quot;&gt;4-2. WHERE 조건절&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gender = 'Female'&lt;/code&gt;인 column(id, first_name, gender, country_of_birth)
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Female'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  |   first_name   | gender |         country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+----------------+--------+----------------------------------
+      7 | Oona           | Female | Indonesia
+      8 | Colline        | Female | China
+   13 | Willyt         | Female | China
+   14 | Marice         | Female | Poland
+                                                  ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-3-where--and--조건절&quot;&gt;4-3. WHERE … AND … 조건절&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gender = 'Female'&lt;/code&gt;이고(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AND&lt;/code&gt;), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;country_of_birth = 'Poland'&lt;/code&gt;인 조건
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Female'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poland'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name | gender | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+--------+------------------
+   14 | Marice     | Female | Poland
+   49 | Elisabeth  | Female | Poland
+   62 | Aurlie     | Female | Poland
+  474 | Sallie     | Female | Poland
+  535 | Larine     | Female | Poland
+  611 | Asia       | Female | Poland
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-4-where--and---or--조건절&quot;&gt;4-4. WHERE … AND …( ~ OR ~) 조건절&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gender = 'Female'&lt;/code&gt;이고(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AND&lt;/code&gt;),  &lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;country_of_birth = 'Poland'&lt;/code&gt; 이거나(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OR&lt;/code&gt;) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;country_of_birth = 'China'&lt;/code&gt;인 조건
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Female'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poland'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'China'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name | gender | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+--------+------------------
+       8 | Colline    | Female | China
+      13 | Willyt     | Female | China
+      14 | Marice     | Female | Poland
+      37 | Bari       | Female | China
+      46 | Bobine     | Female | China
+      49 | Elisabeth  | Female | Poland
+                                  ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gender = 'Female'&lt;/code&gt;이고(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AND&lt;/code&gt;),&lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;country_of_birth = 'Poland'&lt;/code&gt; 이거나(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OR&lt;/code&gt;) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;country_of_birth = 'China'&lt;/code&gt; 이며(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AND&lt;/code&gt;),&lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;last_name = 'Quest'&lt;/code&gt;인 조건
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Female'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poland'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'China'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Quest'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; | first_name | last_name | gender | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+------------+-----------+--------+------------------
+  14 | Marice     | Quest     | Female | Poland
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;5-comparison-operator비교-연산&quot;&gt;5. Comparison Operator(비교 연산)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;number, string, date 등 여러 datatype에 대해 연산이 가능함&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TRUE&lt;/code&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  SELECT 1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  SELECT &lt;span class=&quot;s1&quot;&gt;'MONKEY'&lt;/span&gt; &amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'monkey'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ?column?
+  &lt;span class=&quot;nt&quot;&gt;----------&lt;/span&gt;
+   t
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FALSE&lt;/code&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  SELECT 1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  SELECT 2 &amp;lt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ?column?
+  &lt;span class=&quot;nt&quot;&gt;----------&lt;/span&gt;
+   f
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;6-limit&quot;&gt;6. LIMIT&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;한정된 개수&lt;/code&gt;로 DATA 제한
+    &lt;ul&gt;
+      &lt;li&gt;최초의 3개 행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LIMIT 3&lt;/code&gt;)
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;LIMIT&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; | first_name |    country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+------------+------------------------
+   1 | Cody       | Bosnia and Herzegovina
+   2 | Prescott   | China
+   3 | Trev       | Indonesia
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;7-offset--limit&quot;&gt;7. OFFSET … LIMIT&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;지정된 INDEX부터&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;한정된 개수&lt;/code&gt;로 DATA 제한
+    &lt;ul&gt;
+      &lt;li&gt;INDEX 2(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OFFSET 2&lt;/code&gt;)부터 3개 행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LIMIT 3&lt;/code&gt;)
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;OFFSET&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;LIMIT&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; | first_name  | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+-------------+------------------
+3 | Trev        | Indonesia
+4 | Bartolemo   | Poland
+5 | Christopher | Philippines
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;8-offset&quot;&gt;8. OFFSET&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OFFSET&lt;/code&gt;만 사용시, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;지정된 INDEX부터&lt;/code&gt; 끝까지
+    &lt;ul&gt;
+      &lt;li&gt;INDEX 926부터(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OFFSET 926&lt;/code&gt;) 끝까지 (총 DATA는 930개)
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;OFFSET&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;926&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+------------------
+  927 | Gayleen    | China
+  928 | Mavis      | Peru
+  929 | Melody     | United States
+  930 | Isidoro    | Indonesia
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;9-fetch&quot;&gt;9. FETCH&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LIMIT&lt;/code&gt; 의 &lt;strong&gt;공식적인 버전&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;INDEX 1부터(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OFFSET 1&lt;/code&gt;)  3개 행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FETCH FIRST 3 ROW ONLY&lt;/code&gt;)
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;OFFSET&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FETCH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FIRST&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROW&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; | first_name | date_of_birth
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+------------+---------------
+   2 | Prescott   | 2022-05-17
+   3 | Trev       | 2022-04-05
+   4 | Bartolemo  | 2021-09-24
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;INDEX 111부터(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OFFSET 111&lt;/code&gt;) 1개행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FETCH FIRST ROW ONLY&lt;/code&gt;)
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;은 생략가능
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;OFFSET&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FETCH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FIRST&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROW&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;OFFSET&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FETCH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FIRST&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROW&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ONLY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;-----+------------+-----------+-------+--------+---------------+------------------&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;112&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Henry&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Wakes&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Male&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2021&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;03&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;China&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;개&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;행&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;10-in&quot;&gt;10. IN&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;반복되는 컬럼에 대한 값을 지정할 때 사용
+    &lt;ul&gt;
+      &lt;li&gt;반복적인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OR&lt;/code&gt;을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IN&lt;/code&gt; 으로 교체
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'China'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'France'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Brazil'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;IN&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'China'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Brazil'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'France'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+------------------
+2 | Prescott   | China
+8 | Colline    | China
+ 						...
+  920 | Krisha     | Brazil
+  922 | Shirlee    | China
+  927 | Gayleen    | China
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;255개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IN&lt;/code&gt;으로 반복을 묶고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ORDER BY&lt;/code&gt;로 정렬
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;IN&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'China'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Brazil'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'France'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name | country_of_birth
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+------------+------------------
+  663 | Darbee     | Brazil
+  269 | Hamnet     | Brazil
+                          ...
+  825 | Jerrie     | France
+  309 | Janel      | France
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;255개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;11-between--and-&quot;&gt;11. BETWEEN … AND …&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;구간 지정
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;BETWEEN&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2021-12-31'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2022-01-01'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_of_birth&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;-----+------------+---------------&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;576&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Seana&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2022&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;01&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;01&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;782&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Kelcey&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2021&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;789&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Jaine&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2021&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;842&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Burl&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2022&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;01&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;01&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;개&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;행&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;12-like--ilike&quot;&gt;12. LIKE / ILIKE&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-like/&quot;&gt;PostgreSQL LIKE 참고 문서&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LIKE&lt;/code&gt;연산자는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;=&lt;/code&gt;연산자처럼 작동함
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LIKE&lt;/code&gt; : 대소문자 구분
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Her'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'HER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ?column?
+  &lt;span class=&quot;nt&quot;&gt;----------&lt;/span&gt;
+      f
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ILIKE&lt;/code&gt; : 대소문자 구분하지 않음
+        &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'her'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ILIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'HER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ?column?
+  &lt;span class=&quot;nt&quot;&gt;----------&lt;/span&gt;
+      t
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;은 두 가지 wildcard(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;)를 제공함
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt; : 일치하는 0개 이상의 문자&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt; : 일치하는 하나의 문자&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%.com&lt;/code&gt; : .com으로 끝나는 문자열
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'%.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name  |                email
+  &lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+-------------+-------------------------------------
+    1 | Cody        | cgiocannoni0@github.com
+    3 | Trev        | tmackellar2@msn.com
+                  ...
+  927 | Gayleen     | gsawartrn@usnews.com
+  928 | Mavis       | mrallingro@gravatar.com
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;384개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%@mozilla.com&lt;/code&gt; : @mozilla.com으로 끝나는 문자열
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'%@mozilla.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name |          email
+  &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+--------------------------
+   533 | Nonna      | nrucklessefr@mozilla.com
+   744 | Jobye      | jhappsma@mozilla.com
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@google.&lt;/code&gt; : @google.이 포함된 문자열
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'%@google.%'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name |            email
+  &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;+------------+------------------------------
+    113 | Reuben     | rwinslett3a@google.ru
+    162 | Rice       | rblayney4t@google.co.jp
+                    ...
+    738 | Emmy       | eswindenm4@google.cn
+    751 | Hedvig     | hhardypigginmh@google.com.au
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;18개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;8자의 문자열과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&lt;/code&gt; 로 시작하는 email
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'________@%'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name |             email
+&lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;+------------+-------------------------------
+  12 | Matthus    | mallbutc@nyu.edu
+  28 | Stefano    | srainers@npr.org
+                ...
+ 894 | Anselm     | apirieqq@wisc.edu
+ 901 | Leonore    | lwykeyqx@list-manage.com
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;78개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;P%&lt;/code&gt; : P로 시작하는 문자열
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;country_of_birth&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;LIKE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'P%'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;  | first_name  |   country_of_birth
+&lt;span class=&quot;nt&quot;&gt;----&lt;/span&gt;+-------------+-----------------------
+  4 | Bartolemo   | Poland
+  5 | Christopher | Philippines
+          ...
+926 | Edvard      | Portugal
+928 | Mavis       | Peru
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;136개 행&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;13-group-by&quot;&gt;13. GROUP BY&lt;/h2&gt;
 
 &lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 
