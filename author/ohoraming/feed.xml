@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-12T23:52:56+09:00</updated>
+  <updated>2022-10-05T03:01:23+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,6 +32,271 @@
 
   
     <entry>
+      <title type="html">AWS 배포하기(1) - RDS (MySQL)</title>
+      <link href="https://ohoraming.github.io/aws-deploy-RDS" rel="alternate" type="text/html" title="AWS 배포하기(1) - RDS (MySQL)" />
+      <published>2022-10-05T00:41:00+09:00</published>
+      <updated>2022-10-05T00:41:00+09:00</updated>
+      <id>https://ohoraming.github.io/aws-deploy-RDS</id>
+      <content type="html" xml:base="https://ohoraming.github.io/aws-deploy-RDS">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 시리즈에서는,&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDS&lt;/code&gt;로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL DB&lt;/code&gt;를 등록하고&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elastic Beanstalk&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;배포&lt;/code&gt;하는 과정을 기록했습니다.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1-rds&quot;&gt;1. RDS&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDS&lt;/code&gt; 선택
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192725550-a93fc5a1-40df-4c9d-8c83-7897fbd2b27a.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;데이터베이스 생성&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create database&lt;/code&gt;) 선택
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192726648-a8bc0831-cddf-41e2-b7fb-d762af95b515.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;데이터베이스 생성&lt;/code&gt;&lt;br /&gt;
+ 3-1. [데이터베이스 생성 방식 선택(Choose a database creation method)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;표준 생성(Standard create)&lt;/code&gt; 선택&lt;/p&gt;
+
+    &lt;p&gt;3-2. [엔진 옵션(Engine options)] - 엔진 유형(Engine type): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL&lt;/code&gt; 선택
+  &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192727972-c8b1d9ba-ae55-4865-a1c7-b9f7a043ede2.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;3-3. [템플릿(Templates)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;프리 티어&lt;/code&gt;(Free tier) 선택&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;학습용&lt;/code&gt;으로 비용이 발생하지 않음
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192958225-5dac1a37-77b2-42e6-9e12-957e381c509a.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-4. [설정(Settings)]&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;DB 인스턴스 식별자, DB 마스터 이름, 마스터 암호 입력
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192730805-b178642e-e98a-4b00-b454-9a9e22e8ad5a.png&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-5. [인스턴스 구성(DB instance class)]&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db.t2.micro&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192957834-7b8d7f70-2d04-4b01-a0eb-cd79dc27b718.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-6. [스토리지(Storage)]&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;기본 설정으로 두기
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/193813660-332296e2-99b7-4deb-a18a-5fd621be1c68.png&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;스토리지 자동 조정 활성화 체크 해제 했음&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-7. [연결(Connectivity)]&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;기본 설정으로 진행&lt;/li&gt;
+      &lt;li&gt;퍼블릭 액세스(Public access): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Yes&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192732637-72d3d614-3cfb-456e-be52-69d6a3b21773.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-8. [추가 구성(Additional configuration)]&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;초기 데이터베이스 이름(Initial database name)&lt;/code&gt; 입력
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/193815172-92ebd877-76a1-4dd7-823b-d44f66cb5986.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;3-9. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;데이터베이스 생성(Create database)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192733765-810b2b3b-9b1a-463d-bb9c-f7003a1bf6a4.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;데이터베이스 생성 중
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192958643-e3815d8a-7f33-43aa-9207-0b4787915db9.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;데이터베이스 생성 성공
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192958843-6f290108-8777-498b-b892-e1c2db427eb4.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;보안 그룹 인바운드 규칙 수정&lt;/p&gt;
+
+    &lt;p&gt;4-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DB 식별자&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DB identifier&lt;/code&gt;) 선택
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/193879158-79f2437e-fb49-456d-ab18-09ef233b5d0a.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VPC 보안 그룹&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VPC security groups&lt;/code&gt;) 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192737597-a5f4de2e-2d87-4b1e-a20d-d2ffff175ea3.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;보안 그룹 ID&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Security group ID&lt;/code&gt;) 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192738126-321292e0-23fc-4793-946c-8cf984c0a1d8.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-4. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;인바운드 규칙 편집&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Edit inbound rules&lt;/code&gt;) 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192738533-70077acc-9da9-4d6f-baa5-38e8b5cd0276.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-5. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;규칙 추가&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add rule&lt;/code&gt;) 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192738906-1de40222-393a-410b-a23d-ed4e55363e82.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-6. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MYSQL/Aurora&lt;/code&gt; 선택, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Anywhere-IPv4&lt;/code&gt; 선택 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;규칙 저장&lt;/code&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Save rules&lt;/code&gt;) 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192740029-068e0bf1-1e51-46d3-addb-6cb389e9e05a.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192740489-8e1b2930-d57d-4234-93ae-c5f668692c09.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;MySQL 연결하기&lt;/p&gt;
+
+    &lt;p&gt;5-1. 엔드포인트(Endpoint)를 복사
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192741441-efa49fa2-8e86-4d17-8167-cd203ad1ad06.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;5-2. command line에 입력&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;windows 사용자의 경우,
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  winpty mysql &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;엔드포인트] &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; 3306 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;마스터 사용자] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;※ 참고 ※&lt;br /&gt;
+ 다음 링크에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL Workbench&lt;/code&gt;를 사용하는 방법도 있으니 편한 방법으로 연결하면 된다.&lt;br /&gt;
+ &lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html#USER_ConnectToInstance.CLI&quot;&gt;MySQL 명령줄 클라이언트에서 연결&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&amp;gt;&lt;/code&gt; 프롬프트가 정상적으로 출력된다면 성공!
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192745435-be90110b-14cd-4e68-96be-376d12a6bd20.png&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;5-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.properties&lt;/code&gt; 파일 수정&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spring.datasource.url&lt;/code&gt; 의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost&lt;/code&gt; 부분을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;엔드포인트(Endpoint)&lt;/code&gt;로 교체
+        &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s&quot;&gt;spring.datasource.url = jdbc:mysql://[엔드포인트]:3306/[DB이름]?useSSL=false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server.port&lt;/code&gt; 속성 추가
+        &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s&quot;&gt;server.port = &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DB생성
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create database [DB 이름];&lt;/code&gt;&lt;/p&gt;
+
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  mysql&amp;gt; create database usersDB&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  Query OK, 1 row affected &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.05 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+  mysql&amp;gt; show databases&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  +--------------------+
+  | Database           |
+  +--------------------+
+  | information_schema |
+  | mysql              |
+  | performance_schema |
+  | sys                |
+  | usersDB            |
+  +--------------------+
+  5 rows &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.02 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Spring boot application을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt;파일로 패키징&lt;/p&gt;
+
+    &lt;p&gt;7-1. 소스 코드가 있는 디렉터리에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt; 실행(디렉터리 표시 창에서 cmd 입력) 또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bash&lt;/code&gt; 열기&lt;/p&gt;
+
+    &lt;p&gt;7-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt; 입력&lt;/p&gt;
+
+    &lt;p&gt;7-3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUILD SUCCESS&lt;/code&gt; 가 출력되면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target&lt;/code&gt;폴더에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일을 확인할 수 있음
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192977705-3ebcf5bd-37d5-41f4-a504-01e8bad32c1c.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192980333-01a2f7ea-96b0-4c41-9ae1-0dd72f995ad1.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;7-4. 만약, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BUILD FAILIURE&lt;/code&gt;가 뜬다면?
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192971833-9cb2afe6-a648-4566-9f95-e44df327c1e6.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fatal error compiling: error: invalid target release: 17 -&amp;gt; [Help 1]&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;내 경우는 mvn 버전(11)과 프로젝트의 java 버전(17)이 일치하지 않아 오류가 발생했다.&lt;/li&gt;
+      &lt;li&gt;version 확인 명령어
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  mvn &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt; 
+  java &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/193886204-77d0484e-c619-43d3-b1ac-d5d904ad80e0.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;환경변수 편집&lt;/code&gt;으로 maven 의 java version 수정하기
+        &lt;ul&gt;
+          &lt;li&gt;[시스템 환경 변수 편집] - [환경 변수] -  시스템 변수의 JAVA_HOME 선택 - [편집]&lt;/li&gt;
+          &lt;li&gt;변경할 java version의 jdk가 저장된 위치를 복사해 변수값에 붙임 - [확인]&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192973640-7997fc7e-09fd-4043-a568-da5b8df3b504.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/178693845-a01f75b1-b8b2-4592-b2ef-1190ff4966ad.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192975462-84e4e29e-7984-4292-b93a-69e8cc23b61c.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192974595-def9bcc4-f8d2-48f6-9980-dce03699cfff.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192976127-d0460059-6ee4-496c-83e5-5ad23042f149.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;cmd에서 version 재확인 후 BUILD 재실행하기&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Amazon RDS | Deploy Spring Boot + MySQL CRUD Application into Elastic Beanstalk | JavaTechie,’ 유튜브 비디오, 14:39, 게시자 ‘Java Techie,’ 2020년07월19일, &lt;a href=&quot;https://youtu.be/Tbf7F42tcBw&quot;&gt;https://youtu.be/Tbf7F42tcBw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Spring Boot AWS Deployment - Full Course,’ 유튜브 비디오, 1:03:19, 게시자 ‘Java Guides,’ 2021년05월01일, &lt;a href=&quot;https://youtu.be/D1yOALZcMHs&quot;&gt;https://youtu.be/D1yOALZcMHs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">postgreSQL 기본 사용법 [update 中]</title>
       <link href="https://ohoraming.github.io/postgreSQL" rel="alternate" type="text/html" title="postgreSQL 기본 사용법 [update 中]" />
       <published>2022-06-23T23:15:00+09:00</published>
@@ -48,6 +313,7 @@
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -939,6 +1205,7 @@ pip upgrade: (windows) &lt;code class=&quot;language-plaintext highlighter-rouge
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -2226,13 +2493,14 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;※ 이 글은 4월 우아한테크세미나 영상을 첨부된 발표 자료와 함께 정리한 것입니다.
-실제 발표와 다른 부분이 있을 수도 있으니 원본 영상을 참고하시기 바랍니다.&lt;/p&gt;
+원본 영상은 &lt;a href=&quot;https://youtu.be/ssDMIcPBqUE&quot;&gt;4월 우아한테크세미나&lt;/a&gt;를 참고하시기 바랍니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
@@ -2687,6 +2955,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -2961,366 +3230,6 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
 &lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Justen Robertson, “As a JS Developer, This Is What Keeps Me Up at Night”, Toptal, 2019, &lt;a href=&quot;https://www.toptal.com/javascript/es6-class-chaos-keeps-js-developer-up&quot;&gt;https://www.toptal.com/javascript/es6-class-chaos-keeps-js-developer-up&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="JavaScript" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">JavaScript(11) - Regular expressions(regex)</title>
-      <link href="https://ohoraming.github.io/JavaScript-regular-expressions" rel="alternate" type="text/html" title="JavaScript(11) - Regular expressions(regex)" />
-      <published>2022-04-05T19:26:00+09:00</published>
-      <updated>2022-04-05T19:26:00+09:00</updated>
-      <id>https://ohoraming.github.io/JavaScript-regular-expressions</id>
-      <content type="html" xml:base="https://ohoraming.github.io/JavaScript-regular-expressions">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;JavaScript 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-asyncDefer&quot;&gt;JavaScript(1) - async vs. defer&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-variable&quot;&gt;JavaScript(2) - variable&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-operator&quot;&gt;JavaScript(3) - operator&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-function&quot;&gt;JavaScript(4) - function&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-classObject&quot;&gt;JavaScript(5) - class vs. object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-object&quot;&gt;JavaScript(6) - object&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-array&quot;&gt;JavaScript(7) - array&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-json&quot;&gt;JavaScript(8) - JSON&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-callback&quot;&gt;JavaScript(9) - callback&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-promise&quot;&gt;JavaScript(10) - promise&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-regular-expressions&quot;&gt;JavaScript(11) - Regular expressions&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-avoid-both-prototypes-and-classes&quot;&gt;JavaScript(12) - Prototype과 Class 피하기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./JavaScript-localStorage&quot;&gt;JavaScript(13) - localStorage&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;regular-expression-regex&quot;&gt;Regular expression (regex)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;1950년, 수학자 Stephen Cole Kleene에 의해 개발됨&lt;/li&gt;
-  &lt;li&gt;slash(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;) 안에 찾고자하는 패턴을 작성 후 flag로 옵션을 지정함&lt;br /&gt;
-  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/pattern/flag&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;1-groups-or-ranges&quot;&gt;1. Groups or ranges&lt;/h2&gt;
-&lt;h3 id=&quot;1--or&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; (or)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Hi|Hello/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ Hi &lt;strong&gt;또는&lt;/strong&gt; Hello 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;2--group&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;()&lt;/code&gt; (group)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(Hi|Hello)|(And)/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;group #1&lt;/strong&gt;: Hi 또는 Hello 매칭&lt;br /&gt;
-→ &lt;strong&gt;group #2&lt;/strong&gt;: And 매칭&lt;/p&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(e|a)y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ gr로 시작, e 또는 a, y로 끝나는 단어 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;3--group-미지정&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?:)&lt;/code&gt; (group 미지정)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr(?:e|a)y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ group을 지정하고 싶지 않다면 &lt;strong&gt;( )&lt;/strong&gt; 시작에 &lt;strong&gt;?:&lt;/strong&gt; 추가&lt;/p&gt;
-
-&lt;h3 id=&quot;4--안의-문자-찾기&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자 찾기)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gr[ead]y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ [] 안의 문자 중 하나라도 만족하는 단어 매칭&lt;br /&gt;
-    gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;e&lt;/strong&gt;y, gr&lt;strong&gt;d&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-f]/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ a부터 f까지의 문자를 매칭&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9]/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;5--안의-문자를-제외한-나머지-찾기&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[^]&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[]&lt;/code&gt;안의 문자를 제외한 나머지 찾기)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[^a-zA-Z0-9]/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 소문자 &lt;strong&gt;a부터 z&lt;/strong&gt;까지, 대문자 &lt;strong&gt;A부터 Z&lt;/strong&gt;까지, 숫자 &lt;strong&gt;0부터 9&lt;/strong&gt;까지의 문자를 &lt;strong&gt;제외&lt;/strong&gt;한 나머지를 매칭&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[가-힣]/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 한글 단어 매칭&lt;br /&gt;
-※ 단, 이 방식으로는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ㄱㄴㄷ&lt;/code&gt;이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ㅏㅑㅓㅕ&lt;/code&gt;같은 낱글자는 찾을 수 없음&lt;/p&gt;
-
-&lt;h2 id=&quot;2-quantifiers&quot;&gt;2. Quantifiers&lt;/h2&gt;
-&lt;h3 id=&quot;1--있거나-없거나&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; (있거나 없거나)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra?y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없는 문자 매칭
-gr&lt;strong&gt;a&lt;/strong&gt;y, gry&lt;/p&gt;
-
-&lt;h3 id=&quot;2--0개-이상&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; (0개 이상)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra*y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 있거나 없거나 많은 문자 매칭
-gr&lt;strong&gt;a&lt;/strong&gt;y, gry, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;h3 id=&quot;3--하나-혹은-그-이상-연결된&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; (하나 혹은 그 이상 연결된)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra+y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 하나 이상 있는 문자 매칭
-gr&lt;strong&gt;a&lt;/strong&gt;y, gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;h3 id=&quot;4-n-n앞의-문자-n번-반복&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{n}&lt;/code&gt;앞의 문자 n번 반복)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2}y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 두 번 반복되는 문자 매칭
-gr&lt;strong&gt;aa&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;h3 id=&quot;5-min-min앞의-문자-최소-n번-반복&quot;&gt;(5) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,}&lt;/code&gt;앞의 문자 최소 n번 반복)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,}y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 최소 두 번 반복되는 문자 매칭
-gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;h3 id=&quot;6-minmax-minmax앞의-문자가-최소-min번-최대-max번-반복&quot;&gt;(6) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt;앞의 문자가 최소 min번, 최대 max번 반복)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/gra{2,3}y/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;a&lt;/strong&gt;가 &lt;strong&gt;최소 두 번, 최대 세 번 반복&lt;/strong&gt;되는 문자 매칭&lt;br /&gt;
-gr&lt;strong&gt;aa&lt;/strong&gt;y, gr&lt;strong&gt;aaa&lt;/strong&gt;y&lt;/p&gt;
-
-&lt;h2 id=&quot;3-boundary-type&quot;&gt;3. Boundary-type&lt;/h2&gt;
-&lt;h3 id=&quot;--단어의-경계를-지정해-검색&quot;&gt;- 단어의 경계를 지정해 검색&lt;/h3&gt;
-&lt;h3 id=&quot;1-b-단어의-앞-경계-또는-뒷-경계에서-검색&quot;&gt;(1) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt; (단어의 앞 경계 또는 뒷 경계에서 검색)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\bYa/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 단어 앞에 있는 Ya를 매칭&lt;br /&gt;
-&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\b/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭&lt;br /&gt;
-&lt;strong&gt;Ya&lt;/strong&gt;, YaYa&lt;strong&gt;Ya&lt;/strong&gt;, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;2-b-b의-경우를-제외한-검색&quot;&gt;(2) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\B&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;의 경우를 제외한 검색)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya\B/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 단어 뒤에 있는 Ya를 매칭(/Ya&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\b&lt;/code&gt;/gm)하는 경우를 제외한 매칭&lt;br /&gt;
-&lt;strong&gt;Ya&lt;/strong&gt;YaYa, &lt;strong&gt;Ya&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--문장의-경계를-지정해-검색&quot;&gt;- 문장의 경계를 지정해 검색&lt;/h3&gt;
-
-&lt;h3 id=&quot;3--문장의-시작에서-검색&quot;&gt;(3) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^&lt;/code&gt; (문장의 시작에서 검색)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;4--문장의-끝에서-검색&quot;&gt;(4) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; (문장의 끝에서 검색)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;--전체-문장의-경계를-지정해-검색&quot;&gt;- 전체 문장의 경계를 지정해 검색&lt;/h3&gt;
-&lt;p&gt;※ flag에서 m(&lt;strong&gt;m&lt;/strong&gt;ultiline)을 선택하지 않으면,
-전체 문장으로 경계를 지정해 검색함&lt;/p&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/^Ya/g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 전체 문장의 시작에 있는 Ya를 매칭&lt;/p&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Ya$/g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 전체 문장의 끝에 있는 Ya를 매칭&lt;/p&gt;
-
-&lt;h2 id=&quot;4-character-classes&quot;&gt;4. Character classes&lt;/h2&gt;
-&lt;h3 id=&quot;1-특수문자&quot;&gt;(1) \특수문자&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\[/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ \ 뒤의 &lt;strong&gt;특수 문자&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; 를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;2-&quot;&gt;(2) .&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/./gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 줄바꿈 문자를 제외한 &lt;strong&gt;모든 문자&lt;/strong&gt;를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;3-d&quot;&gt;(3) \d&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;숫자&lt;/strong&gt;(&lt;strong&gt;d&lt;/strong&gt;igit)를 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;4-d&quot;&gt;(4) \D&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\D/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;숫자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;5-w-소문자-w&quot;&gt;(5) \w (소문자 w)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\w/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;문자&lt;/strong&gt;(&lt;strong&gt;w&lt;/strong&gt;ord)를 매칭&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a, b, c, 가, 나, 다, 1, 2&lt;/code&gt;와 같은 &lt;strong&gt;문자와 숫자&lt;/strong&gt;를 포함함&lt;/li&gt;
-  &lt;li&gt;특수문자는 포함하지 않지만, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;(언더스코어)는 포함함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-w-대문자-w&quot;&gt;(6) \W (대문자 w)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\W/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;문자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;7-s-소문자-s&quot;&gt;(7) \s (소문자 s)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\s/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;공백 문자인 띄어쓰기(space), tap, newline&lt;/strong&gt; 매칭&lt;/p&gt;
-
-&lt;h3 id=&quot;8-s-대문자-s&quot;&gt;(8) \S (대문자 S)&lt;/h3&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\S/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;strong&gt;공백 문자를 제외&lt;/strong&gt;한 매칭&lt;/p&gt;
-
-&lt;h2 id=&quot;5-exercises&quot;&gt;5. Exercises&lt;/h2&gt;
-&lt;h3 id=&quot;1-전화번호-형태-찾기&quot;&gt;1. 전화번호 형태 찾기&lt;/h3&gt;
-&lt;p&gt;010-898-0893&lt;br /&gt;
-010 898 0893&lt;br /&gt;
-010.898.0893&lt;br /&gt;
-010-405-3412&lt;br /&gt;
-02-878-8888&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\d{2,3}[- .]\d{3}[- .]\d{4}/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {2,3} 최소 두 번, 최대 세 번 반복
-→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {3} 세 번 반복
-→ 숫자(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;)가 {4} 네 번 반복
-→ 숫자 사이에는 [- .] - 또는 공백 또는 . 으로 연결&lt;/p&gt;
-
-&lt;h3 id=&quot;2-이메일-형태-찾기&quot;&gt;2. 이메일 형태 찾기&lt;/h3&gt;
-&lt;p&gt;dream.coder.ellie@gmail.com&lt;br /&gt;
-hello@daum.net&lt;br /&gt;
-hello@daum.co.kr&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9._+-]+&lt;/code&gt; 문자(소/대문자, 숫자, ., _, +, -)가 하나 이상&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&lt;/code&gt; 연결&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9-]+&lt;/code&gt; 문자(소/대문자, 숫자, -)가 하나 이상&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 연결&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[a-zA-Z0-9.]+&lt;/code&gt; 문자(소/대문자, 숫자, .)가 하나 이상&lt;/p&gt;
-
-&lt;h3 id=&quot;3-특정-문자열-찾기&quot;&gt;3. 특정 문자열 찾기&lt;/h3&gt;
-&lt;p&gt;http://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
-https://www.youtu.be/-ZClicWm0zM&lt;br /&gt;
-https://youtu.be/-ZClicWm0zM&lt;br /&gt;
-youtu.be/-ZClicWm0zM&lt;br /&gt;
-에서 youtube id인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ZClicWm0zM&lt;/code&gt; 만 가져오기&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(https?:\/\/)?(www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;(https?:\/\/)?&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?s&lt;/code&gt; s가 있어도 되고 없어도 됨 &lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:\/\/&lt;/code&gt; ://(특수 문자) 연결&lt;br /&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(www.)?&lt;/code&gt;
-→ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(  )?&lt;/code&gt; 있어도 되고 없어도 되는 group&lt;/li&gt;
-  &lt;li&gt;youtu.be\/&lt;br /&gt;
-→ youtu.be/ 연결&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;([a-zA-Z0-9-]{11})&lt;/code&gt;&lt;br /&gt;
-→ 소/대문자,숫자,-로 이루어진 11자리의 문자 group&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;결과적으로 group #1(http://), group #2(www.), group #3(youtube id)이 생성됨
-    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/(?:https?:\/\/)?(?:www.)?youtu.be\/([a-zA-Z0-9-]{11})/gm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;→ group #1과 group #2는 grouping하지 않으려면 group의 시작에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?: )&lt;/code&gt;을 입력하면 됨&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;6-javascript-활용&quot;&gt;6. JavaScript 활용&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;String class의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;match&lt;/code&gt;함수를 이용할 수 있음
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/\/)?(?:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;www.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;youtu.be&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/([&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;a-zA-Z0-9-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]{11})&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http://www.youtu.be/-ZClicWm0zM&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;배열을 반환함&lt;br /&gt;
-[0]: 매칭되는 전체 문자열,&lt;br /&gt;
-[1]: 매칭되는 group의 data&lt;/p&gt;
-    &lt;blockquote&gt;
-      &lt;h6 id=&quot;console&quot;&gt;Console&lt;/h6&gt;
-      &lt;p&gt;0: “http://www.youtu.be/-ZClicWm0zM”&lt;br /&gt;
-1: “-ZClicWm0zM”&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;추가 code를 작성하면,&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-1&quot;&gt;Console&lt;/h6&gt;
-  &lt;p&gt;‘-ZClicWm0zM’&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;searchTarget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Luke Skywarker 02-123-4567 luke@daum.net&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-다스베이더 070-9999-9999 darth_vader@gmail.com&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-princess leia 010 2454 3457 leia@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\d{2,3}[&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;- &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]?\d{3,4}[&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;- &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]?\d{4}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;searchTarget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;h6 id=&quot;console-2&quot;&gt;Console&lt;/h6&gt;
-  &lt;p&gt;[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;7-python-활용&quot;&gt;7. Python 활용&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Python은 raw string을 지원해 대표 문자를 표현할 때 역슬래시(\)를 한 번만 쓸 수 있음
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'\d{2,3}[- ]?\d{3,4}[- ]?\d{4}'&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;search_target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'''이상한 전화번호 0030589-5-95826
-  Luke Skywarker 02-123-4567 luke@daum.net
-  다스베이더 070-9999-9999 darth_vader@gmail.com
-  princess leia 010 2454 3457 leia@gmail.com'''&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;# 정규표현식과 일치하는 부분을 모두 찾아주는 파이썬 코드
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;search_target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;blockquote&gt;
-      &lt;h6 id=&quot;console-3&quot;&gt;Console&lt;/h6&gt;
-      &lt;p&gt;[‘02-123-4567’, ‘070-9999-9999’, ‘010 2454 3457’]&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;8-유용한-site&quot;&gt;8. 유용한 site&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://regexone.com/&quot;&gt;https://regexone.com/&lt;/a&gt; → 학습&lt;br /&gt;
-&lt;a href=&quot;https://regexr.com/&quot;&gt;https://regexr.com/&lt;/a&gt; → 정규표현식 입력시 확인&lt;/p&gt;
-
-&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“정규표현식 , 더이상 미루지 말자,” 유튜브 비디오, 22:01, 게시자 “드림코딩 by 엘리,” &lt;a href=&quot;https://youtu.be/t3M6toIflyQ&quot;&gt;https://youtu.be/t3M6toIflyQ&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/11&quot;&gt;프로그래머스 정규표현식 온라인 강의&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
 
       

@@ -12,7 +12,7 @@
 
 
 
-    <title>OS(2) - Interrupt-Based System</title>
+    <title>AWS 배포하기(1) - RDS (MySQL)</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,30 +64,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/OS-interrupt-based-system" />
+    <link rel="canonical" href="https://ohoraming.github.io/aws-deploy-RDS" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OS(2) - Interrupt-Based System" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Interrupt interrupt: v. 방해하다, 중단시키다" />
-    <meta property="og:url" content="https://ohoraming.github.io/OS-interrupt-based-system" />
-    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta property="og:title" content="AWS 배포하기(1) - RDS (MySQL)" />
+    <meta property="og:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) 이 시리즈에서는, RDS로 MySQL DB를 등록하고 Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 1. RDS RDS 선택 데이터베이스 생성(Create database) 선택 데이터베이스 생성 3-1. [데이터베이스 생성 방식" />
+    <meta property="og:url" content="https://ohoraming.github.io/aws-deploy-RDS" />
+    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/aws-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-01-18T01:18:00+09:00" />
-    <meta property="article:modified_time" content="2022-01-18T01:18:00+09:00" />
-    <meta property="article:tag" content="Os" />
+    <meta property="article:published_time" content="2022-10-05T00:41:00+09:00" />
+    <meta property="article:modified_time" content="2022-10-05T00:41:00+09:00" />
+    <meta property="article:tag" content="Other" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OS(2) - Interrupt-Based System" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Interrupt interrupt: v. 방해하다, 중단시키다" />
+    <meta name="twitter:title" content="AWS 배포하기(1) - RDS (MySQL)" />
+    <meta name="twitter:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) 이 시리즈에서는, RDS로 MySQL DB를 등록하고 Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 1. RDS RDS 선택 데이터베이스 생성(Create database) 선택 데이터베이스 생성 3-1. [데이터베이스 생성 방식" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
-    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/aws-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="예비 개발자의 노트" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Os" />
+    <meta name="twitter:data2" content="Other" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -102,18 +102,18 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/OS-interrupt-based-system",
+    "url": "https://ohoraming.github.io/aws-deploy-RDS",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ohoraming.github.io/assets/built/images/os-logo.png",
+        "url": "https://ohoraming.github.io/assets/built/images/aws-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/OS-interrupt-based-system"
+        "@id": "https://ohoraming.github.io/aws-deploy-RDS"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation Interrupt interrupt: v. 방해하다, 중단시키다"
+    "description": "여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) 이 시리즈에서는, RDS로 MySQL DB를 등록하고 Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 1. RDS RDS 선택 데이터베이스 생성(Create database) 선택 데이터베이스 생성 3-1. [데이터베이스 생성 방식"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="OS(2) - Interrupt-Based System" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="AWS 배포하기(1) - RDS (MySQL)" href="/feed.xml" />
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -182,25 +182,25 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-os post ">
+        <article class="post-full  tag-other post ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="18 January 2022">18 January 2022</time>
+                    <time class="post-full-meta-date" datetime=" 5 October 2022"> 5 October 2022</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/os/'>OS</a>
+                    <a href='/tag/other/'>OTHER</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">OS(2) - Interrupt-Based System</h1>
+                <h1 class="post-full-title">AWS 배포하기(1) - RDS (MySQL)</h1>
             </header>
 
             <!-- 
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/os-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/aws-logo.png)">
             </figure>
              -->
 
@@ -209,196 +209,235 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">여러 가지 포스팅</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./OS-intro">OS(1) - Introduction</a></li>
-    <li><a href="./OS-interrupt-based-system">OS(2) - Interrupt-Based System</a></li>
-    <li><a href="./OS-process-mgmt">OS(3) - Process Management</a></li>
-    <li><a href="./OS-cpu-scheduling">OS(4) - CPU Scheduling</a></li>
-    <li><a href="./OS-thread">OS(5) - Thread</a></li>
-    <li><a href="./OS-classical-sync-problems">OS(6) - Classical Synchronization Problems</a></li>
-    <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
-    <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
-    <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
-    <li><a href="./OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-    <li><a href="./OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
+    <li><a href="./git-convention">Git Convention</a></li>
+    <li><a href="./test-code">Test Code</a></li>
+    <li><a href="./git-and-github">Git and github</a></li>
+    <li><a href="./code-review">왜 Code Review를 해야 하는가</a></li>
+    <li><a href="./web-api">Web API</a></li>
+    <li><a href="./postgreSQL">postgreSQL</a></li>
+    <li><a href="./aws-deploy-RDS">AWS 배포하기(1) - RDS (MySQL)</a></li>
     <br />
     <br />
 </ul>
 
-<h2 id="interrupt">Interrupt</h2>
-<p><em>interrupt: v. 방해하다, 중단시키다</em><br />
-→ 어떤 일을 하고 있는데 <strong>가로채서</strong> 다른 일을 함</p>
-<ul>
-  <li>현대 운영체제는 interrupt 기반 시스템
-    <ul>
-      <li>booting 완료 후, OS는 메모리에 상주함(resident)</li>
-      <li>마우스를 움직이면 전기신호(=interrupt)가 발생해 CPU의 interrupt선으로 감 &lt;HW interrupt&gt;</li>
-      <li>CPU는 하던 일을 중지하고 OS안의 마우스 Interrupt Service Routine(ISR)(코드)으로 점프</li>
-      <li>특정 icon을 더블클릭하면 interrupt가 걸리고, 더블클릭의 routine(코드)을 실행 &lt;SW interrupt&gt;</li>
-      <li>하드 디스크 속 특정 프로그램을 메인 메모리에 올림</li>
-      <li>바탕화면이 바뀌며 특정 프로그램의 화면이 나옴</li>
-      <li>IRS 종료후 다시 user program 또는 원래의 대기상태로 복귀</li>
-    </ul>
-  </li>
-</ul>
+<blockquote>
+  <p>이 시리즈에서는,</p>
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">RDS</code>로 <code class="language-plaintext highlighter-rouge">MySQL DB</code>를 등록하고</li>
+    <li><code class="language-plaintext highlighter-rouge">Elastic Beanstalk</code>으로 <code class="language-plaintext highlighter-rouge">JAR</code> 파일을 <code class="language-plaintext highlighter-rouge">배포</code>하는 과정을 기록했습니다.</li>
+  </ol>
+</blockquote>
 
-<h2 id="interrupt-기반-os">interrupt 기반 OS</h2>
-<ul>
-  <li>
-    <p>OS는 여러 가지 code들의 모임<br />
-  → 평소에는 작동하지 않고 interrupt에 의해 작동함</p>
-  </li>
-  <li>
-    <p>평소 OS는 대기상태</p>
-    <ul>
-      <li>HW/SW/Internal(내부) interrupt에 의해 운영체제 코드(ISR)을 실행</li>
-      <li>Internal interrupt<br />
-  e.g.) divide by zero: 
-  결괏값이 무한대가 되어 컴퓨터에 저장 공간이 없음<br />
-  → CPU가 내부적인 interrupt로 인식</li>
-    </ul>
-  </li>
-</ul>
+<h2 id="1-rds">1. RDS</h2>
 
-<h2 id="이중-모드dual-mode">이중 모드(Dual Mode)</h2>
-<ul>
-  <li>사용 환경
-    <ul>
-      <li>한 컴퓨터(= 서버 컴퓨터)를 여러 사람이 동시에 사용하는 환경</li>
-      <li>또는 한 사람이 여러 프로그램을 동시에 사용하는 환경 (e.g.) pc, 스마트폰)</li>
-      <li>또는 한 사람이 특권 명령을 입력하는 경우</li>
-    </ul>
-  </li>
-  <li>사용자 모드(User mode) vs. 관리자 모드(Supervisor mode)
-    <ul>
-      <li>CPU 동작 모드를 <strong>두 가지</strong>로 진행</li>
-      <li>OS 서비스가 실행될 때, HW/SW interrupt 발생할 때 <strong>관리자 모드</strong> 실행</li>
-      <li>사용자 프로그램이 실행될 때, OS 서비스가 끝나면 다시 <strong>사용자 모드</strong> 실행</li>
-      <li>사용자 모드에서는 CPU 중지 명령어(STOP, HALT, RESET 등)와 같은 치명적인 명령어를 사용하지 못하도록 함</li>
-      <li>관리자(supervisor) 모드 = 시스템(system) 모드 = 모니터(monitor)(감시자) 모드 = 특권(priviliged) 모드</li>
-      <li>레지스터에 mode를 나타내는 flag가 존재함
-        <ul>
-          <li>register: 비트들의 모임</li>
-          <li>flags(carry, negative, zero, overflow)에 monitor 비트를 추가해 0과 1로 이중모드를 구현</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>특권 명령(Privileged instruction)
-    <ul>
-      <li>특권 모드에서만 내릴 수 있는 명령어</li>
-      <li>STOP/HALT/RESET(CPU 중지 명령어), SET_TIMER(일반 유저가 시간을 바꾸면 안 됨), SET_HW(HW의 값을 바꿈)…</li>
-    </ul>
-  </li>
-  <li>
-    <p>일반 User program은 하드 디스크에 접근이 불가함<br />
-  즉, 서버 컴퓨터에 접속해 타인의 파일을 열람할 수 없다는 뜻(보안 문제)<br />
-  그래서 OS에 SW interrupt를 걸어 ISR을 실행해 필요한 작업을 하게 함</p>
-  </li>
-  <li>일반적인 프로그램의 실행
-    <ol>
-      <li>power on</li>
-      <li>booting: 하드 디스크의 프로그램이 메인 메모리에 적재
-        <ul>
-          <li>monitor 비트 = 1 : system mode라는 뜻</li>
-          <li>OS는 system mode에서 동작함</li>
-          <li>일반 user는 못 내리는 명령 수행 가능</li>
-        </ul>
-      </li>
-      <li>user mode &gt; (키보드, 마우스) HW interrupt &gt; system mode(ISR) &gt; user mode &gt; (모니터, 디스크, 프린터) &gt; system mode &gt; user mode
-        <ul>
-          <li>만약, user mode에서 CPU에 STOP 명령을 내리면,<br />
- CPU는 internal interrupt가 발생했다고 여겨 OS의 ISR로 점프해<br />
- 해당 명령을 내린 프로그램을 강제 종료시켜 메모리에서 내림<br />
-  → protection과 연관됨</li>
-        </ul>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<h2 id="하드웨어-보호">하드웨어 보호</h2>
 <ol>
-  <li>입출력장치 보호<br />
- → 사용자가 input/output device에 바로 접근하는 것 불가, 반드시 OS를 거쳐야함</li>
-  <li>메모리 보호<br />
- → 자신에게 주어진 메모리 영역을 넘어서는 것을 막음</li>
-  <li>CPU 보호<br />
- → 한 컴퓨터를 여러 명이 쓴다면, CPU 역시 침범 대상이 될 수 있음</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">RDS</code> 선택
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192725550-a93fc5a1-40df-4c9d-8c83-7897fbd2b27a.png" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">데이터베이스 생성</code>(<code class="language-plaintext highlighter-rouge">Create database</code>) 선택
+  <img src="https://user-images.githubusercontent.com/77590526/192726648-a8bc0831-cddf-41e2-b7fb-d762af95b515.png" alt="image" width="700px" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">데이터베이스 생성</code><br />
+ 3-1. [데이터베이스 생성 방식 선택(Choose a database creation method)] - <code class="language-plaintext highlighter-rouge">표준 생성(Standard create)</code> 선택</p>
+
+    <p>3-2. [엔진 옵션(Engine options)] - 엔진 유형(Engine type): <code class="language-plaintext highlighter-rouge">MySQL</code> 선택
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192727972-c8b1d9ba-ae55-4865-a1c7-b9f7a043ede2.png" /></p>
+
+    <p>3-3. [템플릿(Templates)] - <code class="language-plaintext highlighter-rouge">프리 티어</code>(Free tier) 선택</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">학습용</code>으로 비용이 발생하지 않음
+ <img src="https://user-images.githubusercontent.com/77590526/192958225-5dac1a37-77b2-42e6-9e12-957e381c509a.png" alt="image" width="700px" /></li>
+    </ul>
+
+    <p>3-4. [설정(Settings)]</p>
+    <ul>
+      <li>DB 인스턴스 식별자, DB 마스터 이름, 마스터 암호 입력
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192730805-b178642e-e98a-4b00-b454-9a9e22e8ad5a.png" /></li>
+    </ul>
+
+    <p>3-5. [인스턴스 구성(DB instance class)]</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">db.t2.micro</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192957834-7b8d7f70-2d04-4b01-a0eb-cd79dc27b718.png" alt="image" width="700px" /></li>
+    </ul>
+
+    <p>3-6. [스토리지(Storage)]</p>
+    <ul>
+      <li>기본 설정으로 두기
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/193813660-332296e2-99b7-4deb-a18a-5fd621be1c68.png" /></li>
+      <li>스토리지 자동 조정 활성화 체크 해제 했음</li>
+    </ul>
+
+    <p>3-7. [연결(Connectivity)]</p>
+    <ul>
+      <li>기본 설정으로 진행</li>
+      <li>퍼블릭 액세스(Public access): <code class="language-plaintext highlighter-rouge">Yes</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192732637-72d3d614-3cfb-456e-be52-69d6a3b21773.png" alt="image" width="700px" /></li>
+    </ul>
+
+    <p>3-8. [추가 구성(Additional configuration)]</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">초기 데이터베이스 이름(Initial database name)</code> 입력
+ <img src="https://user-images.githubusercontent.com/77590526/193815172-92ebd877-76a1-4dd7-823b-d44f66cb5986.png" alt="image" width="700px" /></li>
+    </ul>
+
+    <p>3-9. <code class="language-plaintext highlighter-rouge">데이터베이스 생성(Create database)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192733765-810b2b3b-9b1a-463d-bb9c-f7003a1bf6a4.png" alt="image" width="700px" /></p>
+
+    <ul>
+      <li>
+        <p>데이터베이스 생성 중
+ <img src="https://user-images.githubusercontent.com/77590526/192958643-e3815d8a-7f33-43aa-9207-0b4787915db9.png" alt="image" width="700px" /></p>
+      </li>
+      <li>
+        <p>데이터베이스 생성 성공
+ <img src="https://user-images.githubusercontent.com/77590526/192958843-6f290108-8777-498b-b892-e1c2db427eb4.png" alt="image" width="700px" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>보안 그룹 인바운드 규칙 수정</p>
+
+    <p>4-1. <code class="language-plaintext highlighter-rouge">DB 식별자</code>(<code class="language-plaintext highlighter-rouge">DB identifier</code>) 선택
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/193879158-79f2437e-fb49-456d-ab18-09ef233b5d0a.png" /></p>
+
+    <p>4-2. <code class="language-plaintext highlighter-rouge">VPC 보안 그룹</code>(<code class="language-plaintext highlighter-rouge">VPC security groups</code>) 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192737597-a5f4de2e-2d87-4b1e-a20d-d2ffff175ea3.png" alt="image" width="700px" /></p>
+
+    <p>4-3. <code class="language-plaintext highlighter-rouge">보안 그룹 ID</code>(<code class="language-plaintext highlighter-rouge">Security group ID</code>) 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192738126-321292e0-23fc-4793-946c-8cf984c0a1d8.png" alt="image" width="700px" /></p>
+
+    <p>4-4. <code class="language-plaintext highlighter-rouge">인바운드 규칙 편집</code>(<code class="language-plaintext highlighter-rouge">Edit inbound rules</code>) 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192738533-70077acc-9da9-4d6f-baa5-38e8b5cd0276.png" alt="image" width="700px" /></p>
+
+    <p>4-5. <code class="language-plaintext highlighter-rouge">규칙 추가</code>(<code class="language-plaintext highlighter-rouge">Add rule</code>) 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192738906-1de40222-393a-410b-a23d-ed4e55363e82.png" alt="image" width="700px" /></p>
+
+    <p>4-6. <code class="language-plaintext highlighter-rouge">MYSQL/Aurora</code> 선택, <code class="language-plaintext highlighter-rouge">Anywhere-IPv4</code> 선택 후 <code class="language-plaintext highlighter-rouge">규칙 저장</code>(<code class="language-plaintext highlighter-rouge">Save rules</code>) 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192740029-068e0bf1-1e51-46d3-addb-6cb389e9e05a.png" alt="image" width="700px" /></p>
+
+    <p><img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192740489-8e1b2930-d57d-4234-93ae-c5f668692c09.png" /></p>
+  </li>
+  <li>
+    <p>MySQL 연결하기</p>
+
+    <p>5-1. 엔드포인트(Endpoint)를 복사
+ <img src="https://user-images.githubusercontent.com/77590526/192741441-efa49fa2-8e86-4d17-8167-cd203ad1ad06.png" alt="image" width="700px" /></p>
+
+    <p>5-2. command line에 입력</p>
+    <ul>
+      <li>windows 사용자의 경우,
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  winpty mysql <span class="nt">-h</span> <span class="o">[</span>엔드포인트] <span class="nt">-P</span> 3306 <span class="nt">-u</span> <span class="o">[</span>마스터 사용자] <span class="nt">-p</span>
+</code></pre></div>        </div>
+        <p>※ 참고 ※<br />
+ 다음 링크에 <code class="language-plaintext highlighter-rouge">MySQL Workbench</code>를 사용하는 방법도 있으니 편한 방법으로 연결하면 된다.<br />
+ <a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html#USER_ConnectToInstance.CLI">MySQL 명령줄 클라이언트에서 연결</a></p>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">mysql&gt;</code> 프롬프트가 정상적으로 출력된다면 성공!
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192745435-be90110b-14cd-4e68-96be-376d12a6bd20.png" /></li>
+    </ul>
+
+    <p>5-3. <code class="language-plaintext highlighter-rouge">application.properties</code> 파일 수정</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">spring.datasource.url</code> 의 <code class="language-plaintext highlighter-rouge">localhost</code> 부분을 <code class="language-plaintext highlighter-rouge">엔드포인트(Endpoint)</code>로 교체
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s">spring.datasource.url = jdbc:mysql://[엔드포인트]:3306/[DB이름]?useSSL=false</span>
+</code></pre></div>        </div>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">server.port</code> 속성 추가
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s">server.port = </span><span class="m">5000</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>DB생성
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">create database [DB 이름];</code></p>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mysql&gt; create database usersDB<span class="p">;</span>
+  Query OK, 1 row affected <span class="o">(</span>0.05 sec<span class="o">)</span>
+
+  mysql&gt; show databases<span class="p">;</span>
+  +--------------------+
+  | Database           |
+  +--------------------+
+  | information_schema |
+  | mysql              |
+  | performance_schema |
+  | sys                |
+  | usersDB            |
+  +--------------------+
+  5 rows <span class="k">in </span><span class="nb">set</span> <span class="o">(</span>0.02 sec<span class="o">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Spring boot application을 <code class="language-plaintext highlighter-rouge">JAR</code>파일로 패키징</p>
+
+    <p>7-1. 소스 코드가 있는 디렉터리에서 <code class="language-plaintext highlighter-rouge">cmd</code> 실행(디렉터리 표시 창에서 cmd 입력) 또는 <code class="language-plaintext highlighter-rouge">git bash</code> 열기</p>
+
+    <p>7-2. <code class="language-plaintext highlighter-rouge">mvn clean install</code> 입력</p>
+
+    <p>7-3. <code class="language-plaintext highlighter-rouge">BUILD SUCCESS</code> 가 출력되면 <code class="language-plaintext highlighter-rouge">target</code>폴더에서 <code class="language-plaintext highlighter-rouge">JAR</code> 파일을 확인할 수 있음
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192977705-3ebcf5bd-37d5-41f4-a504-01e8bad32c1c.png" /></p>
+
+    <p><img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192980333-01a2f7ea-96b0-4c41-9ae1-0dd72f995ad1.png" /></p>
+
+    <p>7-4. 만약, <code class="language-plaintext highlighter-rouge">BUILD FAILIURE</code>가 뜬다면?
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192971833-9cb2afe6-a648-4566-9f95-e44df327c1e6.png" /></p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Fatal error compiling: error: invalid target release: 17 -&gt; [Help 1]</code></li>
+      <li>내 경우는 mvn 버전(11)과 프로젝트의 java 버전(17)이 일치하지 않아 오류가 발생했다.</li>
+      <li>version 확인 명령어
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mvn <span class="nt">-version</span> 
+  java <span class="nt">-version</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p><img src="https://user-images.githubusercontent.com/77590526/193886204-77d0484e-c619-43d3-b1ac-d5d904ad80e0.png" alt="image" width="700px" /></p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">환경변수 편집</code>으로 maven 의 java version 수정하기
+        <ul>
+          <li>[시스템 환경 변수 편집] - [환경 변수] -  시스템 변수의 JAVA_HOME 선택 - [편집]</li>
+          <li>변경할 java version의 jdk가 저장된 위치를 복사해 변수값에 붙임 - [확인]</li>
+        </ul>
+
+        <p><img width="500" alt="image" src="https://user-images.githubusercontent.com/77590526/192973640-7997fc7e-09fd-4043-a568-da5b8df3b504.png" /></p>
+
+        <p><img width="500" alt="image" src="https://user-images.githubusercontent.com/77590526/178693845-a01f75b1-b8b2-4592-b2ef-1190ff4966ad.png" /></p>
+
+        <p><img width="500" alt="image" src="https://user-images.githubusercontent.com/77590526/192975462-84e4e29e-7984-4292-b93a-69e8cc23b61c.png" /></p>
+
+        <p><img width="500" alt="image" src="https://user-images.githubusercontent.com/77590526/192974595-def9bcc4-f8d2-48f6-9980-dce03699cfff.png" /></p>
+
+        <p><img width="500" alt="image" src="https://user-images.githubusercontent.com/77590526/192976127-d0460059-6ee4-496c-83e5-5ad23042f149.png" /></p>
+
+        <ul>
+          <li>cmd에서 version 재확인 후 BUILD 재실행하기</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ol>
 
-<h2 id="1-입출력장치-보호">(1) 입출력장치 보호</h2>
-<ul>
-  <li>서로 다른 사용자들 간의 입출력 정보가 끼어들어 혼선이 생기는 것을 막기 위함</li>
-  <li>입출력 명령(<code class="language-plaintext highlighter-rouge">IN OUT</code>)을 <strong>특권 명령</strong>으로 지정함</li>
-  <li>SW interrupt(명령어: INT) &gt; OS에 요청(system mode로 전환) &gt; 입출력 실행 &gt; 다시 user mode로 복귀</li>
-  <li>이때, 올바른 요청인지 ISR의 초반에 확인하며, 그렇지 않다면 OS가 거부함</li>
-  <li>user mode에서 사용자가 직접 입출력 명령을 내린다면 ISR로 점프해 해당 프로그램을 종료시킴(privileged instruction violation, 특권 명령 침범)</li>
-</ul>
+<p>&lt; 출처 &gt;</p>
 
-<h2 id="2-메모리-보호">(2) 메모리 보호</h2>
-<ul>
-  <li>다른 사용자의 메모리 혹은 OS영역의 메모리에 접근하는 것을 막기 위함</li>
-  <li>MMU(<strong>M</strong>emory <strong>M</strong>anagement <strong>U</strong>nit)를 두어 다른 메모리 영역 침범을 감시함</li>
-  <li>일종의 문지기로 <strong>base registar</strong>와 <strong>limit register</strong> 사이의 값만 통과시킴</li>
-  <li>Address bus에 base/limit register를 설정해두고 그 범위를 넘어서면 interrupt를 발생시킴</li>
-  <li>메모리에 잘못된 접근이 일어나면 ISR이 동작해 해당 프로그램을 강제 종료시킴(segment violation, 영역 침범)</li>
-</ul>
+<blockquote>
+  <p>‘Amazon RDS | Deploy Spring Boot + MySQL CRUD Application into Elastic Beanstalk | JavaTechie,’ 유튜브 비디오, 14:39, 게시자 ‘Java Techie,’ 2020년07월19일, <a href="https://youtu.be/Tbf7F42tcBw">https://youtu.be/Tbf7F42tcBw</a></p>
+</blockquote>
 
-<h2 id="3-cpu-보호">(3) CPU 보호</h2>
-<ul>
-  <li>한 사용자의 CPU 시간 독점이 다른 사용자의 프로그램 실행을 방해하는 것을 막기 위함</li>
-  <li><strong>TIMER</strong>를 두어 일정 시간 경과시 timer interrupt 발생</li>
-  <li>timer가 cpu에 주기적으로 interrupt를 걸어줌</li>
-  <li>interrupt가 발생 &gt; ISR로 jump &gt; ISR의 코드에 한 프로그램이 CPU시간을 독점하는지 감시하는 부분이 존재 &gt; 다른 프로그램으로 강제 전환</li>
-</ul>
-
-<h2 id="os-서비스">OS 서비스</h2>
-<ol>
-  <li>프로세스 관리 ★★
-    <ul>
-      <li>process: 메모리에서 실행 중인 program<br />
-  (vs. program: 하드 디스크에 존재)</li>
-      <li>process의 생성, 소멸, 활동 일시 정지, 활동 재개, 통신, 동기화, 교착상태 처리 등</li>
-    </ul>
-  </li>
-  <li>주기억장치 관리 ★
-    <ul>
-      <li>process에 메모리 공간 할당, process 종료시 메모리 회수, 가상 메모리</li>
-    </ul>
-  </li>
-  <li>파일 관리
-    <ul>
-      <li>파일의 생성과 삭제, directory(folder))의 생성과 삭제, file 기본 동작, 백업</li>
-    </ul>
-  </li>
-  <li>보조기억장치 관리
-    <ul>
-      <li>하드 디스크, 스마트 폰의 플래시 메모리 등</li>
-      <li>빈 공간 관리, 저장공간 할당, 디스크 스케줄링</li>
-    </ul>
-  </li>
-  <li>입출력장치 관리
-    <ul>
-      <li>장치 드라이브, 입출력 장치의 성능 향상
-…</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="시스템-콜">시스템 콜</h2>
-<ul>
-  <li>OS 서비스를 받기 위한 호출(요청)</li>
-  <li>주요 시스템 콜
-    <ul>
-      <li>Process: end(종료), abort(강제 종료), load(하드 디스크의 프로그램을 메인 메로리로 가져오는 것), execute(실행), create(process 생성), terminate(종료(=end)), get/set attributes(속성)</li>
-      <li>Memory: allocate(새 객체 생성시 메모리가 필요해 OS에 요청), free(메모리를 다 쓰고 나서 돌려줌)</li>
-      <li>File: create(생성), delete(삭제)</li>
-    </ul>
-  </li>
-</ul>
-
+<blockquote>
+  <p>‘Spring Boot AWS Deployment - Full Course,’ 유튜브 비디오, 1:03:19, 게시자 ‘Java Guides,’ 2021년05월01일, <a href="https://youtu.be/D1yOALZcMHs">https://youtu.be/D1yOALZcMHs</a></p>
+</blockquote>
 
                 </div>
             </section>
@@ -485,7 +524,7 @@ into the {body} of the default.hbs template -->
                 <header class="read-next-card-header">
                     <small class="read-next-card-header-sitetitle">&mdash; 예비 개발자의 노트 &mdash;</small>
                     
-                    <h3 class="read-next-card-header-title"><a href="/tag/os/">Os</a></h3>
+                    <h3 class="read-next-card-header-title"><a href="/tag/other/">Other</a></h3>
                     
                 </header>
                 <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -495,6 +534,73 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/postgreSQL">postgreSQL 기본 사용법 [update 中]</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                         <li><a href="/web-api">Web API</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                         <li><a href="/code-review">왜 Code Review를 해야 하는가</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
                             
                         
                             
@@ -517,93 +623,6 @@ into the {body} of the default.hbs template -->
                         
                             
                         
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
-                            
-                            
-                            
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-midterm">OS(9) - Midterm</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
                             
                         
                             
@@ -628,9 +647,9 @@ into the {body} of the default.hbs template -->
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
-                    <a href="/tag/os/">
+                    <a href="/tag/other/">
                         
-                        See all 10 posts →
+                        See all 6 posts →
                         
                     </a>
                 </footer>
@@ -640,58 +659,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/OS-process-mgmt">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-process-mgmt">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Os</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">OS(3) - Process Management</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -699,22 +666,22 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/OS-intro">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            <a class="post-card-image-link" href="/postgreSQL">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/postgresql.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-intro">
+            <a class="post-card-content-link" href="/postgreSQL">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Os</span>
+                                <span class="post-card-tags">Other</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">OS(1) - Introduction</h2>
+                    <h2 class="post-card-title">postgreSQL 기본 사용법 [update 中]</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -739,7 +706,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      7 min read
                     
                 </span>
             </footer>
@@ -761,18 +728,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">OS(2) - Interrupt-Based System</div>
+    <div class="floating-header-title">AWS 배포하기(1) - RDS (MySQL)</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=OS%282%29+-+Interrupt-Based+System&amp;url=https://ohoraming.github.io/OS-interrupt-based-system"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=AWS+%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0%281%29+-+RDS+%28MySQL%29&amp;url=https://ohoraming.github.io/aws-deploy-RDS"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/OS-interrupt-based-system"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/aws-deploy-RDS"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
