@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-10-05T03:01:23+09:00</updated>
+  <updated>2022-10-07T01:34:44+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,191 @@
 
   
     <entry>
+      <title type="html">AWS 배포하기(2) - Elastic Beanstalk</title>
+      <link href="https://ohoraming.github.io/aws-deploy-elastic-beanstalk" rel="alternate" type="text/html" title="AWS 배포하기(2) - Elastic Beanstalk" />
+      <published>2022-10-07T00:25:00+09:00</published>
+      <updated>2022-10-07T00:25:00+09:00</updated>
+      <id>https://ohoraming.github.io/aws-deploy-elastic-beanstalk</id>
+      <content type="html" xml:base="https://ohoraming.github.io/aws-deploy-elastic-beanstalk">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 시리즈의&lt;br /&gt;
+1편에서는, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDS&lt;/code&gt;로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL DB&lt;/code&gt;를 등록하고&lt;br /&gt;
+2편에서는, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elastic Beanstalk&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;배포&lt;/code&gt;하는 과정을 기록했습니다.&lt;br /&gt;
+전체 소스 코드는 &lt;a href=&quot;https://github.com/ohoraming/springboot-aws-deployment&quot;&gt;https://github.com/ohoraming/springboot-aws-deployment&lt;/a&gt; 이곳을 참고하시기 바랍니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;2-elastick-beanstalk&quot;&gt;2. Elastick Beanstalk&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elastic beanstalk&lt;/code&gt; 선택
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192981401-13246b77-4d85-4805-9529-1fa7bc2ae5a5.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create Application&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192981880-cd2775ab-d2c7-4735-9f7e-960bd302f044.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;웹 앱 생성(Create a web app) 폼&lt;/code&gt; 작성&lt;br /&gt;
+ 3-1. [애플리케이션 정보] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;애플리케이션 이름(Application name)&lt;/code&gt; 작성
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192982533-24c44a38-ae8c-4783-a7cd-3825af177424.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;3-2. [플랫폼(Platform)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Java&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192983399-5a0567ac-c77e-4117-b45e-a1e442c5c095.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;3-3. [애플리케이션 코드(Application code)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;코드 업로드(Upload your code)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192983853-134289f4-0844-4859-8d1d-daa9a096c94b.png&quot; alt=&quot;image&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;3-4. [소스 코드 오리진(Source code origin)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;파일 선택(Choose file)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192984336-b7ac5e3a-6f5d-4fb9-97b3-b086b04d03e8.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;3-5. 이전에 생성한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192985110-7bde5a49-7bc2-47a7-baa1-29225c56bee4.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;프로젝트 경로에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target&lt;/code&gt; 디렉터리에 있음&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192985794-d0fb3a61-df1e-46a4-bfcf-281658ea118d.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;추가 옵션 구성(Configure more options)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192986477-baed6474-c79e-4246-b428-9606d5552cf3.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-1. [데이터베이스(Database)] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;편집(Edit)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192987032-963eba6b-b7ce-4f6c-9710-99e1df9783b6.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;4-2. [데이터베이스 설정] - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;사용자 이름(Username)&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;암호(Password)&lt;/code&gt; 입력 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;저장&lt;/code&gt;
+ &lt;img width=&quot;600&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192988096-4724e03f-c2c7-4d40-86e2-199ac9da54ac.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;앱 생성(Create app)&lt;/code&gt; 선택
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192988663-10b5e00d-6018-44ab-bf28-b7e1624127fc.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;앱 생성 중&lt;/li&gt;
+      &lt;li&gt;필자의 경우, 이 과정이 10분 이상 걸렸다. 충분한 여유를 가지고 진행하는 것이 좋다.
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/192989056-23690ed5-976b-4386-8bbf-9bb28798da2a.png&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앱 생성 완료 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;링크 클릭&lt;/code&gt;
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/192992327-73a6822d-d07f-4eee-b3d8-de94f131b94a.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;정상적으로 첫 페이지가 로드됨
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/193832392-b87037ba-23f8-4457-ab81-1a7d7659fdf8.png&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;구현한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET/POST/PUT/DELETE&lt;/code&gt; 작동 확인하기&lt;br /&gt;
+ 7-1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Postman&lt;/code&gt;으로 확인
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/194359139-d622d590-a512-4f78-9c78-57403d15acaf.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;7-2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL&lt;/code&gt;에서 Data 확인&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL Workbench&lt;/code&gt;를 이용하는 것이 편하다면 편한 방법을 이용하면 된다.
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  mysql&amp;gt; &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from &lt;span class=&quot;nb&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  +----+----------------+------------+-----------+
+  | &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; | email          | first_name | last_name |
+  +----+----------------+------------+-----------+
+  |  1 | ming@gmail.com | Ming       | Kim       |
+  +----+----------------+------------+-----------+
+  1 row &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.15 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;7-3. Browser에서 확인&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;연결된 주소에 이어서 get mapping 주소를 적어서 확인&lt;/li&gt;
+      &lt;li&gt;필자는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/api/users&lt;/code&gt;로 get mapping을 구성했음&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/193835648-c981e461-c6e0-422c-824c-749e1b5841d2.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;소스코드 일부 참고
+        &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nd&quot;&gt;@RestController&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/api/users&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+      &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRepository&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;// get all users&lt;/span&gt;
+      &lt;span class=&quot;nd&quot;&gt;@GetMapping&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getAllUsers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;userRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;7-4. 같은 방법으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PUT&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE&lt;/code&gt; 요청을 추가로 확인하면 됨&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;두 편으로 구성된 AWS 배포 과정이 마무리되었습니다. 
+간단해 보이지만 AWS 설정 항목에 익숙하지 않아 생기는 실수로 몇 번의 시행착오를 겪었습니다.
+과정을 꼼꼼하게 남기며 쉽게 기술하도록 노력했습니다.
+같은 과정을 검색하시는 분들에게 미약하게나마 저의 글이 도움이 되었으면 좋겠습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Amazon RDS | Deploy Spring Boot + MySQL CRUD Application into Elastic Beanstalk | JavaTechie,’ 유튜브 비디오, 14:39, 게시자 ‘Java Techie,’ 2020년07월19일, &lt;a href=&quot;https://youtu.be/Tbf7F42tcBw&quot;&gt;https://youtu.be/Tbf7F42tcBw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Spring Boot AWS Deployment - Full Course,’ 유튜브 비디오, 1:03:19, 게시자 ‘Java Guides,’ 2021년05월01일, &lt;a href=&quot;https://youtu.be/D1yOALZcMHs&quot;&gt;https://youtu.be/D1yOALZcMHs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">AWS 배포하기(1) - RDS (MySQL)</title>
       <link href="https://ohoraming.github.io/aws-deploy-RDS" rel="alternate" type="text/html" title="AWS 배포하기(1) - RDS (MySQL)" />
       <published>2022-10-05T00:41:00+09:00</published>
@@ -49,16 +234,16 @@
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;이 시리즈에서는,&lt;/p&gt;
-  &lt;ol&gt;
-    &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDS&lt;/code&gt;로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL DB&lt;/code&gt;를 등록하고&lt;/li&gt;
-    &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elastic Beanstalk&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;배포&lt;/code&gt;하는 과정을 기록했습니다.&lt;/li&gt;
-  &lt;/ol&gt;
+  &lt;p&gt;이 시리즈의&lt;br /&gt;
+1편에서는, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDS&lt;/code&gt;로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL DB&lt;/code&gt;를 등록하고&lt;br /&gt;
+2편에서는, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elastic Beanstalk&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JAR&lt;/code&gt; 파일을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;배포&lt;/code&gt;하는 과정을 기록했습니다.&lt;br /&gt;
+전체 소스 코드는 &lt;a href=&quot;https://github.com/ohoraming/springboot-aws-deployment&quot;&gt;https://github.com/ohoraming/springboot-aws-deployment&lt;/a&gt; 이곳을 참고하시기 바랍니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;1-rds&quot;&gt;1. RDS&lt;/h2&gt;
@@ -314,6 +499,7 @@
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -893,6 +1079,7 @@
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1021,6 +1208,7 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1483,6 +1671,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1694,6 +1883,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1775,6 +1965,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;

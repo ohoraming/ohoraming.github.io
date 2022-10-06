@@ -12,7 +12,7 @@
 
 
 
-    <title>OS(1) - Introduction</title>
+    <title>AWS 배포하기(2) - Elastic Beanstalk</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,30 +64,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/OS-intro" />
+    <link rel="canonical" href="https://ohoraming.github.io/aws-deploy-elastic-beanstalk" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="예비 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OS(1) - Introduction" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 운영체제(Operating System, OS)의 목적 컴퓨터" />
-    <meta property="og:url" content="https://ohoraming.github.io/OS-intro" />
-    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta property="og:title" content="AWS 배포하기(2) - Elastic Beanstalk" />
+    <meta property="og:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) AWS 배포하기(2) - Elastic Beanstalk 이 시리즈의 1편에서는, RDS로 MySQL DB를 등록하고 2편에서는, Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 전체 소스 코드는 https://github.com/ohoraming/springboot-aws-deployment 이곳을 참고하시기 바랍니다." />
+    <meta property="og:url" content="https://ohoraming.github.io/aws-deploy-elastic-beanstalk" />
+    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/aws-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-01-12T22:06:00+09:00" />
-    <meta property="article:modified_time" content="2022-01-12T22:06:00+09:00" />
-    <meta property="article:tag" content="Os" />
+    <meta property="article:published_time" content="2022-10-07T00:25:00+09:00" />
+    <meta property="article:modified_time" content="2022-10-07T00:25:00+09:00" />
+    <meta property="article:tag" content="Other" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OS(1) - Introduction" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 운영체제(Operating System, OS)의 목적 컴퓨터" />
+    <meta name="twitter:title" content="AWS 배포하기(2) - Elastic Beanstalk" />
+    <meta name="twitter:description" content="여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) AWS 배포하기(2) - Elastic Beanstalk 이 시리즈의 1편에서는, RDS로 MySQL DB를 등록하고 2편에서는, Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 전체 소스 코드는 https://github.com/ohoraming/springboot-aws-deployment 이곳을 참고하시기 바랍니다." />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
-    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/aws-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="예비 개발자의 노트" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Os" />
+    <meta name="twitter:data2" content="Other" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -102,18 +102,18 @@
         "name": "예비 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/OS-intro",
+    "url": "https://ohoraming.github.io/aws-deploy-elastic-beanstalk",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ohoraming.github.io/assets/built/images/os-logo.png",
+        "url": "https://ohoraming.github.io/assets/built/images/aws-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/OS-intro"
+        "@id": "https://ohoraming.github.io/aws-deploy-elastic-beanstalk"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation 운영체제(Operating System, OS)의 목적 컴퓨터"
+    "description": "여러 가지 포스팅 Git Convention Test Code Git and github 왜 Code Review를 해야 하는가 Web API postgreSQL AWS 배포하기(1) - RDS (MySQL) AWS 배포하기(2) - Elastic Beanstalk 이 시리즈의 1편에서는, RDS로 MySQL DB를 등록하고 2편에서는, Elastic Beanstalk으로 JAR 파일을 배포하는 과정을 기록했습니다. 전체 소스 코드는 https://github.com/ohoraming/springboot-aws-deployment 이곳을 참고하시기 바랍니다."
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="OS(1) - Introduction" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="AWS 배포하기(2) - Elastic Beanstalk" href="/feed.xml" />
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -182,25 +182,25 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-os post ">
+        <article class="post-full  tag-other post ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="12 January 2022">12 January 2022</time>
+                    <time class="post-full-meta-date" datetime=" 7 October 2022"> 7 October 2022</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/os/'>OS</a>
+                    <a href='/tag/other/'>OTHER</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">OS(1) - Introduction</h1>
+                <h1 class="post-full-title">AWS 배포하기(2) - Elastic Beanstalk</h1>
             </header>
 
             <!-- 
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/os-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/aws-logo.png)">
             </figure>
              -->
 
@@ -209,166 +209,155 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">여러 가지 포스팅</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./OS-intro">OS(1) - Introduction</a></li>
-    <li><a href="./OS-interrupt-based-system">OS(2) - Interrupt-Based System</a></li>
-    <li><a href="./OS-process-mgmt">OS(3) - Process Management</a></li>
-    <li><a href="./OS-cpu-scheduling">OS(4) - CPU Scheduling</a></li>
-    <li><a href="./OS-thread">OS(5) - Thread</a></li>
-    <li><a href="./OS-classical-sync-problems">OS(6) - Classical Synchronization Problems</a></li>
-    <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
-    <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
-    <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
-    <li><a href="./OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-    <li><a href="./OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
+    <li><a href="./git-convention">Git Convention</a></li>
+    <li><a href="./test-code">Test Code</a></li>
+    <li><a href="./git-and-github">Git and github</a></li>
+    <li><a href="./code-review">왜 Code Review를 해야 하는가</a></li>
+    <li><a href="./web-api">Web API</a></li>
+    <li><a href="./postgreSQL">postgreSQL</a></li>
+    <li><a href="./aws-deploy-RDS">AWS 배포하기(1) - RDS (MySQL)</a></li>
+    <li><a href="./aws-deploy-elastic-beanstalk">AWS 배포하기(2) - Elastic Beanstalk</a></li>
     <br />
     <br />
 </ul>
 
-<h2 id="운영체제operating-system-os의-목적">운영체제(Operating System, OS)의 목적</h2>
-<ol>
-  <li>컴퓨터 <strong>하드웨어를 잘 관리</strong>하여
-    <ul>
-      <li>HW: processor, memory, disk, keyboard, mouse, monitor…</li>
-      <li>OS가 메모리에 올라오면 User가 컴퓨터를 제어할 수 있게 됨</li>
-    </ul>
-  </li>
-  <li><strong>성능</strong>을 높이고
-    <ul>
-      <li>같은 HW라도 OS가 좋으면 성능이 향상됨</li>
-    </ul>
-  </li>
-  <li>사용자에게 <strong>편의성</strong>을 제공
-    <ul>
-      <li>컴퓨터를 몇 번만 사용해보면 누구나 쉽게 사용할 수 있음</li>
-      <li>과거, 1940s-1950s에는 전문가(oprator)들만 컴퓨터를 사용할 수 있었음</li>
-    </ul>
-  </li>
-</ol>
+<blockquote>
+  <p>이 시리즈의<br />
+1편에서는, <code class="language-plaintext highlighter-rouge">RDS</code>로 <code class="language-plaintext highlighter-rouge">MySQL DB</code>를 등록하고<br />
+2편에서는, <code class="language-plaintext highlighter-rouge">Elastic Beanstalk</code>으로 <code class="language-plaintext highlighter-rouge">JAR</code> 파일을 <code class="language-plaintext highlighter-rouge">배포</code>하는 과정을 기록했습니다.<br />
+전체 소스 코드는 <a href="https://github.com/ohoraming/springboot-aws-deployment">https://github.com/ohoraming/springboot-aws-deployment</a> 이곳을 참고하시기 바랍니다.</p>
+</blockquote>
 
-<h2 id="부팅booting">부팅(Booting)</h2>
-<p>boot: <em>n. 목이 긴 신발, 부츠</em><br />
-booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌어당김</p>
+<h2 id="2-elastick-beanstalk">2. Elastick Beanstalk</h2>
 
 <ol>
-  <li>전원을 켜면</li>
-  <li>ROM의 code를 읽어와 실행
-    <ul>
-      <li>ROM: Read Only Memory</li>
-      <li>RAM: main memory의 대부분을 차지(수GB(10^9))</li>
-    </ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Elastic beanstalk</code> 선택
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192981401-13246b77-4d85-4805-9529-1fa7bc2ae5a5.png" /></p>
   </li>
-  <li>POST(Power-On Self-Test) 실행
-    <ul>
-      <li>전원을 켰을 때, 컴퓨터의 환경 설정이 제대로 되었는지 확인</li>
-    </ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Create Application</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192981880-cd2775ab-d2c7-4735-9f7e-960bd302f044.png" alt="image" width="700px" /></p>
   </li>
-  <li>Boot loader실행
-    <ul>
-      <li>load: v.적재하다</li>
-      <li>하드 디스크 안의 OS를 메인 메모리로 가져옴</li>
-    </ul>
-  </li>
-  <li>OS가 메인 메모리(RAM)에 올라오면, 명령을 받아들일 준비를 마침
-    <ul>
-      <li>Windows의 경우 바탕화면이 뜨고, Linux의 경우 prompt 창이 뜸</li>
-    </ul>
-  </li>
-</ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">웹 앱 생성(Create a web app) 폼</code> 작성<br />
+ 3-1. [애플리케이션 정보] - <code class="language-plaintext highlighter-rouge">애플리케이션 이름(Application name)</code> 작성
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192982533-24c44a38-ae8c-4783-a7cd-3825af177424.png" /></p>
 
-<h2 id="os--kernel--shell">OS = kernel + shell</h2>
-<ul>
-  <li>Kernel
-    <ul>
-      <li>핵심</li>
-      <li>HW를 둘러싸며 이를 제어, 관리함</li>
-      <li>실제로 관리하는 프로그램</li>
-    </ul>
-  </li>
-  <li>Shell
-    <ul>
-      <li>OS의 껍질 부분</li>
-      <li>명령어 해석기(command interpreter)</li>
-      <li>사용자로부터 명령을 받아 변역 후 해당 명령을 실행함</li>
-      <li>명령: 아이콘 더블 클릭(Windows), 텍스트 입력(Linux <code class="language-plaintext highlighter-rouge">$ls</code>(현 directory file 보여줌), <code class="language-plaintext highlighter-rouge">$who</code>(사용자 확인), <code class="language-plaintext highlighter-rouge">$ds</code>(디스크 용량 확인) 등)</li>
-    </ul>
-  </li>
-</ul>
+    <p>3-2. [플랫폼(Platform)] - <code class="language-plaintext highlighter-rouge">Java</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192983399-5a0567ac-c77e-4117-b45e-a1e442c5c095.png" alt="image" width="700px" /></p>
 
-<h2 id="os의-위치">OS의 위치</h2>
-<ul>
-  <li>Application(App) ⊃ OS  ⊃ HW 
-<a href="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png"><img src="https://www.ssla.co.uk/wp-content/uploads/2020/07/linux-operating-system-600x493.png" alt="os diagram" width="50%" /></a></li>
-  <li>정부(government)에 비유할 수 있음</li>
-  <li>주어진 자원을 <strong>할당</strong>(resource allocator)하고 <strong>관리</strong>함(resource manager)</li>
-  <li>OS가 직접 일을 하지 않고, 각 부서에 맞는 업무를 할당함</li>
-  <li>프로세스 관리와 메인 메모리 관리가 가장 중요한 업무</li>
-</ul>
+    <p>3-3. [애플리케이션 코드(Application code)] - <code class="language-plaintext highlighter-rouge">코드 업로드(Upload your code)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192983853-134289f4-0844-4859-8d1d-daa9a096c94b.png" alt="image" width="600px" /></p>
 
-<h2 id="역사">역사</h2>
-<ol>
-  <li>컴퓨터의 역사
-    <ul>
-      <li>1940s, <strong>OS가 없었음</strong></li>
-      <li>programmer가 <strong>종이</strong>에 연필로 program을 작성해 전산실에 전달</li>
-      <li>전달받은대로 구멍(천공)을 뚫은 카드와 compiler 프로그램 카드를 <strong>카드 리더기</strong>에 올림</li>
-      <li>프로그램과 compiler가 <strong>메모리</strong>에 적재되고 기계어가 도출됨</li>
-      <li><strong>처리기(processor)</strong>가 기계어를 실행하면</li>
-      <li><strong>line printer</strong>가 망치로 두드려 결과를 인쇄</li>
-    </ul>
-  </li>
-  <li>Batch processing system(일괄처리)
-    <ul>
-      <li>resident monitor: <strong>최초의 OS</strong></li>
-      <li>사람(operator)이 직접 compiler, linker, loading을 했음</li>
-      <li>이 일련의 과정을 메모리에 프로그램으로 넣어(=<strong>상주</strong>시켜) <strong>자동으로 실행</strong>시킴</li>
-    </ul>
-  </li>
-  <li>Multiprogramming system(다중 프로그래밍)
-    <ul>
-      <li>컴퓨터는 비싼 자원</li>
-      <li>CPU에 비해 i/o의 처리 속도는 느리며, i/o 처리 시간 동안 CPU는 idle상태(가동되지 않는)가 됨</li>
-      <li>i/o 처리시 다음 user의 연산을 처리</li>
-      <li><strong>하나의 CPU를 여러 user(program)가 사용</strong>해 이용률을 증가시킴</li>
-      <li>user program의 효율적인 배치를 고민해야 함</li>
-    </ul>
-  </li>
-  <li>Time-sharing system(시공유 시스템)
-    <ul>
-      <li>아주 <strong>짧은 시간(1/100초~1/1000초)동안 각 user의 작업을 나눠서 처리</strong>함</li>
-      <li>혼자서 CPU를 쓰는 느낌을 줄 수 있음</li>
-    </ul>
-  </li>
-</ol>
+    <p>3-4. [소스 코드 오리진(Source code origin)] - <code class="language-plaintext highlighter-rouge">파일 선택(Choose file)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192984336-b7ac5e3a-6f5d-4fb9-97b3-b086b04d03e8.png" alt="image" width="500px" /></p>
 
-<h2 id="os-기술-천이">OS 기술 천이</h2>
-<ul>
-  <li>컴퓨터 규모별 분류
+    <p>3-5. 이전에 생성한 <code class="language-plaintext highlighter-rouge">JAR</code> 파일 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192985110-7bde5a49-7bc2-47a7-baa1-29225c56bee4.png" alt="image" width="700px" /></p>
     <ul>
-      <li>
-        <p><strong>Supercomputer &gt; Mainframe &gt; Mini &gt; Micro</strong><br />
-  Supercomputer: 최강의 컴퓨터. 메모리 용량이 크고, CPU가 빠르며, 보조 기억장치가 뛰어남<br />
-  Mainframe: 수백 대의 단말기를 연결한 형태<br />
-  Mini: 수십 대의 단말기를 연결한 형태</p>
-      </li>
-      <li>
-        <p><strong>Supercomputer &gt; Server &gt; Workstation &gt; PC &gt; Handheld &gt; Embeded</strong><br />
-  Handheld: 노트북, 태블릿, 스마트 폰<br />
-  Embeded: 차나 가전에 내장된 형태</p>
+      <li>프로젝트 경로에서 <code class="language-plaintext highlighter-rouge">target</code> 디렉터리에 있음</li>
+    </ul>
+
+    <p><img src="https://user-images.githubusercontent.com/77590526/192985794-d0fb3a61-df1e-46a4-bfcf-281658ea118d.png" alt="image" width="500px" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">추가 옵션 구성(Configure more options)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192986477-baed6474-c79e-4246-b428-9606d5552cf3.png" alt="image" width="700px" /></p>
+
+    <p>4-1. [데이터베이스(Database)] - <code class="language-plaintext highlighter-rouge">편집(Edit)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192987032-963eba6b-b7ce-4f6c-9710-99e1df9783b6.png" alt="image" width="700px" /></p>
+
+    <p>4-2. [데이터베이스 설정] - <code class="language-plaintext highlighter-rouge">사용자 이름(Username)</code>과 <code class="language-plaintext highlighter-rouge">암호(Password)</code> 입력 후 <code class="language-plaintext highlighter-rouge">저장</code>
+ <img width="600" alt="image" src="https://user-images.githubusercontent.com/77590526/192988096-4724e03f-c2c7-4d40-86e2-199ac9da54ac.png" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">앱 생성(Create app)</code> 선택
+ <img src="https://user-images.githubusercontent.com/77590526/192988663-10b5e00d-6018-44ab-bf28-b7e1624127fc.png" alt="image" width="700px" /></p>
+
+    <ul>
+      <li>앱 생성 중</li>
+      <li>필자의 경우, 이 과정이 10분 이상 걸렸다. 충분한 여유를 가지고 진행하는 것이 좋다.
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/192989056-23690ed5-976b-4386-8bbf-9bb28798da2a.png" /></li>
+    </ul>
+  </li>
+  <li>
+    <p>앱 생성 완료 및 <code class="language-plaintext highlighter-rouge">링크 클릭</code>
+ <img src="https://user-images.githubusercontent.com/77590526/192992327-73a6822d-d07f-4eee-b3d8-de94f131b94a.png" alt="image" width="700px" /></p>
+
+    <ul>
+      <li>정상적으로 첫 페이지가 로드됨
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/193832392-b87037ba-23f8-4457-ab81-1a7d7659fdf8.png" /></li>
+    </ul>
+  </li>
+  <li>
+    <p>구현한 <code class="language-plaintext highlighter-rouge">GET/POST/PUT/DELETE</code> 작동 확인하기<br />
+ 7-1. <code class="language-plaintext highlighter-rouge">Postman</code>으로 확인
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/194359139-d622d590-a512-4f78-9c78-57403d15acaf.png" /></p>
+
+    <p>7-2. <code class="language-plaintext highlighter-rouge">MySQL</code>에서 Data 확인</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">MySQL Workbench</code>를 이용하는 것이 편하다면 편한 방법을 이용하면 된다.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mysql&gt; <span class="k">select</span> <span class="k">*</span> from <span class="nb">users</span><span class="p">;</span>
+  +----+----------------+------------+-----------+
+  | <span class="nb">id</span> | email          | first_name | last_name |
+  +----+----------------+------------+-----------+
+  |  1 | ming@gmail.com | Ming       | Kim       |
+  +----+----------------+------------+-----------+
+  1 row <span class="k">in </span><span class="nb">set</span> <span class="o">(</span>0.15 sec<span class="o">)</span>
+</code></pre></div>        </div>
       </li>
     </ul>
-  </li>
-  <li>고성능 컴퓨터의 기능이 Handheld, Embeded까지 적용됨</li>
-</ul>
 
-<h2 id="고등-운영체제">고등 운영체제</h2>
-<p>(※대학원 과정)</p>
-<ul>
-  <li>다중 프로세서 시스템</li>
-  <li>분산 시스템</li>
-  <li>실시간 시스템</li>
-</ul>
+    <p>7-3. Browser에서 확인</p>
+    <ul>
+      <li>연결된 주소에 이어서 get mapping 주소를 적어서 확인</li>
+      <li>필자는 <code class="language-plaintext highlighter-rouge">/api/users</code>로 get mapping을 구성했음</li>
+    </ul>
+
+    <p><img width="700" alt="image" src="https://user-images.githubusercontent.com/77590526/193835648-c981e461-c6e0-422c-824c-749e1b5841d2.png" /></p>
+
+    <ul>
+      <li>소스코드 일부 참고
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">@RestController</span>
+  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/api/users"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserController</span> <span class="o">{</span>
+
+      <span class="nd">@Autowired</span>
+      <span class="kd">private</span> <span class="nc">UserRepository</span> <span class="n">userRepository</span><span class="o">;</span>
+
+      <span class="c1">// get all users</span>
+      <span class="nd">@GetMapping</span>
+      <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="nf">getAllUsers</span><span class="o">()</span> <span class="o">{</span>
+              <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p>7-4. 같은 방법으로 <code class="language-plaintext highlighter-rouge">PUT</code>과 <code class="language-plaintext highlighter-rouge">DELETE</code> 요청을 추가로 확인하면 됨</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>두 편으로 구성된 AWS 배포 과정이 마무리되었습니다. 
+간단해 보이지만 AWS 설정 항목에 익숙하지 않아 생기는 실수로 몇 번의 시행착오를 겪었습니다.
+과정을 꼼꼼하게 남기며 쉽게 기술하도록 노력했습니다.
+같은 과정을 검색하시는 분들에게 미약하게나마 저의 글이 도움이 되었으면 좋겠습니다!</p>
+</blockquote>
+
+<p>&lt; 출처 &gt;</p>
+
+<blockquote>
+  <p>‘Amazon RDS | Deploy Spring Boot + MySQL CRUD Application into Elastic Beanstalk | JavaTechie,’ 유튜브 비디오, 14:39, 게시자 ‘Java Techie,’ 2020년07월19일, <a href="https://youtu.be/Tbf7F42tcBw">https://youtu.be/Tbf7F42tcBw</a></p>
+</blockquote>
+
+<blockquote>
+  <p>‘Spring Boot AWS Deployment - Full Course,’ 유튜브 비디오, 1:03:19, 게시자 ‘Java Guides,’ 2021년05월01일, <a href="https://youtu.be/D1yOALZcMHs">https://youtu.be/D1yOALZcMHs</a></p>
+</blockquote>
 
                 </div>
             </section>
@@ -455,7 +444,7 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                 <header class="read-next-card-header">
                     <small class="read-next-card-header-sitetitle">&mdash; 예비 개발자의 노트 &mdash;</small>
                     
-                    <h3 class="read-next-card-header-title"><a href="/tag/os/">Os</a></h3>
+                    <h3 class="read-next-card-header-title"><a href="/tag/other/">Other</a></h3>
                     
                 </header>
                 <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -465,6 +454,80 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                         
                         
                         
+                        
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/aws-deploy-RDS">AWS 배포하기(1) - RDS (MySQL)</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/postgreSQL">postgreSQL 기본 사용법 [update 中]</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                         <li><a href="/web-api">Web API</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
                             
                         
                             
@@ -487,95 +550,6 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                         
                             
                         
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
-                            
-                            
-                            
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                         <li><a href="/OS-midterm">OS(9) - Midterm</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                            
                             
                         
                             
@@ -600,9 +574,9 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
-                    <a href="/tag/os/">
+                    <a href="/tag/other/">
                         
-                        See all 10 posts →
+                        See all 7 posts →
                         
                     </a>
                 </footer>
@@ -612,58 +586,6 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/OS-interrupt-based-system">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-interrupt-based-system">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Os</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">OS(2) - Interrupt-Based System</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      3 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -671,22 +593,22 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/JavaScript-promise">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            <a class="post-card-image-link" href="/aws-deploy-RDS">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/aws-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/JavaScript-promise">
+            <a class="post-card-content-link" href="/aws-deploy-RDS">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Javascript</span>
+                                <span class="post-card-tags">Other</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">JavaScript(10) - promise</h2>
+                    <h2 class="post-card-title">AWS 배포하기(1) - RDS (MySQL)</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -711,7 +633,7 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
                 <span class="reading-time">
                     
                     
-                      4 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -733,18 +655,18 @@ booting: 부츠를 끌어당겨 신는 것처럼 OS를 메인 메모리로 끌�
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">OS(1) - Introduction</div>
+    <div class="floating-header-title">AWS 배포하기(2) - Elastic Beanstalk</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=OS%281%29+-+Introduction&amp;url=https://ohoraming.github.io/OS-intro"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=AWS+%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0%282%29+-+Elastic+Beanstalk&amp;url=https://ohoraming.github.io/aws-deploy-elastic-beanstalk"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/OS-intro"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/aws-deploy-elastic-beanstalk"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

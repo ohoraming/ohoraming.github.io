@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>AWS 배포하기(2) - Elastic Beanstalk</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Fri, 07 Oct 2022 00:25:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/aws-deploy-elastic-beanstalk</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/aws-deploy-elastic-beanstalk</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>AWS 배포하기(1) - RDS (MySQL)</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
