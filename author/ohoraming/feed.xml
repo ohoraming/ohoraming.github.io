@@ -4,7 +4,11 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2023-03-06T16:07:57+09:00</updated>
+<<<<<<< HEAD
+  <updated>2023-03-06T16:22:09+09:00</updated>
+=======
+  <updated>2023-03-06T16:15:40+09:00</updated>
+>>>>>>> 34d6985d0b6b2174a56052aaf5cb18ed789a3cd7
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -12,7 +16,7 @@
   
 
   
-    <title type="html">예비 개발자의 노트 | </title>
+    <title type="html">백엔드 개발자의 노트 | </title>
   
 
   
