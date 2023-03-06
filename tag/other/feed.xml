@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-10-07T01:34:44+09:00</updated>
+  <updated>2023-03-06T16:07:57+09:00</updated>
   <id>https://ohoraming.github.io/tag/other/feed.xml</id>
 
   
@@ -32,6 +32,275 @@
 
   
     <entry>
+      <title type="html">Docker - 설치 및 실행</title>
+      <link href="https://ohoraming.github.io/docker-basic" rel="alternate" type="text/html" title="Docker - 설치 및 실행" />
+      <published>2023-03-05T18:02:00+09:00</published>
+      <updated>2023-03-05T18:02:00+09:00</updated>
+      <id>https://ohoraming.github.io/docker-basic</id>
+      <content type="html" xml:base="https://ohoraming.github.io/docker-basic">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;여러 가지 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 &lt;a href=&quot;https://www.youtube.com/playlist?list=PL93mKxaRDidGMzIllhYKx1d6aMg6_5wW3&quot;&gt;https://www.youtube.com/playlist?list=PL93mKxaRDidGMzIllhYKx1d6aMg6_5wW3&lt;/a&gt; 영상을 정리한 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;0-개요&quot;&gt;0. 개요&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222676141-3899bad3-1411-4828-8a3d-9237b1d78030.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;커널 부분을 확대해 보면, host 운영체제인 windows의 cmd창으로 명령어를 입력하면 docker server가 container에 명령을 하는 형식으로 작동&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;container&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image&lt;/code&gt;가 실행되어(=메모리에 올라감) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance&lt;/code&gt; 가 된 상태를 이름
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222678422-cc81c6ce-9e90-4f32-8c70-4f55b569d5aa.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-docker-데스크탑-버전-설치windows&quot;&gt;1. Docker 데스크탑 버전 설치(windows)&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.docker.com/products/docker-desktop/&quot;&gt;https://www.docker.com/products/docker-desktop/&lt;/a&gt; 접속&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222655845-256f136b-f2c3-4bad-bd29-4636bde76acf.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222656616-cc33de54-e5c1-441f-8bd3-df48b591f067.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;바탕화면에서 Docker Desktop 실행
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222657798-bec6e4d9-5a4d-4515-bcee-cdbba2817f70.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;명령어 복사 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt;에서 실행
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222658968-215982da-5c75-4836-a974-3cefe3a067f3.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222659424-dda339f4-a99e-4f16-a32b-5ee111a87099.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;현재 실행 중인 컨테이너 확인
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222659651-844b7254-a1bb-4d20-8a0c-91f0291808b7.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;브라우저에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost&lt;/code&gt; 입력해 첫 화면 확인
+  &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222659921-916170a2-92ee-4632-b836-fbbe44ddabf5.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker images&lt;/code&gt; 명령어로 이미지 확인
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222668656-c89d68d9-fb70-4004-ae4e-22448c51f3c6.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;회원 가입 및 로그인
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222666541-df4721eb-980e-467a-b053-8d852358ce13.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;2-docker-image-다운로드&quot;&gt;2. Docker image 다운로드&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker hub&lt;/code&gt;에서 다운 받을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image&lt;/code&gt; 검색
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222686238-b09895f4-f962-437f-91d7-62841e0aedde.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;최신 버전&lt;/code&gt;을 받으려면 바로 보이는 명령어를 복사해 입력하고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;특정 버전&lt;/code&gt;을 다운로드하려면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tags&lt;/code&gt;를 클릭&lt;br /&gt;
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222684097-91bbc6b7-a81b-450d-bb87-612bc9bac3e1.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt;에서 명령어 입력
+  &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222685379-c2b185ce-0f6c-4e60-8079-e60a7b809f5c.png&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222685034-23104c9b-6c41-4812-abc3-3672dee94577.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd&lt;/code&gt;에서 명령어 입력
+  &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222687313-206229af-068d-42c5-b432-bf8b500188f4.png&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다운받은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image&lt;/code&gt; 확인
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222687651-4d2092c4-6516-469e-9278-b189a2930ebe.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image&lt;/code&gt; 삭제
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;# image 이름으로 삭제&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker rmi ubuntu
+	
+ &lt;span class=&quot;c&quot;&gt;# image ID(앞부분만 입력해도 됨)로 삭제&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker rmi b89f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222689023-e9f6af04-1beb-4e15-a96d-1be6ba5a924e.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;3-daemon-process로-실행&quot;&gt;3. Daemon process로 실행&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker pull openjdk&lt;/code&gt; 실행으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openjdk&lt;/code&gt; 이미지 다운로드 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker run&lt;/code&gt; 으로 실행하면 실행 중인 컨테이너(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker ps&lt;/code&gt;)에 없음
+ &lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222884001-aa04c669-cacb-4012-9dd9-76f8b1055d70.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222879693-5439dd9d-f199-4077-a265-b6a65619d64e.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openjdk&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;daemon&lt;/code&gt;이 아니므로 container가 실행 후 바로 종료됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d&lt;/code&gt; 옵션으로 백그라운드 실행
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222877686-f727fc3b-8a5e-4cd9-b5ca-c19bf824fcb3.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;4-포트-포워딩port-forwarding&quot;&gt;4. 포트 포워딩(port forwarding)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Host OS(Windows)에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apache&lt;/code&gt;를 포트포워딩한 형태
+&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222884711-695c3a2c-0dfb-405f-b9f8-6225ac164a39.png&quot; alt=&quot;image&quot; width=&quot;300px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Host OS(Windows)에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt;(Linux)와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apache&lt;/code&gt;(Linux)를 포트포워딩한 형태&lt;br /&gt;
+→ 여러 운영체제를 이용하는 형태&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222885220-6741973a-66c8-4bf5-b1bd-d59ea84fac07.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker pull httpd&lt;/code&gt; 실행으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;httpd&lt;/code&gt;이미지 다운로드
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;httpd&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;daemon process&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;를 의미함&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222883908-6b682332-71c5-46da-b170-7d73572ed343.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222881594-b7a6b005-2300-4623-9568-ce742eef6635.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker run -d httpd&lt;/code&gt;으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;httpd&lt;/code&gt; 이미지 실행
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222881609-30a6801c-ac91-46a4-8db9-a1b1640b571b.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:8080&lt;/code&gt; 으로 접속 불가&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222882629-e3cc2f8d-f38b-4355-8467-04737ac28f9c.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;docker container는 host os와 다른 네트워크 구성을 가지므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;포트포워딩&lt;/code&gt;의 과정이 필요함
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222877467-422de47f-537b-44d2-af67-0afc4bc0123f.png&quot; alt=&quot;image&quot; width=&quot;600px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;image를 실행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;)할 때 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-p&lt;/code&gt; 옵션을 부여해줌
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222881801-89159748-e8ee-4851-bb1b-4742d15c1175.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:8080&lt;/code&gt; 으로 접속 가능
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222882766-f4e30fe0-b23c-4240-9b3b-3c4503cfaf29.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;5-docker-run&quot;&gt;5. docker run&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker run&lt;/code&gt;명령어로 이미지 다운로드(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pull&lt;/code&gt;)와 실행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;)을 동시에 진행
+    &lt;ul&gt;
+      &lt;li&gt;이미지 다운로드(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pull&lt;/code&gt;)와 실행(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;)을 동시에 실행 가능&lt;/li&gt;
+      &lt;li&gt;다운 받지 않은 이미지를 실행하려고 하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker hub&lt;/code&gt;에서 찾아 실행해줌
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222882137-d8006edb-6b8a-487d-9499-71eac7c39d9a.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;br /&gt;
+  → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8080&lt;/code&gt;포트는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;httpd&lt;/code&gt;가 사용 중이므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8081&lt;/code&gt;포트로 포트 포워딩 해줌
+        &lt;ul&gt;
+          &lt;li&gt;브라우저에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:8081&lt;/code&gt; 실행 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;가능&lt;/code&gt;
+  &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222883205-95f9b8d1-c474-4d51-bd25-62831d5a5cd3.png&quot; alt=&quot;image&quot; width=&quot;500px&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-dit&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-name&lt;/code&gt; 옵션 사용
+ &lt;img width=&quot;500&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/222886623-0c277470-e39b-4a89-973e-0473eaba1d1e.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222890237-141f99d4-6510-4080-acd4-31f3acd34b04.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;백그라운드&lt;/code&gt;에서 실행&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-i&lt;/code&gt;: interactive, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-t&lt;/code&gt;: Pseudo-tty : bash를 통해 입출력&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--name&lt;/code&gt;: container 이름 지정&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash&lt;/code&gt;프로그램을 ubuntu 내에 설치한 상태의 이미지를 실행하므로 컨테이너가 실행된 상태를 유지할 수 있음&lt;br /&gt;
+ (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sh&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zsh&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Power Shell&lt;/code&gt; 등 여러 종류가 존재함)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker run -d ubuntu&lt;/code&gt; 로 실행시 컨테이너가 바로 종료됨
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222891064-ec4f8e5e-e633-42c2-89d1-f448909bdb31.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;운영 체제만&lt;/strong&gt; 있는 상태에서 어떤 프로그램도 설치되어있지 않은 이미지를 실행시키면 컨테이너는 바로 &lt;strong&gt;종료&lt;/strong&gt;됨&lt;/li&gt;
+      &lt;li&gt;이전에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;httpd&lt;/code&gt;는 운영체제 안에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apache&lt;/code&gt;가 설치된 이미지였기때문에 컨테이너가 실행된 상태로 유지될 수 있었음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker attach&lt;/code&gt; 로 컨테이너 접속
+ &lt;img src=&quot;https://user-images.githubusercontent.com/77590526/222890444-66ef3449-e974-4a52-a249-abbbe5cb32ce.png&quot; alt=&quot;image&quot; width=&quot;700px&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Docker를 공부하는 과정에서 작성한 포스트입니다.
+이제 막 Docker를 접하시는 분들에게 도움이 되었으면 좋겠습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘도커입문 1강~9강,’ 유튜브 비디오, 게시자 ‘메타코딩,’ 2023년01월24일~2023년02월12일, &lt;a href=&quot;https://youtube.com/playlist?list=PL93mKxaRDidGMzIllhYKx1d6aMg6_5wW3&quot;&gt;https://youtube.com/playlist?list=PL93mKxaRDidGMzIllhYKx1d6aMg6_5wW3&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘왕초보도 따라하는 도커 기초 강의 7 도커의 유용한 명령어,’ 유튜브 비디오, 13:05, 게시자 ‘재즐보프,’ 2020년01월31일, &lt;a href=&quot;https://youtu.be/QLhpCbnoQkc&quot;&gt;https://youtu.be/QLhpCbnoQkc&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Other" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">AWS 배포하기(2) - Elastic Beanstalk</title>
       <link href="https://ohoraming.github.io/aws-deploy-elastic-beanstalk" rel="alternate" type="text/html" title="AWS 배포하기(2) - Elastic Beanstalk" />
       <published>2022-10-07T00:25:00+09:00</published>
@@ -50,6 +319,7 @@
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -235,6 +505,7 @@
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -500,6 +771,7 @@
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1080,6 +1352,7 @@
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1209,6 +1482,7 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1672,6 +1946,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1884,6 +2159,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1966,6 +2242,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
     &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
