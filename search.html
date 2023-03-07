@@ -195,6 +195,15 @@ into the {body} of the default.hbs template -->
 <script>
     window.store = {
     
+    "algorithm-mode": {
+        "title": "최빈값 구하기",
+            "author": "ohoraming",
+                "category": "",
+                    "content": "Algorithm 관련 포스팅    최빈값 구하기          이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다.문제 설명최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다.제한사항  0 &lt; array의 길이 &lt; 100  0 ≤ array의 원소 &lt; 1000입출력 예            array      result                  [1, 2, 3, 3, 3, 4]      3              [1, 1, 2, 2]      -1              [1]      1      입출력 예 설명입출력 예 #1  [1, 2, 3, 3, 3, 4]에서 1은 1개 2는 1개 3은 3개 4는 1개로 최빈값은 3입니다.입출력 예 #2  [1, 1, 2, 2]에서 1은 2개 2는 2개로 최빈값이 1, 2입니다. 최빈값이 여러 개이므로 -1을 return 합니다.입출력 예 #3  [1]에는 1만 있으므로 최빈값은 1입니다.나의 풀이  배열(array) 내 최댓값 구하기: array_max      최댓값 + 1 크기의 배열 생성: frq    → 배열(array)의 원소는 0부터 시작하기 때문에 +1을 해주어야 함        배열(array)을 돌면서 frq배열에 빈도를 1씩 더하며 기록     // 처음에 주어진 배열: array int[] array = {1, 2, 3, 3, 3, 4}      // 빈도를 기록한 배열: frq // 순서대로 0, 1, 2, 3, 4의 빈도를 나타냄 int[] frq = {0, 1, 1, 3, 1}        빈도를 기록한 배열(frq)에서 최댓값(frq_max)을 구해 해당 index(i)를 최빈값(answer)으로 반환      문제에서 최빈값이 여러 개이면, -1을 반환하라는 조건이 있음    5-1.  frq배열에서 최댓값(frq_max)과 같은 원소가  몇 개 있는지 확인    5-2. 둘 이상이면 최빈값이 여러 개이므로 answer을 -1로 반환  class Solution {    public int solution(int[] array) {        int answer = 0;         int array_max = 0; // 입력받은 배열의 최대값        int frq_max = 0; // 빈도담은 배열의 최대값        int frq_max_cnt = 0; // 최빈값의 개수\t// 1.        for (int i = 0; i &lt; array.length; i++) {            if (array[i] &gt; array_max) array_max = array[i];        }        // 2.        int[] frq = new int[array_max + 1];\t// 3.        for (int i = 0; i &lt; array.length; i++) {            frq[array[i]] += 1;        }\t// 4.        for (int i = 0; i &lt; frq.length; i++) {            if(frq[i] &gt; frq_max) {                frq_max = frq[i];                answer = i;            }        }\t// 5-1.        for (int i = 0; i &lt; frq.length; i++) {            if (frq[i] == frq_max) frq_max_cnt ++;        }\t// 5-2.        if (frq_max_cnt &gt; 1) answer = -1;                    return answer;    }}",
+        "url": "/algorithm-mode"
+    }
+    , 
+    
     "docker-basic": {
         "title": "Docker - 설치 및 실행",
             "author": "ohoraming",

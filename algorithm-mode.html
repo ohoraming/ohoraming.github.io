@@ -12,7 +12,7 @@
 
 
 
-    <title>Python(3) - PostgreSQL 연결</title>
+    <title>최빈값 구하기</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,30 +64,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/Python-postgresql" />
+    <link rel="canonical" href="https://ohoraming.github.io/algorithm-mode" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="백엔드 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Python(3) - PostgreSQL 연결" />
-    <meta property="og:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. 선행 작업 django 설치 $ python -m pip install Django 현재 directory에 project 만들기 $ django-admin startproject [project 이름] project파일 위치로 이동해 app 만들기" />
-    <meta property="og:url" content="https://ohoraming.github.io/Python-postgresql" />
-    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
+    <meta property="og:title" content="최빈값 구하기" />
+    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;" />
+    <meta property="og:url" content="https://ohoraming.github.io/algorithm-mode" />
+    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-03-16T13:35:00+09:00" />
-    <meta property="article:modified_time" content="2022-03-16T13:35:00+09:00" />
-    <meta property="article:tag" content="Python" />
+    <meta property="article:published_time" content="2023-03-07T18:18:00+09:00" />
+    <meta property="article:modified_time" content="2023-03-07T18:18:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Python(3) - PostgreSQL 연결" />
-    <meta name="twitter:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. 선행 작업 django 설치 $ python -m pip install Django 현재 directory에 project 만들기 $ django-admin startproject [project 이름] project파일 위치로 이동해 app 만들기" />
+    <meta name="twitter:title" content="최빈값 구하기" />
+    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
-    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
+    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="백엔드 개발자의 노트" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -102,18 +102,18 @@
         "name": "백엔드 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/Python-postgresql",
+    "url": "https://ohoraming.github.io/algorithm-mode",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ohoraming.github.io/assets/built/images/django-logo.png",
+        "url": "https://ohoraming.github.io/assets/built/images/algorithm-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/Python-postgresql"
+        "@id": "https://ohoraming.github.io/algorithm-mode"
     },
-    "description": "Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. 선행 작업 django 설치 $ python -m pip install Django 현재 directory에 project 만들기 $ django-admin startproject [project 이름] project파일 위치로 이동해 app 만들기"
+    "description": "Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Python(3) - PostgreSQL 연결" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="최빈값 구하기" href="/feed.xml" />
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -182,25 +182,25 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-python post ">
+        <article class="post-full  tag-algorithm post ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="16 March 2022">16 March 2022</time>
+                    <time class="post-full-meta-date" datetime=" 7 March 2023"> 7 March 2023</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/python/'>PYTHON</a>
+                    <a href='/tag/algorithm/'>ALGORITHM</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">Python(3) - PostgreSQL 연결</h1>
+                <h1 class="post-full-title">최빈값 구하기</h1>
             </header>
 
             <!-- 
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/django-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
             </figure>
              -->
 
@@ -209,106 +209,151 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">Python 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">Algorithm 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./Python-django">Python(1) - Django 설치</a></li>
-    <li><a href="./Python-mysql">Python(2) - MySQL 연결</a></li>
-    <li><a href="./Python-postgresql">Python(3) - PostgreSQL 연결</a></li>
-    <li><a href="./Python-making-queries">Python(4) - Query 만들기</a></li>
-    <li><a href="./Python-django-venv-settings">Python(5) - Django 가상 환경과 settings.py</a></li>
+    <li><a href="./algorithm-mode">최빈값 구하기</a></li>
     <br />
     <br />
 </ul>
 
-<h2 id="1-선행-작업">1. 선행 작업</h2>
+<blockquote>
+  <p>이 글은 프로그래머스의 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=java">최빈값 문제</a>의 풀이를 정리한 것입니다.</p>
+</blockquote>
+
+<h3 id="문제-설명"><strong>문제 설명</strong></h3>
+
+<p>최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 <code class="language-plaintext highlighter-rouge">array</code>가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다.</p>
+
+<hr />
+
+<h3 id="제한사항">제한사항</h3>
+
 <ul>
-  <li>django 설치
-<code class="language-plaintext highlighter-rouge">$ python -m pip install Django</code></li>
-  <li>현재 directory에 project 만들기<br />
-<code class="language-plaintext highlighter-rouge">$ django-admin startproject [project 이름]</code></li>
-  <li>project파일 위치로 이동해 app 만들기<br />
-<code class="language-plaintext highlighter-rouge">$ cd [project 이름]</code><br />
-<code class="language-plaintext highlighter-rouge">$ django-admin startapp [app 이름]</code></li>
-  <li>server 실행<br />
-<code class="language-plaintext highlighter-rouge">$ python manage.py runserver</code></li>
-  <li>pgAdmin 4 다운로드<br />
-  <a href="https://www.pgadmin.org/download/">https://www.pgadmin.org/download/</a></li>
+  <li>0 &lt; <code class="language-plaintext highlighter-rouge">array</code>의 길이 &lt; 100</li>
+  <li>0 ≤ <code class="language-plaintext highlighter-rouge">array</code>의 원소 &lt; 1000</li>
 </ul>
 
-<h2 id="2-pgadmin-4-실행">2. pgAdmin 4 실행</h2>
+<hr />
+
+<h3 id="입출력-예">입출력 예</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>array</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>[1, 2, 3, 3, 3, 4]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>[1, 1, 2, 2]</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td>[1]</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+
+<p>입출력 예 #1</p>
+
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Servers</code> - <code class="language-plaintext highlighter-rouge">PostgreSQL</code> - <code class="language-plaintext highlighter-rouge">Databases</code> 우클릭 - <code class="language-plaintext highlighter-rouge">Create</code> - <code class="language-plaintext highlighter-rouge">Database...</code> 선택</li>
-  <li>Database 이름 기입 후, <code class="language-plaintext highlighter-rouge">Save</code></li>
+  <li>[1, 2, 3, 3, 3, 4]에서 1은 1개 2는 1개 3은 3개 4는 1개로 최빈값은 3입니다.</li>
 </ul>
 
-<h2 id="3-database-설정">3. Database 설정</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">[app]/settings.py</code> 수정
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.postgresql'</span><span class="p">,</span>
-          <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'testdb'</span><span class="p">,</span> <span class="c1"># db 이름 설정
-</span>          <span class="s">'USER'</span><span class="p">:</span> <span class="s">'postgres'</span><span class="p">,</span>
-          <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'1234'</span><span class="p">,</span> <span class="c1"># 비밀번호 설정
-</span>          <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span> <span class="c1"># 127.0.0.1 도 가능
-</span>          <span class="s">'PORT'</span><span class="p">:</span> <span class="s">'5432'</span><span class="p">,</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></div>    </div>
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">ENGINE</code>: 자신이 사용할 db 엔진</li>
-      <li><code class="language-plaintext highlighter-rouge">NAME</code>: db 이름</li>
-      <li><code class="language-plaintext highlighter-rouge">HOST</code>: db host</li>
-      <li><code class="language-plaintext highlighter-rouge">PORT</code>: db 실행할 포트(기본값 5432)</li>
-    </ul>
+<p>입출력 예 #2</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="s">'myapp'</span><span class="p">,</span> <span class="c1"># app 등록 
-</span>      <span class="s">'django.contrib.admin'</span><span class="p">,</span>
-      <span class="s">'django.contrib.auth'</span><span class="p">,</span>
-      <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
-      <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
-      <span class="s">'django.contrib.messages'</span><span class="p">,</span>
-      <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
-  <span class="p">]</span>
-</code></pre></div>    </div>
-    <ul>
-      <li>만든 app을 INSTALLED_APPS에 추가</li>
-    </ul>
+<ul>
+  <li>[1, 1, 2, 2]에서 1은 2개 2는 2개로 최빈값이 1, 2입니다. 최빈값이 여러 개이므로 -1을 return 합니다.</li>
+</ul>
+
+<p>입출력 예 #3</p>
+
+<ul>
+  <li>[1]에는 1만 있으므로 최빈값은 1입니다.</li>
+</ul>
+
+<hr />
+
+<h3 id="나의-풀이">나의 풀이</h3>
+
+<ol>
+  <li>배열(<code class="language-plaintext highlighter-rouge">array</code>) 내 최댓값 구하기: <code class="language-plaintext highlighter-rouge">array_max</code></li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">최댓값 + 1</code> 크기의 배열 생성: <code class="language-plaintext highlighter-rouge">frq</code></p>
+
+    <p>→ 배열(<code class="language-plaintext highlighter-rouge">array</code>)의 원소는 0부터 시작하기 때문에 <code class="language-plaintext highlighter-rouge">+1</code>을 해주어야 함</p>
   </li>
-</ul>
+  <li>
+    <p>배열(<code class="language-plaintext highlighter-rouge">array</code>)을 돌면서 <code class="language-plaintext highlighter-rouge">frq</code>배열에 빈도를 1씩 더하며 기록</p>
 
-<h2 id="4-table-만들기">4. Table 만들기</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">[app]/model.py</code>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-  <span class="k">class</span> <span class="nc">Question</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">question_text</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-      <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s">'date published'</span><span class="p">)</span>
-
-  <span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">)</span>
-      <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-      <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// 처음에 주어진 배열: array</span>
+ <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">}</span> 
+    
+ <span class="c1">// 빈도를 기록한 배열: frq</span>
+ <span class="c1">// 순서대로 0, 1, 2, 3, 4의 빈도를 나타냄</span>
+ <span class="kt">int</span><span class="o">[]</span> <span class="n">frq</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>
 </code></pre></div>    </div>
-    <ul>
-      <li><strong>table 이름</strong>을 <strong>class 이름</strong>으로, <strong>column 이름</strong>은 <strong>변수 이름</strong>으로 설정</li>
-      <li><strong>field type</strong>은 아래 문서 참고
-  <a href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types">https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types</a></li>
-    </ul>
   </li>
-</ul>
+  <li>빈도를 기록한 배열(<code class="language-plaintext highlighter-rouge">frq</code>)에서 최댓값(<code class="language-plaintext highlighter-rouge">frq_max</code>)을 구해 해당 index(<code class="language-plaintext highlighter-rouge">i</code>)를 최빈값(<code class="language-plaintext highlighter-rouge">answer</code>)으로 반환</li>
+  <li>
+    <p>문제에서 최빈값이 여러 개이면, <code class="language-plaintext highlighter-rouge">-1</code>을 반환하라는 조건이 있음</p>
 
-<h2 id="5-db연결-및-table-생성">5. DB연결 및 table 생성</h2>
-<ul>
-  <li>psycopg2 설치: Django와 PostgreSQL을 연결<br />
-<code class="language-plaintext highlighter-rouge">$ pip install psycopg2</code></li>
-  <li>migrations 폴더 생성: model이 신규로 생성 또는 변경될 시 실행<br />
-<code class="language-plaintext highlighter-rouge">$ python manage.py makemigrations</code></li>
-  <li>model class로부터 table 생성 및 수정 실행, 실제 migration을 DB에 적용<br />
-<code class="language-plaintext highlighter-rouge">$ python manage.py migrate</code></li>
-</ul>
+    <p>5-1.  <code class="language-plaintext highlighter-rouge">frq</code>배열에서 최댓값(<code class="language-plaintext highlighter-rouge">frq_max</code>)과 같은 원소가  몇 개 있는지 확인</p>
+
+    <p>5-2. 둘 이상이면 최빈값이 여러 개이므로 <code class="language-plaintext highlighter-rouge">answer</code>을 <code class="language-plaintext highlighter-rouge">-1</code>로 반환</p>
+  </li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+        <span class="kt">int</span> <span class="n">array_max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 입력받은 배열의 최대값</span>
+        <span class="kt">int</span> <span class="n">frq_max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 빈도담은 배열의 최대값</span>
+        <span class="kt">int</span> <span class="n">frq_max_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 최빈값의 개수</span>
+
+	<span class="c1">// 1.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">array_max</span><span class="o">)</span> <span class="n">array_max</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 2.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">frq</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">array_max</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+	<span class="c1">// 3.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">frq</span><span class="o">[</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+	<span class="c1">// 4.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">frq</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">frq</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">frq_max</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">frq_max</span> <span class="o">=</span> <span class="n">frq</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                <span class="n">answer</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+	<span class="c1">// 5-1.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">frq</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">frq</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">frq_max</span><span class="o">)</span> <span class="n">frq_max_cnt</span> <span class="o">++;</span>
+        <span class="o">}</span>
+
+	<span class="c1">// 5-2.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">frq_max_cnt</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
                 </div>
             </section>
@@ -390,157 +435,23 @@ into the {body} of the default.hbs template -->
             
             
             
-            <article class="read-next-card" 
-                style="background-image: url(/assets/built/images/blog-cover1.jpg)" >
-                <header class="read-next-card-header">
-                    <small class="read-next-card-header-sitetitle">&mdash; 백엔드 개발자의 노트 &mdash;</small>
-                    
-                    <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
-                    
-                </header>
-                <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
-                <div class="read-next-card-content">
-                    <ul>
-                        
-                        
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/Python-django-orm">Python(6) - ORM(Object-Relational Mapping)</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                         <li><a href="/Python-django-venv-settings">Python(5) - Django 가상 환경과 settings.py</a></li>
-                            
-                            
-                            
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                         <li><a href="/Python-making-queries">Python(4) - Query 만들기 [object 검색]</a></li>
-                            
-                            
-                            
-                            
-                        
-                            
-                        
-                        
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                    </ul>
-                </div>
-                <footer class="read-next-card-footer">
-                    <a href="/tag/python/">
-                        
-                        See all 5 posts →
-                        
-                    </a>
-                </footer>
-            </article>
-            
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
             
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/test-code">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/git-logo.png)"></div>
+            <a class="post-card-image-link" href="/docker-basic">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/docker-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/test-code">
+            <a class="post-card-content-link" href="/docker-basic">
                 <header class="post-card-header">
                     
                         
@@ -550,7 +461,7 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">Test Code</h2>
+                    <h2 class="post-card-title">Docker - 설치 및 실행</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -575,62 +486,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/Python-mysql">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/django-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/Python-mysql">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Python</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Python(2) - MySQL 연결</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -652,18 +508,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Python(3) - PostgreSQL 연결</div>
+    <div class="floating-header-title">최빈값 구하기</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python%283%29+-+PostgreSQL+%EC%97%B0%EA%B2%B0&amp;url=https://ohoraming.github.io/Python-postgresql"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%B5%9C%EB%B9%88%EA%B0%92+%EA%B5%AC%ED%95%98%EA%B8%B0&amp;url=https://ohoraming.github.io/algorithm-mode"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/Python-postgresql"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/algorithm-mode"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
