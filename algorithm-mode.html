@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="백엔드 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="최빈값 구하기" />
-    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;" />
+    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100" />
     <meta property="og:url" content="https://ohoraming.github.io/algorithm-mode" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="최빈값 구하기" />
-    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;" />
+    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/algorithm-mode"
     },
-    "description": "Algorithm 관련 포스팅 최빈값 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100 0 ≤ array의 원소 &lt;"
+    "description": "Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 최빈값 문제의 풀이를 정리한 것입니다. 문제 설명 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 array가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다. 제한사항 0 &lt; array의 길이 &lt; 100"
 }
     </script>
 
@@ -153,11 +153,13 @@ into the {body} of the default.hbs template -->
         <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <!-- href: C:\myblog\_data\authors\tags.yml에서 설정한 tag명 tag/다음에 넣음 -->
-    <li class="nav-about" role="menuitem"><a href="https://ohoraming.github.io/my_resume/" target="_blank">Portfolio</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="https://ohoraming.github.io/my_resume/" target="_blank">Portfolio</a></li> -->
+    <li class="nav-archive" role="menuitem"><a href="/tag/spring/">Spring</a></li>
+    <li class="nav-archive" role="menuitem"><a href="/tag/algorithm/">Algorithm</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/javascript/">JavaScript</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/python/">Python</a></li>
     <li class="nav-archive" role="menuitem"><a href="/tag/os/">OS</a></li>
-    <li class="nav-archive" role="menuitem"><a href="/tag/other/">Other</a></li>
+    <li class="nav-archive" role="menuitem"><a href="/tag/devops/">DevOps</a></li>
     <li class="nav-archive" role="menuitem"><a href="/archive.html">All Posts</a></li>
     <li class="nav-archive" role="menuitem"><a href="/author_archive.html">All Tags</a></li>
 </ul>
@@ -212,6 +214,7 @@ into the {body} of the default.hbs template -->
 <p><span class="table-of-contents-list">Algorithm 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./algorithm-mode">최빈값 구하기</a></li>
+    <li><a href="./algorithm-numOfK">k의 개수 구하기</a></li>
     <br />
     <br />
 </ul>
@@ -435,9 +438,178 @@ into the {body} of the default.hbs template -->
             
             
             
+            <article class="read-next-card" 
+                style="background-image: url(/assets/built/images/blog-cover1.jpg)" >
+                <header class="read-next-card-header">
+                    <small class="read-next-card-header-sitetitle">&mdash; 백엔드 개발자의 노트 &mdash;</small>
+                    
+                    <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
+                    
+                </header>
+                <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                <div class="read-next-card-content">
+                    <ul>
+                        
+                        
+                        
+                        
+                        
+                         <li><a href="/algorithm-numOfK">k의 개수 구하기</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                            
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                    </ul>
+                </div>
+                <footer class="read-next-card-footer">
+                    <a href="/tag/algorithm/">
+                        
+                        See all 1 posts →
+                        
+                    </a>
+                </footer>
+            </article>
+            
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/algorithm-numOfK">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/algorithm-numOfK">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Algorithm</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">k의 개수 구하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
+
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
@@ -456,7 +628,7 @@ into the {body} of the default.hbs template -->
                     
                         
                             
-                                <span class="post-card-tags">Other</span>
+                                <span class="post-card-tags">Devops</span>
                             
                         
                     

@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://ohoraming.github.io/tag/other/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://ohoraming.github.io/tag/devops/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2023-03-07T18:44:18+09:00</updated>
-  <id>https://ohoraming.github.io/tag/other/feed.xml</id>
+  <updated>2023-03-17T17:11:03+09:00</updated>
+  <id>https://ohoraming.github.io/tag/devops/feed.xml</id>
 
   
   
@@ -289,7 +289,7 @@
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -475,7 +475,7 @@
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -741,7 +741,7 @@
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -1322,7 +1322,7 @@
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -1452,7 +1452,7 @@ API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하�
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -1916,7 +1916,7 @@ Clean Code: 번역본도 있어서 내용이 어렵지 않음. 추천&lt;/p&gt;
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -2129,7 +2129,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -2212,7 +2212,7 @@ e.g.) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git sta
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       
@@ -2396,7 +2396,7 @@ issue의 tracking Id는 8712이고,&lt;br /&gt;
       
 
       
-        <category term="Other" />
+        <category term="DevOps" />
       
 
       

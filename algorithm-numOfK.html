@@ -12,7 +12,7 @@
 
 
 
-    <title>OS(4) - CPU Scheduling</title>
+    <title>k의 개수 구하기</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,30 +64,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/OS-cpu-scheduling" />
+    <link rel="canonical" href="https://ohoraming.github.io/algorithm-numOfK" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="백엔드 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OS(4) - CPU Scheduling" />
-    <meta property="og:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation CPU Scheduling Preemptive(선점) → CPU가" />
-    <meta property="og:url" content="https://ohoraming.github.io/OS-cpu-scheduling" />
-    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta property="og:title" content="k의 개수 구하기" />
+    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 k의 개수 문제의 풀이를 정리한 것입니다. 문제 설명 1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 정수 i, j, k가 매개변수로 주어질 때, i부터 j까지 k가 몇 번 등장하는지 return 하도록 solution 함수를 완성해주세요. 제한사항 1 ≤ i &lt; j ≤ 100,000 0 ≤ k ≤" />
+    <meta property="og:url" content="https://ohoraming.github.io/algorithm-numOfK" />
+    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-01-30T00:01:00+09:00" />
-    <meta property="article:modified_time" content="2022-01-30T00:01:00+09:00" />
-    <meta property="article:tag" content="Os" />
+    <meta property="article:published_time" content="2023-03-17T16:48:00+09:00" />
+    <meta property="article:modified_time" content="2023-03-17T16:48:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OS(4) - CPU Scheduling" />
-    <meta name="twitter:description" content="OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation CPU Scheduling Preemptive(선점) → CPU가" />
+    <meta name="twitter:title" content="k의 개수 구하기" />
+    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 k의 개수 문제의 풀이를 정리한 것입니다. 문제 설명 1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 정수 i, j, k가 매개변수로 주어질 때, i부터 j까지 k가 몇 번 등장하는지 return 하도록 solution 함수를 완성해주세요. 제한사항 1 ≤ i &lt; j ≤ 100,000 0 ≤ k ≤" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
-    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/os-logo.png" />
+    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="백엔드 개발자의 노트" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Os" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -102,18 +102,18 @@
         "name": "백엔드 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/OS-cpu-scheduling",
+    "url": "https://ohoraming.github.io/algorithm-numOfK",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ohoraming.github.io/assets/built/images/os-logo.png",
+        "url": "https://ohoraming.github.io/assets/built/images/algorithm-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/OS-cpu-scheduling"
+        "@id": "https://ohoraming.github.io/algorithm-numOfK"
     },
-    "description": "OS 관련 포스팅 OS(1) - Introduction OS(2) - Interrupt-Based System OS(3) - Process Management OS(4) - CPU Scheduling OS(5) - Thread OS(6) - Classical Synchronization Problems OS(7) - Deadlock OS(8) - Monitor OS(9) - Midterm OS(10) - Main Memory Management OS(11) - Contiguous Memory Allocation CPU Scheduling Preemptive(선점) → CPU가"
+    "description": "Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 이 글은 프로그래머스의 k의 개수 문제의 풀이를 정리한 것입니다. 문제 설명 1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 정수 i, j, k가 매개변수로 주어질 때, i부터 j까지 k가 몇 번 등장하는지 return 하도록 solution 함수를 완성해주세요. 제한사항 1 ≤ i &lt; j ≤ 100,000 0 ≤ k ≤"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="OS(4) - CPU Scheduling" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="k의 개수 구하기" href="/feed.xml" />
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -184,25 +184,25 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-os post ">
+        <article class="post-full  tag-algorithm post ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="30 January 2022">30 January 2022</time>
+                    <time class="post-full-meta-date" datetime="17 March 2023">17 March 2023</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/os/'>OS</a>
+                    <a href='/tag/algorithm/'>ALGORITHM</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">OS(4) - CPU Scheduling</h1>
+                <h1 class="post-full-title">k의 개수 구하기</h1>
             </header>
 
             <!-- 
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/os-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
             </figure>
              -->
 
@@ -211,131 +211,174 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">OS 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">Algorithm 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./OS-intro">OS(1) - Introduction</a></li>
-    <li><a href="./OS-interrupt-based-system">OS(2) - Interrupt-Based System</a></li>
-    <li><a href="./OS-process-mgmt">OS(3) - Process Management</a></li>
-    <li><a href="./OS-cpu-scheduling">OS(4) - CPU Scheduling</a></li>
-    <li><a href="./OS-thread">OS(5) - Thread</a></li>
-    <li><a href="./OS-classical-sync-problems">OS(6) - Classical Synchronization Problems</a></li>
-    <li><a href="./OS-deadlock">OS(7) - Deadlock</a></li>
-    <li><a href="./OS-monitor">OS(8) - Monitor</a></li>
-    <li><a href="./OS-midterm">OS(9) - Midterm</a></li>
-    <li><a href="./OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-    <li><a href="./OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
+    <li><a href="./algorithm-mode">최빈값 구하기</a></li>
+    <li><a href="./algorithm-numOfK">k의 개수 구하기</a></li>
     <br />
     <br />
 </ul>
 
-<h2 id="cpu-scheduling">CPU Scheduling</h2>
+<blockquote>
+  <p>이 글은 프로그래머스의 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120887">k의 개수 문제</a>의 풀이를 정리한 것입니다.</p>
+</blockquote>
+
+<h3 id="문제-설명"><strong>문제 설명</strong></h3>
+
+<p>1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 정수 <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code>, <code class="language-plaintext highlighter-rouge">k</code>가 매개변수로 주어질 때, <code class="language-plaintext highlighter-rouge">i</code>부터 <code class="language-plaintext highlighter-rouge">j</code>까지 <code class="language-plaintext highlighter-rouge">k</code>가 몇 번 등장하는지 return 하도록 solution 함수를 완성해주세요.</p>
+
+<hr />
+
+<h3 id="제한사항">제한사항</h3>
+
 <ul>
-  <li>Preemptive(선점)<br />
-  → CPU가 어떤 프로세스를 실행 중에 강제로 쫓아내고 다른 프로세스를 실행시킬 수 있는 scheduling 방식</li>
-  <li>Non-preemptive(비선점)<br />
-  → CPU가 어떤 프로세스를 실행 중이라면 해당 프로세스가 I/O를 만나거나 종료되지 않은 상황에서는 절대 scheduling이 일어나지 않는 방식</li>
-  <li>CPU Utilization(CPU 이용률)<br />
-  → CPU가 얼마나 열심히 일하고 있는가(%)</li>
-  <li>Throughput(처리율)<br />
-  → 시간당 몇 개의 작업을 처리하는가(jobs/sec)</li>
-  <li>Turnaround time(반환시간)<br />
-  → 어떤 작업이 ready queue에 들어가서 작업을 끝내고 나오는 시간(sec)</li>
-  <li>Waiting time(대기시간)<br />
-  → ready queue에서 기다린 시간(sec)</li>
-  <li>Response time(응답시간)<br />
-  → interactive system(대화형 시스템)에서 중요<br />
-  → 첫 응답이 나오는 데까지 걸리는 시간</li>
+  <li>1 ≤ <code class="language-plaintext highlighter-rouge">i</code> &lt; <code class="language-plaintext highlighter-rouge">j</code> ≤ 100,000</li>
+  <li>0 ≤ <code class="language-plaintext highlighter-rouge">k</code> ≤ 9</li>
 </ul>
 
-<h2 id="cpu-scheduling-algorithms">CPU Scheduling Algorithms</h2>
+<hr />
 
-<h3 id="1-first-come-first-servedfcfs">1. First-Come, First-Served(FCFS)</h3>
+<h3 id="입출력-예">입출력 예</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>i</th>
+      <th>j</th>
+      <th>k</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>13</td>
+      <td>1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>50</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>10</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+
+<p>입출력 예 #1</p>
+
 <ul>
-  <li><strong>먼저 들어오면</strong>, 먼저 서비스 함</li>
-  <li><strong>간단</strong>하며, <strong>공평</strong>하지만 반드시 좋은 성능을 보장하지는 않음</li>
-  <li><strong>A</strong>verage <strong>W</strong>aiting <strong>T</strong>ime(AWT): ready queue에서 기다리는 시간</li>
-  <li>단점: Convoy Effect(호위 효과)<br />
-  → burst time이 긴 프로세스가 앞에 있으면 나머지 프로세스는 뒤에서 오래 기다리게 되는데 그 모양새를 왕을 호위하는 사람에 비유</li>
-  <li><strong>Non-preeptive</strong> scheduling방식</li>
+  <li>본문과 동일합니다.</li>
 </ul>
 
-<h3 id="2-shortest-job-firstsjf">2. Shortest-Job-First(SJF)</h3>
+<p>입출력 예 #2</p>
+
 <ul>
-  <li><strong>실행 시간이 짧은 것</strong>을 먼저 서비스 함</li>
-  <li>대기 시간을 줄이는 최적의 방법</li>
-  <li>단점: 비현실적임(실제 CPU 사용 시간은 실행을 해보기 전에는 알 수 없음)<br />
-      예측이 필수(과거를 기억하고 있어야 함)<br />
-      → overhead 발생, 시간이 많이 걸림<br />
-      → 현실적인 적용이 어려움</li>
-  <li>선점(preemptive)/비선점(non-preemptive) 두 가지 방식 가능</li>
-  <li>선점 방식의 경우 최소 잔여 시간 우선</li>
+  <li>10부터 50까지 5는 15, 25, 35, 45, 50 총 5번 등장합니다. 따라서 5를 return 합니다.</li>
 </ul>
 
-<h3 id="3-priority-scheduling">3. Priority Scheduling</h3>
+<p>입출력 예 #3</p>
+
 <ul>
-  <li><strong>우선 순위가 높은 것</strong>을 먼저 서비스 함</li>
-  <li>우선 순위 설정
-    <ul>
-      <li>integer number</li>
-      <li>내부적: 실행 시간 짧은, 메모리 작게 차지하는, I/O가 긴(=CPU가 짧은) 등</li>
-      <li>외부적: 비용을 많이 지불한 쪽, 정치적인 요소 등</li>
-    </ul>
+  <li>3부터 10까지 2는 한 번도 등장하지 않으므로 0을 return 합니다.</li>
+</ul>
+
+<hr />
+
+<h3 id="나의-풀이1">나의 풀이(1)</h3>
+
+<ol>
+  <li>주어진 숫자를 하나씩 돌면서 비교</li>
+  <li>주어진 숫자를 <code class="language-plaintext highlighter-rouge">tmp</code>변수에 넣고</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tmp</code>를 10으로 나눈 나머지가 k이면 <code class="language-plaintext highlighter-rouge">answer</code>를 1증가시킴</p>
+
+    <p>→ 이는 <code class="language-plaintext highlighter-rouge">tmp</code>의 일의 자리 숫자에 있는 k를 가리킴</p>
   </li>
-  <li>선점 또는 비선점</li>
-  <li>문제점: starvation 돌입 가능 - 우선 순위에서 밀리면 아무리 기다려도 서비스를 받지 못 함</li>
-  <li>해결: aging - ready queue에서 오래 기다릴 수록 priority를 조금씩 상승시킴</li>
-</ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tmp</code>의 일의 자리 숫자 비교가 끝났으니 다음 자리(십의 자리) 숫자를 비교함</p>
 
-<h3 id="4-round-robinrr">4. Round-Robin(RR)</h3>
-<ul>
-  <li>time-sharing system에서 많이 사용</li>
-  <li><strong>time quantum</strong>(시간 양자) = time slice = <strong>Δ</strong><br />
-  → 10 ~ 100msec: 1초당 10 ~ 100 번의 switching 발생</li>
-  <li>time quantum에 따라 성능이 달라짐</li>
-  <li>Δ → ∞ : FCFS</li>
-  <li>Δ → 0 : switching이 빈번해 여러 프로세스가 동시에 서비스 되는 것 같은 느낌을 줌</li>
-</ul>
-
-<h2 id="multilevel-queue-scheduling">Multilevel Queue Scheduling</h2>
-<ul>
-  <li>process별로 queue를 달리해 서비스 함</li>
-  <li>여러 single ready queue의 묶음</li>
-  <li>queue마다 우선 순위는 다름</li>
-  <li>CPU time을 각 queue에 차등 배분함</li>
-  <li>queue별로 다른 scheduling 정책을 실행함</li>
-</ul>
-
-<h2 id="multilevel-feedback-queue-scheduling">Multilevel Feedback Queue Scheduling</h2>
-<ul>
-  <li>여러 개의 queue<br />
-  → multilevel queue scheduling과의 공통점</li>
-  <li>모든 process는 하나의 입구로 진입</li>
-  <li>너무 많은 CPU time 소비 시, 기아 상태가 우려될 시 다른 queue로 이동</li>
-</ul>
-
-<h2 id="process-creation">Process Creation</h2>
-<ul>
-  <li>프로세스는 프로세스에 의해 만들어짐<br />
-  → parent/child/sibling process, process tree</li>
-  <li>Process Identifier(PID)<br />
-  → 사람의 주민등록번호와 같은 것<br />
-  cf.) Parent Process Identifier(PPID)</li>
-  <li>system call
-    <ul>
-      <li>fork(): parent process 복사</li>
-      <li>exec(): 실행파일을 메모리로 가져오기</li>
-    </ul>
+    <p>→ 다음 자리 숫자가 없으면 10으로 나눈 몫은 0이 됨</p>
   </li>
-</ul>
+  <li>
+    <p>다음 자리 숫자가 있을 때까지 비교</p>
 
-<h2 id="process-termination">Process Termination</h2>
-<ul>
-  <li>system call
-    <ul>
-      <li>exit(): 해당 프로세스의 자원 OS에 반환</li>
-    </ul>
+    <p>→ 다음 자리 숫자가 있으면 10으로 나눈 몫이 0이 아님</p>
   </li>
-</ul>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// 1.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="o">;</span> <span class="n">num</span><span class="o">++)</span> <span class="o">{</span>
+
+	<span class="c1">// 2.</span>
+            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
+
+	<span class="c1">// 5.</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+
+		<span class="c1">// 3.</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="n">answer</span><span class="o">++;</span>
+                
+		<span class="c1">// 4.</span>
+                <span class="n">tmp</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+            
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="나의-풀이2">나의 풀이(2)</h3>
+
+<ol>
+  <li>주어진 숫자를 하나씩 돌면서 비교</li>
+  <li>해당 숫자(<code class="language-plaintext highlighter-rouge">int</code>)를 <code class="language-plaintext highlighter-rouge">String</code>으로 변환</li>
+  <li>
+    <p>변환한 문자열을 한 글자씩 돌면서 비교</p>
+
+    <p>3-1. <code class="language-plaintext highlighter-rouge">int</code>인 <code class="language-plaintext highlighter-rouge">k</code>를 <code class="language-plaintext highlighter-rouge">char</code>(<code class="language-plaintext highlighter-rouge">k_char</code>)로 형변환</p>
+
+    <p>3-2. 해당 문자열에 <code class="language-plaintext highlighter-rouge">k_char</code>가 존재하는 수만큼 <code class="language-plaintext highlighter-rouge">answer</code> 증가</p>
+  </li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        
+	<span class="c1">// 1.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="o">;</span> <span class="n">a</span><span class="o">++)</span> <span class="o">{</span>
+
+	    <span class="c1">// 2.</span>
+            <span class="nc">String</span> <span class="n">num</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+            
+	<span class="c1">// 3.</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">b</span><span class="o">++)</span> <span class="o">{</span>
+
+		<span class="c1">// 3-1.</span>
+                <span class="kt">char</span> <span class="n">k_char</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)(</span><span class="n">k</span> <span class="o">+</span> <span class="sc">'0'</span><span class="o">);</span>
+                
+		<span class="c1">// 3-2.</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">b</span><span class="o">)</span> <span class="o">==</span> <span class="n">k_char</span><span class="o">)</span> <span class="n">answer</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
                 </div>
             </section>
@@ -422,7 +465,7 @@ into the {body} of the default.hbs template -->
                 <header class="read-next-card-header">
                     <small class="read-next-card-header-sitetitle">&mdash; 백엔드 개발자의 노트 &mdash;</small>
                     
-                    <h3 class="read-next-card-header-title"><a href="/tag/os/">Os</a></h3>
+                    <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
                     
                 </header>
                 <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -432,6 +475,20 @@ into the {body} of the default.hbs template -->
                         
                         
                         
+                        
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/algorithm-mode">최빈값 구하기</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
                             
                         
                             
@@ -472,83 +529,22 @@ into the {body} of the default.hbs template -->
                         
                             
                         
-                        
-                        
-                         <li><a href="/OS-contiguous-memory-allocation">OS(11) - Contiguous Memory Allocation</a></li>
-                            
-                            
-                            
                             
                         
                             
                         
-                        
-                        
-                         <li><a href="/OS-main-memory-mgmt">OS(10) - Main Memory Management</a></li>
-                            
-                            
-                            
                             
                         
-                        
-                        
-                         <li><a href="/OS-midterm">OS(9) - Midterm</a></li>
-                            
-                            
-                            
                             
                         
-                        
-                        
-                        
-                            
-                            
                             
                         
-                        
-                        
-                        
-                            
-                            
                             
                         
-                        
-                        
-                        
-                            
-                            
                             
                         
-                        
-                        
-                        
-                            
-                            
                             
                         
-                        
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                        
-                        
-                            
-                            
                             
                         
                             
@@ -573,9 +569,9 @@ into the {body} of the default.hbs template -->
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
-                    <a href="/tag/os/">
+                    <a href="/tag/algorithm/">
                         
-                        See all 10 posts →
+                        See all 1 posts →
                         
                     </a>
                 </footer>
@@ -585,58 +581,6 @@ into the {body} of the default.hbs template -->
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/OS-thread">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-thread">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Os</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">OS(5) - Thread</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      2 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
@@ -644,22 +588,22 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/OS-process-mgmt">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/os-logo.png)"></div>
+            <a class="post-card-image-link" href="/algorithm-mode">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/OS-process-mgmt">
+            <a class="post-card-content-link" href="/algorithm-mode">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Os</span>
+                                <span class="post-card-tags">Algorithm</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">OS(3) - Process Management</h2>
+                    <h2 class="post-card-title">최빈값 구하기</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -706,18 +650,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">OS(4) - CPU Scheduling</div>
+    <div class="floating-header-title">k의 개수 구하기</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=OS%284%29+-+CPU+Scheduling&amp;url=https://ohoraming.github.io/OS-cpu-scheduling"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=k%EC%9D%98+%EA%B0%9C%EC%88%98+%EA%B5%AC%ED%95%98%EA%B8%B0&amp;url=https://ohoraming.github.io/algorithm-numOfK"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/OS-cpu-scheduling"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/algorithm-numOfK"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
