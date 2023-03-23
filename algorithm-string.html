@@ -71,7 +71,7 @@
     <meta property="og:site_name" content="백엔드 개발자의 노트" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="String" />
-    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 01. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length()" />
+    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length() -" />
     <meta property="og:url" content="https://ohoraming.github.io/algorithm-string" />
     <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -81,7 +81,7 @@
     <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="String" />
-    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 01. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length()" />
+    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length() -" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
     <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -113,7 +113,7 @@
         "@type": "WebPage",
         "@id": "https://ohoraming.github.io/algorithm-string"
     },
-    "description": "Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 01. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length()"
+    "description": "Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다. 역순 출력 for 문 구조 for (변수 초기값; 변수 조건문; 변수의 증감식) 기존에 익숙했던 패턴인 for (int i = 0; i &lt; 배열.length; i++)을 수정 for (int i = my_string.length() -"
 }
     </script>
 
@@ -224,10 +224,10 @@ into the {body} of the default.hbs template -->
   <p>이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다.</p>
 </blockquote>
 
-<h1 id="01-역순-출력">01. 역순 출력</h1>
+<h1 id="역순-출력">역순 출력</h1>
 
 <ul>
-  <li>for 문 구조 <code class="language-plaintext highlighter-rouge">for (변수 초기값; 변수 조건문; 변수의 증감식)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">for 문</code> 구조 <code class="language-plaintext highlighter-rouge">for (변수 초기값; 변수 조건문; 변수의 증감식)</code></li>
   <li>기존에 익숙했던 패턴인 <code class="language-plaintext highlighter-rouge">for (int i = 0; i &lt; 배열.length; i++)</code>을 수정</li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">for (int i = my_string.length() - 1; i &gt;= 0; i--)</code></p>
@@ -239,24 +239,26 @@ into the {body} of the default.hbs template -->
     <p>예시</p>
 
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">"bread"</span><span class="o">;</span>
+  <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
     
-  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+  <span class="c1">// for문 구조 수정</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span> 
   		<span class="n">result</span> <span class="o">+=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
   <span class="o">}</span>
     
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"result = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
 </code></pre></div>    </div>
 
     <ul>
       <li>result</li>
     </ul>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  result <span class="o">=</span> daerb
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  daerb
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<h1 id="02-배수-번째의-문자-출력">02. 배수 번째의 문자 출력</h1>
+<h1 id="배수-번째의-문자-출력">배수 번째의 문자 출력</h1>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">for문</code> 구조를 이용해 <code class="language-plaintext highlighter-rouge">if문</code>의 조건을 대신함</li>
@@ -317,7 +319,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h1 id="03-변수-타입-확인">03. 변수 타입 확인</h1>
+<h1 id="변수-타입-확인">변수 타입 확인</h1>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">객체</code>의 경우, <code class="language-plaintext highlighter-rouge">getClass().getSimpleName()</code>으로 타입을 확인</li>
@@ -349,7 +351,75 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h1 id="04-string을-string으로-변환">04. String[]을 String으로 변환</h1>
+<h1 id="char을-string으로-변환">char[]을 String으로 변환</h1>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">String 생성자</code> 이용</p>
+
+    <p>: <code class="language-plaintext highlighter-rouge">char[]</code>를 인자로 받아 내부적으로 <code class="language-plaintext highlighter-rouge">String.valueOf()</code>를 호출함</p>
+
+    <ul>
+      <li>
+        <p>예시</p>
+
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">char</span><span class="o">[]</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'m'</span><span class="o">,</span> <span class="sc">'i'</span><span class="o">,</span> <span class="sc">'n'</span><span class="o">,</span> <span class="sc">'g'</span><span class="o">};</span>
+  <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>
+        
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>result</li>
+        </ul>
+
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ming
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">String.valueOf()</code>
+    <ul>
+      <li>예시</li>
+    </ul>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">char</span><span class="o">[]</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'c'</span><span class="o">,</span> <span class="sc">'h'</span><span class="o">,</span> <span class="sc">'e'</span><span class="o">,</span> <span class="sc">'r'</span><span class="o">,</span> <span class="sc">'r'</span><span class="o">,</span> <span class="sc">'y'</span><span class="o">};</span>
+ <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>
+    
+ <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cherry
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">StringBuilder</code> 인스턴스 생성 후 <code class="language-plaintext highlighter-rouge">append()</code> 메서드 사용
+    <ul>
+      <li>예시</li>
+    </ul>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">char</span><span class="o">[]</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'b'</span><span class="o">,</span> <span class="sc">'l'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'s'</span><span class="o">,</span> <span class="sc">'s'</span><span class="o">,</span> <span class="sc">'o'</span><span class="o">,</span> <span class="sc">'m'</span><span class="o">};</span>
+ <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+ <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ch</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+     <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">ch</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+ <span class="o">}</span>
+    
+ <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> blossom
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="string을-string으로-변환">String[]을 String으로 변환</h1>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">String.join(구분자, 배열)</code></li>
@@ -372,7 +442,7 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h1 id="05-기본형을-string으로-변환">05. 기본형을 String으로 변환</h1>
+<h1 id="기본형을-string으로-변환">기본형을 String으로 변환</h1>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">String.valueOf()</code>을 이용해 <code class="language-plaintext highlighter-rouge">boolean</code>, <code class="language-plaintext highlighter-rouge">char</code>, <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">long</code>, <code class="language-plaintext highlighter-rouge">float</code>, <code class="language-plaintext highlighter-rouge">double</code>을 <code class="language-plaintext highlighter-rouge">String</code>으로 변환</li>
@@ -406,7 +476,30 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
-<h1 id="06-대소문자로-변경">06. 대/소문자로 변경</h1>
+<h1 id="string을-char로-변환">String을 char[]로 변환</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">문자열.toCharArray()</code></li>
+  <li>
+    <p>예시</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"Spring"</span><span class="o">;</span>
+    
+  <span class="kt">char</span><span class="o">[]</span> <span class="n">chArr</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span> <span class="c1">// String -&gt; char[]</span>
+    
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">chArr</span><span class="o">));</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">[</span>S, p, r, i, n, g]
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="대소문자-변환">대/소문자 변환</h1>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">toUpperCase()</code>, <code class="language-plaintext highlighter-rouge">toLowerCase()</code></li>
@@ -425,6 +518,31 @@ into the {body} of the default.hbs template -->
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ABCDEFGHIJ
   abcdefghij
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="문자-위치-찾기">문자 위치 찾기</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">문자열.indexOf()</code>: 문자열에서 해당 문자의 첫 등장 위치 반환</li>
+  <li>
+    <p>예시: 처음 등장하는 문자만 반환하기</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">"We are the world"</span><span class="o">;</span>
+  <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">my_string</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">my_string</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">==</span> <span class="n">i</span><span class="o">)</span> <span class="n">answer</span> <span class="o">+=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  We arthwold
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -523,6 +641,8 @@ into the {body} of the default.hbs template -->
                     <ul>
                         
                         
+                        
+                            
                         
                         
                             
@@ -637,6 +757,58 @@ into the {body} of the default.hbs template -->
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+            
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/spring-none">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/spring-none">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Spring</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">restTemplate</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
+
+                        
+                        <span class="post-card-author">
+                            <a href="/author/ohoraming/">ohoraming</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->

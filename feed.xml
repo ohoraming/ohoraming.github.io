@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2023-03-20T17:42:18+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">백엔드 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">String</title><link href="https://ohoraming.github.io/algorithm-string" rel="alternate" type="text/html" title="String" /><published>2023-03-20T15:15:00+09:00</published><updated>2023-03-20T15:15:00+09:00</updated><id>https://ohoraming.github.io/algorithm-string</id><content type="html" xml:base="https://ohoraming.github.io/algorithm-string">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2023-03-23T16:46:57+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">백엔드 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">restTemplate</title><link href="https://ohoraming.github.io/spring-none" rel="alternate" type="text/html" title="restTemplate" /><published>2023-03-21T18:18:00+09:00</published><updated>2023-03-21T18:18:00+09:00</updated><id>https://ohoraming.github.io/spring-none</id><content type="html" xml:base="https://ohoraming.github.io/spring-none">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Spring 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;!-- &lt;li&gt;&lt;a href=&quot;./Spring&quot;&gt;title&lt;/a&gt;&lt;/li&gt; --&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 를 정리한 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Amazon RDS | Deploy Spring Boot + MySQL CRUD Application into Elastic Beanstalk | JavaTechie,’ 유튜브 비디오, 14:39, 게시자 ‘Java Techie,’ 2020년07월19일, &lt;a href=&quot;https://youtu.be/Tbf7F42tcBw&quot;&gt;https://youtu.be/Tbf7F42tcBw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;‘Spring Boot AWS Deployment - Full Course,’ 유튜브 비디오, 1:03:19, 게시자 ‘Java Guides,’ 2021년05월01일, &lt;a href=&quot;https://youtu.be/D1yOALZcMHs&quot;&gt;https://youtu.be/D1yOALZcMHs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>ohoraming</name></author><category term="Spring" /><summary type="html"></summary></entry><entry><title type="html">String</title><link href="https://ohoraming.github.io/algorithm-string" rel="alternate" type="text/html" title="String" /><published>2023-03-20T15:15:00+09:00</published><updated>2023-03-20T15:15:00+09:00</updated><id>https://ohoraming.github.io/algorithm-string</id><content type="html" xml:base="https://ohoraming.github.io/algorithm-string">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -14,10 +36,10 @@
   &lt;p&gt;이 글은 알고리즘 문제를 풀면서 String과 관련한 메서드를 정리한 것입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1 id=&quot;01-역순-출력&quot;&gt;01. 역순 출력&lt;/h1&gt;
+&lt;h1 id=&quot;역순-출력&quot;&gt;역순 출력&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;for 문 구조 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for (변수 초기값; 변수 조건문; 변수의 증감식)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for 문&lt;/code&gt; 구조 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for (변수 초기값; 변수 조건문; 변수의 증감식)&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;기존에 익숙했던 패턴인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for (int i = 0; i &amp;lt; 배열.length; i++)&lt;/code&gt;을 수정&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for (int i = my_string.length() - 1; i &amp;gt;= 0; i--)&lt;/code&gt;&lt;/p&gt;
@@ -29,24 +51,26 @@
     &lt;p&gt;예시&lt;/p&gt;
 
     &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;bread&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// for문 구조 수정&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
   		&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
-  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;ul&gt;
       &lt;li&gt;result&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  result &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; daerb
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  daerb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;02-배수-번째의-문자-출력&quot;&gt;02. 배수 번째의 문자 출력&lt;/h1&gt;
+&lt;h1 id=&quot;배수-번째의-문자-출력&quot;&gt;배수 번째의 문자 출력&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for문&lt;/code&gt; 구조를 이용해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if문&lt;/code&gt;의 조건을 대신함&lt;/li&gt;
@@ -107,7 +131,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;03-변수-타입-확인&quot;&gt;03. 변수 타입 확인&lt;/h1&gt;
+&lt;h1 id=&quot;변수-타입-확인&quot;&gt;변수 타입 확인&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;객체&lt;/code&gt;의 경우, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getClass().getSimpleName()&lt;/code&gt;으로 타입을 확인&lt;/li&gt;
@@ -139,7 +163,75 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;04-string을-string으로-변환&quot;&gt;04. String[]을 String으로 변환&lt;/h1&gt;
+&lt;h1 id=&quot;char을-string으로-변환&quot;&gt;char[]을 String으로 변환&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String 생성자&lt;/code&gt; 이용&lt;/p&gt;
+
+    &lt;p&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;char[]&lt;/code&gt;를 인자로 받아 내부적으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String.valueOf()&lt;/code&gt;를 호출함&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;예시&lt;/p&gt;
+
+        &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'m'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'i'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'n'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'g'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        
+  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;result&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ming
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String.valueOf()&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;예시&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'c'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'h'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'e'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;valueOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    
+ &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;result&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; cherry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; 인스턴스 생성 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;append()&lt;/code&gt; 메서드 사용
+    &lt;ul&gt;
+      &lt;li&gt;예시&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'l'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'o'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'s'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'s'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'o'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'m'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+ &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;result&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; blossom
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;string을-string으로-변환&quot;&gt;String[]을 String으로 변환&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String.join(구분자, 배열)&lt;/code&gt;&lt;/li&gt;
@@ -162,7 +254,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;05-기본형을-string으로-변환&quot;&gt;05. 기본형을 String으로 변환&lt;/h1&gt;
+&lt;h1 id=&quot;기본형을-string으로-변환&quot;&gt;기본형을 String으로 변환&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String.valueOf()&lt;/code&gt;을 이용해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boolean&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;char&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;long&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;double&lt;/code&gt;을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;으로 변환&lt;/li&gt;
@@ -196,7 +288,30 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;06-대소문자로-변경&quot;&gt;06. 대/소문자로 변경&lt;/h1&gt;
+&lt;h1 id=&quot;string을-char로-변환&quot;&gt;String을 char[]로 변환&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.toCharArray()&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;예시&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Spring&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    
+  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chArr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toCharArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// String -&amp;gt; char[]&lt;/span&gt;
+    
+  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chArr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;result&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;S, p, r, i, n, g]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;대소문자-변환&quot;&gt;대/소문자 변환&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toUpperCase()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toLowerCase()&lt;/code&gt;&lt;/li&gt;
@@ -215,6 +330,31 @@
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ABCDEFGHIJ
   abcdefghij
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;문자-위치-찾기&quot;&gt;문자 위치 찾기&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.indexOf()&lt;/code&gt;: 문자열에서 해당 문자의 첫 등장 위치 반환&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;예시: 처음 등장하는 문자만 반환하기&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;We are the world&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;result&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  We arthwold
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Algorithm" /><summary type="html"></summary></entry><entry><title type="html">k의 개수 구하기</title><link href="https://ohoraming.github.io/algorithm-numOfK" rel="alternate" type="text/html" title="k의 개수 구하기" /><published>2023-03-17T16:48:00+09:00</published><updated>2023-03-17T16:48:00+09:00</updated><id>https://ohoraming.github.io/algorithm-numOfK</id><content type="html" xml:base="https://ohoraming.github.io/algorithm-numOfK">&lt;!-- 글 작성하기 --&gt;
@@ -1948,100 +2088,4 @@ pip upgrade: (windows) &lt;code class=&quot;language-plaintext highlighter-rouge
     python manage.py runserver                 
    &lt;/code&gt;
   &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:8000/admin&lt;/code&gt;에 접속&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry><entry><title type="html">Web API</title><link href="https://ohoraming.github.io/web-api" rel="alternate" type="text/html" title="Web API" /><published>2022-05-30T20:52:00+09:00</published><updated>2022-05-30T20:52:00+09:00</updated><id>https://ohoraming.github.io/web-api</id><content type="html" xml:base="https://ohoraming.github.io/web-api">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;DevOps 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-convention&quot;&gt;Git Convention&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./test-code&quot;&gt;Test Code&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./git-and-github&quot;&gt;Git and github&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./code-review&quot;&gt;왜 Code Review를 해야 하는가&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./web-api&quot;&gt;Web API&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./postgreSQL&quot;&gt;postgreSQL&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./aws-deploy-RDS&quot;&gt;AWS 배포하기(1) - RDS (MySQL)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./aws-deploy-elastic-beanstalk&quot;&gt;AWS 배포하기(2) - Elastic Beanstalk&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./docker-basic&quot;&gt;Docker 설치 및 실행&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 포스팅은 ‘A Brief, Opinionated History of the API’ (by. Joshua Bloch)스피치와 다수의 영문 포스팅을 한글로 해석한 내용이 포함되어 있습니다. 출처를 확인해주시기 바랍니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web API&lt;/code&gt;를 공부하던 중 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API library&lt;/code&gt;도 &lt;strong&gt;API&lt;/strong&gt;로 혼용해 쓰는 것에 의문이 들었습니다. 
-API의 정의는 정확히 무엇이며, 왜 이렇게 혼용을 해 사용하게 되었는지 그 역사를 기술한 자료를 읽어보고, 이와 관련해 흥미로운 스피치가 있어 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;api의-역사&quot;&gt;API의 역사&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;1948년, Herman Goldstine과 John von Neumann은 프로그램이 &lt;strong&gt;공통 연산&lt;/strong&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;common operations&lt;/code&gt;)을 사용하게 되면, &lt;strong&gt;서브루틴 라이브러리&lt;/strong&gt;(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subroutine library&lt;/code&gt;)가 새 코드와 에러의 양을 줄여줄 것이라고 함&lt;br /&gt;
-→ 서브루틴 라이브러리에 대한 관점(idea)을 언급만 함&lt;br /&gt;
-[아래 사진의 서랍 속에 들어있는 것이 서브루틴 라이브러리 테이프]
-&lt;img width=&quot;416&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/170993437-b0f12efd-2798-4eb1-9f75-f5d3fdd8816c.png&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(※ &lt;a href=&quot;https://www.bbc.co.uk/bitesize/guides/zvc48mn/revision/2&quot;&gt;Subroutine에 대한 간단한 설명&lt;/a&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1952년, Wilkes와 Wheeler가 &lt;strong&gt;서브루틴 라이브러리&lt;/strong&gt;에 관한 논문 발표(2pages 분량)&lt;br /&gt;
-  &lt;a href=&quot;http://www.laputan.org/pub/papers/Wheeler.pdf&quot;&gt;(참고)논문 전문&lt;/a&gt;&lt;br /&gt;
-→ 당시에 API를 Library와 구분하지 않은 이유는?
-    &lt;ul&gt;
-      &lt;li&gt;두 개념이 크게 보았을 때 같은 의미였으며,&lt;/li&gt;
-      &lt;li&gt;컴퓨터는 하나밖에 없었기에 기계 이동성의 개념이 존재하지 않았음&lt;/li&gt;
-      &lt;li&gt;레거시 프로그램이 없었음&lt;/li&gt;
-      &lt;li&gt;그래서 API를 별개로 논의할 이유가 없었으나, 명확하게 API 디자인 개념에 대해 이해하고 있었음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1968년, AFIPS Fall Joint Computer Conference에서 처음 &lt;strong&gt;API&lt;/strong&gt;라는 용어를 사용함
-    &lt;blockquote&gt;
-      &lt;p&gt;마침내, 중앙 컴퓨터에서 하드웨어의 독립은 컴퓨터가 교체될 때 일관된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application program interface&lt;/code&gt;가 유지된다는 것을 의미한다.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;apiapplication-programming-interface란&quot;&gt;API(Application Programming Interface)란?&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;입출력을 통해 정의된 operation 세트를 제공하는가?&lt;/li&gt;
-  &lt;li&gt;사용자를 손상시키지 않으면서 재실행을 허락하는가?
-이 &lt;strong&gt;두 조건&lt;/strong&gt;을 모두 충족하면 API라고 할 수 있다&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;즉, Library나 Framework에서 이용할 수 있는 &lt;strong&gt;Class&lt;/strong&gt;나 &lt;strong&gt;Function&lt;/strong&gt;도 API라고 부름&lt;/p&gt;
-
-&lt;p&gt;프로젝트 내부에서 쓰여지고 있는 &lt;strong&gt;클래스&lt;/strong&gt;나 &lt;strong&gt;모듈&lt;/strong&gt;이 있다면, 이를 &lt;strong&gt;함수/인터페이스/API&lt;/strong&gt;로 지칭할 수 있음&lt;/p&gt;
-
-&lt;h2 id=&quot;web-api란&quot;&gt;Web API란?&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;1990년대부터 인터넷이 대중화되면서 컴퓨터와 다양한 기기들이 인터넷을 통해 의사소통하는 시대가 됨&lt;/li&gt;
-  &lt;li&gt;다양한 기기에서 서버의 데이터를 읽고 쓰기 위해 Web API를 이용함&lt;/li&gt;
-  &lt;li&gt;네트워크에서 기기들간의 의사소통 규격 사항을 &lt;strong&gt;HTTP(S)&lt;/strong&gt;라고 부르며, &lt;strong&gt;REST&lt;/strong&gt;는 Web API를 어떻게 만들지 정의한 것임
-  (과거에는 SOAP을 이용해 XML 포멧으로 정보를 주고 받았음)&lt;/li&gt;
-  &lt;li&gt;REST의 &lt;strong&gt;POST/GET/PUT/DELETE&lt;/strong&gt;를 이용해 새로운 데이터를 만들고(create)/읽고(read)/수정하고(update)/삭제(delete)할 수 있음&lt;/li&gt;
-  &lt;li&gt;GET을 이용해 정보를 요청(&lt;strong&gt;request&lt;/strong&gt;)하면, 서버로부터 해당 데이터를 &lt;strong&gt;JSON 포맷&lt;/strong&gt;으로 응답(&lt;strong&gt;response&lt;/strong&gt;)받을 수 있음
-&lt;img width=&quot;401&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/77590526/170986229-51e33dba-efbf-4eeb-a1db-6f04d2a57fcc.png&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;더 읽을 거리 &amp;amp; 참고한 자료&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.postman.com/intro-to-apis-history-of-apis/&quot;&gt;History of APIs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.postman.com/intro-to-apis-what-is-an-api/&quot;&gt;Intro to APIs: What Is an API?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.api.rakuten.net/evolution-of-apis/&quot;&gt;The Evolution of APIs: Past, Present and the Future&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.api.rakuten.net/what-is-an-api/&quot;&gt;What is an API: Everything You Need to Know About APIs?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.pubnub.com/blog/your-guide-to-messaging-apis-for-enabling-web-3-0-internet-communication/&quot;&gt;Your Guide To Messaging APIs Web 3.0 Internet Communication&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lt; 출처 &amp;gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;‘A Brief, Opinionated History of the API,’ 유튜브 비디오, 47:04, 게시자 ‘InfoQ,’ 2018년 11월 22일, &lt;a href=&quot;https://youtu.be/LzMp6uQbmns&quot;&gt;https://youtu.be/LzMp6uQbmns&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“API란? 개념 정리와 포트폴리오에 유용한 대박 사이트 공유 🙌,” 유튜브 비디오, 08:07, 게시자 “드림코딩 by 엘리,” 2021년 3월 16일, &lt;a href=&quot;https://youtu.be/ogT267HvNuQ&quot;&gt;https://youtu.be/ogT267HvNuQ&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Kristopher Sandoval. “Who Invented the API?.” NORDIC APIS. September 20, 2018 &lt;a href=&quot;https://nordicapis.com/who-invented-the-api/&quot;&gt;https://nordicapis.com/who-invented-the-api/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>ohoraming</name></author><category term="DevOps" /><summary type="html"></summary></entry></feed>
+&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry></feed>

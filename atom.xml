@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>restTemplate</title>
+        
+          <description>&lt;!-- 글 작성하기 --&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Mar 2023 18:18:00 +0900</pubDate>
+        <link>
+        https://ohoraming.github.io/spring-none</link>
+        <guid isPermaLink="true">https://ohoraming.github.io/spring-none</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>String</title>
         
           <description>&lt;!-- 글 작성하기 --&gt;
