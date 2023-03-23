@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2023-03-23T16:46:57+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">백엔드 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">restTemplate</title><link href="https://ohoraming.github.io/spring-none" rel="alternate" type="text/html" title="restTemplate" /><published>2023-03-21T18:18:00+09:00</published><updated>2023-03-21T18:18:00+09:00</updated><id>https://ohoraming.github.io/spring-none</id><content type="html" xml:base="https://ohoraming.github.io/spring-none">&lt;!-- 글 작성하기 --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://ohoraming.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ohoraming.github.io/" rel="alternate" type="text/html" /><updated>2023-03-23T17:14:22+09:00</updated><id>https://ohoraming.github.io/feed.xml</id><title type="html">백엔드 개발자의 노트</title><subtitle>배움을 기록합니다</subtitle><entry><title type="html">문자열 정렬하기</title><link href="https://ohoraming.github.io/algorithm-sortingString" rel="alternate" type="text/html" title="문자열 정렬하기" /><published>2023-03-23T16:55:00+09:00</published><updated>2023-03-23T16:55:00+09:00</updated><id>https://ohoraming.github.io/algorithm-sortingString</id><content type="html" xml:base="https://ohoraming.github.io/algorithm-sortingString">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 프로그래머스의 &lt;a href=&quot;https://school.programmers.co.kr/learn/courses/30/lessons/120911&quot;&gt;문자열 정렬하기 (2)&lt;/a&gt;의 풀이를 정리한 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;문제-설명&quot;&gt;&lt;strong&gt;문제 설명&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;영어 대소문자로 이루어진 문자열 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_string&lt;/code&gt;이 매개변수로 주어질 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_string&lt;/code&gt;을 모두 소문자로 바꾸고 알파벳 순서대로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;제한사항&quot;&gt;제한사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;0 &amp;lt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_string&lt;/code&gt; 길이 &amp;lt; 100&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;my_string&lt;/th&gt;
+      &lt;th&gt;result&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“Bcad”&lt;/td&gt;
+      &lt;td&gt;“abcd”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“heLLo”&lt;/td&gt;
+      &lt;td&gt;“ehllo”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“Python”&lt;/td&gt;
+      &lt;td&gt;“hnopty”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h3&gt;
+
+&lt;p&gt;입출력 예 #1&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Bcad”를 모두 소문자로 바꾸면 “bcad”이고 이를 알파벳 순으로 정렬하면 “abcd”입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;입출력 예 #2&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“heLLo”를 모두 소문자로 바꾸면 “hello”이고 이를 알파벳 순으로 정렬하면 “ehllo”입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;입출력 예 #3&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Python”를 모두 소문자로 바꾸면 “python”이고 이를 알파벳 순으로 정렬하면 “hnopty”입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;나의-풀이&quot;&gt;나의 풀이&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.toLowerCase()&lt;/code&gt;: 문자열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;)을 &lt;strong&gt;소문자&lt;/strong&gt;로 변환&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.toCharArray()&lt;/code&gt;: 문자열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;)을 문자 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;char[]&lt;/code&gt;) 로 변환&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arrays.sort()&lt;/code&gt;: 문자 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;char[]&lt;/code&gt;) &lt;strong&gt;오름 차순&lt;/strong&gt; 정렬&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String.valueOf()&lt;/code&gt;: 문자 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;char[]&lt;/code&gt;)을 문자열로 변환&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// 1.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// 2.&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toCharArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// 3.&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// 4.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;valueOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>ohoraming</name></author><category term="Algorithm" /><summary type="html"></summary></entry><entry><title type="html">restTemplate</title><link href="https://ohoraming.github.io/spring-none" rel="alternate" type="text/html" title="restTemplate" /><published>2023-03-21T18:18:00+09:00</published><updated>2023-03-21T18:18:00+09:00</updated><id>https://ohoraming.github.io/spring-none</id><content type="html" xml:base="https://ohoraming.github.io/spring-none">&lt;!-- 글 작성하기 --&gt;
 
 &lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
 &lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Spring 관련 포스팅&lt;/span&gt;&lt;/p&gt;
@@ -28,6 +138,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -365,6 +476,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -536,6 +648,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1870,222 +1983,4 @@
 
 &lt;p&gt;For example, here is a completely imaginary case with a pseudo language:&lt;/p&gt;
 
-&lt;p&gt;You have a book class, you want to retrieve all the books of which the author is “Linus”. Manually, you would do something like that:&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry><entry><title type="html">Python(5) - Django 가상 환경과 settings.py</title><link href="https://ohoraming.github.io/Python-django-venv-settings" rel="alternate" type="text/html" title="Python(5) - Django 가상 환경과 settings.py" /><published>2022-06-15T02:46:00+09:00</published><updated>2022-06-15T02:46:00+09:00</updated><id>https://ohoraming.github.io/Python-django-venv-settings</id><content type="html" xml:base="https://ohoraming.github.io/Python-django-venv-settings">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Python 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-django&quot;&gt;Python(1) - Django 설치&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-mysql&quot;&gt;Python(2) - MySQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-postgresql&quot;&gt;Python(3) - PostgreSQL 연결&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-making-queries&quot;&gt;Python(4) - Query 만들기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./Python-django-venv-settings&quot;&gt;Python(5) - Django 가상 환경과 settings.py&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Django를 써보면서 알게 된 내용을 정리했습니다.&lt;br /&gt;
-틀린 내용이 있다면 편하게 의견 남겨주시기 바랍니다 :)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;가상환경-설정&quot;&gt;가상환경 설정&lt;/h1&gt;
-&lt;h2 id=&quot;1-가상환경-생성&quot;&gt;1. 가상환경 생성&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;프로젝트 별로 다른 버전의 python과 django를 사용하기 위함&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;가상환경을 관리할 폴더&lt;/strong&gt;와 &lt;strong&gt;프로젝트를 관리할 폴더&lt;/strong&gt;를 각각 만드는 것이 관리하기 편함&lt;/li&gt;
-  &lt;li&gt;만들 프로젝트의 이름으로 가상환경을 생성&lt;/li&gt;
-  &lt;li&gt;이 방법이 가상환경을 관리하기 편하다고 생각
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;가상환경을 관리할 폴더 이름]      &lt;span class=&quot;c&quot;&gt;# 디렉터리 생성&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;가상환경 폴더 저장할 디렉터리]       &lt;span class=&quot;c&quot;&gt;# 디렉터리로 이동&lt;/span&gt;
-python &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;가상환경 이름]          &lt;span class=&quot;c&quot;&gt;# 가상환경 생성 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-가상환경-진입활성화&quot;&gt;2. 가상환경 진입(활성화)&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;가상환경 이름]/scripts/activate   &lt;span class=&quot;c&quot;&gt;# 가상환경 활성화&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가상 환경에 진입하면, 터미널의 디렉터리명 앞에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(가상환경 이름)&lt;/code&gt; 이 덧붙여져 나타남&lt;/li&gt;
-  &lt;li&gt;가상환경에서 나가려면 경로와 상관없이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deactivate&lt;/code&gt; 입력
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deactivate                         &lt;span class=&quot;c&quot;&gt;# 가상환경 비활성화&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-django-djangorestframework-psycopg2-설치&quot;&gt;3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;django&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;djangorestframework&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psycopg2&lt;/code&gt; 설치&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;가상환경에 진입한 상태에서 설치를 진행함
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;django
-  pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;djangorestframework
-  pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;psycopg2              &lt;span class=&quot;c&quot;&gt;# PostgreSQL 사용시 설치&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;pip upgrade 경고 문구가 뜬다면,&lt;br /&gt;
-pip upgrade: (windows) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python -m pip install --upgrade pip&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;참고
-    &lt;ul&gt;
-      &lt;li&gt;django upgrade(특정 버전): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install --upgrade django==4.0.5&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;pip version 확인: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip --version&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;업데이트 해야 할 패키지 목록 확인: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip list -o&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;4-project만들기&quot;&gt;4. project만들기&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;프로젝트를 설치할 폴더로 이동해 프로젝트 이름으로 디렉터리 만들기
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;프로젝트를 설치할 폴더]
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;프로젝트 이름]
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;프로젝트 이름]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project 이름]&lt;/code&gt;을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config .&lt;/code&gt; 으로 만들면 프로젝트 관리가 수월함&lt;br /&gt;
- (출처: &lt;a href=&quot;https://wikidocs.net/72377#_1&quot;&gt;참고한 사이트&lt;/a&gt;)&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
-  django-admin startproject &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;project 이름]    &lt;span class=&quot;c&quot;&gt;# 프로젝트 생성&lt;/span&gt;
-  python manage.py runserver                  &lt;span class=&quot;c&quot;&gt;# 서버 실행&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;settingspy-설정&quot;&gt;settings.py 설정&lt;/h1&gt;
-&lt;h2 id=&quot;1-secret_key-설정&quot;&gt;1. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SECRET_KEY&lt;/code&gt; 설정&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;project root 경로에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secret_file.py&lt;/code&gt; 생성&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SECRET_KEY = '...(내용)...'&lt;/code&gt; 복사해 붙여넣기&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; 수정
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;secret_file&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;SECRET_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;secret_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SECRET_KEY&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;2--installed_apps-설정&quot;&gt;2.  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt; 설정&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;app 설치
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; django-admin startapp &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;app 이름]    &lt;span class=&quot;c&quot;&gt;# app 생성&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;생성한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rest_framework&lt;/code&gt;추가
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-         &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-     &lt;span class=&quot;s&quot;&gt;'rest_framework'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# 추가
-&lt;/span&gt;     &lt;span class=&quot;s&quot;&gt;'생성한 app 이름'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# app 추가
-&lt;/span&gt;     &lt;span class=&quot;s&quot;&gt;'생성한 app 이름'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# app 추가
-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;3-templates-의-dirs-설정&quot;&gt;3. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TEMPLATES&lt;/code&gt; 의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'DIRS'&lt;/code&gt; 설정&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;TEMPLATES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-          &lt;span class=&quot;s&quot;&gt;'DIRS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BASE_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'templates'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 수정
-&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여기서 BASE_DIR은 project 폴더&lt;/li&gt;
-  &lt;li&gt;root에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;templates&lt;/code&gt; 디렉터리 생성
-    &lt;ul&gt;
-      &lt;li&gt;모든 앱이 공통으로 사용할 템플릿 디렉터리 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[root]/templates&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;특정 앱이 사용할 템플릿 디렉터리 - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[root]/templates/[특정 app]&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이렇게 &lt;strong&gt;templates&lt;/strong&gt; 폴더를 관리해주어야 Django가 제대로 인식 할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;4-db-설정postgresql&quot;&gt;4. DB 설정(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;postgreSQL&lt;/code&gt;)&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;참고로, 이 과정은 반드시 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python manage.py makemigration&lt;/code&gt;을 하기 전에 시행되어야 함
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'DB이름'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# DB 이름
-&lt;/span&gt;      &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'postgres'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1234'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# 비밀번호
-&lt;/span&gt;      &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  
-      &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'5432'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secret_file.py&lt;/code&gt; 에 위 내용 붙여넣기&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;settings.py&lt;/strong&gt;는 아래 코드로 바꾸기
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;secret_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;5-language_code-time_zone-설정&quot;&gt;5. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LANGUAGE_CODE&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIME_ZONE&lt;/code&gt; 설정&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;LANGUAGE_CODE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ko-kr'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;TIME_ZONE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Asia/Seoul'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;6-staticfiles_dirs-추가하기&quot;&gt;6. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STATICFILES_DIRS&lt;/code&gt; 추가하기&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STATIC_URL = 'static/'&lt;/code&gt; 아래에 추가하기&lt;/p&gt;
-
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;STATIC_URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'static/'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;STATICFILES_DIRS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;BASE_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'static'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project]&lt;/code&gt;아래에  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;static&lt;/code&gt; 폴더 만들기&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BASE_DIR / 'static'&lt;/code&gt;은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[root]/static&lt;/code&gt; 디렉터리를 의미함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;7-urlspy-작성&quot;&gt;7. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt; 작성&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[project 이름]/urls.py&lt;/code&gt;
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
-  
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'admin/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'account/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'account.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# 예시
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;8-admin-페이지-사용하기&quot;&gt;8. admin 페이지 사용하기&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Django에서 제공하는 admin 페이지입니다
-    &lt;ol&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;superuser&lt;/code&gt; 생성하기
-        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  python manage.py createsuperuser           &lt;span class=&quot;c&quot;&gt;# superuser 생성&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li&gt;사용자 이름, 이메일, password를 입력&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[app]/admin.py&lt;/code&gt; 작성&lt;/p&gt;
-
-        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
- &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;모델명&lt;/span&gt;
-      
- &lt;span class=&quot;c1&quot;&gt;# Register your models here.
-&lt;/span&gt;      
- &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;모델명&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;서버 실행 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin&lt;/code&gt;에 접속
-    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash
-    python manage.py runserver                 
-   &lt;/code&gt;
-  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:8000/admin&lt;/code&gt;에 접속&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;You have a book class, you want to retrieve all the books of which the author is “Linus”. Manually, you would do something like that:&lt;/p&gt;</content><author><name>ohoraming</name></author><category term="Python" /><summary type="html"></summary></entry></feed>
