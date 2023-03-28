@@ -548,6 +548,47 @@ into the {body} of the default.hbs template -->
   </li>
 </ul>
 
+<h1 id="문자-치환">문자 치환</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">문자열.replaceAll(타겟의 정규식, 교체될 문자열)</code>: 반환</li>
+  <li>
+    <p>예시-1) 문자열 <code class="language-plaintext highlighter-rouge">"one", "six", "seven"</code>을 <code class="language-plaintext highlighter-rouge">"1", "6", "7"</code> 로 교체하기</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">numbers</span> <span class="o">=</span> <span class="s">"onefourzerosixseven"</span><span class="o">;</span>
+  <span class="n">answer</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"1"</span><span class="o">)</span>
+                  <span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">"six"</span><span class="o">,</span> <span class="s">"6"</span><span class="o">)</span>
+                  <span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="s">"seven"</span><span class="o">,</span> <span class="s">"7"</span><span class="o">);</span>
+    
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  1fourzero67
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>예시-2) 주어진 문자열에서 모음 <code class="language-plaintext highlighter-rouge">'a', 'i', 'u', 'e', 'o'</code>  제거하기</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">String</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">"nice to meet you"</span><span class="o">;</span>
+  <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    
+  <span class="n">answer</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">"[aiueo]"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>result</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  nc t mt y
+</code></pre></div>    </div>
+  </li>
+</ul>
+
                 </div>
             </section>
 
