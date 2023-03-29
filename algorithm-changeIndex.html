@@ -12,7 +12,7 @@
 
 
 
-    <title>Python(2) - MySQL 연결</title>
+    <title>인덱스 바꾸기</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -64,30 +64,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="배움을 기록합니다" />
     <link rel="shortcut icon" href="https://ohoraming.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://ohoraming.github.io/Python-mysql" />
+    <link rel="canonical" href="https://ohoraming.github.io/algorithm-changeIndex" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="백엔드 개발자의 노트" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Python(2) - MySQL 연결" />
-    <meta property="og:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. pymysql 설치 $ pip install pymysql 입력 2. DB 연결 import connect()에 DB 기본 정보 입력 import pymysql conn = pymysql.connect(host="localhost", user="root", password="1234", db="dbpractice"," />
-    <meta property="og:url" content="https://ohoraming.github.io/Python-mysql" />
-    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
+    <meta property="og:title" content="인덱스 바꾸기" />
+    <meta property="og:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 문자열 정렬하기 인덱스 바꾸기 이 글은 프로그래머스의 인덱스 바꾸기의 풀이를 정리한 것입니다. 문제 설명 문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요. 제한사항 1 &lt; my_string의 길이 &lt; 100 0 ≤ num1, num2 &lt; my_string의 길이 my_string은 소문자로" />
+    <meta property="og:url" content="https://ohoraming.github.io/algorithm-changeIndex" />
+    <meta property="og:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2022-03-11T22:35:00+09:00" />
-    <meta property="article:modified_time" content="2022-03-11T22:35:00+09:00" />
-    <meta property="article:tag" content="Python" />
+    <meta property="article:published_time" content="2023-03-29T16:14:00+09:00" />
+    <meta property="article:modified_time" content="2023-03-29T16:14:00+09:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Python(2) - MySQL 연결" />
-    <meta name="twitter:description" content="Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. pymysql 설치 $ pip install pymysql 입력 2. DB 연결 import connect()에 DB 기본 정보 입력 import pymysql conn = pymysql.connect(host="localhost", user="root", password="1234", db="dbpractice"," />
+    <meta name="twitter:title" content="인덱스 바꾸기" />
+    <meta name="twitter:description" content="Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 문자열 정렬하기 인덱스 바꾸기 이 글은 프로그래머스의 인덱스 바꾸기의 풀이를 정리한 것입니다. 문제 설명 문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요. 제한사항 1 &lt; my_string의 길이 &lt; 100 0 ≤ num1, num2 &lt; my_string의 길이 my_string은 소문자로" />
     <meta name="twitter:url" content="https://ohoraming.github.io/" />
-    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/django-logo.png" />
+    <meta name="twitter:image" content="https://ohoraming.github.io/assets/built/images/algorithm-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="백엔드 개발자의 노트" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -102,18 +102,18 @@
         "name": "백엔드 개발자의 노트",
         "logo": "https://ohoraming.github.io/"
     },
-    "url": "https://ohoraming.github.io/Python-mysql",
+    "url": "https://ohoraming.github.io/algorithm-changeIndex",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ohoraming.github.io/assets/built/images/django-logo.png",
+        "url": "https://ohoraming.github.io/assets/built/images/algorithm-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ohoraming.github.io/Python-mysql"
+        "@id": "https://ohoraming.github.io/algorithm-changeIndex"
     },
-    "description": "Python 관련 포스팅 Python(1) - Django 설치 Python(2) - MySQL 연결 Python(3) - PostgreSQL 연결 Python(4) - Query 만들기 Python(5) - Django 가상 환경과 settings.py 1. pymysql 설치 $ pip install pymysql 입력 2. DB 연결 import connect()에 DB 기본 정보 입력 import pymysql conn = pymysql.connect(host="localhost", user="root", password="1234", db="dbpractice","
+    "description": "Algorithm 관련 포스팅 최빈값 구하기 k의 개수 구하기 String 문자열 정렬하기 인덱스 바꾸기 이 글은 프로그래머스의 인덱스 바꾸기의 풀이를 정리한 것입니다. 문제 설명 문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요. 제한사항 1 &lt; my_string의 길이 &lt; 100 0 ≤ num1, num2 &lt; my_string의 길이 my_string은 소문자로"
 }
     </script>
 
@@ -126,7 +126,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Python(2) - MySQL 연결" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="인덱스 바꾸기" href="/feed.xml" />
     <meta name="google-site-verification" content="hZiBNkaKWa99TzuLHfeW-oh-GCAQ4Pienu5nXr3yVF8" />
 </head>
 
@@ -184,25 +184,25 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-python post ">
+        <article class="post-full  tag-algorithm post ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="11 March 2022">11 March 2022</time>
+                    <time class="post-full-meta-date" datetime="29 March 2023">29 March 2023</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/python/'>PYTHON</a>
+                    <a href='/tag/algorithm/'>ALGORITHM</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">Python(2) - MySQL 연결</h1>
+                <h1 class="post-full-title">인덱스 바꾸기</h1>
             </header>
 
             <!-- 
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/django-logo.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm-logo.png)">
             </figure>
              -->
 
@@ -211,123 +211,152 @@ into the {body} of the default.hbs template -->
                     <!-- 글 작성하기 -->
 
 <!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 -->
-<p><span class="table-of-contents-list">Python 관련 포스팅</span></p>
+<p><span class="table-of-contents-list">Algorithm 관련 포스팅</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./Python-django">Python(1) - Django 설치</a></li>
-    <li><a href="./Python-mysql">Python(2) - MySQL 연결</a></li>
-    <li><a href="./Python-postgresql">Python(3) - PostgreSQL 연결</a></li>
-    <li><a href="./Python-making-queries">Python(4) - Query 만들기</a></li>
-    <li><a href="./Python-django-venv-settings">Python(5) - Django 가상 환경과 settings.py</a></li>
+    <li><a href="./algorithm-mode">최빈값 구하기</a></li>
+    <li><a href="./algorithm-numOfK">k의 개수 구하기</a></li>
+    <li><a href="./algorithm-string">String</a></li>
+    <li><a href="./algorithm-sortingString">문자열 정렬하기</a></li>
+    <li><a href="./algorithm-changeIndex">인덱스 바꾸기</a></li>
     <br />
     <br />
 </ul>
 
-<h2 id="1-pymysql-설치">1. pymysql 설치</h2>
-<p><code class="language-plaintext highlighter-rouge">$ pip install pymysql</code> 입력</p>
-
-<h2 id="2-db-연결">2. DB 연결</h2>
-<ul>
-  <li>import</li>
-  <li><code class="language-plaintext highlighter-rouge">connect()</code>에 DB 기본 정보 입력
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pymysql</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">"localhost"</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">"root"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">"1234"</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">"dbpractice"</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">"utf8"</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<h2 id="3-cursor-설정">3. cursor 설정</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">cursor()</code>로 cursor 가져오기
-    <ul>
-      <li>실행 결과가 <strong>tuple</strong>로 반환됨
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">curs</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
-</code></pre></div>        </div>
-      </li>
-      <li>실행 결과를 <strong>dictionary</strong>로 반환하려면,<br />
-  parameter로 pymysql.cursors.DictCursor 전달
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">curs</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="p">.</span><span class="n">cursors</span><span class="p">.</span><span class="n">DictCursor</span><span class="p">)</span>  
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
 <blockquote>
-  <p><strong>tuple</strong> 자료형<br />
-→ 요솟값이 ()에 둘러싸임<br />
-t3 = (1, 2, 3)</p>
+  <p>이 글은 프로그래머스의 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120895">인덱스 바꾸기</a>의 풀이를 정리한 것입니다.</p>
 </blockquote>
 
-<blockquote>
-  <p><strong>dictionary</strong> 자료형<br />
-→ Key : Value 쌍 여러 개가 쉼표(,)로 구분되어 { }로 둘러싸여 있음<br />
-→ Key에는 변하지 않는 고윳값을 사용<br />
-→ Value에는 문자열과 리스트 모두 사용 가능<br />
-{Key1:Value1, Key2:Value2, Key3:Value3, …}</p>
-</blockquote>
+<h3 id="문제-설명"><strong>문제 설명</strong></h3>
 
-<h2 id="4-crud-query문-작성">4. CRUD query문 작성</h2>
+<p>문자열 <code class="language-plaintext highlighter-rouge">my_string</code>과 정수 <code class="language-plaintext highlighter-rouge">num1</code>, <code class="language-plaintext highlighter-rouge">num2</code>가 매개변수로 주어질 때, <code class="language-plaintext highlighter-rouge">my_string</code>에서 인덱스 <code class="language-plaintext highlighter-rouge">num1</code>과 인덱스 <code class="language-plaintext highlighter-rouge">num2</code>에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요.</p>
+
+<hr />
+
+<h3 id="제한사항">제한사항</h3>
+
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">execute()</code>에 작성</li>
+  <li>1 &lt; <code class="language-plaintext highlighter-rouge">my_string</code>의 길이 &lt; 100</li>
+  <li>0 ≤ <code class="language-plaintext highlighter-rouge">num1</code>, <code class="language-plaintext highlighter-rouge">num2</code> &lt; <code class="language-plaintext highlighter-rouge">my_string</code>의 길이</li>
+  <li><code class="language-plaintext highlighter-rouge">my_string</code>은 소문자로 이루어져 있습니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">num1</code> ≠ <code class="language-plaintext highlighter-rouge">num2</code></li>
+</ul>
+
+<hr />
+
+<h3 id="입출력-예">입출력 예</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>my_string</th>
+      <th>num1</th>
+      <th>num2</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“hello”</td>
+      <td>1</td>
+      <td>2</td>
+      <td>“hlelo”</td>
+    </tr>
+    <tr>
+      <td>“I love you”</td>
+      <td>3</td>
+      <td>6</td>
+      <td>“I l veoyou”</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+
+<p>입출력 예 #1</p>
+
+<ul>
+  <li>“hello”의 1번째 인덱스인 “e”와 2번째 인덱스인 “l”을 바꾸면 “hlelo”입니다.</li>
+</ul>
+
+<p>입출력 예 #2</p>
+
+<ul>
+  <li>“I love you”의 3번째 인덱스 “o”와 “ “(공백)을 바꾸면 “I l veoyou”입니다.</li>
+</ul>
+
+<hr />
+
+<h3 id="나의-풀이1">나의 풀이(1)</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">StringBuilder</code> 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">setCharAt(int index, char ch)</code>: <code class="language-plaintext highlighter-rouge">index</code>의 문자를 <code class="language-plaintext highlighter-rouge">ch</code> 문자로 변경</li>
+  <li><code class="language-plaintext highlighter-rouge">toString()</code>: <code class="language-plaintext highlighter-rouge">StringBuilder</code> 출력</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">my_string</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">my_string</span><span class="o">);</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">setCharAt</span><span class="o">(</span><span class="n">num1</span><span class="o">,</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">num2</span><span class="o">));</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">setCharAt</span><span class="o">(</span><span class="n">num2</span><span class="o">,</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">num1</span><span class="o">));</span>
+        
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="나의-풀이2">나의 풀이(2)</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">문자열.split()</code>: 문자열 자르기</li>
+  <li><code class="language-plaintext highlighter-rouge">tmp</code> 변수를 사용해 <code class="language-plaintext highlighter-rouge">num1</code>과 <code class="language-plaintext highlighter-rouge">num2</code> 인덱스의 문자 교환</li>
   <li>
-    <p>사용할 db 선언(<code class="language-plaintext highlighter-rouge">USE</code>) 후 용도에 맞는 query문 작성 시작<br />
-  → <code class="language-plaintext highlighter-rouge">'USE [사용할 DB이름];'</code></p>
+    <p><code class="language-plaintext highlighter-rouge">String.join(CharSequence delimiter, CharSequence... elements)</code>:  배열을 문자열로 전환</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'USE dbpractice;'</span><span class="p">)</span> <span class="c1"># cursor를 가져온 상태에서 sql문을 실행
-</span></code></pre></div>    </div>
-  </li>
-</ul>
-
-<h3 id="1-insert">(1) INSERT</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">execute()</code>에 query문 작성 후, <code class="language-plaintext highlighter-rouge">commit()</code>과 <code class="language-plaintext highlighter-rouge">close()</code>를 실행
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'INSERT INTO user (id, name, region, insdt) VALUES("hong", "홍길동", "서울", now());'</span><span class="p">)</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>    </div>
-  </li>
-  <li>sql 변수를 만들어 query문 쓰는 방법
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"INSERT INTO user (id, name, region, insdt) VALUES('hong2', '홍길동2', '서울2', now())"</span> 
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> 
-<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+      <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">my_string</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+            
+          <span class="nc">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+          <span class="nc">String</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">num1</span><span class="o">];</span>
+          <span class="n">arr</span><span class="o">[</span><span class="n">num1</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">num2</span><span class="o">];</span>
+          <span class="n">arr</span><span class="o">[</span><span class="n">num2</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+    
+          <span class="n">answer</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="n">arr</span><span class="o">);</span>
+            
+          <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<h3 id="2-select">(2) SELECT</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM user"</span>
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> 
-<span class="n">rows</span> <span class="o">=</span> <span class="n">curs</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c1"># 실행한 데이터를 가져옴
-</span><span class="k">print</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="c1"># 모든 행을 가져옴
-</span><span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM user WHERE region=%s"</span>
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> 
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="s">'서울'</span><span class="p">)</span> <span class="c1"># %s에 들어갈 문자열을 추가함
-</span><span class="n">rows</span> <span class="o">=</span> <span class="n">curs</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c1"># 실행한 데이터를 가져옴
-</span><span class="k">print</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s">"region"</span><span class="p">])</span> <span class="c1"># 특정 행, 열의 내용을 가져옴
-</span><span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
+<h3 id="나의-풀이3">나의 풀이(3)</h3>
+
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">fetchall()</code>: <strong>모든 레코드</strong>를 가져옴</li>
-  <li><code class="language-plaintext highlighter-rouge">fetmany()</code>: <strong>지정한 개수만큼의 레코드</strong>를 가져옴</li>
-  <li><code class="language-plaintext highlighter-rouge">fetchone()</code>: <strong>하나의 레코드</strong>만 가져옴</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">substring(int beginIndex, int endIndex)</code>: <code class="language-plaintext highlighter-rouge">beginIndex</code>부터 <code class="language-plaintext highlighter-rouge">endIndex</code>-1 까지의 문자를 반환</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+      <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span> <span class="n">my_string</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+            
+          <span class="n">answer</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">num1</span><span class="o">)</span> <span class="o">+</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">num2</span><span class="o">)</span>
+                  <span class="o">+</span> <span class="n">my_string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">num2</span><span class="o">)</span> <span class="o">+</span> <span class="n">my_string</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">num1</span><span class="o">)</span>
+                  <span class="o">+</span> <span class="n">my_string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">num2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+            
+          <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
-
-<h3 id="3-update">(3) UPDATE</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"UPDATE user SET name='포로리' WHERE name='테스트'"</span>
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="4-delete">(4) DELETE</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sql</span> <span class="o">=</span> <span class="s">"DELETE FROM user WHERE name='홍길동'"</span>
-<span class="n">curs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
 
                 </div>
             </section>
@@ -414,7 +443,7 @@ t3 = (1, 2, 3)</p>
                 <header class="read-next-card-header">
                     <small class="read-next-card-header-sitetitle">&mdash; 백엔드 개발자의 노트 &mdash;</small>
                     
-                    <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                    <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
                     
                 </header>
                 <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -424,6 +453,43 @@ t3 = (1, 2, 3)</p>
                         
                         
                         
+                        
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/algorithm-sortingString">문자열 정렬하기</a></li>
+                            
+                            
+                            
+                            
+                        
+                            
+                        
+                        
+                        
+                         <li><a href="/algorithm-string">String</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                         <li><a href="/algorithm-numOfK">k의 개수 구하기</a></li>
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                        
                             
                         
                             
@@ -444,20 +510,6 @@ t3 = (1, 2, 3)</p>
                         
                             
                         
-                        
-                        
-                         <li><a href="/Python-django-orm">Python(6) - ORM(Object-Relational Mapping)</a></li>
-                            
-                            
-                            
-                            
-                        
-                        
-                        
-                         <li><a href="/Python-django-venv-settings">Python(5) - Django 가상 환경과 settings.py</a></li>
-                            
-                            
-                            
                             
                         
                             
@@ -474,36 +526,8 @@ t3 = (1, 2, 3)</p>
                         
                             
                         
-                        
-                        
-                         <li><a href="/Python-making-queries">Python(4) - Query 만들기 [object 검색]</a></li>
-                            
-                            
-                            
                             
                         
-                            
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                        
-                        
-                            
-                            
-                        
-                            
-                        
-                            
-                        
-                        
-                        
-                        
-                            
-                            
                             
                         
                             
@@ -548,9 +572,9 @@ t3 = (1, 2, 3)</p>
                     </ul>
                 </div>
                 <footer class="read-next-card-footer">
-                    <a href="/tag/python/">
+                    <a href="/tag/algorithm/">
                         
-                        See all 5 posts →
+                        See all 4 posts →
                         
                     </a>
                 </footer>
@@ -560,26 +584,29 @@ t3 = (1, 2, 3)</p>
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
             
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/Python-postgresql">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/django-logo.png)"></div>
+            <a class="post-card-image-link" href="/algorithm-sortingString">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/algorithm-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/Python-postgresql">
+            <a class="post-card-content-link" href="/algorithm-sortingString">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Python</span>
+                                <span class="post-card-tags">Algorithm</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Python(3) - PostgreSQL 연결</h2>
+                    <h2 class="post-card-title">문자열 정렬하기</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -613,61 +640,6 @@ t3 = (1, 2, 3)</p>
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-            
-
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/git-convention">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/git-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/git-convention">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Devops</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Git Convention</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    
-                        <p>
-
-</p>
-                    
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                        
-<img class="author-profile-image" src="https://avatars.githubusercontent.com/u/77590526?s=400&u=0c6bc09b056a6d40f1bb702bbca13e4db35a1546&v=4" alt="ohoraming" />
-
-                        
-                        <span class="post-card-author">
-                            <a href="/author/ohoraming/">ohoraming</a>
-                        </span>
-                    
-                
-                <span class="reading-time">
-                    
-                    
-                      3 min read
-                    
-                </span>
-            </footer>
-        </div>
-    </article>
-
-            
-
         </div>
     </div>
 </aside>
@@ -681,18 +653,18 @@ t3 = (1, 2, 3)</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Python(2) - MySQL 연결</div>
+    <div class="floating-header-title">인덱스 바꾸기</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python%282%29+-+MySQL+%EC%97%B0%EA%B2%B0&amp;url=https://ohoraming.github.io/Python-mysql"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%9D%B8%EB%8D%B1%EC%8A%A4+%EB%B0%94%EA%BE%B8%EA%B8%B0&amp;url=https://ohoraming.github.io/algorithm-changeIndex"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/Python-mysql"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ohoraming.github.io/algorithm-changeIndex"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
