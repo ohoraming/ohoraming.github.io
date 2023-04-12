@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://ohoraming.github.io/algorithm-makeBWithA.html</loc>
+        
+        <lastmod>2023-04-12T14:12:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://ohoraming.github.io/algorithm-rotateArr.html</loc>
         
         <lastmod>2023-04-06T19:06:00+09:00</lastmod>
