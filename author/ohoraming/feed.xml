@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://ohoraming.github.io/author/ohoraming/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ohoraming.github.io/" rel="alternate" type="text/html" />
-  <updated>2023-04-12T15:02:15+09:00</updated>
+  <updated>2023-04-21T18:51:19+09:00</updated>
   <id>https://ohoraming.github.io/author/ohoraming/feed.xml</id>
 
   
@@ -32,6 +32,164 @@
 
   
     <entry>
+      <title type="html">잘라서 배열로 저장하기</title>
+      <link href="https://ohoraming.github.io/algorithm-cutAndStoreAsArray" rel="alternate" type="text/html" title="잘라서 배열로 저장하기" />
+      <published>2023-04-21T18:45:00+09:00</published>
+      <updated>2023-04-21T18:45:00+09:00</updated>
+      <id>https://ohoraming.github.io/algorithm-cutAndStoreAsArray</id>
+      <content type="html" xml:base="https://ohoraming.github.io/algorithm-cutAndStoreAsArray">&lt;!-- 글 작성하기 --&gt;
+
+&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
+&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 관련 포스팅&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-changeIndex&quot;&gt;인덱스 바꾸기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-perfectSquareNumber&quot;&gt;제곱수 판별하기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 글은 프로그래머스의 &lt;a href=&quot;https://school.programmers.co.kr/learn/courses/30/lessons/120913&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;의 풀이를 정리한 것입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;문제-설명&quot;&gt;&lt;strong&gt;문제 설명&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;문자열 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_str&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;이 매개변수로 주어질 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_str&lt;/code&gt;을 길이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;제한사항&quot;&gt;제한사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1 ≤ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_str&lt;/code&gt;의 길이 ≤ 100&lt;/li&gt;
+  &lt;li&gt;1 ≤ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; ≤ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_str&lt;/code&gt;의 길이&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_str&lt;/code&gt;은 알파벳 소문자, 대문자, 숫자로 이루어져 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;my_str&lt;/th&gt;
+      &lt;th&gt;n&lt;/th&gt;
+      &lt;th&gt;result&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“abc1Addfggg4556b”&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;[“abc1Ad”, “dfggg4”, “556b”]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“abcdef123”&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;[“abc”, “def”, “123”]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h3&gt;
+
+&lt;p&gt;입출력 예 #1&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“abc1Addfggg4556b” 를 길이 6씩 잘라 배열에 저장한 [“abc1Ad”, “dfggg4”, “556b”]를 return해야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;입출력 예 #2&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“abcdef123” 를 길이 3씩 잘라 배열에 저장한 [“abc”, “def”, “123”]를 return해야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;유의사항&quot;&gt;유의사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입출력 예 #1의 경우 “abc1Addfggg4556b”를 길이 6씩 자르면 “abc1Ad”, “dfggg4” 두개와 마지막 “556b”가 남습니다. 이런 경우 남은 문자열을 그대로 배열에 저장합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;나의-풀이&quot;&gt;나의 풀이&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beginIndex&lt;/code&gt;를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;로 설정하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt;문의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;를 자르고자 하는 길이만큼 증가하도록 설정&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endIndex&lt;/code&gt;를 변수&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end&lt;/code&gt;로 설정&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end&lt;/code&gt;가 문자열의 길이보다 작으면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i ≤ x &amp;lt; end&lt;/code&gt; 범위를, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end&lt;/code&gt;가 문자열의 길이보다 크거나 같으면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i ≤ x &amp;lt; str.length()&lt;/code&gt; 범위를 잘라 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;에 추가&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String[]&lt;/code&gt;로 전환&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{};&lt;/span&gt;  
+        &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answerArrList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// 1.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 2.&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            
+            &lt;span class=&quot;c1&quot;&gt;// 3.&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;answerArrList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;answerArrList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// 4. &lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answerArrList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>ohoraming</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Algorithm" />
+      
+
+      
+        <summary type="html"></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">A로 B 만들기</title>
       <link href="https://ohoraming.github.io/algorithm-makeBWithA" rel="alternate" type="text/html" title="A로 B 만들기" />
       <published>2023-04-12T14:12:00+09:00</published>
@@ -51,6 +209,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -227,6 +386,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -384,6 +544,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -622,6 +783,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -817,6 +979,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1003,6 +1166,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1208,6 +1372,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1670,6 +1835,7 @@
     &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-cutAndStoreAsArray&quot;&gt;잘라서 배열로 저장하기&lt;/a&gt;&lt;/li&gt;
     &lt;br /&gt;
     &lt;br /&gt;
 &lt;/ul&gt;
@@ -1832,195 +1998,6 @@
                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k_char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
             &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>ohoraming</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Algorithm" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">최빈값 구하기</title>
-      <link href="https://ohoraming.github.io/algorithm-mode" rel="alternate" type="text/html" title="최빈값 구하기" />
-      <published>2023-03-07T18:18:00+09:00</published>
-      <updated>2023-03-07T18:18:00+09:00</updated>
-      <id>https://ohoraming.github.io/algorithm-mode</id>
-      <content type="html" xml:base="https://ohoraming.github.io/algorithm-mode">&lt;!-- 글 작성하기 --&gt;
-
-&lt;!-- 글이 시작될 때 관련 시리즈를 리스트로 보여줌 --&gt;
-&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 관련 포스팅&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-mode&quot;&gt;최빈값 구하기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-numOfK&quot;&gt;k의 개수 구하기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-string&quot;&gt;String&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-sortingString&quot;&gt;문자열 정렬하기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-changeIndex&quot;&gt;인덱스 바꾸기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-perfectSquareNumber&quot;&gt;제곱수 판별하기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-math&quot;&gt;Math&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-rotateArr&quot;&gt;배열 회전시키기&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-makeBWithA&quot;&gt;A로 B 만들기&lt;/a&gt;&lt;/li&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이 글은 프로그래머스의 &lt;a href=&quot;https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=java&quot;&gt;최빈값 문제&lt;/a&gt;의 풀이를 정리한 것입니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;문제-설명&quot;&gt;&lt;strong&gt;문제 설명&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;제한사항&quot;&gt;제한사항&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;0 &amp;lt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;의 길이 &amp;lt; 100&lt;/li&gt;
-  &lt;li&gt;0 ≤ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;의 원소 &amp;lt; 1000&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;array&lt;/th&gt;
-      &lt;th&gt;result&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[1, 2, 3, 3, 3, 4]&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[1, 1, 2, 2]&lt;/td&gt;
-      &lt;td&gt;-1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[1]&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h3&gt;
-
-&lt;p&gt;입출력 예 #1&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;[1, 2, 3, 3, 3, 4]에서 1은 1개 2는 1개 3은 3개 4는 1개로 최빈값은 3입니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;입출력 예 #2&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;[1, 1, 2, 2]에서 1은 2개 2는 2개로 최빈값이 1, 2입니다. 최빈값이 여러 개이므로 -1을 return 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;입출력 예 #3&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;[1]에는 1만 있으므로 최빈값은 1입니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;나의-풀이&quot;&gt;나의 풀이&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;) 내 최댓값 구하기: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array_max&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;최댓값 + 1&lt;/code&gt; 크기의 배열 생성: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;→ 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;)의 원소는 0부터 시작하기 때문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+1&lt;/code&gt;을 해주어야 함&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;array&lt;/code&gt;)을 돌면서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq&lt;/code&gt;배열에 빈도를 1씩 더하며 기록&lt;/p&gt;
-
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;// 처음에 주어진 배열: array&lt;/span&gt;
- &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
-    
- &lt;span class=&quot;c1&quot;&gt;// 빈도를 기록한 배열: frq&lt;/span&gt;
- &lt;span class=&quot;c1&quot;&gt;// 순서대로 0, 1, 2, 3, 4의 빈도를 나타냄&lt;/span&gt;
- &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;빈도를 기록한 배열(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq&lt;/code&gt;)에서 최댓값(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq_max&lt;/code&gt;)을 구해 해당 index(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt;)를 최빈값(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;answer&lt;/code&gt;)으로 반환&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;문제에서 최빈값이 여러 개이면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt;을 반환하라는 조건이 있음&lt;/p&gt;
-
-    &lt;p&gt;5-1.  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq&lt;/code&gt;배열에서 최댓값(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;frq_max&lt;/code&gt;)과 같은 원소가  몇 개 있는지 확인&lt;/p&gt;
-
-    &lt;p&gt;5-2. 둘 이상이면 최빈값이 여러 개이므로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;answer&lt;/code&gt;을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt;로 반환&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; 
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 입력받은 배열의 최대값&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq_max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 빈도담은 배열의 최대값&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq_max_cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 최빈값의 개수&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// 1.&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 2.&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array_max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// 3.&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// 4.&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq_max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;frq_max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// 5-1.&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq_max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frq_max_cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// 5-2.&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frq_max_cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
 
